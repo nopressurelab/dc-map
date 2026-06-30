@@ -1,0 +1,44 @@
+# Aragón Datacenter Map
+
+Interactive Leaflet map + JSON dataset of datacenter projects in the Aragón region of Spain.
+
+Every datapoint is cited. The schema captures **operator, investors, clients, energy and water consumption, government permits, and expedited / fast-track indicators** (PIGA route, ICIO tax controversy, NGO objections, judicial litigation).
+
+## Run it
+
+The page needs HTTP to fetch the JSON (`file://` blocks `fetch`). Serve from this folder (the project root, not `web/`):
+
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000/web/
+```
+
+## File layout
+
+```
+aragon-dc-map/
+├── data/
+│   └── datacenters.json     # the dataset — extend this to add sites
+├── web/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+└── research/                # working notes
+```
+
+## Editorial angles surfaced by the schema
+
+- **Speculative builds** — sites with `speculative: true` are flagged red-ringed on the map. These have no publicly disclosed anchor tenant and carry the highest vacancy risk if hyperscaler demand softens.
+- **Expedited authorisation** — every major Aragón DC is using the regional **PIGA** mechanism, which overrides municipal urbanism, enables expropriation, and — per critics — sidesteps the municipal ICIO construction tax.
+- **Litigation** — the first DC lawsuit in Spain (Ecologistas en Acción at TSJA, against AWS PIGA) plus 9-group alegaciones against Microsoft PIGA are linked from the relevant site records.
+- **Tax controversy** — Microsoft's refusal to pay €87M ICIO to La Muela + Villamayor (and the DGA's extension of the exemption pattern to other sites) is captured per-site.
+
+## How to add a new site
+
+Open `data/datacenters.json` and add an object to the `sites` array. Required fields: `id`, `operator`, `operator_type`, `site_name`, `municipality`, `province`, `lat`, `lon`, `status`, `tenant_status`, `speculative`. The map will pick it up on next load.
+
+If you don't have a confirmed tenant, set `speculative: true` and `tenant_status: "speculative"` or `"unknown"` — the map will ring-highlight it.
+
+## Citation policy
+
+Every numeric or factual claim should have a source URL. Field-level citations live in nested `_source` keys; site-level citations live in the `sources` array. The schema treats `null` as "unknown" and never as "zero". When critics and operators disagree on a number (e.g. AWS water consumption: 755,000 m³ company vs. 14 hm³ critics), both are stored with separate citations rather than averaged.
