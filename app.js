@@ -30,6 +30,8 @@ const I18N = {
     leg_lit: 'Pending litigation',
     legend_hint: 'Marker radius scales with MW capacity (capped). Click for details.',
     download: 'Download dataset (JSON)',
+    contribute: 'Contribute on GitHub',
+    license_prefix: 'License:',
     updated: 'Updated',
 
     agg_sites_dataset: 'Sites mapped (this dataset)',
@@ -121,6 +123,8 @@ const I18N = {
     leg_lit: 'Litigio pendiente',
     legend_hint: 'El tamaño del marcador refleja los MW (limitado). Pulsa para detalles.',
     download: 'Descargar datos (JSON)',
+    contribute: 'Contribuir en GitHub',
+    license_prefix: 'Licencia:',
     updated: 'Actualizado',
 
     agg_sites_dataset: 'Sitios mapeados (este conjunto)',
@@ -208,6 +212,52 @@ const STATE = {
 };
 
 function t(key) { return I18N[STATE.lang][key] || key; }
+
+// Per-field translation: picks obj[field + '_' + lang], falls back to obj[field + '_en'], then obj[field].
+function txt(obj, field) {
+  if (!obj) return '';
+  const lang = STATE.lang;
+  return obj[field + '_' + lang] || obj[field + '_en'] || obj[field] || '';
+}
+
+const ENUM_T = {
+  status: {
+    en: { operational: 'operational', under_construction: 'under construction', permitted: 'permitted', announced: 'announced', exploratory: 'exploratory', withdrawn: 'withdrawn' },
+    es: { operational: 'operativo', under_construction: 'en construcción', permitted: 'autorizado', announced: 'anunciado', exploratory: 'exploratorio', withdrawn: 'retirado' }
+  },
+  operator_type: {
+    en: { hyperscaler: 'hyperscaler', colocation_reit: 'colocation / REIT', spanish_independent: 'Spanish independent', private_equity: 'private equity', renewable_developer: 'renewable developer', speculative_developer: 'speculative developer' },
+    es: { hyperscaler: 'hyperscaler', colocation_reit: 'colocation / SOCIMI', spanish_independent: 'independiente español', private_equity: 'capital privado', renewable_developer: 'promotor renovable', speculative_developer: 'promotor especulativo' }
+  },
+  coords_precision: {
+    en: {
+      town_centroid: 'town centroid',
+      walqa_park_approx: 'Walqa park (approx)',
+      centrovia_park_approx: 'Centrovía park (approx)',
+      puerto_venecia_area: 'Puerto Venecia area',
+      zaragoza_area: 'Zaragoza area',
+      magallon_substation_approx: 'Magallón substation (approx)',
+      site_exact: 'exact site location',
+      estimated: 'estimated'
+    },
+    es: {
+      town_centroid: 'centroide del municipio',
+      walqa_park_approx: 'parque Walqa (aprox)',
+      centrovia_park_approx: 'parque Centrovía (aprox)',
+      puerto_venecia_area: 'zona Puerto Venecia',
+      zaragoza_area: 'zona Zaragoza',
+      magallon_substation_approx: 'subestación Magallón (aprox)',
+      site_exact: 'ubicación exacta',
+      estimated: 'estimado'
+    }
+  }
+};
+
+function enumT(field, value) {
+  if (!value) return '';
+  const dict = (ENUM_T[field] && ENUM_T[field][STATE.lang]) || (ENUM_T[field] && ENUM_T[field].en) || {};
+  return dict[value] || value;
+}
 
 const map = L.map('map', { preferCanvas: true }).setView([41.65, -0.9], 8);
 
@@ -367,7 +417,7 @@ function popupHtml(s) {
 
   return `
     <h3>${s.site_name}</h3>
-    <div class="meta">${s.municipality}, ${s.province} · ${s.status}</div>
+    <div class="meta">${s.municipality}, ${s.province} · ${enumT('status', s.status)}</div>
     <div>${badges.join(' ')}</div>
     <p style="margin:6px 0;">
       <strong>${t('pop_operator')}</strong> ${s.operator}<br>
@@ -406,7 +456,7 @@ function renderFullSite(s) {
 
   const scandal = ei.scandal ? `
     <h3>${STATE.lang === 'es' ? 'Caso judicial / investigación' : 'Criminal investigation'}</h3>
-    <p class="warning"><strong>${ei.scandal.name}</strong> — ${ei.scandal.description}
+    <p class="warning"><strong>${ei.scandal.name}</strong> — ${txt(ei.scandal, 'description')}
     ${ei.scandal.source ? `<a class="cite" href="${ei.scandal.source}" target="_blank">${t('source_link')}</a>` : ''}</p>
   ` : '';
 
@@ -438,13 +488,13 @@ function renderFullSite(s) {
 
   const envBlock = ei.environmental_impact_flag ? `
     <h3>${t('sec_env_flag')}</h3>
-    <p class="warning">${ei.environmental_impact_flag.issue}
+    <p class="warning">${txt(ei.environmental_impact_flag, 'issue')}
     ${ei.environmental_impact_flag.source ? `<a class="cite" href="${ei.environmental_impact_flag.source}" target="_blank">${t('source_link')}</a>` : ''}</p>
   ` : '';
 
   const eiaExemptBlock = ei.eia_exemption ? `
     <h3>${STATE.lang === 'es' ? 'Exención EIA' : 'EIA exemption'}</h3>
-    <p class="warning">${ei.eia_exemption}
+    <p class="warning">${txt(ei, 'eia_exemption')}
     ${ei.eia_exemption_source ? `<a class="cite" href="${ei.eia_exemption_source}" target="_blank">${t('source_link')}</a>` : ''}</p>
   ` : '';
 
@@ -456,21 +506,23 @@ function renderFullSite(s) {
       ${s.water.source_water_body ? `<tr><th>${t('tbl_water_body')}</th><td>${s.water.source_water_body}</td></tr>` : ''}
       ${s.water.concession_che_expediente ? `<tr><th>${t('tbl_concession')}</th><td>${s.water.concession_che_expediente}</td></tr>` : ''}
       ${s.water.storage_reservoir_m3 ? `<tr><th>${t('tbl_storage')}</th><td>${s.water.storage_reservoir_m3.toLocaleString()} m³</td></tr>` : ''}
-      ${s.water.negotiation ? `<tr><th>${t('tbl_notes')}</th><td>${s.water.negotiation}</td></tr>` : ''}
-      ${s.water.vdg_specific ? `<tr><th>${t('tbl_notes')}</th><td>${s.water.vdg_specific}</td></tr>` : ''}
+      ${s.water.negotiation || s.water.negotiation_es ? `<tr><th>${t('tbl_notes')}</th><td>${txt(s.water, 'negotiation')}</td></tr>` : ''}
+      ${s.water.vdg_specific || s.water.vdg_specific_es ? `<tr><th>${t('tbl_notes')}</th><td>${txt(s.water, 'vdg_specific')}</td></tr>` : ''}
     </table>
   ` : '';
 
+  const phaseNotes = txt(s, 'phase_notes');
+  const specReasoning = txt(s, 'speculative_reasoning');
   return `
     <h2>${s.site_name}</h2>
-    <p class="cite">${s.municipality}, ${s.province} · ${t('status_label')} <strong>${s.status}</strong> · ${t('coords_precision')}: ${s.coords_precision || 'n/a'}</p>
-    ${s.phase_notes ? `<p>${s.phase_notes}</p>` : ''}
+    <p class="cite">${s.municipality}, ${s.province} · ${t('status_label')} <strong>${enumT('status', s.status)}</strong> · ${t('coords_precision')}: ${enumT('coords_precision', s.coords_precision) || 'n/a'}</p>
+    ${phaseNotes ? `<p>${phaseNotes}</p>` : ''}
 
     <h3>${t('sec_operator')}</h3>
     <table>
       <tr><th>${t('tbl_operator')}</th><td>${s.operator}</td></tr>
       <tr><th>${t('tbl_entity')}</th><td>${s.operator_entity || '—'}</td></tr>
-      <tr><th>${t('tbl_type')}</th><td>${s.operator_type}</td></tr>
+      <tr><th>${t('tbl_type')}</th><td>${enumT('operator_type', s.operator_type)}</td></tr>
     </table>
 
     <h3>${t('sec_invest')}</h3>
@@ -492,7 +544,7 @@ function renderFullSite(s) {
     <h3>${t('sec_clients')}</h3>
     <ul>${clients || '<li>—</li>'}</ul>
     <p><strong>${t('sec_tenant_status')}</strong> ${formatTenant(s)} ${s.speculative ? `<span class="badge spec">${t('badge_spec')}</span>` : ''}</p>
-    ${s.speculative_reasoning ? `<p class="cite"><em>${s.speculative_reasoning}</em></p>` : ''}
+    ${specReasoning ? `<p class="cite"><em>${specReasoning}</em></p>` : ''}
 
     <h3>${t('sec_energy')}</h3>
     <table>

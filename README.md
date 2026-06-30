@@ -48,3 +48,13 @@ If you don't have a confirmed tenant, set `speculative: true` and `tenant_status
 ## Citation policy
 
 Every numeric or factual claim should have a source URL. Field-level citations live in nested `_source` keys; site-level citations live in the `sources` array. The schema treats `null` as "unknown" and never as "zero". When critics and operators disagree on a number (e.g. AWS water consumption: 755,000 m³ company vs. 14 hm³ critics), both are stored with separate citations rather than averaged.
+
+## Contributing
+
+Issues and PRs welcome: https://github.com/nopressurelab/dc-map
+
+To add a new site, edit `data/datacenters.json` and append to the `sites` array. To translate fields, add `_es` siblings (the UI picks them up automatically).
+
+## License
+
+CC BY 4.0 — see [LICENSE](LICENSE). Reuse freely with attribution.

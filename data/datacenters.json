@@ -4,10 +4,37 @@
   "last_updated": "2026-06-30",
   "notes": "Every datapoint links to its source. Coordinates default to municipality centroid (precision: 'town_centroid') unless an exact site location was publicly reported. The `expedited_indicators` block flags how each project moved through the regional fast-track route (PIGA), litigation/objections, and procedural shortcuts. Speculative builds (no confirmed anchor tenant) are flagged via `speculative: true`.",
   "schema": {
-    "operator_type": ["hyperscaler", "colocation_reit", "speculative_developer", "spanish_independent", "private_equity", "renewable_developer"],
-    "status": ["operational", "under_construction", "permitted", "announced", "exploratory"],
-    "tenant_status": ["anchor_tenant_confirmed", "pre_let", "speculative", "unknown"],
-    "permit_type": ["PIGA", "DIA_INAGA", "AAI_INAGA", "CHE_water_concession", "municipal_license", "PGOU_modification", "expropriation_decree", "BOA_publication"]
+    "operator_type": [
+      "hyperscaler",
+      "colocation_reit",
+      "speculative_developer",
+      "spanish_independent",
+      "private_equity",
+      "renewable_developer"
+    ],
+    "status": [
+      "operational",
+      "under_construction",
+      "permitted",
+      "announced",
+      "exploratory"
+    ],
+    "tenant_status": [
+      "anchor_tenant_confirmed",
+      "pre_let",
+      "speculative",
+      "unknown"
+    ],
+    "permit_type": [
+      "PIGA",
+      "DIA_INAGA",
+      "AAI_INAGA",
+      "CHE_water_concession",
+      "municipal_license",
+      "PGOU_modification",
+      "expropriation_decree",
+      "BOA_publication"
+    ]
   },
   "aggregate": {
     "ngo_mapped_sites": 28,
@@ -50,7 +77,15 @@
       "court": "Tribunal Superior de Justicia de Aragón (TSJA)",
       "target": "PIGA Expansión Región AWS en Aragón (5 sites)",
       "filed": "2026",
-      "co_plaintiffs": ["ANSAR", "Amigos de la Tierra", "Tu Nube Seca Mi Río", "Ingenieros Sin Fronteras", "Plataforma en Defensa de los Paisajes de Teruel", "RAPA", "SEO/BirdLife"],
+      "co_plaintiffs": [
+        "ANSAR",
+        "Amigos de la Tierra",
+        "Tu Nube Seca Mi Río",
+        "Ingenieros Sin Fronteras",
+        "Plataforma en Defensa de los Paisajes de Teruel",
+        "RAPA",
+        "SEO/BirdLife"
+      ],
       "grounds": "Excessive water consumption in water-stressed region; environmental processing of PIGA; aggregate scale",
       "sources": [
         "https://www.publico.es/sociedad/m-ambiente/demanda-pionera-ecologistas-centros-datos-amazon-aragon-alerta-sobre-impacto-ambiental.html",
@@ -68,7 +103,12 @@
         "Fernando Samper Rivas — president and owner of Forestalia (alleged 'central hub' from private sector)",
         "Eugenio Jesús Domínguez Collado — former senior official, MITECO (Ministry for Ecological Transition)"
       ],
-      "charges": ["environmental prevarication", "bribery", "money laundering", "membership in criminal organization"],
+      "charges": [
+        "environmental prevarication",
+        "bribery",
+        "money laundering",
+        "membership in criminal organization"
+      ],
       "alleged_scheme": "Domínguez allegedly manipulated dozens of environmental permits in favor of Forestalia projects in exchange for economic compensation",
       "datacenter_relevance": "Targets Forestalia, the operator of Proyecto Búfalo (3 Aragón DCs, €12B). PIGA Búfalo was approved by Aragón Government 4 months BEFORE the same government asked PSOE to be investigated over Forestalia ties. Forestalia has subsequently divested 2 of 3 Búfalo centers.",
       "sources": [
@@ -81,7 +121,17 @@
     "microsoft_piga_objections": {
       "stage": "alegaciones (administrative; not yet judicial)",
       "filed": "2026-01",
-      "groups": ["Ecologistas en Acción", "ANSAR", "No es sequía es saqueo", "APUDEPA", "Asoc. Vecinal Montes de Torrero-Venecia", "Tu Nube Seca Mi Río", "Plataforma en Defensa Estepa Huerva y Sermo", "Asoc. Ciudadana de Muel", "Juncar es Vida"],
+      "groups": [
+        "Ecologistas en Acción",
+        "ANSAR",
+        "No es sequía es saqueo",
+        "APUDEPA",
+        "Asoc. Vecinal Montes de Torrero-Venecia",
+        "Tu Nube Seca Mi Río",
+        "Plataforma en Defensa Estepa Huerva y Sermo",
+        "Asoc. Ciudadana de Muel",
+        "Juncar es Vida"
+      ],
       "key_objections": [
         "Microsoft's projected energy demand exceeds total Aragón consumption in 2024",
         "Felling of ~1,000 pines in Pinares de Venecia (Zaragoza site)",
@@ -104,19 +154,70 @@
       "issue": "On Aug 5–6, 2025, INAGA EXEMPTED AWS from the ordinary environmental impact evaluation for 320+ hectares across Villanueva de Gállego, Huesca, El Burgo de Ebro, and Zaragoza. The project only had to comply with 'preventive, corrective and supplementary measures' instead of full EIA. INAGA's stated justification: the projects 'do not affect protected natural spaces' and produce 'afecciones poco significativas' (little significant impact). The same expedited route was used for the Stellantis battery gigafactory Phase 0 — indicating a regional pattern, not a one-off.",
       "date": "2025-08-05",
       "scope_hectares": 320,
-      "municipalities": ["Villanueva de Gállego", "Huesca", "El Burgo de Ebro", "Zaragoza"],
-      "source": "https://www.elespanol.com/aragon/economia/20250805/aragon-exime-amazon-evaluacion-ambiental-urbanizar-hectareas-centros-datos/1003743874714_0.html"
+      "municipalities": [
+        "Villanueva de Gállego",
+        "Huesca",
+        "El Burgo de Ebro",
+        "Zaragoza"
+      ],
+      "source": "https://www.elespanol.com/aragon/economia/20250805/aragon-exime-amazon-evaluacion-ambiental-urbanizar-hectareas-centros-datos/1003743874714_0.html",
+      "issue_es": "El 5-6 de agosto de 2025, INAGA EXIMIÓ a AWS de la evaluación de impacto ambiental ordinaria para más de 320 hectáreas en Villanueva de Gállego, Huesca, El Burgo de Ebro y Zaragoza. El proyecto solo tuvo que cumplir \"medidas preventivas, correctoras y complementarias\" en lugar de una EIA completa. Justificación citada por INAGA: los proyectos \"no afectan a espacios naturales protegidos\" y producen \"afecciones poco significativas\". La misma vía rápida se usó para la fase 0 de la gigafactoría de baterías de Stellantis, indicando un patrón regional y no un caso aislado."
     },
     "known_dc_pigas": [
-      {"name": "PIGA Amazon Data Services Spain (initial)", "operator": "AWS", "url": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"},
-      {"name": "PIGA Expansión Región AWS en Aragón", "operator": "AWS", "url": "https://www.aragon.es/-/piga-aws-ampliacion"},
-      {"name": "PIGA AWS Venta del Barro (Teruel)", "operator": "AWS", "url": "https://www.diariodeteruel.es/teruel/la-dga-declara-de-interes-general-el-centro-de-datos-de-amazon-junto-a-la-venta-del-barro"},
-      {"name": "PIGA Región MSFT — initial approval ORDEN FOM/1520/2025", "operator": "Microsoft (Microsoft 7724 Spain SLU)", "approval_date": "2025-11-14", "boa_ref": "ORDEN FOM/1520/2025", "url": "https://www.aragon.es/-/piga-microsoft"},
-      {"name": "PIGA Proyecto Rhodes (Calatorao)", "operator": "Blackstone / QTS", "url": "https://www.aragon.es/-/proyecto-rhodes"},
-      {"name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo (3 sites)", "operator": "Forestalia", "approval_date": "2025-11-25", "boa_ref": "BOA20251202020", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"},
-      {"name": "ORDEN PEJ/1264/2025 — Centro de datos del Campus Villanueva de Gállego", "operator": "Vantage (Desarrollos Ecoindustriales La Cartuja SL + F2 Dino Properties Sàrl)", "approval_date": "2025-09-18", "boa_ref": "BOA #190, 2025-10-01", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1413456710909"},
-      {"name": "Declaración de Interés Autonómico — Campus Ebro (Cariñena, WITHDRAWN)", "operator": "Box2Bit (B2B Axis East 3 SLU / Quantum Global Assets)", "approval_date": "2024-10-29", "status_note": "Project withdrawn Jan 2026 — operator moved to Épila", "url": "https://www.aragonhoy.es/consejos-de-gobierno/declarada-interes-autonomico-interes-general-inversion-empresa-box2bit-carinena-97855"},
-      {"name": "Declaración de Interés Autonómico — Centro de datos Epilon (Épila)", "operator": "Box2Bit", "approval_date": "2026-01-28", "url": "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html"}
+      {
+        "name": "PIGA Amazon Data Services Spain (initial)",
+        "operator": "AWS",
+        "url": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"
+      },
+      {
+        "name": "PIGA Expansión Región AWS en Aragón",
+        "operator": "AWS",
+        "url": "https://www.aragon.es/-/piga-aws-ampliacion"
+      },
+      {
+        "name": "PIGA AWS Venta del Barro (Teruel)",
+        "operator": "AWS",
+        "url": "https://www.diariodeteruel.es/teruel/la-dga-declara-de-interes-general-el-centro-de-datos-de-amazon-junto-a-la-venta-del-barro"
+      },
+      {
+        "name": "PIGA Región MSFT — initial approval ORDEN FOM/1520/2025",
+        "operator": "Microsoft (Microsoft 7724 Spain SLU)",
+        "approval_date": "2025-11-14",
+        "boa_ref": "ORDEN FOM/1520/2025",
+        "url": "https://www.aragon.es/-/piga-microsoft"
+      },
+      {
+        "name": "PIGA Proyecto Rhodes (Calatorao)",
+        "operator": "Blackstone / QTS",
+        "url": "https://www.aragon.es/-/proyecto-rhodes"
+      },
+      {
+        "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo (3 sites)",
+        "operator": "Forestalia",
+        "approval_date": "2025-11-25",
+        "boa_ref": "BOA20251202020",
+        "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"
+      },
+      {
+        "name": "ORDEN PEJ/1264/2025 — Centro de datos del Campus Villanueva de Gállego",
+        "operator": "Vantage (Desarrollos Ecoindustriales La Cartuja SL + F2 Dino Properties Sàrl)",
+        "approval_date": "2025-09-18",
+        "boa_ref": "BOA #190, 2025-10-01",
+        "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1413456710909"
+      },
+      {
+        "name": "Declaración de Interés Autonómico — Campus Ebro (Cariñena, WITHDRAWN)",
+        "operator": "Box2Bit (B2B Axis East 3 SLU / Quantum Global Assets)",
+        "approval_date": "2024-10-29",
+        "status_note": "Project withdrawn Jan 2026 — operator moved to Épila",
+        "url": "https://www.aragonhoy.es/consejos-de-gobierno/declarada-interes-autonomico-interes-general-inversion-empresa-box2bit-carinena-97855"
+      },
+      {
+        "name": "Declaración de Interés Autonómico — Centro de datos Epilon (Épila)",
+        "operator": "Box2Bit",
+        "approval_date": "2026-01-28",
+        "url": "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html"
+      }
     ],
     "iciotax_controversy": {
       "issue": "PIGA processing has been interpreted to exempt projects from the ICIO municipal construction tax, even though no statute requires this. Critics (arainfo, ecologistas) describe it as arbitrary fiscal privilege granted by the Azcón administration to hyperscalers.",
@@ -128,9 +229,12 @@
       "sources": [
         "https://arainfo.org/microsoft-se-niega-a-pagar-53-millones-de-euros-a-la-muela-y-34-a-villamayor-de-galligo-en-impuestos-por-la-construccion-de-su-nube/",
         "https://arainfo.org/la-dga-privilegia-a-microsoft-eliminando-los-impuestos-para-la-construccion-de-otro-de-sus-centros-de-datos-en-zaragoza/"
-      ]
+      ],
+      "issue_es": "La tramitación PIGA se ha interpretado como exención del ICIO municipal, aunque ningún precepto legal lo obliga. Críticos (arainfo, ecologistas) lo describen como privilegio fiscal arbitrario otorgado por el gobierno Azcón a los hyperscalers."
     },
-    "supporting_legal_basis": "Ley 1/2021 de simplificación administrativa de Aragón; Ley 2/2022 (https://www.boe.es/buscar/doc.php?id=BOE-A-2022-9438) — further reduces administrative deadlines."
+    "supporting_legal_basis": "Ley 1/2021 de simplificación administrativa de Aragón; Ley 2/2022 (https://www.boe.es/buscar/doc.php?id=BOE-A-2022-9438) — further reduces administrative deadlines.",
+    "what_it_does_es": "Instrumento legal regional que declara un proyecto privado de \"interés general\" para Aragón. Anula los planes de urbanismo municipales (PGOU), reclasifica suelo no urbanizable, concede el estatus de utilidad pública (lo que permite expropiar), se tramita a través del Gobierno de Aragón en lugar de los ayuntamientos afectados, y (según los críticos) sortea el ICIO municipal — una ventaja fiscal que la legislación vigente no obliga a conceder.",
+    "supporting_legal_basis_es": "Ley 1/2021 de simplificación administrativa de Aragón; Ley 2/2022 (https://www.boe.es/buscar/doc.php?id=BOE-A-2022-9438) — reduce aún más los plazos administrativos."
   },
   "sites": [
     {
@@ -142,7 +246,7 @@
       "municipality": "Villanueva de Gállego",
       "province": "Zaragoza",
       "lat": 41.7639,
-      "lon": -0.8500,
+      "lon": -0.85,
       "coords_precision": "town_centroid",
       "status": "operational",
       "phase_notes": "Anchor of AWS eu-south-2 (Spain) region. Expansion: 13 ha plot adjacent to existing DC + new 68 ha plot in newly urbanised zone. Buildings up to 12 m visible height, up to 14 m exceptional, 3 office floors + 2 production floors.",
@@ -151,15 +255,34 @@
       "investment_eur_million_aws_aragon_total": 33700,
       "investment_notes": "AWS announced €33.7B Aragón decade-long investment 2020–2035 (revised up from prior €15.7B figure). 11 campuses planned across 3 provinces, 13,400 jobs. Source: https://www.hoyaragon.es/articulo/noticias-aragon/aws-centros-datos-aragon-piga/20260325132743125802.html",
       "capacity_mw": null,
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "AWS eu-south-2 (Spain) region public customers", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "AWS eu-south-2 (Spain) region public customers",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
       "energy": {
         "site_demand_mw": null,
         "aws_aragon_aggregate_demand_gwh_year": 10800,
         "grid_connection": "REE — Zaragoza substations",
-        "ppas": [{"counterparty": "Iberdrola", "volume_mw": 476, "scope": "Iberia (PT+ES) — not Aragón-only", "year": "2025-02", "source": "https://www.iberdrola.com/sala-comunicacion/noticias/detalle/iberdrola-microsoft-refuerzan-alianza-ppa-150-mw-nuevas-soluciones-globales-ia"}]
+        "ppas": [
+          {
+            "counterparty": "Iberdrola",
+            "volume_mw": 476,
+            "scope": "Iberia (PT+ES) — not Aragón-only",
+            "year": "2025-02",
+            "source": "https://www.iberdrola.com/sala-comunicacion/noticias/detalle/iberdrola-microsoft-refuerzan-alianza-ppa-150-mw-nuevas-soluciones-globales-ia"
+          }
+        ]
       },
       "water": {
         "vdg_specific": "Water consumption expected to multiply by 5 vs current local usage",
@@ -177,27 +300,64 @@
         "che_partnership": {
           "agreement": "AWS signed cooperation agreement with CHE and Instituto Aragonés del Agua for water-efficiency projects",
           "source": "https://www.eleconomista.es/tecnologia/noticias/13248467/03/25/aws-despliega-en-aragon-un-proyecto-para-optimizar-los-cultivos-y-reducir-la-huella-hidrica-con-cloud-e-ia.html"
-        }
+        },
+        "vdg_specific_es": "Se prevé que el consumo de agua en Villanueva de Gállego se multiplique por 5 respecto al uso local actual"
       },
       "permits": [
-        {"type": "PIGA", "name": "PIGA Amazon Data Services Spain (initial)", "source": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"},
-        {"type": "PIGA", "name": "PIGA Expansión Región AWS en Aragón — third partial final approval", "approval_date": "2026-05", "covers": "VDG expansion + Walqa", "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobada-definitivamente-parte-piga-aws-iniciar-edificacion-nuevos-centros-datos-huesca-villanueva-gallego-104904"},
-        {"type": "DIA_INAGA + AAI_INAGA", "expediente_range": "INAGA/500301/02/2024/12129 — 12133 (5 sites)", "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"},
-        {"type": "BOA_publication", "reference": "BOA20250806019", "publication_date": "2025-08-06", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"},
-        {"type": "CHE water concession application", "expediente": "2024-DT-659", "boe_reference": "BOE-B-2025-22920", "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-22920"}
+        {
+          "type": "PIGA",
+          "name": "PIGA Amazon Data Services Spain (initial)",
+          "source": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"
+        },
+        {
+          "type": "PIGA",
+          "name": "PIGA Expansión Región AWS en Aragón — third partial final approval",
+          "approval_date": "2026-05",
+          "covers": "VDG expansion + Walqa",
+          "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobada-definitivamente-parte-piga-aws-iniciar-edificacion-nuevos-centros-datos-huesca-villanueva-gallego-104904"
+        },
+        {
+          "type": "DIA_INAGA + AAI_INAGA",
+          "expediente_range": "INAGA/500301/02/2024/12129 — 12133 (5 sites)",
+          "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"
+        },
+        {
+          "type": "BOA_publication",
+          "reference": "BOA20250806019",
+          "publication_date": "2025-08-06",
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"
+        },
+        {
+          "type": "CHE water concession application",
+          "expediente": "2024-DT-659",
+          "boe_reference": "BOE-B-2025-22920",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-22920"
+        }
       ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
         "eia_exemption": "INAGA exempted AWS from ordinary EIA for 320+ ha across Villanueva de Gállego, Huesca, El Burgo de Ebro, and Zaragoza — only required 'preventive, corrective and supplementary measures' (Aug 2025). Justification: 'afecciones poco significativas'. Same pattern previously used for Stellantis battery gigafactory Phase 0.",
         "eia_exemption_source": "https://www.elespanol.com/aragon/economia/20250805/aragon-exime-amazon-evaluacion-ambiental-urbanizar-hectareas-centros-datos/1003743874714_0.html",
-        "litigation": [{"plaintiff": "Ecologistas en Acción + 7 co-plaintiffs", "court": "TSJA", "filed": "2026", "target": "PIGA Expansión AWS", "status": "pending", "note": "First DC lawsuit in Spain", "source": "https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/"}]
+        "litigation": [
+          {
+            "plaintiff": "Ecologistas en Acción + 7 co-plaintiffs",
+            "court": "TSJA",
+            "filed": "2026",
+            "target": "PIGA Expansión AWS",
+            "status": "pending",
+            "note": "First DC lawsuit in Spain",
+            "source": "https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/"
+          }
+        ],
+        "eia_exemption_es": "INAGA eximió a AWS de la EIA ordinaria para más de 320 ha en Villanueva de Gállego, Huesca, El Burgo de Ebro y Zaragoza — solo se exigieron \"medidas preventivas, correctoras y complementarias\" (ago 2025). Justificación: \"afecciones poco significativas\". Mismo patrón aplicado previamente a la fase 0 de la gigafactoría de baterías de Stellantis."
       },
       "sources": [
         "https://www.aragon.es/-/piga-aws-ampliacion",
         "https://www.datacenterdynamics.com/es/noticias/arag%C3%B3n-aprueba-el-piga-de-aws-y-desbloquea-nuevos-centros-de-datos/",
         "https://www.aragondigital.es/articulo/economia/centros-datos-amazon-villanueva-gallego-walqa-alcanzaran-14-metros-altura/20260507105716982190.html"
-      ]
+      ],
+      "phase_notes_es": "Ancla de la región AWS eu-south-2 (España). Ampliación: parcela de 13 ha junto al CD existente + nueva parcela de 68 ha en zona recién urbanizada. Edificios de hasta 12 m de altura visible, hasta 14 m excepcionalmente, 3 plantas de oficinas + 2 de producción."
     },
     {
       "id": "aws-walqa-huesca",
@@ -212,16 +372,50 @@
       "coords_precision": "walqa_park_approx",
       "status": "permitted",
       "phase_notes": "69 ha plot. Permit cleared via third partial final PIGA approval (May 2026). Earliest INAGA DIA in 2020 for Huesca South Logistics Platform area.",
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "AWS eu-south-2 region", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "AWS eu-south-2 region",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
       "permits": [
-        {"type": "PIGA", "name": "PIGA Expansión Región AWS — third partial", "approval_date": "2026-05", "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobada-definitivamente-parte-piga-aws-iniciar-edificacion-nuevos-centros-datos-huesca-villanueva-gallego-104904"},
-        {"type": "DIA_INAGA", "issued_date": "2020-07-27", "covers": "Huesca South Logistics Platform DC", "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"}
+        {
+          "type": "PIGA",
+          "name": "PIGA Expansión Región AWS — third partial",
+          "approval_date": "2026-05",
+          "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobada-definitivamente-parte-piga-aws-iniciar-edificacion-nuevos-centros-datos-huesca-villanueva-gallego-104904"
+        },
+        {
+          "type": "DIA_INAGA",
+          "issued_date": "2020-07-27",
+          "covers": "Huesca South Logistics Platform DC",
+          "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"
+        }
       ],
-      "expedited_indicators": {"uses_piga": true, "icio_exempt_via_piga": true, "litigation": [{"plaintiff": "Ecologistas en Acción + 7", "court": "TSJA", "source": "https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/"}]},
-      "sources": ["https://www.aragon.es/-/piga-aws-ampliacion"]
+      "expedited_indicators": {
+        "uses_piga": true,
+        "icio_exempt_via_piga": true,
+        "litigation": [
+          {
+            "plaintiff": "Ecologistas en Acción + 7",
+            "court": "TSJA",
+            "source": "https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.aragon.es/-/piga-aws-ampliacion"
+      ],
+      "phase_notes_es": "Parcela de 69 ha. Permiso obtenido vía tercera aprobación final parcial del PIGA (mayo 2026). DIA INAGA más temprana en 2020 para el área de la Plataforma Logística Sur de Huesca."
     },
     {
       "id": "aws-el-burgo-de-ebro",
@@ -235,13 +429,35 @@
       "lon": -0.7867,
       "coords_precision": "town_centroid",
       "status": "operational",
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "AWS eu-south-2", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "AWS eu-south-2",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "permits": [{"type": "PIGA", "name": "PIGA Amazon (initial)", "source": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"}],
-      "expedited_indicators": {"uses_piga": true, "icio_exempt_via_piga": true},
-      "sources": ["https://www.elespanol.com/aragon/economia/20260322/aragon-convierte-capital-datos-nube-calendario-amazon-microsoft-proyectos/1003744178360_0.html"]
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA Amazon (initial)",
+          "source": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "icio_exempt_via_piga": true
+      },
+      "sources": [
+        "https://www.elespanol.com/aragon/economia/20260322/aragon-convierte-capital-datos-nube-calendario-amazon-microsoft-proyectos/1003744178360_0.html"
+      ]
     },
     {
       "id": "aws-zaragoza-car",
@@ -256,13 +472,35 @@
       "coords_precision": "town_centroid",
       "status": "operational",
       "phase_notes": "Internal AWS code 'CAR'. Part of the original AWS eu-south-2 triplet.",
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "AWS eu-south-2", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "AWS eu-south-2",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "permits": [{"type": "DIA_INAGA + AAI_INAGA", "expediente_range": "INAGA/500301/02/2024/12129-12133", "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"}],
-      "expedited_indicators": {"uses_piga": true, "icio_exempt_via_piga": true},
-      "sources": ["https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"]
+      "permits": [
+        {
+          "type": "DIA_INAGA + AAI_INAGA",
+          "expediente_range": "INAGA/500301/02/2024/12129-12133",
+          "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "icio_exempt_via_piga": true
+      },
+      "sources": [
+        "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"
+      ]
     },
     {
       "id": "aws-la-sotonera",
@@ -273,15 +511,31 @@
       "municipality": "La Sotonera",
       "province": "Huesca",
       "lat": 42.1561,
-      "lon": -0.7250,
+      "lon": -0.725,
       "coords_precision": "town_centroid",
       "status": "announced",
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "permits": [{"type": "PIGA", "name": "PIGA Expansión Región AWS", "source": "https://www.aragon.es/-/piga-aws-ampliacion"}],
-      "expedited_indicators": {"uses_piga": true},
-      "sources": ["https://www.aragon.es/-/expansion-aws-aragon"]
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA Expansión Región AWS",
+          "source": "https://www.aragon.es/-/piga-aws-ampliacion"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true
+      },
+      "sources": [
+        "https://www.aragon.es/-/expansion-aws-aragon"
+      ]
     },
     {
       "id": "aws-san-mateo-de-gallego",
@@ -296,12 +550,29 @@
       "coords_precision": "town_centroid",
       "status": "announced",
       "phase_notes": "294-hectare campus — second-largest AWS Aragón footprint after La Puebla de Híjar.",
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "permits": [{"type": "PIGA", "name": "PIGA Expansión Región AWS", "source": "https://www.aragon.es/-/piga-aws-ampliacion"}],
-      "expedited_indicators": {"uses_piga": true},
-      "sources": ["https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html"]
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA Expansión Región AWS",
+          "source": "https://www.aragon.es/-/piga-aws-ampliacion"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true
+      },
+      "sources": [
+        "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html"
+      ],
+      "phase_notes_es": "Campus de 294 hectáreas — segunda mayor huella AWS Aragón tras La Puebla de Híjar."
     },
     {
       "id": "aws-la-puebla-de-hijar",
@@ -312,7 +583,7 @@
       "municipality": "La Puebla de Híjar (+ Azaila)",
       "province": "Teruel",
       "lat": 41.2167,
-      "lon": -0.4500,
+      "lon": -0.45,
       "coords_precision": "town_centroid",
       "status": "permitted",
       "phase_notes": "Largest AWS Aragón campus. 70 ha next to N-232, but full footprint >300 ha across La Puebla de Híjar and Azaila. AI-specialised. Construction begins autumn 2027. Population context: La Puebla de Híjar has 935 inhabitants.",
@@ -321,11 +592,25 @@
       "investment_eur_million": 5000,
       "capacity_mw": 100,
       "capacity_notes": "100 MW guaranteed power",
-      "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "AWS public cloud — AI workloads", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Amazon (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "AWS public cloud — AI workloads",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "energy": {"site_demand_mw": 100, "grid_connection": "REE — new substation at Venta del Barro"},
+      "energy": {
+        "site_demand_mw": 100,
+        "grid_connection": "REE — new substation at Venta del Barro"
+      },
       "water": {
         "annual_m3": 350000,
         "annual_m3_source": "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html",
@@ -333,16 +618,28 @@
         "negotiation": "AWS negotiating with farmers in Híjar, Urrea de Gaén, La Puebla in exchange for partial piping of Acequia de Gaén",
         "storage_reservoir_m3": 190297,
         "storage_purpose": "Buffer + contingency reserve",
-        "cooling_tech": "evaporative"
+        "cooling_tech": "evaporative",
+        "negotiation_es": "AWS negocia con regantes de Híjar, Urrea de Gaén y La Puebla a cambio del entubado parcial de la Acequia de Gaén"
       },
-      "permits": [{"type": "PIGA", "name": "PIGA AWS Venta del Barro", "source": "https://www.diariodeteruel.es/teruel/la-dga-declara-de-interes-general-el-centro-de-datos-de-amazon-junto-a-la-venta-del-barro"}],
-      "expedited_indicators": {"uses_piga": true, "icio_exempt_via_piga": true, "land_assembly_via_acequia": "AWS negotiating with farmers to obtain water rights"},
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA AWS Venta del Barro",
+          "source": "https://www.diariodeteruel.es/teruel/la-dga-declara-de-interes-general-el-centro-de-datos-de-amazon-junto-a-la-venta-del-barro"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "icio_exempt_via_piga": true,
+        "land_assembly_via_acequia": "AWS negotiating with farmers to obtain water rights"
+      },
       "sources": [
         "https://www.xataka.com/empresas-y-economia/bienvenido-mr-bezos-nuevo-centro-datos-amazon-se-instalara-puebla-hijar",
         "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html",
         "https://ecodeteruel.tv/el-campus-de-datos-de-amazon-en-la-puebla-de-hijar-toma-impulso-un-gigante-de-328-hectareas-con-oficinas-subestaciones-y-un-nuevo-sector-urbanistico/",
         "https://www.datacentermarket.es/news/aws-impulsara-un-centro-de-datos-de-5-000-millones-de-euros-en-teruel/"
-      ]
+      ],
+      "phase_notes_es": "Mayor campus AWS Aragón. 70 ha junto a la N-232, pero la huella total supera las 300 ha entre La Puebla de Híjar y Azaila. Especializado en IA. Las obras comienzan en otoño de 2027. Contexto poblacional: La Puebla de Híjar tiene 935 habitantes."
     },
     {
       "id": "microsoft-la-muela",
@@ -352,8 +649,8 @@
       "site_name": "Microsoft La Muela (Polígono Centrovía)",
       "municipality": "La Muela",
       "province": "Zaragoza",
-      "lat": 41.5910,
-      "lon": -1.1180,
+      "lat": 41.591,
+      "lon": -1.118,
       "coords_precision": "centrovia_park_approx",
       "status": "permitted",
       "phase_notes": "Largest of Microsoft's three Aragón campuses by investment. In Polígono Centrovía industrial park.",
@@ -363,30 +660,74 @@
       "investment_eur_million": 2179,
       "investment_eur_million_msft_aragon_total": 5356,
       "capacity_mw_msft_aragon_total": 669,
-      "investors": [{"name": "Microsoft (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "Microsoft Azure — Spain Central region", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Microsoft (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Microsoft Azure — Spain Central region",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
       "energy": {
         "msft_aragon_total_mw": 669,
         "demand_vs_region": "MSFT Aragón projected demand exceeds total Aragón consumption in 2024",
-        "ppas": [{"counterparty": "Iberdrola", "volume_mw": 150, "sources": "Iglesias (Burgos) + El Escudo (Cantabria) wind farms", "year": "2025-12", "source": "https://www.iberdrola.com/sala-comunicacion/noticias/detalle/iberdrola-microsoft-refuerzan-alianza-ppa-150-mw-nuevas-soluciones-globales-ia"}]
+        "ppas": [
+          {
+            "counterparty": "Iberdrola",
+            "volume_mw": 150,
+            "sources": "Iglesias (Burgos) + El Escudo (Cantabria) wind farms",
+            "year": "2025-12",
+            "source": "https://www.iberdrola.com/sala-comunicacion/noticias/detalle/iberdrola-microsoft-refuerzan-alianza-ppa-150-mw-nuevas-soluciones-globales-ia"
+          }
+        ]
       },
       "permits": [
-        {"type": "PIGA", "name": "PIGA Región MSFT — Villamayor declaration", "approval_date": "2024-07-03", "source": "https://www.aragon.es/-/piga-microsoft"},
-        {"type": "PIGA initial approval", "name": "ORDEN FOM/1520/2025 — Implantación de la Región Microsoft en Aragón", "approval_date": "2025-11-14", "boa_reference": "BOA #220, 2025-11-18", "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobado-inicialmente-piga-microsoft-instalacion-tres-centros-datos-aragon-102741"}
+        {
+          "type": "PIGA",
+          "name": "PIGA Región MSFT — Villamayor declaration",
+          "approval_date": "2024-07-03",
+          "source": "https://www.aragon.es/-/piga-microsoft"
+        },
+        {
+          "type": "PIGA initial approval",
+          "name": "ORDEN FOM/1520/2025 — Implantación de la Región Microsoft en Aragón",
+          "approval_date": "2025-11-14",
+          "boa_reference": "BOA #220, 2025-11-18",
+          "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobado-inicialmente-piga-microsoft-instalacion-tres-centros-datos-aragon-102741"
+        }
       ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
-        "tax_dispute": {"type": "ICIO", "amount_eur_million": 53, "municipality": "La Muela", "status": "Microsoft refusing to pay", "source": "https://arainfo.org/microsoft-se-niega-a-pagar-53-millones-de-euros-a-la-muela-y-34-a-villamayor-de-galligo-en-impuestos-por-la-construccion-de-su-nube/"},
-        "litigation": [{"stage": "alegaciones", "filed": "2026-01", "objectors": "9 ecologist/neighborhood/heritage groups", "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"}]
+        "tax_dispute": {
+          "type": "ICIO",
+          "amount_eur_million": 53,
+          "municipality": "La Muela",
+          "status": "Microsoft refusing to pay",
+          "source": "https://arainfo.org/microsoft-se-niega-a-pagar-53-millones-de-euros-a-la-muela-y-34-a-villamayor-de-galligo-en-impuestos-por-la-construccion-de-su-nube/"
+        },
+        "litigation": [
+          {
+            "stage": "alegaciones",
+            "filed": "2026-01",
+            "objectors": "9 ecologist/neighborhood/heritage groups",
+            "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"
+          }
+        ]
       },
       "sources": [
         "https://www.datacenterdynamics.com/es/noticias/microsoft-elige-arag%C3%B3n-para-construir-la-mayor-regi%C3%B3n-cloud-del-sur-de-europa-con-5356-millones-de-inversi%C3%B3n/",
         "https://www.hoyaragon.es/articulo/noticias-aragon/piga-microsoft-aragon-centro-datos/20251114215413116030.html",
         "https://www.aragon.es/-/piga-microsoft"
-      ]
+      ],
+      "phase_notes_es": "El mayor de los tres campus de Microsoft en Aragón por inversión. En el Polígono Centrovía."
     },
     {
       "id": "microsoft-villamayor-de-gallego",
@@ -402,18 +743,52 @@
       "status": "permitted",
       "phase_notes": "First Microsoft site to receive PIGA declaration (July 3, 2024).",
       "investment_eur_million": 1733,
-      "investors": [{"name": "Microsoft (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "Microsoft Azure — Spain Central", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Microsoft (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Microsoft Azure — Spain Central",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "permits": [{"type": "PIGA", "name": "PIGA Región MSFT — declaración Villamayor", "approval_date": "2024-07-03", "source": "https://www.aragon.es/-/piga-microsoft"}],
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA Región MSFT — declaración Villamayor",
+          "approval_date": "2024-07-03",
+          "source": "https://www.aragon.es/-/piga-microsoft"
+        }
+      ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
-        "tax_dispute": {"type": "ICIO", "amount_eur_million": 34, "municipality": "Villamayor de Gállego", "status": "Microsoft refusing to pay", "source": "https://arainfo.org/microsoft-se-niega-a-pagar-53-millones-de-euros-a-la-muela-y-34-a-villamayor-de-galligo-en-impuestos-por-la-construccion-de-su-nube/"},
-        "litigation": [{"stage": "alegaciones", "filed": "2026-01", "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"}]
+        "tax_dispute": {
+          "type": "ICIO",
+          "amount_eur_million": 34,
+          "municipality": "Villamayor de Gállego",
+          "status": "Microsoft refusing to pay",
+          "source": "https://arainfo.org/microsoft-se-niega-a-pagar-53-millones-de-euros-a-la-muela-y-34-a-villamayor-de-galligo-en-impuestos-por-la-construccion-de-su-nube/"
+        },
+        "litigation": [
+          {
+            "stage": "alegaciones",
+            "filed": "2026-01",
+            "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"
+          }
+        ]
       },
-      "sources": ["https://www.aragon.es/-/piga-microsoft", "https://www.hoyaragon.es/articulo/noticias-aragon/piga-microsoft-aragon-centro-datos/20251114215413116030.html"]
+      "sources": [
+        "https://www.aragon.es/-/piga-microsoft",
+        "https://www.hoyaragon.es/articulo/noticias-aragon/piga-microsoft-aragon-centro-datos/20251114215413116030.html"
+      ],
+      "phase_notes_es": "Primer emplazamiento de Microsoft en recibir la declaración PIGA (3 de julio de 2024)."
     },
     {
       "id": "microsoft-zaragoza-puerto-venecia",
@@ -429,20 +804,51 @@
       "status": "permitted",
       "phase_notes": "Construction requires felling ~1,000 pines in Pinares de Venecia. Strong objections filed during public consultation.",
       "investment_eur_million": 1443,
-      "investors": [{"name": "Microsoft (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
-      "clients": [{"name": "Microsoft Azure — Spain Central", "confirmed": true}],
+      "investors": [
+        {
+          "name": "Microsoft (self-funded)",
+          "role": "owner/operator",
+          "type": "self-funded_hyperscaler"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Microsoft Azure — Spain Central",
+          "confirmed": true
+        }
+      ],
       "tenant_status": "anchor_tenant_confirmed",
       "speculative": false,
-      "permits": [{"type": "PIGA", "name": "PIGA Región MSFT", "source": "https://www.aragon.es/-/piga-microsoft"}],
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA Región MSFT",
+          "source": "https://www.aragon.es/-/piga-microsoft"
+        }
+      ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
-        "environmental_impact_flag": {"issue": "Felling of ~1,000 pines in Pinares de Venecia", "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"},
+        "environmental_impact_flag": {
+          "issue": "Felling of ~1,000 pines in Pinares de Venecia",
+          "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/",
+          "issue_es": "Tala de ~1.000 pinos en los Pinares de Venecia"
+        },
         "icio_extended_to_other_microsoft_zaragoza_sites": true,
         "icio_extension_source": "https://arainfo.org/la-dga-privilegia-a-microsoft-eliminando-los-impuestos-para-la-construccion-de-otro-de-sus-centros-de-datos-en-zaragoza/",
-        "litigation": [{"stage": "alegaciones", "filed": "2026-01", "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"}]
+        "litigation": [
+          {
+            "stage": "alegaciones",
+            "filed": "2026-01",
+            "source": "https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/"
+          }
+        ]
       },
-      "sources": ["https://www.aragon.es/-/piga-microsoft", "https://www.hoyaragon.es/articulo/noticias-aragon/piga-microsoft-aragon-centro-datos/20251114215413116030.html"]
+      "sources": [
+        "https://www.aragon.es/-/piga-microsoft",
+        "https://www.hoyaragon.es/articulo/noticias-aragon/piga-microsoft-aragon-centro-datos/20251114215413116030.html"
+      ],
+      "phase_notes_es": "La construcción requiere talar ~1.000 pinos en los Pinares de Venecia. Alegaciones contundentes presentadas durante la consulta pública."
     },
     {
       "id": "blackstone-qts-calatorao",
@@ -463,22 +869,54 @@
       "investment_eur_million_phase1": 7500,
       "capacity_mw": 300,
       "investors": [
-        {"name": "Blackstone (infrastructure funds)", "role": "ultimate sponsor", "type": "private_equity"},
-        {"name": "QTS Realty Trust", "role": "developer/operator", "type": "REIT_subsidiary"}
+        {
+          "name": "Blackstone (infrastructure funds)",
+          "role": "ultimate sponsor",
+          "type": "private_equity"
+        },
+        {
+          "name": "QTS Realty Trust",
+          "role": "developer/operator",
+          "type": "REIT_subsidiary"
+        }
       ],
-      "clients": [{"name": "Anchor tenant not publicly confirmed for Calatorao", "confirmed": false, "note": "QTS historically pre-leases primarily to Microsoft, but no contract publicly named for this site."}],
+      "clients": [
+        {
+          "name": "Anchor tenant not publicly confirmed for Calatorao",
+          "confirmed": false,
+          "note": "QTS historically pre-leases primarily to Microsoft, but no contract publicly named for this site."
+        }
+      ],
       "tenant_status": "unknown",
       "speculative": true,
       "speculative_reasoning": "Despite Blackstone/QTS scale, no publicly disclosed pre-let or anchor-tenant agreement for Calatorao. 300 MW at €7.5B phase-1 spend ⇒ substantial vacancy risk if hyperscaler offtake softens.",
-      "energy": {"site_demand_mw": 300, "grid_connection": "REE 220 kV — node TBD"},
-      "water": {"annual_m3": "claimed near zero", "cooling_tech": "water-free (free-cooling)", "source": "https://qtsdatacenters.com/data-centers/calatorao-en/"},
-      "permits": [{"type": "PIGA", "name": "PIGA Proyecto Rhodes", "source": "https://www.aragon.es/-/proyecto-rhodes"}],
-      "expedited_indicators": {"uses_piga": true, "icio_exempt_via_piga": "likely_same_pattern"},
+      "energy": {
+        "site_demand_mw": 300,
+        "grid_connection": "REE 220 kV — node TBD"
+      },
+      "water": {
+        "annual_m3": "claimed near zero",
+        "cooling_tech": "water-free (free-cooling)",
+        "source": "https://qtsdatacenters.com/data-centers/calatorao-en/"
+      },
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "PIGA Proyecto Rhodes",
+          "source": "https://www.aragon.es/-/proyecto-rhodes"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "icio_exempt_via_piga": "likely_same_pattern"
+      },
       "sources": [
         "https://www.aragon.es/-/proyecto-rhodes",
         "https://www.datacenterdynamics.com/en/news/blackstone-to-develop-300mw-data-center-campus-in-aragon-spain/",
         "https://qtsdatacenters.com/data-centers/calatorao-en/"
-      ]
+      ],
+      "phase_notes_es": "Primera instalación de QTS en España. 224 ha junto a la A-2, a 7 km de Calatorao. 8 edificios de CD + auxiliares. Fase 1: 2T 2026 → finales de 2035.",
+      "speculative_reasoning_es": "A pesar de la escala Blackstone/QTS, no hay acuerdo público de pre-arrendamiento ni cliente principal para Calatorao. 300 MW con €7.500M de gasto fase-1 ⇒ riesgo sustancial de vacancia si la demanda hyperscaler se debilita."
     },
     {
       "id": "vantage-villanueva-de-gallego",
@@ -489,26 +927,73 @@
       "municipality": "Villanueva de Gállego",
       "province": "Zaragoza",
       "lat": 41.7639,
-      "lon": -0.8480,
+      "lon": -0.848,
       "coords_precision": "town_centroid",
       "status": "permitted",
       "phase_notes": "Vantage's first Spain campus. 40 ha eco-industrial park. 5 phases over 10 years. Closed-loop cooling. Starting employment 180, growing to 520 permanent jobs.",
       "first_announced": "2025-09",
       "investment_eur_million": 3200,
-      "investors": [{"name": "Vantage Data Centers", "role": "operator", "type": "colocation_reit"}, {"name": "DigitalBridge", "role": "ultimate sponsor", "type": "infrastructure_fund"}, {"name": "Desarrollos Ecoindustriales La Cartuja SL (alliance of Atalaya, Posidonia, Aptimus)", "role": "Spanish promoter / land developer", "type": "spanish_alliance"}, {"name": "F2 Dino Properties Sàrl (Luxembourg)", "role": "co-promoter / corporate vehicle", "type": "luxembourg_holding", "note": "Shareholder in Vantage Data Centers Europe Sàrl"}],
-      "clients": [{"name": "Hyperscalers (colocation model — specific tenants not disclosed)", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Vantage Data Centers",
+          "role": "operator",
+          "type": "colocation_reit"
+        },
+        {
+          "name": "DigitalBridge",
+          "role": "ultimate sponsor",
+          "type": "infrastructure_fund"
+        },
+        {
+          "name": "Desarrollos Ecoindustriales La Cartuja SL (alliance of Atalaya, Posidonia, Aptimus)",
+          "role": "Spanish promoter / land developer",
+          "type": "spanish_alliance"
+        },
+        {
+          "name": "F2 Dino Properties Sàrl (Luxembourg)",
+          "role": "co-promoter / corporate vehicle",
+          "type": "luxembourg_holding",
+          "note": "Shareholder in Vantage Data Centers Europe Sàrl"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Hyperscalers (colocation model — specific tenants not disclosed)",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "unknown",
       "speculative": true,
       "speculative_reasoning": "Hyperscale colocation but no specific pre-let publicly named. Vantage typically pre-leases before full build-out but disclosure pattern varies.",
-      "energy": {"site_demand_mw": 90, "grid_connection": "Endesa — 90 MW guaranteed for phase 1", "grid_source": "https://www.eleconomista.es/tecnologia/noticias/13572779/10/25/vantage-arrancara-su-centro-de-datos-en-zaragoza-con-una-inversion-de-500-millones-y-la-urbanizacion-supondra-136-millones.html"},
-      "water": {"cooling_tech": "closed-loop (minimal water)"},
-      "permits": [{"type": "Declaración de Interés Autonómico (PIGA precursor)", "name": "ORDEN PEJ/1264/2025 — Centro de datos del Campus Villanueva de Gállego", "approval_date": "2025-09-18", "boa_reference": "BOA #190, 2025-10-01", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1413456710909"}],
-      "expedited_indicators": {"uses_piga": true, "phase1_investment_eur_million": 500, "urbanization_cost_eur_million": 13.6},
+      "energy": {
+        "site_demand_mw": 90,
+        "grid_connection": "Endesa — 90 MW guaranteed for phase 1",
+        "grid_source": "https://www.eleconomista.es/tecnologia/noticias/13572779/10/25/vantage-arrancara-su-centro-de-datos-en-zaragoza-con-una-inversion-de-500-millones-y-la-urbanizacion-supondra-136-millones.html"
+      },
+      "water": {
+        "cooling_tech": "closed-loop (minimal water)"
+      },
+      "permits": [
+        {
+          "type": "Declaración de Interés Autonómico (PIGA precursor)",
+          "name": "ORDEN PEJ/1264/2025 — Centro de datos del Campus Villanueva de Gállego",
+          "approval_date": "2025-09-18",
+          "boa_reference": "BOA #190, 2025-10-01",
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1413456710909"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "phase1_investment_eur_million": 500,
+        "urbanization_cost_eur_million": 13.6
+      },
       "sources": [
         "https://bebeez.eu/2025/09/18/vantage-enters-spain-to-invest-e3-2-billion-in-zaragoza-data-center-campus/",
         "https://www.datacenterdynamics.com/en/news/vantage-invertira-3200-millones-de-euros-en-un-centro-de-datos-de-hiperescala-en-zaragoza/",
         "https://www.eleconomista.es/tecnologia/noticias/13572779/10/25/vantage-arrancara-su-centro-de-datos-en-zaragoza-con-una-inversion-de-500-millones-y-la-urbanizacion-supondra-136-millones.html"
-      ]
+      ],
+      "phase_notes_es": "Primer campus de Vantage en España. 40 ha en parque ecoindustrial. 5 fases en 10 años. Refrigeración en circuito cerrado. Empleo inicial 180, hasta 520 puestos permanentes.",
+      "speculative_reasoning_es": "Colocation hyperscale pero sin pre-arrendamiento público nombrado. Vantage suele pre-arrendar antes de la construcción completa, pero el patrón de divulgación varía."
     },
     {
       "id": "azora-tillion-villamayor",
@@ -529,19 +1014,52 @@
       "investment_eur_million_full": 1950,
       "capacity_mw_initial": 150,
       "capacity_mw_expanded": 300,
-      "investors": [{"name": "Azora (Spanish asset manager)", "role": "sponsor", "type": "private_equity"}, {"name": "Tillion Data Centres", "role": "platform", "type": "azora_subsidiary"}],
-      "clients": [{"name": "Not publicly disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Azora (Spanish asset manager)",
+          "role": "sponsor",
+          "type": "private_equity"
+        },
+        {
+          "name": "Tillion Data Centres",
+          "role": "platform",
+          "type": "azora_subsidiary"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Not publicly disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "unknown",
       "speculative": true,
       "speculative_reasoning": "Private-equity-backed without publicly disclosed hyperscaler anchor. €1.1B+ spend on speculative basis is sizable vacancy risk.",
-      "energy": {"site_demand_mw": 150, "site_demand_mw_max": 300, "powered_100pct_renewable": true},
-      "water": {"cooling_tech": "low-water (claimed minimal consumption)"},
-      "permits": [{"type": "DIGA (PIGA variant)", "status": "granted", "source": "https://www.elespanol.com/aragon/economia/20250313/grupo-azora-planea-invertir-millones-euros-nuevo-centro-datos-entorno-zaragoza/930906961_0.html"}],
-      "expedited_indicators": {"uses_piga": true, "icio_exempt_via_piga": "likely_same_pattern"},
+      "energy": {
+        "site_demand_mw": 150,
+        "site_demand_mw_max": 300,
+        "powered_100pct_renewable": true
+      },
+      "water": {
+        "cooling_tech": "low-water (claimed minimal consumption)"
+      },
+      "permits": [
+        {
+          "type": "DIGA (PIGA variant)",
+          "status": "granted",
+          "source": "https://www.elespanol.com/aragon/economia/20250313/grupo-azora-planea-invertir-millones-euros-nuevo-centro-datos-entorno-zaragoza/930906961_0.html"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "icio_exempt_via_piga": "likely_same_pattern"
+      },
       "sources": [
         "https://www.azora.com/en/blog/azora-to-invest-e2-billion-in-zaragoza-data-centre/",
         "https://www.eleconomista.es/tecnologia/noticias/13302439/04/25/asi-sera-el-centro-de-datos-de-grupo-azora-en-zaragoza-2000-millones-de-inversion-250-empleos-y-un-impacto-anual-de-261-millones.html"
-      ]
+      ],
+      "phase_notes_es": "Nombre oficial del proyecto: 'Tillion Aragón'. 79,6 ha, a menos de 3 km de la subestación de transporte. DIGA (Declaración de Interés General, precursora del PIGA) aprobada por el Consejo de Gobierno. Inicio de obras 2026. 150 MW iniciales, ampliables a 300 MW. Agua: circuito cerrado, equivalente a 25 hogares/año. Permisos de red concedidos en 2024.",
+      "speculative_reasoning_es": "Respaldado por capital privado sin cliente hyperscaler público. €1.100M+ de gasto sobre base especulativa supone riesgo de vacancia considerable."
     },
     {
       "id": "box2bit-carinena-withdrawn",
@@ -560,19 +1078,52 @@
       "withdrawn_date": "2026-01",
       "withdrawal_reason": "Excluded from Red Eléctrica 2025–2030 grid plan — no feasible electrical connection",
       "investment_eur_million": 3400,
-      "investors": [{"name": "B2B Axis East 3 SLU (Box2Bit subsidiary)", "role": "developer", "type": "spanish_independent"}, {"name": "Quantum Global Assets SLU Group", "role": "parent", "type": "private"}, {"name": "Principal shareholder of Capital Energy", "role": "founder/ultimate sponsor", "type": "private"}],
-      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "B2B Axis East 3 SLU (Box2Bit subsidiary)",
+          "role": "developer",
+          "type": "spanish_independent"
+        },
+        {
+          "name": "Quantum Global Assets SLU Group",
+          "role": "parent",
+          "type": "private"
+        },
+        {
+          "name": "Principal shareholder of Capital Energy",
+          "role": "founder/ultimate sponsor",
+          "type": "private"
+        }
+      ],
+      "clients": [
+        {
+          "name": "No anchor tenant disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "speculative",
       "speculative": true,
       "speculative_reasoning": "Spanish independent, no public hyperscaler pre-let. The withdrawal validated the speculative-risk thesis: a multi-billion-euro project never reached grid connection.",
-      "permits": [{"type": "Declaración de Interés Autonómico con Interés General", "approval_date": "2024-10-29", "source": "https://www.aragonhoy.es/consejos-de-gobierno/declarada-interes-autonomico-interes-general-inversion-empresa-box2bit-carinena-97855"}],
-      "expedited_indicators": {"uses_piga": true, "withdrawn": true},
+      "permits": [
+        {
+          "type": "Declaración de Interés Autonómico con Interés General",
+          "approval_date": "2024-10-29",
+          "source": "https://www.aragonhoy.es/consejos-de-gobierno/declarada-interes-autonomico-interes-general-inversion-empresa-box2bit-carinena-97855"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "withdrawn": true
+      },
       "sources": [
         "https://www.hoyaragon.es/articulo/noticias-aragon/box2bit-epila-centro-datos-carinena/20260129112439121735.html",
         "https://www.eldiario.es/aragon/economia/empresa-box2bit-invertira-3-900-millones-euros-centro-datos-epila-renunciar-carinena_1_12942482.html",
         "https://www.eldiario.es/aragon/economia/alivio-carinena-fiasco-centro-datos-yudigar-creara-150-empleos-parcelas-liberadas-box2bit_1_13007128.html",
         "https://www.datacenterdynamics.com/es/noticias/box2bit-hace-las-maletas-del-bloqueo-energ%C3%A9tico-de-cari%C3%B1ena-al-hyperscale-so%C3%B1ado-en-%C3%A9pila/"
-      ]
+      ],
+      "phase_notes_es": "Anunciado originalmente en octubre 2024 (€3.400M, 28 ha, 5 edificios en el Polígono Entreviñas). PROYECTO RETIRADO en enero 2026 tras la exclusión por Red Eléctrica del plan de inversión 2025–2030, dejando a Cariñena sin acceso viable a la red. Box2Bit trasladó el proyecto a Épila. Yudigar asumirá las parcelas liberadas para ampliación industrial (150 empleos).",
+      "withdrawal_reason_es": "Excluido del plan de Red Eléctrica 2025–2030 — sin conexión eléctrica viable",
+      "speculative_reasoning_es": "Independiente español sin pre-arrendamiento hyperscaler público. La retirada confirmó la tesis del riesgo especulativo: un proyecto multimillonario que nunca llegó a conectarse a la red."
     },
     {
       "id": "box2bit-epila",
@@ -594,20 +1145,46 @@
       "investment_eur_million_phase2": 2775,
       "capacity_mw_initial": 150,
       "capacity_mw_max": 520,
-      "investors": [{"name": "Box2Bit / Quantum Global Assets group", "role": "developer", "type": "spanish_independent"}],
-      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Box2Bit / Quantum Global Assets group",
+          "role": "developer",
+          "type": "spanish_independent"
+        }
+      ],
+      "clients": [
+        {
+          "name": "No anchor tenant disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "speculative",
       "speculative": true,
       "speculative_reasoning": "Same speculative profile as the failed Cariñena project. €3.9B spec spend without disclosed anchor tenant.",
-      "energy": {"site_demand_mw": 150, "site_demand_mw_max": 520, "grid_connection": "REE — Épila/A-2 corridor"},
-      "permits": [{"type": "Declaración de Interés Autonómico", "approval_date": "2026-01-28", "source": "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html"}],
-      "expedited_indicators": {"uses_piga": true, "notes": "DGA expedited administrative procedures for the Epilon project."},
+      "energy": {
+        "site_demand_mw": 150,
+        "site_demand_mw_max": 520,
+        "grid_connection": "REE — Épila/A-2 corridor"
+      },
+      "permits": [
+        {
+          "type": "Declaración de Interés Autonómico",
+          "approval_date": "2026-01-28",
+          "source": "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "notes": "DGA expedited administrative procedures for the Epilon project."
+      },
       "sources": [
         "https://www.eldiario.es/aragon/economia/empresa-box2bit-invertira-3-900-millones-euros-centro-datos-epila-renunciar-carinena_1_12942482.html",
         "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html",
         "https://www.calatayudnoticias.com/otras-comarcas/comarca-de-valdejalon/16742-box2bit-impulsa-un-macrocentro-de-datos-en-epila-con-una-inversion-de-3-900-millones-y-mas-de-1-500-empleos-en-su-construccion",
         "https://www.elespanol.com/aragon/economia/20260128/empresa-espanola-box2bit-invertira-millones-euros-nuevo-centro-datos-epila-zaragoza/1003744106965_0.html"
-      ]
+      ],
+      "phase_notes_es": "Proyecto sustituto tras la exclusión de Cariñena del plan de Red Eléctrica. 33 ha (ampliables a 100), junto a la A-2. Fase 1: 2 edificios de CD + control de acceso. Fase 2 pendiente de 300+ MW adicionales.",
+      "speculative_reasoning_es": "Mismo perfil especulativo que el fallido proyecto de Cariñena. €3.900M de gasto especulativo sin cliente principal divulgado."
     },
     {
       "id": "box2bit-calatayud",
@@ -621,14 +1198,35 @@
       "lon": -1.6422,
       "coords_precision": "town_centroid",
       "status": "announced",
-      "investors": [{"name": "Box2Bit", "role": "developer", "type": "spanish_independent"}],
-      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Box2Bit",
+          "role": "developer",
+          "type": "spanish_independent"
+        }
+      ],
+      "clients": [
+        {
+          "name": "No anchor tenant disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "speculative",
       "speculative": true,
       "speculative_reasoning": "Same speculative profile as Cariñena.",
-      "permits": [{"type": "PIGA", "status": "to_verify"}],
-      "expedited_indicators": {"uses_piga": "to_verify"},
-      "sources": ["https://brainsre.news/box2bit-calatayud-segundo-centro-datos-aragon/"]
+      "permits": [
+        {
+          "type": "PIGA",
+          "status": "to_verify"
+        }
+      ],
+      "expedited_indicators": {
+        "uses_piga": "to_verify"
+      },
+      "sources": [
+        "https://brainsre.news/box2bit-calatayud-segundo-centro-datos-aragon/"
+      ],
+      "speculative_reasoning_es": "Mismo perfil especulativo que Cariñena."
     },
     {
       "id": "merlin-zgz-wind-01",
@@ -646,16 +1244,47 @@
       "operational_date": "2029-Q4",
       "investment_eur_million_phase3_iberia": 4470,
       "capacity_mw": 80,
-      "investors": [{"name": "Merlin Properties", "role": "owner/operator", "type": "SOCIMI"}, {"name": "Edged Energy (Endeavour)", "role": "JV partner / operator", "type": "private"}],
-      "clients": [{"name": "Hyperscaler colocation tenants (not specifically disclosed for ZGZ-WIND)", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Merlin Properties",
+          "role": "owner/operator",
+          "type": "SOCIMI"
+        },
+        {
+          "name": "Edged Energy (Endeavour)",
+          "role": "JV partner / operator",
+          "type": "private"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Hyperscaler colocation tenants (not specifically disclosed for ZGZ-WIND)",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "unknown",
       "speculative": true,
       "speculative_reasoning": "Some Merlin pipeline pre-let to hyperscalers but specific Zaragoza customer not named. Lower vacancy risk than pure-spec given Merlin's commercial track record.",
       "energy": {
         "site_demand_mw": 80,
-        "ppas": [{"counterparty": "Solaria", "volume_mw": 213, "duration_years": 40, "linked_solar_mw": 426, "battery_storage_mwh": 600, "scope": "Iberia-wide", "source": "https://solariaenergia.com/en/solaria-secures-an-additional-250-mw-to-power-data-centers-in-central-spain/"}]
+        "ppas": [
+          {
+            "counterparty": "Solaria",
+            "volume_mw": 213,
+            "duration_years": 40,
+            "linked_solar_mw": 426,
+            "battery_storage_mwh": 600,
+            "scope": "Iberia-wide",
+            "source": "https://solariaenergia.com/en/solaria-secures-an-additional-250-mw-to-power-data-centers-in-central-spain/"
+          }
+        ]
       },
-      "sources": ["https://www.aragondigital.es/articulo/economia/socimi-merlin-properties-proyecta-dos-nuevos-centros-datos-hiperescalares-zaragoza/20260310193930971593.html", "https://www.cartv.es/aragonnoticias/aragon/merlin-properties-creara-un-campus-de-centros-de-datos-en-zaragoza-con-una-potencia-de-150-mw-37768"]
+      "sources": [
+        "https://www.aragondigital.es/articulo/economia/socimi-merlin-properties-proyecta-dos-nuevos-centros-datos-hiperescalares-zaragoza/20260310193930971593.html",
+        "https://www.cartv.es/aragonnoticias/aragon/merlin-properties-creara-un-campus-de-centros-de-datos-en-zaragoza-con-una-potencia-de-150-mw-37768"
+      ],
+      "phase_notes_es": "Fase III del plan Iberia de Merlin (412 MW, €4.470M para 2032). Operativo 4T 2029. Merlin ya posee el suelo y tiene acceso a red garantizado.",
+      "speculative_reasoning_es": "Parte del pipeline de Merlin está pre-arrendado a hyperscalers pero el cliente específico de Zaragoza no se ha nombrado. Menor riesgo de vacancia que un proyecto puramente especulativo dado el historial comercial de Merlin."
     },
     {
       "id": "merlin-zgz-wind-02",
@@ -666,18 +1295,34 @@
       "municipality": "Zaragoza",
       "province": "Zaragoza",
       "lat": 41.6488,
-      "lon": -0.8870,
+      "lon": -0.887,
       "coords_precision": "zaragoza_area",
       "status": "under_construction",
       "operational_date": "2031-H2",
       "capacity_mw": 70,
-      "investors": [{"name": "Merlin Properties", "role": "owner/operator", "type": "SOCIMI"}],
-      "clients": [{"name": "Hyperscaler colocation tenants", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Merlin Properties",
+          "role": "owner/operator",
+          "type": "SOCIMI"
+        }
+      ],
+      "clients": [
+        {
+          "name": "Hyperscaler colocation tenants",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "unknown",
       "speculative": true,
       "speculative_reasoning": "Second Merlin Zaragoza building, anchor tenant not yet named.",
-      "energy": {"site_demand_mw": 70},
-      "sources": ["https://www.aragondigital.es/articulo/economia/socimi-merlin-properties-proyecta-dos-nuevos-centros-datos-hiperescalares-zaragoza/20260310193930971593.html"]
+      "energy": {
+        "site_demand_mw": 70
+      },
+      "sources": [
+        "https://www.aragondigital.es/articulo/economia/socimi-merlin-properties-proyecta-dos-nuevos-centros-datos-hiperescalares-zaragoza/20260310193930971593.html"
+      ],
+      "speculative_reasoning_es": "Segundo edificio Merlin de Zaragoza, cliente principal aún no nombrado."
     },
     {
       "id": "forestalia-bufalo-magallon",
@@ -695,13 +1340,37 @@
       "first_announced": "2025-11",
       "investment_eur_million_bufalo_total": 12048,
       "capacity_mw": 143.5,
-      "investors": [{"name": "Forestalia", "role": "developer", "type": "renewable_developer"}],
-      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Forestalia",
+          "role": "developer",
+          "type": "renewable_developer"
+        }
+      ],
+      "clients": [
+        {
+          "name": "No anchor tenant disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "speculative",
       "speculative": true,
       "speculative_reasoning": "Forestalia is a renewable-energy developer with no DC operating history. €12B speculative spend across 3 sites is one of the largest pure-speculative DC bets in Europe. Anchor tenant absent.",
-      "energy": {"site_demand_mw": 143.5, "grid_connection": "REE 'Magallón 220 kV' nudo", "self_consumption_pct": 50, "source": "https://www.cartv.es/aragonnoticias/aragon/forestalia-invertira-12-000-millones-en-tres-nuevos-centros-de-datos-en-magallon-botorrita-y-alfamen-35467"},
-      "permits": [{"type": "PIGA", "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo", "boa_reference": "BOA20251202020 (BOA #233, 2025-12-02)", "approval_date": "2025-11-25", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
+      "energy": {
+        "site_demand_mw": 143.5,
+        "grid_connection": "REE 'Magallón 220 kV' nudo",
+        "self_consumption_pct": 50,
+        "source": "https://www.cartv.es/aragonnoticias/aragon/forestalia-invertira-12-000-millones-en-tres-nuevos-centros-de-datos-en-magallon-botorrita-y-alfamen-35467"
+      },
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo",
+          "boa_reference": "BOA20251202020 (BOA #233, 2025-12-02)",
+          "approval_date": "2025-11-25",
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"
+        }
+      ],
       "expedited_indicators": {
         "uses_piga": true,
         "scandal": {
@@ -710,7 +1379,8 @@
           "operation_date": "2026-03-03",
           "court": "Juzgado de Instrucción Nº 1 de Teruel",
           "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html",
-          "secondary_source": "https://theobjective.com/espana/tribunales/2026-03-19/forestalia-macroproyecto-centros-datos-investigacion/"
+          "secondary_source": "https://theobjective.com/espana/tribunales/2026-03-19/forestalia-macroproyecto-centros-datos-investigacion/",
+          "description_es": "El 3 de marzo de 2026, la UCOMA (unidad ambiental de la UCO/Guardia Civil) detuvo a 6 personas incluido el propietario de Forestalia Fernando Samper Rivas como presunto \"centro neurálgico\" desde el sector privado, además de un ex alto cargo del MITECO (Eugenio Jesús Domínguez Collado). 12 registros simultáneos (10 Madrid, 2 Zaragoza). Delitos investigados: prevaricación ambiental, cohecho, blanqueo de capitales y pertenencia a organización criminal. Los investigadores creen que Domínguez manipuló decenas de permisos ambientales en favor de proyectos de Forestalia a cambio de compensación. El PIGA Búfalo fue aprobado por el Gobierno de Aragón CUATRO MESES antes de que la administración Azcón pidiera investigar al PSOE por sus vínculos con Forestalia. Forestalia ha desinvertido posteriormente de 2 de los 3 centros Búfalo."
         }
       },
       "sources": [
@@ -719,7 +1389,9 @@
         "https://www.eleconomista.es/tecnologia/noticias/13673015/12/25/asi-seran-los-centros-de-datos-de-forestalia-12000-millones-de-inversion-mucha-energia-y-tres-fases-de-ejecucion.html",
         "https://www.hoyaragon.es/articulo/noticias-aragon/fernando-samper-forestalia-permisos/20260303143556124279.html",
         "https://www.eldiario.es/aragon/politica/gobierno-azcon-pide-investigar-psoe-forestalia-cuatro-meses-despues-bendecir-tres-centros-datos_1_13059273.html"
-      ]
+      ],
+      "phase_notes_es": "Uno de los tres emplazamientos del Proyecto Búfalo. PIGA aprobado por el Gobierno de Aragón (ORDEN BOA PEJ/1656/2025, 25 nov 2025). Autoconsumo = 50% de la energía desde renovables co-ubicadas.",
+      "speculative_reasoning_es": "Forestalia es un promotor de energía renovable sin historial operativo en CD. €12.000M de gasto especulativo en 3 emplazamientos es una de las mayores apuestas puramente especulativas de CD en Europa. Cliente principal ausente."
     },
     {
       "id": "forestalia-bufalo-botorrita",
@@ -734,22 +1406,49 @@
       "coords_precision": "town_centroid",
       "status": "permitted",
       "capacity_mw": 164.8,
-      "investors": [{"name": "Forestalia", "role": "developer", "type": "renewable_developer"}],
-      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Forestalia",
+          "role": "developer",
+          "type": "renewable_developer"
+        }
+      ],
+      "clients": [
+        {
+          "name": "No anchor tenant disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "speculative",
       "speculative": true,
       "speculative_reasoning": "Same as Magallón — Forestalia speculative pipeline.",
-      "energy": {"site_demand_mw": 164.8, "grid_connection": "REE 'María 220 kV' nudo", "self_consumption_pct": 50},
-      "permits": [{"type": "PIGA", "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo", "boa_reference": "BOA20251202020", "approval_date": "2025-11-25", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
+      "energy": {
+        "site_demand_mw": 164.8,
+        "grid_connection": "REE 'María 220 kV' nudo",
+        "self_consumption_pct": 50
+      },
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo",
+          "boa_reference": "BOA20251202020",
+          "approval_date": "2025-11-25",
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"
+        }
+      ],
       "expedited_indicators": {
         "uses_piga": true,
         "scandal": {
           "name": "Operación Perserte (UCO/UCOMA)",
           "description": "Forestalia owner Fernando Samper detained March 3, 2026 in environmental-corruption operation. See full description on Magallón site entry. Forestalia has divested 2 of 3 Búfalo centers amid investigation.",
-          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html"
+          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html",
+          "description_es": "El propietario de Forestalia, Fernando Samper, fue detenido el 3 de marzo de 2026 en operación de corrupción ambiental. Ver descripción completa en el registro de Magallón. Forestalia ha desinvertido de 2 de los 3 centros Búfalo durante la investigación."
         }
       },
-      "sources": ["https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"]
+      "sources": [
+        "https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"
+      ],
+      "speculative_reasoning_es": "Igual que Magallón — pipeline especulativo de Forestalia."
     },
     {
       "id": "forestalia-bufalo-alfamen",
@@ -759,27 +1458,54 @@
       "site_name": "Forestalia 'DCM Blue' (Alfamén) — Proyecto Búfalo",
       "municipality": "Alfamén",
       "province": "Zaragoza",
-      "lat": 41.4500,
+      "lat": 41.45,
       "lon": -1.2333,
       "coords_precision": "town_centroid",
       "status": "permitted",
       "capacity_mw": 293,
-      "investors": [{"name": "Forestalia", "role": "developer", "type": "renewable_developer"}],
-      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "investors": [
+        {
+          "name": "Forestalia",
+          "role": "developer",
+          "type": "renewable_developer"
+        }
+      ],
+      "clients": [
+        {
+          "name": "No anchor tenant disclosed",
+          "confirmed": false
+        }
+      ],
       "tenant_status": "speculative",
       "speculative": true,
       "speculative_reasoning": "Largest of the three Búfalo sites. Same speculative profile.",
-      "energy": {"site_demand_mw": 293, "grid_connection": "REE 'Los Vientos 220 kV' nudo", "self_consumption_pct": 50},
-      "permits": [{"type": "PIGA", "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo", "boa_reference": "BOA20251202020", "approval_date": "2025-11-25", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
+      "energy": {
+        "site_demand_mw": 293,
+        "grid_connection": "REE 'Los Vientos 220 kV' nudo",
+        "self_consumption_pct": 50
+      },
+      "permits": [
+        {
+          "type": "PIGA",
+          "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo",
+          "boa_reference": "BOA20251202020",
+          "approval_date": "2025-11-25",
+          "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"
+        }
+      ],
       "expedited_indicators": {
         "uses_piga": true,
         "scandal": {
           "name": "Operación Perserte (UCO/UCOMA)",
           "description": "Largest of the 3 Búfalo sites. Forestalia owner Fernando Samper detained March 3, 2026 in environmental-corruption operation. See full description on Magallón site entry.",
-          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html"
+          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html",
+          "description_es": "El mayor de los 3 emplazamientos Búfalo. El propietario de Forestalia, Fernando Samper, fue detenido el 3 de marzo de 2026 en operación de corrupción ambiental. Ver descripción completa en el registro de Magallón."
         }
       },
-      "sources": ["https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"]
+      "sources": [
+        "https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"
+      ],
+      "speculative_reasoning_es": "El mayor de los tres emplazamientos Búfalo. Mismo perfil especulativo."
     }
   ],
   "registries_for_followup": {
@@ -799,5 +1525,6 @@
     "Verification of ICIO exemption pattern at non-Microsoft sites (AWS, Forestalia, Azora)",
     "Whether 'tramitación de urgencia' designation has been explicitly invoked for any DC (Ley 1/2021 framework)",
     "Identity / status of any AWS site not yet publicly named (AWS plan calls for 11 campuses by 2031, this dataset has 7)"
-  ]
+  ],
+  "notes_es": "Cada dato enlaza con su fuente. Las coordenadas son por defecto el centroide del municipio (precisión: 'town_centroid') salvo que se haya reportado públicamente la ubicación exacta del sitio. El bloque `expedited_indicators` indica cómo cada proyecto avanzó por la vía rápida regional (PIGA), litigios/alegaciones y atajos procedimentales. Las construcciones especulativas (sin cliente principal confirmado) se marcan con `speculative: true`."
 }
