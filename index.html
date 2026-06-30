@@ -12,40 +12,44 @@
 <body>
 <aside id="sidebar">
   <header>
-    <h1>Aragón Datacenter Map</h1>
-    <p class="subtitle">Operators, investors, clients, energy/water, government permits — every datapoint cited.</p>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <h1 data-i18n="title">Aragón Datacenter Map</h1>
+    <p class="subtitle" data-i18n="subtitle">Operators, investors, clients, energy/water, government permits — every datapoint cited.</p>
   </header>
 
   <section id="aggregate">
-    <h2>Regional total</h2>
+    <h2 data-i18n="regional_total">Regional total</h2>
     <dl id="aggregate-stats"></dl>
   </section>
 
   <section id="filters">
-    <h2>Filters</h2>
-    <label><input type="checkbox" id="f-speculative"> Speculative only (no confirmed tenant)</label>
-    <label><input type="checkbox" id="f-litigated"> Litigation or alegaciones only</label>
-    <label><input type="checkbox" id="f-piga"> Uses PIGA fast-track only</label>
+    <h2 data-i18n="filters">Filters</h2>
+    <label><input type="checkbox" id="f-speculative"> <span data-i18n="speculative_only">Speculative only (no confirmed tenant)</span></label>
+    <label><input type="checkbox" id="f-litigated"> <span data-i18n="litigated_only">Litigation or alegaciones only</span></label>
+    <label><input type="checkbox" id="f-piga"> <span data-i18n="piga_only">Uses PIGA fast-track only</span></label>
     <div id="operator-filters"></div>
   </section>
 
   <section id="legend">
-    <h2>Legend</h2>
+    <h2 data-i18n="legend">Legend</h2>
     <ul>
-      <li><span class="dot op-hyperscaler"></span> Hyperscaler (AWS, Microsoft)</li>
-      <li><span class="dot op-pe"></span> Private equity / REIT</li>
-      <li><span class="dot op-colo"></span> Colocation</li>
-      <li><span class="dot op-ind"></span> Spanish independent</li>
-      <li><span class="dot op-renewable"></span> Renewable developer (Forestalia)</li>
-      <li><span class="ring spec-ring"></span> Speculative (no anchor tenant)</li>
-      <li><span class="ring lit-ring"></span> Pending litigation</li>
+      <li><span class="dot op-hyperscaler"></span> <span data-i18n="leg_hyperscaler">Hyperscaler (AWS, Microsoft)</span></li>
+      <li><span class="dot op-pe"></span> <span data-i18n="leg_pe">Private equity / REIT</span></li>
+      <li><span class="dot op-colo"></span> <span data-i18n="leg_colo">Colocation</span></li>
+      <li><span class="dot op-ind"></span> <span data-i18n="leg_ind">Spanish independent</span></li>
+      <li><span class="dot op-renewable"></span> <span data-i18n="leg_renewable">Renewable developer (Forestalia)</span></li>
+      <li><span class="ring spec-ring"></span> <span data-i18n="leg_spec">Speculative (no anchor tenant)</span></li>
+      <li><span class="ring lit-ring"></span> <span data-i18n="leg_lit">Pending litigation</span></li>
     </ul>
-    <p class="hint">Marker radius scales with MW capacity (capped). Click for details.</p>
+    <p class="hint" data-i18n="legend_hint">Marker radius scales with MW capacity (capped). Click for details.</p>
   </section>
 
   <footer>
     <p id="last-updated"></p>
-    <p><a href="data/datacenters.json" target="_blank">Download dataset (JSON)</a></p>
+    <p><a href="data/datacenters.json" target="_blank" data-i18n="download">Download dataset (JSON)</a></p>
   </footer>
 </aside>
 

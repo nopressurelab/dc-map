@@ -1,5 +1,5 @@
 // Aragón Datacenter Map — main app
-// Loads data/datacenters.json, renders Leaflet markers, sidebar filters, and site detail dialog.
+// Loads data/datacenters.json, renders Leaflet markers, sidebar, dialog, with EN/ES switcher.
 
 const COLORS = {
   hyperscaler: '#58a6ff',
@@ -10,9 +10,195 @@ const COLORS = {
   speculative_developer: '#f85149'
 };
 
+const I18N = {
+  en: {
+    title: 'Aragón Datacenter Map',
+    subtitle: 'Operators, investors, clients, energy/water, government permits — every datapoint cited.',
+    regional_total: 'Regional total',
+    filters: 'Filters',
+    speculative_only: 'Speculative only (no confirmed tenant)',
+    litigated_only: 'Litigation or alegaciones only',
+    piga_only: 'Uses PIGA fast-track only',
+    operators: 'Operators',
+    legend: 'Legend',
+    leg_hyperscaler: 'Hyperscaler (AWS, Microsoft)',
+    leg_pe: 'Private equity / REIT',
+    leg_colo: 'Colocation',
+    leg_ind: 'Spanish independent',
+    leg_renewable: 'Renewable developer (Forestalia)',
+    leg_spec: 'Speculative (no anchor tenant)',
+    leg_lit: 'Pending litigation',
+    legend_hint: 'Marker radius scales with MW capacity (capped). Click for details.',
+    download: 'Download dataset (JSON)',
+    updated: 'Updated',
+
+    agg_sites_dataset: 'Sites mapped (this dataset)',
+    agg_ngo_sites: 'NGO-mapped projected sites',
+    agg_projected_mw: 'Projected MW',
+    agg_committed: 'Committed investment (Nov 2025)',
+    agg_operational: 'Operational now',
+    agg_share_2024: 'Share of regional electricity (2024)',
+    agg_share_2030: 'Share projected 2030',
+    agg_aws_energy: 'AWS aggregate energy (annual)',
+    agg_aws_water_co: 'AWS water (company)',
+    agg_aws_water_cr: 'AWS water (critics)',
+
+    pop_operator: 'Operator:',
+    pop_investment: 'Investment:',
+    pop_capacity: 'Capacity:',
+    pop_tenant: 'Tenant:',
+    pop_view_full: 'View full record & sources',
+    badge_spec: 'Speculative',
+    badge_lit: 'Litigation/objections',
+    badge_piga: 'PIGA',
+    badge_tax: 'ICIO dispute',
+
+    tenant_confirmed: 'Anchor tenant confirmed',
+    tenant_prelet: 'Pre-let',
+    tenant_spec: '⚠ Speculative (none disclosed)',
+    tenant_unknown: '⚠ Unknown / not disclosed',
+
+    sec_operator: 'Operator',
+    sec_invest: 'Investment & timeline',
+    sec_investors: 'Investors',
+    sec_clients: 'Clients / Tenant',
+    sec_tenant_status: 'Tenant status:',
+    sec_energy: 'Energy',
+    sec_ppas: 'PPAs',
+    sec_water: 'Water',
+    sec_permits: 'Permits',
+    sec_expedited: 'Expedited / fast-track indicators',
+    sec_icio: 'ICIO Tax Dispute',
+    sec_env_flag: 'Environmental Impact Flag',
+    sec_sources: 'Sources',
+
+    tbl_operator: 'Operator',
+    tbl_entity: 'Legal entity',
+    tbl_type: 'Type',
+    tbl_announced: 'Announced',
+    tbl_operational: 'Operational',
+    tbl_construction: 'Construction start',
+    tbl_investment: 'Investment (€M)',
+    tbl_investment_p1: 'Investment phase 1 (€M)',
+    tbl_investment_full: 'Investment full (€M)',
+    tbl_capacity: 'Capacity',
+    tbl_capacity_init: 'Capacity initial',
+    tbl_capacity_exp: 'Capacity expanded',
+    tbl_site_demand: 'Site demand',
+    tbl_grid: 'Grid connection',
+    tbl_self: 'Self-consumption',
+    tbl_aws_agg: 'AWS-Aragón aggregate',
+    tbl_annual_m3: 'Annual m³',
+    tbl_aws_agg_m3: 'AWS-Aragón aggregate m³',
+    tbl_cooling: 'Cooling tech',
+    tbl_water_body: 'Source water body',
+    tbl_concession: 'CHE concession',
+    tbl_storage: 'Storage reservoir',
+    tbl_notes: 'Notes',
+    not_confirmed: '(not confirmed)',
+    source_link: '[source]',
+    uses_piga_badge: 'Uses PIGA',
+    icio_exempt_badge: 'ICIO exempt via PIGA',
+    coords_precision: 'coords precision',
+    status_label: 'status:'
+  },
+  es: {
+    title: 'Mapa de Centros de Datos de Aragón',
+    subtitle: 'Operadores, inversores, clientes, energía/agua, permisos administrativos — cada dato con su fuente.',
+    regional_total: 'Total regional',
+    filters: 'Filtros',
+    speculative_only: 'Solo especulativos (sin cliente confirmado)',
+    litigated_only: 'Solo con litigio o alegaciones',
+    piga_only: 'Solo con PIGA (vía rápida)',
+    operators: 'Operadores',
+    legend: 'Leyenda',
+    leg_hyperscaler: 'Hyperscaler (AWS, Microsoft)',
+    leg_pe: 'Capital privado / SOCIMI',
+    leg_colo: 'Colocation',
+    leg_ind: 'Independiente español',
+    leg_renewable: 'Promotor renovable (Forestalia)',
+    leg_spec: 'Especulativo (sin cliente)',
+    leg_lit: 'Litigio pendiente',
+    legend_hint: 'El tamaño del marcador refleja los MW (limitado). Pulsa para detalles.',
+    download: 'Descargar datos (JSON)',
+    updated: 'Actualizado',
+
+    agg_sites_dataset: 'Sitios mapeados (este conjunto)',
+    agg_ngo_sites: 'Sitios proyectados (mapa ONG)',
+    agg_projected_mw: 'MW proyectados',
+    agg_committed: 'Inversión comprometida (nov 2025)',
+    agg_operational: 'Operativos ahora',
+    agg_share_2024: '% electricidad regional (2024)',
+    agg_share_2030: '% proyectado 2030',
+    agg_aws_energy: 'Energía AWS (anual)',
+    agg_aws_water_co: 'Agua AWS (empresa)',
+    agg_aws_water_cr: 'Agua AWS (críticos)',
+
+    pop_operator: 'Operador:',
+    pop_investment: 'Inversión:',
+    pop_capacity: 'Capacidad:',
+    pop_tenant: 'Cliente:',
+    pop_view_full: 'Ver registro completo y fuentes',
+    badge_spec: 'Especulativo',
+    badge_lit: 'Litigio/alegaciones',
+    badge_piga: 'PIGA',
+    badge_tax: 'Disputa ICIO',
+
+    tenant_confirmed: 'Cliente principal confirmado',
+    tenant_prelet: 'Pre-arrendado',
+    tenant_spec: '⚠ Especulativo (no divulgado)',
+    tenant_unknown: '⚠ Desconocido / no divulgado',
+
+    sec_operator: 'Operador',
+    sec_invest: 'Inversión y calendario',
+    sec_investors: 'Inversores',
+    sec_clients: 'Clientes / Cliente principal',
+    sec_tenant_status: 'Estado del cliente:',
+    sec_energy: 'Energía',
+    sec_ppas: 'PPAs',
+    sec_water: 'Agua',
+    sec_permits: 'Permisos',
+    sec_expedited: 'Indicadores de vía rápida',
+    sec_icio: 'Disputa fiscal ICIO',
+    sec_env_flag: 'Alerta de impacto ambiental',
+    sec_sources: 'Fuentes',
+
+    tbl_operator: 'Operador',
+    tbl_entity: 'Entidad legal',
+    tbl_type: 'Tipo',
+    tbl_announced: 'Anunciado',
+    tbl_operational: 'Operativo',
+    tbl_construction: 'Inicio construcción',
+    tbl_investment: 'Inversión (€M)',
+    tbl_investment_p1: 'Inversión fase 1 (€M)',
+    tbl_investment_full: 'Inversión total (€M)',
+    tbl_capacity: 'Capacidad',
+    tbl_capacity_init: 'Capacidad inicial',
+    tbl_capacity_exp: 'Capacidad ampliada',
+    tbl_site_demand: 'Demanda del sitio',
+    tbl_grid: 'Conexión a red',
+    tbl_self: 'Autoconsumo',
+    tbl_aws_agg: 'Total AWS-Aragón',
+    tbl_annual_m3: 'm³ anuales',
+    tbl_aws_agg_m3: 'Total AWS-Aragón m³',
+    tbl_cooling: 'Refrigeración',
+    tbl_water_body: 'Origen del agua',
+    tbl_concession: 'Concesión CHE',
+    tbl_storage: 'Depósito',
+    tbl_notes: 'Notas',
+    not_confirmed: '(sin confirmar)',
+    source_link: '[fuente]',
+    uses_piga_badge: 'Usa PIGA',
+    icio_exempt_badge: 'Exento ICIO vía PIGA',
+    coords_precision: 'precisión coords',
+    status_label: 'estado:'
+  }
+};
+
 const STATE = {
   data: null,
   layer: null,
+  lang: localStorage.getItem('lang') || 'en',
   filters: {
     speculative: false,
     litigated: false,
@@ -21,10 +207,12 @@ const STATE = {
   }
 };
 
+function t(key) { return I18N[STATE.lang][key] || key; }
+
 const map = L.map('map', { preferCanvas: true }).setView([41.65, -0.9], 8);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap & CARTO',
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
   subdomains: 'abcd',
   maxZoom: 19
 }).addTo(map);
@@ -33,10 +221,8 @@ fetch('data/datacenters.json')
   .then(r => r.json())
   .then(data => {
     STATE.data = data;
-    renderAggregate(data);
-    buildOperatorFilters(data);
-    document.getElementById('last-updated').textContent = `Updated ${data.last_updated} — v${data.version}`;
-    renderMarkers();
+    initLangButtons();
+    renderAll();
     wireFilters();
   })
   .catch(err => {
@@ -44,30 +230,60 @@ fetch('data/datacenters.json')
     document.getElementById('map').innerHTML = `<div style="padding:24px;color:#f85149">Could not load dataset: ${err.message}. Serve this folder over HTTP (file:// blocks fetch).</div>`;
   });
 
+function initLangButtons() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      STATE.lang = btn.dataset.lang;
+      localStorage.setItem('lang', STATE.lang);
+      renderAll();
+    });
+  });
+}
+
+function renderAll() {
+  // Active button styling
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === STATE.lang);
+  });
+  document.documentElement.lang = STATE.lang;
+
+  applyStaticTranslations();
+  renderAggregate(STATE.data);
+  buildOperatorFilters(STATE.data);
+  document.getElementById('last-updated').textContent = `${t('updated')} ${STATE.data.last_updated} — v${STATE.data.version}`;
+  renderMarkers();
+}
+
+function applyStaticTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+}
+
 function renderAggregate(d) {
   const a = d.aggregate;
   const dl = document.getElementById('aggregate-stats');
-  const fmt = (n) => n == null ? '—' : n.toLocaleString('en-US');
+  const fmt = (n) => n == null ? '—' : n.toLocaleString(STATE.lang === 'es' ? 'es-ES' : 'en-US');
   dl.innerHTML = `
-    <dt>Sites mapped (this dataset)</dt><dd>${d.sites.length}</dd>
-    <dt>NGO-mapped projected sites</dt><dd>${fmt(a.ngo_mapped_sites)}</dd>
-    <dt>Projected MW</dt><dd>${fmt(a.ngo_mapped_total_mw)} MW</dd>
-    <dt>Committed investment (Nov 2025)</dt><dd>€${fmt(a.official_commitment_eur_million_nov2025)} M</dd>
-    <dt>Operational now</dt><dd>${fmt(a.currently_operational_sites)} sites / ${fmt(a.currently_operational_mw)} MW</dd>
-    <dt>Share of regional electricity (2024)</dt><dd>${fmt(a.current_share_regional_electricity_pct)}%</dd>
-    <dt>Share projected 2030</dt><dd>${fmt(a.projected_2030_share_pct)}% / ${fmt(a.projected_2030_demand_twh)} TWh</dd>
-    <dt>AWS aggregate energy (annual)</dt><dd>${fmt(a.aws_aggregate_energy_gwh_year)} GWh</dd>
-    <dt>AWS water (company)</dt><dd>${fmt(a.aws_aggregate_water_m3_year_company)} m³</dd>
-    <dt>AWS water (critics)</dt><dd>${fmt(a.aws_aggregate_water_critics_hm3_year)} hm³</dd>
+    <dt>${t('agg_sites_dataset')}</dt><dd>${d.sites.length}</dd>
+    <dt>${t('agg_ngo_sites')}</dt><dd>${fmt(a.ngo_mapped_sites)}</dd>
+    <dt>${t('agg_projected_mw')}</dt><dd>${fmt(a.ngo_mapped_total_mw)} MW</dd>
+    <dt>${t('agg_committed')}</dt><dd>€${fmt(a.official_commitment_eur_million_nov2025)} M</dd>
+    <dt>${t('agg_operational')}</dt><dd>${fmt(a.currently_operational_sites)} / ${fmt(a.currently_operational_mw)} MW</dd>
+    <dt>${t('agg_share_2024')}</dt><dd>${fmt(a.current_share_regional_electricity_pct)}%</dd>
+    <dt>${t('agg_share_2030')}</dt><dd>${fmt(a.projected_2030_share_pct)}% / ${fmt(a.projected_2030_demand_twh)} TWh</dd>
+    <dt>${t('agg_aws_energy')}</dt><dd>${fmt(a.aws_aggregate_energy_gwh_year)} GWh</dd>
+    <dt>${t('agg_aws_water_co')}</dt><dd>${fmt(a.aws_aggregate_water_m3_year_company)} m³</dd>
+    <dt>${t('agg_aws_water_cr')}</dt><dd>${fmt(a.aws_aggregate_water_critics_hm3_year)} hm³</dd>
   `;
 }
 
 function buildOperatorFilters(d) {
   const ops = [...new Set(d.sites.map(s => s.operator))].sort();
-  STATE.filters.operators = new Set(ops);
+  if (STATE.filters.operators.size === 0) STATE.filters.operators = new Set(ops);
   const wrap = document.getElementById('operator-filters');
-  wrap.innerHTML = '<h3 style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin:8px 0 4px 0;">Operators</h3>' +
-    ops.map(o => `<label><input type="checkbox" data-op="${o}" checked> ${o}</label>`).join('');
+  wrap.innerHTML = `<h3 class="op-h">${t('operators')}</h3>` +
+    ops.map(o => `<label><input type="checkbox" data-op="${o}" ${STATE.filters.operators.has(o) ? 'checked' : ''}> ${o}</label>`).join('');
   wrap.querySelectorAll('input[type=checkbox]').forEach(cb => {
     cb.addEventListener('change', () => {
       if (cb.checked) STATE.filters.operators.add(cb.dataset.op);
@@ -78,15 +294,9 @@ function buildOperatorFilters(d) {
 }
 
 function wireFilters() {
-  document.getElementById('f-speculative').addEventListener('change', e => {
-    STATE.filters.speculative = e.target.checked; renderMarkers();
-  });
-  document.getElementById('f-litigated').addEventListener('change', e => {
-    STATE.filters.litigated = e.target.checked; renderMarkers();
-  });
-  document.getElementById('f-piga').addEventListener('change', e => {
-    STATE.filters.piga = e.target.checked; renderMarkers();
-  });
+  document.getElementById('f-speculative').addEventListener('change', e => { STATE.filters.speculative = e.target.checked; renderMarkers(); });
+  document.getElementById('f-litigated').addEventListener('change', e => { STATE.filters.litigated = e.target.checked; renderMarkers(); });
+  document.getElementById('f-piga').addEventListener('change', e => { STATE.filters.piga = e.target.checked; renderMarkers(); });
 
   const dialog = document.getElementById('site-dialog');
   document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
@@ -102,19 +312,19 @@ function sitePassesFilters(s) {
 }
 
 function hasLitigation(s) {
-  return (s.expedited_indicators && Array.isArray(s.expedited_indicators.litigation) && s.expedited_indicators.litigation.length > 0)
-      || (s.expedited_indicators && s.expedited_indicators.tax_dispute)
-      || (s.expedited_indicators && s.expedited_indicators.environmental_impact_flag);
+  const ei = s.expedited_indicators || {};
+  return (Array.isArray(ei.litigation) && ei.litigation.length > 0)
+      || !!ei.tax_dispute
+      || !!ei.environmental_impact_flag
+      || !!ei.scandal;
 }
 
 function usesPiga(s) {
-  if (!s.expedited_indicators) return false;
-  return s.expedited_indicators.uses_piga === true;
+  return s.expedited_indicators && s.expedited_indicators.uses_piga === true;
 }
 
 function radiusForSite(s) {
-  // Use max known MW; fall back to small marker.
-  const mw = s.capacity_mw || s.capacity_mw_expanded || s.energy?.site_demand_mw || s.capacity_mw_msft_aragon_total;
+  const mw = s.capacity_mw || s.capacity_mw_expanded || s.capacity_mw_max || s.energy?.site_demand_mw || s.capacity_mw_msft_aragon_total;
   if (!mw) return 7;
   return Math.min(28, 6 + Math.sqrt(mw) * 0.9);
 }
@@ -131,12 +341,11 @@ function renderMarkers() {
       color: hasLitigation(s) ? '#f85149' : (s.speculative ? '#f85149' : color),
       weight: hasLitigation(s) ? 3 : (s.speculative ? 2 : 1),
       opacity: 1,
-      fillOpacity: 0.65,
+      fillOpacity: s.status === 'withdrawn' ? 0.15 : 0.65,
       dashArray: hasLitigation(s) ? '4,3' : null
     });
     marker.bindPopup(popupHtml(s));
     marker.on('popupopen', () => {
-      // Attach button handler each time popup opens
       const btn = document.querySelector('.leaflet-popup-content .more-btn');
       if (btn) btn.addEventListener('click', () => openDialog(s));
     });
@@ -150,31 +359,32 @@ function popupHtml(s) {
   const inv = s.investment_eur_million || s.investment_eur_million_phase1 || s.investment_eur_million_full;
   const mw = s.capacity_mw || s.capacity_mw_expanded || s.energy?.site_demand_mw;
   const badges = [];
-  if (s.speculative) badges.push('<span class="badge spec">Speculative</span>');
-  if (hasLitigation(s)) badges.push('<span class="badge lit">Litigation/objections</span>');
-  if (usesPiga(s)) badges.push('<span class="badge piga">PIGA</span>');
-  if (s.expedited_indicators?.tax_dispute) badges.push('<span class="badge tax">ICIO dispute</span>');
+  if (s.speculative) badges.push(`<span class="badge spec">${t('badge_spec')}</span>`);
+  if (hasLitigation(s)) badges.push(`<span class="badge lit">${t('badge_lit')}</span>`);
+  if (usesPiga(s)) badges.push(`<span class="badge piga">${t('badge_piga')}</span>`);
+  if (s.expedited_indicators?.tax_dispute) badges.push(`<span class="badge tax">${t('badge_tax')}</span>`);
+  if (s.status === 'withdrawn') badges.push(`<span class="badge spec">${STATE.lang === 'es' ? 'Retirado' : 'Withdrawn'}</span>`);
 
   return `
     <h3>${s.site_name}</h3>
     <div class="meta">${s.municipality}, ${s.province} · ${s.status}</div>
     <div>${badges.join(' ')}</div>
     <p style="margin:6px 0;">
-      <strong>Operator:</strong> ${s.operator}<br>
-      ${inv ? `<strong>Investment:</strong> €${inv.toLocaleString('en-US')} M<br>` : ''}
-      ${mw ? `<strong>Capacity:</strong> ${mw} MW<br>` : ''}
-      <strong>Tenant:</strong> ${formatTenant(s)}
+      <strong>${t('pop_operator')}</strong> ${s.operator}<br>
+      ${inv ? `<strong>${t('pop_investment')}</strong> €${inv.toLocaleString()} M<br>` : ''}
+      ${mw ? `<strong>${t('pop_capacity')}</strong> ${mw} MW<br>` : ''}
+      <strong>${t('pop_tenant')}</strong> ${formatTenant(s)}
     </p>
-    <button class="more-btn">View full record & sources</button>
+    <button class="more-btn">${t('pop_view_full')}</button>
   `;
 }
 
 function formatTenant(s) {
   switch (s.tenant_status) {
-    case 'anchor_tenant_confirmed': return 'Anchor tenant confirmed';
-    case 'pre_let': return 'Pre-let';
-    case 'speculative': return '⚠ Speculative (none disclosed)';
-    case 'unknown': return '⚠ Unknown / not disclosed';
+    case 'anchor_tenant_confirmed': return t('tenant_confirmed');
+    case 'pre_let': return t('tenant_prelet');
+    case 'speculative': return t('tenant_spec');
+    case 'unknown': return t('tenant_unknown');
     default: return s.tenant_status || '—';
   }
 }
@@ -190,114 +400,126 @@ function renderFullSite(s) {
   const lit = (ei.litigation || []).map(l => `
     <li>${l.plaintiff || l.objectors || l.stage || 'Action'} — ${l.court || ''} ${l.filed || l.filed_year || ''}
       ${l.note ? '<em>' + l.note + '</em>' : ''}
-      ${l.source ? `<a class="cite" href="${l.source}" target="_blank">[source]</a>` : ''}
+      ${l.source ? `<a class="cite" href="${l.source}" target="_blank">${t('source_link')}</a>` : ''}
     </li>
   `).join('');
+
+  const scandal = ei.scandal ? `
+    <h3>${STATE.lang === 'es' ? 'Caso judicial / investigación' : 'Criminal investigation'}</h3>
+    <p class="warning"><strong>${ei.scandal.name}</strong> — ${ei.scandal.description}
+    ${ei.scandal.source ? `<a class="cite" href="${ei.scandal.source}" target="_blank">${t('source_link')}</a>` : ''}</p>
+  ` : '';
 
   const permits = (s.permits || []).map(p => `
     <li>
       <strong>${p.type}</strong>${p.name ? ' — ' + p.name : ''}
-      ${p.approval_date ? ' · approved ' + p.approval_date : ''}
-      ${p.expediente_range ? ' · expediente ' + p.expediente_range : ''}
-      ${p.boa_reference ? ' · BOA ' + p.boa_reference : ''}
-      ${p.source || p.url ? `<a class="cite" href="${p.source || p.url}" target="_blank">[source]</a>` : ''}
+      ${p.approval_date ? ' · ' + p.approval_date : ''}
+      ${p.expediente_range || p.expediente ? ' · expediente ' + (p.expediente_range || p.expediente) : ''}
+      ${p.boa_reference || p.boa_ref ? ' · BOA ' + (p.boa_reference || p.boa_ref) : ''}
+      ${p.source || p.url ? `<a class="cite" href="${p.source || p.url}" target="_blank">${t('source_link')}</a>` : ''}
     </li>
   `).join('');
 
   const ppas = (s.energy?.ppas || []).map(p => `
     <li>${p.counterparty} — ${p.volume_mw} MW ${p.sources ? '(' + p.sources + ')' : ''} ${p.year ? '· ' + p.year : ''}
-      ${p.source ? `<a class="cite" href="${p.source}" target="_blank">[source]</a>` : ''}
+      ${p.source ? `<a class="cite" href="${p.source}" target="_blank">${t('source_link')}</a>` : ''}
     </li>
   `).join('');
 
   const sources = (s.sources || []).map(u => `<li><a href="${u}" target="_blank">${u}</a></li>`).join('');
-
   const investors = (s.investors || []).map(i => `<li>${i.name} — <em>${i.role}</em> (${i.type})</li>`).join('');
-  const clients = (s.clients || []).map(c => `<li>${c.name}${c.confirmed === false ? ' <span class="warning">(not confirmed)</span>' : ''}${c.note ? ' — ' + c.note : ''}</li>`).join('');
+  const clients = (s.clients || []).map(c => `<li>${c.name}${c.confirmed === false ? ' <span class="warning">' + t('not_confirmed') + '</span>' : ''}${c.note ? ' — ' + c.note : ''}</li>`).join('');
 
   const taxBlock = ei.tax_dispute ? `
-    <h3>ICIO Tax Dispute</h3>
+    <h3>${t('sec_icio')}</h3>
     <p>${ei.tax_dispute.type}: <strong>€${ei.tax_dispute.amount_eur_million}M</strong> — ${ei.tax_dispute.municipality} — ${ei.tax_dispute.status}
-    ${ei.tax_dispute.source ? `<a class="cite" href="${ei.tax_dispute.source}" target="_blank">[source]</a>` : ''}</p>
+    ${ei.tax_dispute.source ? `<a class="cite" href="${ei.tax_dispute.source}" target="_blank">${t('source_link')}</a>` : ''}</p>
   ` : '';
 
   const envBlock = ei.environmental_impact_flag ? `
-    <h3>Environmental Impact Flag</h3>
+    <h3>${t('sec_env_flag')}</h3>
     <p class="warning">${ei.environmental_impact_flag.issue}
-    ${ei.environmental_impact_flag.source ? `<a class="cite" href="${ei.environmental_impact_flag.source}" target="_blank">[source]</a>` : ''}</p>
+    ${ei.environmental_impact_flag.source ? `<a class="cite" href="${ei.environmental_impact_flag.source}" target="_blank">${t('source_link')}</a>` : ''}</p>
+  ` : '';
+
+  const eiaExemptBlock = ei.eia_exemption ? `
+    <h3>${STATE.lang === 'es' ? 'Exención EIA' : 'EIA exemption'}</h3>
+    <p class="warning">${ei.eia_exemption}
+    ${ei.eia_exemption_source ? `<a class="cite" href="${ei.eia_exemption_source}" target="_blank">${t('source_link')}</a>` : ''}</p>
   ` : '';
 
   const water = s.water ? `
-    <h3>Water</h3>
+    <h3>${t('sec_water')}</h3>
     <table>
-      ${s.water.annual_m3 ? `<tr><th>Annual m³</th><td>${s.water.annual_m3.toLocaleString ? s.water.annual_m3.toLocaleString() : s.water.annual_m3}</td></tr>` : ''}
-      ${s.water.aggregate_aws_aragon_m3_year ? `<tr><th>AWS-Aragón aggregate m³</th><td>${s.water.aggregate_aws_aragon_m3_year.toLocaleString()}</td></tr>` : ''}
-      ${s.water.cooling_tech ? `<tr><th>Cooling tech</th><td>${s.water.cooling_tech}</td></tr>` : ''}
-      ${s.water.source_water_body ? `<tr><th>Source water body</th><td>${s.water.source_water_body}</td></tr>` : ''}
-      ${s.water.concession_che_expediente ? `<tr><th>CHE concession</th><td>${s.water.concession_che_expediente}</td></tr>` : ''}
-      ${s.water.storage_reservoir_m3 ? `<tr><th>Storage reservoir</th><td>${s.water.storage_reservoir_m3.toLocaleString()} m³</td></tr>` : ''}
-      ${s.water.negotiation ? `<tr><th>Notes</th><td>${s.water.negotiation}</td></tr>` : ''}
-      ${s.water.vdg_specific ? `<tr><th>Notes</th><td>${s.water.vdg_specific}</td></tr>` : ''}
+      ${s.water.annual_m3 ? `<tr><th>${t('tbl_annual_m3')}</th><td>${typeof s.water.annual_m3 === 'number' ? s.water.annual_m3.toLocaleString() : s.water.annual_m3}</td></tr>` : ''}
+      ${s.water.cooling_tech ? `<tr><th>${t('tbl_cooling')}</th><td>${s.water.cooling_tech}</td></tr>` : ''}
+      ${s.water.source_water_body ? `<tr><th>${t('tbl_water_body')}</th><td>${s.water.source_water_body}</td></tr>` : ''}
+      ${s.water.concession_che_expediente ? `<tr><th>${t('tbl_concession')}</th><td>${s.water.concession_che_expediente}</td></tr>` : ''}
+      ${s.water.storage_reservoir_m3 ? `<tr><th>${t('tbl_storage')}</th><td>${s.water.storage_reservoir_m3.toLocaleString()} m³</td></tr>` : ''}
+      ${s.water.negotiation ? `<tr><th>${t('tbl_notes')}</th><td>${s.water.negotiation}</td></tr>` : ''}
+      ${s.water.vdg_specific ? `<tr><th>${t('tbl_notes')}</th><td>${s.water.vdg_specific}</td></tr>` : ''}
     </table>
   ` : '';
 
   return `
     <h2>${s.site_name}</h2>
-    <p class="cite">${s.municipality}, ${s.province} · status: <strong>${s.status}</strong> · coords precision: ${s.coords_precision || 'n/a'}</p>
+    <p class="cite">${s.municipality}, ${s.province} · ${t('status_label')} <strong>${s.status}</strong> · ${t('coords_precision')}: ${s.coords_precision || 'n/a'}</p>
     ${s.phase_notes ? `<p>${s.phase_notes}</p>` : ''}
 
-    <h3>Operator</h3>
+    <h3>${t('sec_operator')}</h3>
     <table>
-      <tr><th>Operator</th><td>${s.operator}</td></tr>
-      <tr><th>Legal entity</th><td>${s.operator_entity || '—'}</td></tr>
-      <tr><th>Type</th><td>${s.operator_type}</td></tr>
+      <tr><th>${t('tbl_operator')}</th><td>${s.operator}</td></tr>
+      <tr><th>${t('tbl_entity')}</th><td>${s.operator_entity || '—'}</td></tr>
+      <tr><th>${t('tbl_type')}</th><td>${s.operator_type}</td></tr>
     </table>
 
-    <h3>Investment & timeline</h3>
+    <h3>${t('sec_invest')}</h3>
     <table>
-      ${s.first_announced ? `<tr><th>Announced</th><td>${s.first_announced}</td></tr>` : ''}
-      ${s.operational_date ? `<tr><th>Operational</th><td>${s.operational_date}</td></tr>` : ''}
-      ${s.construction_start ? `<tr><th>Construction start</th><td>${s.construction_start}</td></tr>` : ''}
-      ${s.investment_eur_million ? `<tr><th>Investment (€M)</th><td>${s.investment_eur_million.toLocaleString()}</td></tr>` : ''}
-      ${s.investment_eur_million_phase1 ? `<tr><th>Investment phase 1 (€M)</th><td>${s.investment_eur_million_phase1.toLocaleString()}</td></tr>` : ''}
-      ${s.investment_eur_million_full ? `<tr><th>Investment full (€M)</th><td>${s.investment_eur_million_full.toLocaleString()}</td></tr>` : ''}
-      ${s.capacity_mw ? `<tr><th>Capacity</th><td>${s.capacity_mw} MW</td></tr>` : ''}
-      ${s.capacity_mw_initial ? `<tr><th>Capacity initial</th><td>${s.capacity_mw_initial} MW</td></tr>` : ''}
-      ${s.capacity_mw_expanded ? `<tr><th>Capacity expanded</th><td>${s.capacity_mw_expanded} MW</td></tr>` : ''}
+      ${s.first_announced ? `<tr><th>${t('tbl_announced')}</th><td>${s.first_announced}</td></tr>` : ''}
+      ${s.operational_date ? `<tr><th>${t('tbl_operational')}</th><td>${s.operational_date}</td></tr>` : ''}
+      ${s.construction_start ? `<tr><th>${t('tbl_construction')}</th><td>${s.construction_start}</td></tr>` : ''}
+      ${s.investment_eur_million ? `<tr><th>${t('tbl_investment')}</th><td>${s.investment_eur_million.toLocaleString()}</td></tr>` : ''}
+      ${s.investment_eur_million_phase1 ? `<tr><th>${t('tbl_investment_p1')}</th><td>${s.investment_eur_million_phase1.toLocaleString()}</td></tr>` : ''}
+      ${s.investment_eur_million_full ? `<tr><th>${t('tbl_investment_full')}</th><td>${s.investment_eur_million_full.toLocaleString()}</td></tr>` : ''}
+      ${s.capacity_mw ? `<tr><th>${t('tbl_capacity')}</th><td>${s.capacity_mw} MW</td></tr>` : ''}
+      ${s.capacity_mw_initial ? `<tr><th>${t('tbl_capacity_init')}</th><td>${s.capacity_mw_initial} MW</td></tr>` : ''}
+      ${s.capacity_mw_expanded ? `<tr><th>${t('tbl_capacity_exp')}</th><td>${s.capacity_mw_expanded} MW</td></tr>` : ''}
     </table>
 
-    <h3>Investors</h3>
+    <h3>${t('sec_investors')}</h3>
     <ul>${investors || '<li>—</li>'}</ul>
 
-    <h3>Clients / Tenant</h3>
+    <h3>${t('sec_clients')}</h3>
     <ul>${clients || '<li>—</li>'}</ul>
-    <p><strong>Tenant status:</strong> ${formatTenant(s)} ${s.speculative ? '<span class="badge spec">Speculative</span>' : ''}</p>
+    <p><strong>${t('sec_tenant_status')}</strong> ${formatTenant(s)} ${s.speculative ? `<span class="badge spec">${t('badge_spec')}</span>` : ''}</p>
     ${s.speculative_reasoning ? `<p class="cite"><em>${s.speculative_reasoning}</em></p>` : ''}
 
-    <h3>Energy</h3>
+    <h3>${t('sec_energy')}</h3>
     <table>
-      ${s.energy?.site_demand_mw ? `<tr><th>Site demand</th><td>${s.energy.site_demand_mw} MW</td></tr>` : ''}
-      ${s.energy?.grid_connection ? `<tr><th>Grid connection</th><td>${s.energy.grid_connection}</td></tr>` : ''}
-      ${s.energy?.self_consumption_pct ? `<tr><th>Self-consumption</th><td>${s.energy.self_consumption_pct}%</td></tr>` : ''}
-      ${s.energy?.aws_aragon_aggregate_demand_gwh_year ? `<tr><th>AWS-Aragón aggregate</th><td>${s.energy.aws_aragon_aggregate_demand_gwh_year.toLocaleString()} GWh/yr</td></tr>` : ''}
+      ${s.energy?.site_demand_mw ? `<tr><th>${t('tbl_site_demand')}</th><td>${s.energy.site_demand_mw} MW</td></tr>` : ''}
+      ${s.energy?.grid_connection ? `<tr><th>${t('tbl_grid')}</th><td>${s.energy.grid_connection}</td></tr>` : ''}
+      ${s.energy?.self_consumption_pct ? `<tr><th>${t('tbl_self')}</th><td>${s.energy.self_consumption_pct}%</td></tr>` : ''}
+      ${s.energy?.aws_aragon_aggregate_demand_gwh_year ? `<tr><th>${t('tbl_aws_agg')}</th><td>${s.energy.aws_aragon_aggregate_demand_gwh_year.toLocaleString()} GWh/yr</td></tr>` : ''}
     </table>
-    ${ppas ? `<h3>PPAs</h3><ul>${ppas}</ul>` : ''}
+    ${ppas ? `<h3>${t('sec_ppas')}</h3><ul>${ppas}</ul>` : ''}
 
     ${water}
 
-    <h3>Permits</h3>
+    <h3>${t('sec_permits')}</h3>
     <ul>${permits || '<li>—</li>'}</ul>
 
-    <h3>Expedited / fast-track indicators</h3>
+    <h3>${t('sec_expedited')}</h3>
     <p>
-      ${ei.uses_piga === true ? '<span class="badge piga">Uses PIGA</span>' : ''}
-      ${ei.icio_exempt_via_piga ? '<span class="badge tax">ICIO exempt via PIGA</span>' : ''}
+      ${ei.uses_piga === true ? `<span class="badge piga">${t('uses_piga_badge')}</span>` : ''}
+      ${ei.icio_exempt_via_piga ? `<span class="badge tax">${t('icio_exempt_badge')}</span>` : ''}
     </p>
     ${lit ? `<ul>${lit}</ul>` : ''}
     ${taxBlock}
     ${envBlock}
+    ${eiaExemptBlock}
+    ${scandal}
 
-    <h3>Sources</h3>
+    <h3>${t('sec_sources')}</h3>
     <ul>${sources || '<li>—</li>'}</ul>
   `;
 }

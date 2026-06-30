@@ -58,6 +58,26 @@
         "https://arainfo.org/primer-contencioso-judicial-contra-los-centros-de-datos-de-amazon-aws-en-aragon/"
       ]
     },
+    "caso_perserte_forestalia": {
+      "stage": "criminal investigation",
+      "operation_date": "2026-03-03",
+      "investigating_body": "UCO/UCOMA — Unidad Central Operativa de Medio Ambiente (Guardia Civil)",
+      "court": "Juzgado de Instrucción Nº 1 de Teruel",
+      "scope": "12 simultaneous searches (10 Madrid, 2 Zaragoza); 6 detentions",
+      "key_detainees": [
+        "Fernando Samper Rivas — president and owner of Forestalia (alleged 'central hub' from private sector)",
+        "Eugenio Jesús Domínguez Collado — former senior official, MITECO (Ministry for Ecological Transition)"
+      ],
+      "charges": ["environmental prevarication", "bribery", "money laundering", "membership in criminal organization"],
+      "alleged_scheme": "Domínguez allegedly manipulated dozens of environmental permits in favor of Forestalia projects in exchange for economic compensation",
+      "datacenter_relevance": "Targets Forestalia, the operator of Proyecto Búfalo (3 Aragón DCs, €12B). PIGA Búfalo was approved by Aragón Government 4 months BEFORE the same government asked PSOE to be investigated over Forestalia ties. Forestalia has subsequently divested 2 of 3 Búfalo centers.",
+      "sources": [
+        "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html",
+        "https://www.hoyaragon.es/articulo/noticias-aragon/fernando-samper-forestalia-permisos/20260303143556124279.html",
+        "https://theobjective.com/espana/tribunales/2026-03-19/forestalia-macroproyecto-centros-datos-investigacion/",
+        "https://www.eldiario.es/aragon/politica/gobierno-azcon-pide-investigar-psoe-forestalia-cuatro-meses-despues-bendecir-tres-centros-datos_1_13059273.html"
+      ]
+    },
     "microsoft_piga_objections": {
       "stage": "alegaciones (administrative; not yet judicial)",
       "filed": "2026-01",
@@ -80,13 +100,23 @@
     "primary_route": "PIGA (Plan / Proyecto de Interés General de Aragón)",
     "what_it_does": "Regional legal instrument that declares a private project to be of 'general interest' for Aragón. Overrides municipal urbanism plans (PGOU), reclassifies non-developable land, grants public-utility status enabling expropriation, runs through the regional Gobierno de Aragón rather than the affected ayuntamientos, and (per critics) sidesteps the ICIO municipal construction tax — a fiscal benefit the standing legislation does not actually require.",
     "registry": "https://www.aragon.es/urbanismo-y-ordenacion-del-territorio/planes-y-proyectos-de-interes-para-aragon-pigas",
+    "smoking_gun_eia_exemption": {
+      "issue": "On Aug 5–6, 2025, INAGA EXEMPTED AWS from the ordinary environmental impact evaluation for 320+ hectares across Villanueva de Gállego, Huesca, El Burgo de Ebro, and Zaragoza. The project only had to comply with 'preventive, corrective and supplementary measures' instead of full EIA. INAGA's stated justification: the projects 'do not affect protected natural spaces' and produce 'afecciones poco significativas' (little significant impact). The same expedited route was used for the Stellantis battery gigafactory Phase 0 — indicating a regional pattern, not a one-off.",
+      "date": "2025-08-05",
+      "scope_hectares": 320,
+      "municipalities": ["Villanueva de Gállego", "Huesca", "El Burgo de Ebro", "Zaragoza"],
+      "source": "https://www.elespanol.com/aragon/economia/20250805/aragon-exime-amazon-evaluacion-ambiental-urbanizar-hectareas-centros-datos/1003743874714_0.html"
+    },
     "known_dc_pigas": [
       {"name": "PIGA Amazon Data Services Spain (initial)", "operator": "AWS", "url": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"},
       {"name": "PIGA Expansión Región AWS en Aragón", "operator": "AWS", "url": "https://www.aragon.es/-/piga-aws-ampliacion"},
       {"name": "PIGA AWS Venta del Barro (Teruel)", "operator": "AWS", "url": "https://www.diariodeteruel.es/teruel/la-dga-declara-de-interes-general-el-centro-de-datos-de-amazon-junto-a-la-venta-del-barro"},
-      {"name": "PIGA Región MSFT", "operator": "Microsoft (Microsoft 7724 Spain SLU)", "url": "https://www.aragon.es/-/piga-microsoft"},
+      {"name": "PIGA Región MSFT — initial approval ORDEN FOM/1520/2025", "operator": "Microsoft (Microsoft 7724 Spain SLU)", "approval_date": "2025-11-14", "boa_ref": "ORDEN FOM/1520/2025", "url": "https://www.aragon.es/-/piga-microsoft"},
       {"name": "PIGA Proyecto Rhodes (Calatorao)", "operator": "Blackstone / QTS", "url": "https://www.aragon.es/-/proyecto-rhodes"},
-      {"name": "PIGA Proyecto Búfalo (3 sites)", "operator": "Forestalia", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}
+      {"name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo (3 sites)", "operator": "Forestalia", "approval_date": "2025-11-25", "boa_ref": "BOA20251202020", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"},
+      {"name": "ORDEN PEJ/1264/2025 — Centro de datos del Campus Villanueva de Gállego", "operator": "Vantage (Desarrollos Ecoindustriales La Cartuja SL + F2 Dino Properties Sàrl)", "approval_date": "2025-09-18", "boa_ref": "BOA #190, 2025-10-01", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1413456710909"},
+      {"name": "Declaración de Interés Autonómico — Campus Ebro (Cariñena, WITHDRAWN)", "operator": "Box2Bit (B2B Axis East 3 SLU / Quantum Global Assets)", "approval_date": "2024-10-29", "status_note": "Project withdrawn Jan 2026 — operator moved to Épila", "url": "https://www.aragonhoy.es/consejos-de-gobierno/declarada-interes-autonomico-interes-general-inversion-empresa-box2bit-carinena-97855"},
+      {"name": "Declaración de Interés Autonómico — Centro de datos Epilon (Épila)", "operator": "Box2Bit", "approval_date": "2026-01-28", "url": "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html"}
     ],
     "iciotax_controversy": {
       "issue": "PIGA processing has been interpreted to exempt projects from the ICIO municipal construction tax, even though no statute requires this. Critics (arainfo, ecologistas) describe it as arbitrary fiscal privilege granted by the Azcón administration to hyperscalers.",
@@ -118,8 +148,8 @@
       "phase_notes": "Anchor of AWS eu-south-2 (Spain) region. Expansion: 13 ha plot adjacent to existing DC + new 68 ha plot in newly urbanised zone. Buildings up to 12 m visible height, up to 14 m exceptional, 3 office floors + 2 production floors.",
       "first_announced": "2021-05",
       "operational_date": "2022-11",
-      "investment_eur_million_aws_aragon_total": 33000,
-      "investment_notes": "AWS announced €33B Aragón decade-long investment (revised up from prior €15.7B figure).",
+      "investment_eur_million_aws_aragon_total": 33700,
+      "investment_notes": "AWS announced €33.7B Aragón decade-long investment 2020–2035 (revised up from prior €15.7B figure). 11 campuses planned across 3 provinces, 13,400 jobs. Source: https://www.hoyaragon.es/articulo/noticias-aragon/aws-centros-datos-aragon-piga/20260325132743125802.html",
       "capacity_mw": null,
       "investors": [{"name": "Amazon (self-funded)", "role": "owner/operator", "type": "self-funded_hyperscaler"}],
       "clients": [{"name": "AWS eu-south-2 (Spain) region public customers", "confirmed": true}],
@@ -135,17 +165,32 @@
         "vdg_specific": "Water consumption expected to multiply by 5 vs current local usage",
         "vdg_source": "https://www.aragondigital.es/articulo/economia/centros-datos-amazon-luz-verde-impacto-ambiental-infraestructuras-hidraulicas/20251105103608951066.html",
         "cooling_tech": "evaporative (inferred)",
-        "source_water_body": "Ebro / Gállego (CHE)"
+        "source_water_body": "Ebro / Gállego (CHE)",
+        "che_concession_request": {
+          "expediente": "2024-DT-659",
+          "boe_reference": "BOE-B-2025-22920",
+          "source_water": "Canal Imperial de Aragón (term. mun. Zaragoza)",
+          "stage": "public information (competing projects)",
+          "applicant": "Amazon Data Services Spain S.L.",
+          "source": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-22920"
+        },
+        "che_partnership": {
+          "agreement": "AWS signed cooperation agreement with CHE and Instituto Aragonés del Agua for water-efficiency projects",
+          "source": "https://www.eleconomista.es/tecnologia/noticias/13248467/03/25/aws-despliega-en-aragon-un-proyecto-para-optimizar-los-cultivos-y-reducir-la-huella-hidrica-con-cloud-e-ia.html"
+        }
       },
       "permits": [
         {"type": "PIGA", "name": "PIGA Amazon Data Services Spain (initial)", "source": "https://www.aragon.es/-/proyecto-de-interes-general-de-aragon-sobre-la-implantacion-de-centros-de-datos-en-la-comunidad-autonoma-de-aragon-a-propuesta-de-amazon-data-services-spain"},
         {"type": "PIGA", "name": "PIGA Expansión Región AWS en Aragón — third partial final approval", "approval_date": "2026-05", "covers": "VDG expansion + Walqa", "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobada-definitivamente-parte-piga-aws-iniciar-edificacion-nuevos-centros-datos-huesca-villanueva-gallego-104904"},
         {"type": "DIA_INAGA + AAI_INAGA", "expediente_range": "INAGA/500301/02/2024/12129 — 12133 (5 sites)", "source": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"},
-        {"type": "BOA_publication", "reference": "BOA20250806019", "publication_date": "2025-08-06", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"}
+        {"type": "BOA_publication", "reference": "BOA20250806019", "publication_date": "2025-08-06", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"},
+        {"type": "CHE water concession application", "expediente": "2024-DT-659", "boe_reference": "BOE-B-2025-22920", "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-22920"}
       ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
+        "eia_exemption": "INAGA exempted AWS from ordinary EIA for 320+ ha across Villanueva de Gállego, Huesca, El Burgo de Ebro, and Zaragoza — only required 'preventive, corrective and supplementary measures' (Aug 2025). Justification: 'afecciones poco significativas'. Same pattern previously used for Stellantis battery gigafactory Phase 0.",
+        "eia_exemption_source": "https://www.elespanol.com/aragon/economia/20250805/aragon-exime-amazon-evaluacion-ambiental-urbanizar-hectareas-centros-datos/1003743874714_0.html",
         "litigation": [{"plaintiff": "Ecologistas en Acción + 7 co-plaintiffs", "court": "TSJA", "filed": "2026", "target": "PIGA Expansión AWS", "status": "pending", "note": "First DC lawsuit in Spain", "source": "https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/"}]
       },
       "sources": [
@@ -327,7 +372,10 @@
         "demand_vs_region": "MSFT Aragón projected demand exceeds total Aragón consumption in 2024",
         "ppas": [{"counterparty": "Iberdrola", "volume_mw": 150, "sources": "Iglesias (Burgos) + El Escudo (Cantabria) wind farms", "year": "2025-12", "source": "https://www.iberdrola.com/sala-comunicacion/noticias/detalle/iberdrola-microsoft-refuerzan-alianza-ppa-150-mw-nuevas-soluciones-globales-ia"}]
       },
-      "permits": [{"type": "PIGA", "name": "PIGA Región MSFT", "approval_date": "2024-07-03 (Villamayor declaration)", "source": "https://www.aragon.es/-/piga-microsoft"}],
+      "permits": [
+        {"type": "PIGA", "name": "PIGA Región MSFT — Villamayor declaration", "approval_date": "2024-07-03", "source": "https://www.aragon.es/-/piga-microsoft"},
+        {"type": "PIGA initial approval", "name": "ORDEN FOM/1520/2025 — Implantación de la Región Microsoft en Aragón", "approval_date": "2025-11-14", "boa_reference": "BOA #220, 2025-11-18", "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobado-inicialmente-piga-microsoft-instalacion-tres-centros-datos-aragon-102741"}
+      ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
@@ -447,18 +495,19 @@
       "phase_notes": "Vantage's first Spain campus. 40 ha eco-industrial park. 5 phases over 10 years. Closed-loop cooling. Starting employment 180, growing to 520 permanent jobs.",
       "first_announced": "2025-09",
       "investment_eur_million": 3200,
-      "investors": [{"name": "Vantage Data Centers", "role": "operator", "type": "colocation_reit"}, {"name": "DigitalBridge", "role": "ultimate sponsor", "type": "infrastructure_fund"}],
+      "investors": [{"name": "Vantage Data Centers", "role": "operator", "type": "colocation_reit"}, {"name": "DigitalBridge", "role": "ultimate sponsor", "type": "infrastructure_fund"}, {"name": "Desarrollos Ecoindustriales La Cartuja SL (alliance of Atalaya, Posidonia, Aptimus)", "role": "Spanish promoter / land developer", "type": "spanish_alliance"}, {"name": "F2 Dino Properties Sàrl (Luxembourg)", "role": "co-promoter / corporate vehicle", "type": "luxembourg_holding", "note": "Shareholder in Vantage Data Centers Europe Sàrl"}],
       "clients": [{"name": "Hyperscalers (colocation model — specific tenants not disclosed)", "confirmed": false}],
       "tenant_status": "unknown",
       "speculative": true,
       "speculative_reasoning": "Hyperscale colocation but no specific pre-let publicly named. Vantage typically pre-leases before full build-out but disclosure pattern varies.",
-      "energy": {"site_demand_mw": null, "grid_connection": "REE — Zaragoza area"},
+      "energy": {"site_demand_mw": 90, "grid_connection": "Endesa — 90 MW guaranteed for phase 1", "grid_source": "https://www.eleconomista.es/tecnologia/noticias/13572779/10/25/vantage-arrancara-su-centro-de-datos-en-zaragoza-con-una-inversion-de-500-millones-y-la-urbanizacion-supondra-136-millones.html"},
       "water": {"cooling_tech": "closed-loop (minimal water)"},
-      "permits": [{"type": "PIGA", "status": "to_verify"}],
-      "expedited_indicators": {"uses_piga": "to_verify"},
+      "permits": [{"type": "Declaración de Interés Autonómico (PIGA precursor)", "name": "ORDEN PEJ/1264/2025 — Centro de datos del Campus Villanueva de Gállego", "approval_date": "2025-09-18", "boa_reference": "BOA #190, 2025-10-01", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1413456710909"}],
+      "expedited_indicators": {"uses_piga": true, "phase1_investment_eur_million": 500, "urbanization_cost_eur_million": 13.6},
       "sources": [
         "https://bebeez.eu/2025/09/18/vantage-enters-spain-to-invest-e3-2-billion-in-zaragoza-data-center-campus/",
-        "https://www.datacenterdynamics.com/en/news/vantage-invertira-3200-millones-de-euros-en-un-centro-de-datos-de-hiperescala-en-zaragoza/"
+        "https://www.datacenterdynamics.com/en/news/vantage-invertira-3200-millones-de-euros-en-un-centro-de-datos-de-hiperescala-en-zaragoza/",
+        "https://www.eleconomista.es/tecnologia/noticias/13572779/10/25/vantage-arrancara-su-centro-de-datos-en-zaragoza-con-una-inversion-de-500-millones-y-la-urbanizacion-supondra-136-millones.html"
       ]
     },
     {
@@ -466,14 +515,14 @@
       "operator": "Azora (Tillion Data Centres)",
       "operator_entity": "Tillion Data Centres (Azora subsidiary)",
       "operator_type": "private_equity",
-      "site_name": "Azora / Tillion Villamayor de Gállego",
+      "site_name": "Azora / Tillion Aragón (Villamayor de Gállego)",
       "municipality": "Villamayor de Gállego",
       "province": "Zaragoza",
       "lat": 41.7058,
       "lon": -0.7522,
       "coords_precision": "town_centroid",
       "status": "announced",
-      "phase_notes": "79.6 ha, less than 3 km from transport substation. DIGA (Declaration of General Interest, the PIGA variant) granted. Construction start 2026. Initial 150 MW, expandable to 300 MW.",
+      "phase_notes": "Official project name: 'Tillion Aragón'. 79.6 ha, less than 3 km from transport substation. DIGA (Declaration of General Interest, PIGA precursor) approved by Government Council. Construction start 2026. Initial 150 MW, expandable to 300 MW. Water: closed-loop, equivalent to 25 households/year. Grid permits granted 2024.",
       "first_announced": "2025-03",
       "construction_start": "2026",
       "investment_eur_million_phase1": 1100,
@@ -495,32 +544,69 @@
       ]
     },
     {
-      "id": "box2bit-carinena",
+      "id": "box2bit-carinena-withdrawn",
       "operator": "Box2Bit",
-      "operator_entity": "Box2Bit (founded 2021 by Capital Energy principal shareholder)",
+      "operator_entity": "B2B Axis East 3 SLU (Quantum Global Assets SLU Group) — Madrid-based",
       "operator_type": "spanish_independent",
-      "site_name": "Box2Bit Cariñena (Campus Ebro)",
+      "site_name": "Box2Bit Cariñena (Campus Ebro) — WITHDRAWN",
       "municipality": "Cariñena",
       "province": "Zaragoza",
       "lat": 41.3372,
       "lon": -1.2294,
       "coords_precision": "town_centroid",
-      "status": "announced",
-      "phase_notes": "Polígono Entreviñas. 28 ha, 5 buildings. First building start Q4 2025, operational end 2029.",
+      "status": "withdrawn",
+      "phase_notes": "Originally announced Oct 2024 (€3.4B, 28 ha, 5 buildings in Polígono Entreviñas). PROJECT WITHDRAWN in January 2026 after Red Eléctrica excluded the site from its 2025–2030 grid investment plan, leaving Cariñena without feasible grid access. Box2Bit moved the project to Épila. Yudigar will take over the freed parcels for industrial expansion (150 jobs).",
       "first_announced": "2024-10",
+      "withdrawn_date": "2026-01",
+      "withdrawal_reason": "Excluded from Red Eléctrica 2025–2030 grid plan — no feasible electrical connection",
       "investment_eur_million": 3400,
-      "investment_eur_million_alt": 4000,
-      "investors": [{"name": "Box2Bit", "role": "developer", "type": "spanish_independent"}, {"name": "Principal shareholder of Capital Energy", "role": "founder/ultimate sponsor", "type": "private"}],
+      "investors": [{"name": "B2B Axis East 3 SLU (Box2Bit subsidiary)", "role": "developer", "type": "spanish_independent"}, {"name": "Quantum Global Assets SLU Group", "role": "parent", "type": "private"}, {"name": "Principal shareholder of Capital Energy", "role": "founder/ultimate sponsor", "type": "private"}],
       "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
       "tenant_status": "speculative",
       "speculative": true,
-      "speculative_reasoning": "Spanish independent, no public hyperscaler pre-let. €3.4-4B speculative spend is unusually large; high vacancy risk.",
-      "permits": [{"type": "PIGA", "status": "to_verify"}],
-      "expedited_indicators": {"uses_piga": "to_verify"},
+      "speculative_reasoning": "Spanish independent, no public hyperscaler pre-let. The withdrawal validated the speculative-risk thesis: a multi-billion-euro project never reached grid connection.",
+      "permits": [{"type": "Declaración de Interés Autonómico con Interés General", "approval_date": "2024-10-29", "source": "https://www.aragonhoy.es/consejos-de-gobierno/declarada-interes-autonomico-interes-general-inversion-empresa-box2bit-carinena-97855"}],
+      "expedited_indicators": {"uses_piga": true, "withdrawn": true},
       "sources": [
-        "https://brainsre.news/box2bit-3400-millones-centro-datos-carinena-zaragoza/",
-        "https://www.elespanol.com/aragon/economia/20241029/espanola-box2bit-proyecta-centro-datos-carinena-zaragoza-inversion-millones/897160357_0.html",
-        "https://www.eleconomista.es/tecnologia/noticias/13117544/12/24/asi-sera-el-centro-de-datos-de-box2bit-en-zaragoza-4000-millones-de-inversion-5-edificios-y-350-empleos.html"
+        "https://www.hoyaragon.es/articulo/noticias-aragon/box2bit-epila-centro-datos-carinena/20260129112439121735.html",
+        "https://www.eldiario.es/aragon/economia/empresa-box2bit-invertira-3-900-millones-euros-centro-datos-epila-renunciar-carinena_1_12942482.html",
+        "https://www.eldiario.es/aragon/economia/alivio-carinena-fiasco-centro-datos-yudigar-creara-150-empleos-parcelas-liberadas-box2bit_1_13007128.html",
+        "https://www.datacenterdynamics.com/es/noticias/box2bit-hace-las-maletas-del-bloqueo-energ%C3%A9tico-de-cari%C3%B1ena-al-hyperscale-so%C3%B1ado-en-%C3%A9pila/"
+      ]
+    },
+    {
+      "id": "box2bit-epila",
+      "operator": "Box2Bit",
+      "operator_entity": "Box2Bit (Quantum Global Assets group)",
+      "operator_type": "spanish_independent",
+      "site_name": "Box2Bit Épila — 'Epilon'",
+      "municipality": "Épila",
+      "province": "Zaragoza",
+      "lat": 41.5994,
+      "lon": -1.2842,
+      "coords_precision": "town_centroid",
+      "status": "permitted",
+      "phase_notes": "Replacement project after Cariñena was excluded from REE grid plan. 33 ha (expandable to 100), adjacent to A-2. Phase 1: 2 DC buildings + access control. Phase 2 pending additional 300+ MW.",
+      "first_announced": "2026-01",
+      "operational_date": "2029",
+      "investment_eur_million_phase1": 1125,
+      "investment_eur_million_full": 3900,
+      "investment_eur_million_phase2": 2775,
+      "capacity_mw_initial": 150,
+      "capacity_mw_max": 520,
+      "investors": [{"name": "Box2Bit / Quantum Global Assets group", "role": "developer", "type": "spanish_independent"}],
+      "clients": [{"name": "No anchor tenant disclosed", "confirmed": false}],
+      "tenant_status": "speculative",
+      "speculative": true,
+      "speculative_reasoning": "Same speculative profile as the failed Cariñena project. €3.9B spec spend without disclosed anchor tenant.",
+      "energy": {"site_demand_mw": 150, "site_demand_mw_max": 520, "grid_connection": "REE — Épila/A-2 corridor"},
+      "permits": [{"type": "Declaración de Interés Autonómico", "approval_date": "2026-01-28", "source": "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html"}],
+      "expedited_indicators": {"uses_piga": true, "notes": "DGA expedited administrative procedures for the Epilon project."},
+      "sources": [
+        "https://www.eldiario.es/aragon/economia/empresa-box2bit-invertira-3-900-millones-euros-centro-datos-epila-renunciar-carinena_1_12942482.html",
+        "https://www.aragondigital.es/articulo/economia/dga-precisa-detalles-centro-datos-box2bit-epila-primera-fase-1125-millones/20260128124944963318.html",
+        "https://www.calatayudnoticias.com/otras-comarcas/comarca-de-valdejalon/16742-box2bit-impulsa-un-macrocentro-de-datos-en-epila-con-una-inversion-de-3-900-millones-y-mas-de-1-500-empleos-en-su-construccion",
+        "https://www.elespanol.com/aragon/economia/20260128/empresa-espanola-box2bit-invertira-millones-euros-nuevo-centro-datos-epila-zaragoza/1003744106965_0.html"
       ]
     },
     {
@@ -615,12 +701,24 @@
       "speculative": true,
       "speculative_reasoning": "Forestalia is a renewable-energy developer with no DC operating history. €12B speculative spend across 3 sites is one of the largest pure-speculative DC bets in Europe. Anchor tenant absent.",
       "energy": {"site_demand_mw": 143.5, "grid_connection": "REE 'Magallón 220 kV' nudo", "self_consumption_pct": 50, "source": "https://www.cartv.es/aragonnoticias/aragon/forestalia-invertira-12-000-millones-en-tres-nuevos-centros-de-datos-en-magallon-botorrita-y-alfamen-35467"},
-      "permits": [{"type": "PIGA", "name": "PIGA Proyecto Búfalo (Forestalia)", "boa_reference": "ORDEN PEJ/1656/2025, 25 Nov 2025", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
-      "expedited_indicators": {"uses_piga": true},
+      "permits": [{"type": "PIGA", "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo", "boa_reference": "BOA20251202020 (BOA #233, 2025-12-02)", "approval_date": "2025-11-25", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "scandal": {
+          "name": "Operación Perserte (UCO/UCOMA Guardia Civil)",
+          "description": "On March 3, 2026, the Guardia Civil's environmental unit (UCOMA) detained 6 people including Forestalia owner Fernando Samper Rivas as the alleged 'central hub' from the private sector, plus a former senior MITECO official (Eugenio Jesús Domínguez Collado). 12 simultaneous searches (10 Madrid, 2 Zaragoza). Charges: environmental prevarication, bribery, money laundering, criminal organization. Investigators allege Domínguez manipulated dozens of environmental permits in favor of Forestalia projects in exchange for compensation. The PIGA Búfalo was approved by the Aragón government FOUR MONTHS before the Azcón administration asked PSOE be investigated over Forestalia ties. Forestalia has subsequently divested 2 of 3 Búfalo centers.",
+          "operation_date": "2026-03-03",
+          "court": "Juzgado de Instrucción Nº 1 de Teruel",
+          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html",
+          "secondary_source": "https://theobjective.com/espana/tribunales/2026-03-19/forestalia-macroproyecto-centros-datos-investigacion/"
+        }
+      },
       "sources": [
         "https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html",
         "https://www.cartv.es/aragonnoticias/aragon/forestalia-invertira-12-000-millones-en-tres-nuevos-centros-de-datos-en-magallon-botorrita-y-alfamen-35467",
-        "https://www.eleconomista.es/tecnologia/noticias/13673015/12/25/asi-seran-los-centros-de-datos-de-forestalia-12000-millones-de-inversion-mucha-energia-y-tres-fases-de-ejecucion.html"
+        "https://www.eleconomista.es/tecnologia/noticias/13673015/12/25/asi-seran-los-centros-de-datos-de-forestalia-12000-millones-de-inversion-mucha-energia-y-tres-fases-de-ejecucion.html",
+        "https://www.hoyaragon.es/articulo/noticias-aragon/fernando-samper-forestalia-permisos/20260303143556124279.html",
+        "https://www.eldiario.es/aragon/politica/gobierno-azcon-pide-investigar-psoe-forestalia-cuatro-meses-despues-bendecir-tres-centros-datos_1_13059273.html"
       ]
     },
     {
@@ -642,8 +740,15 @@
       "speculative": true,
       "speculative_reasoning": "Same as Magallón — Forestalia speculative pipeline.",
       "energy": {"site_demand_mw": 164.8, "grid_connection": "REE 'María 220 kV' nudo", "self_consumption_pct": 50},
-      "permits": [{"type": "PIGA", "name": "PIGA Proyecto Búfalo", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
-      "expedited_indicators": {"uses_piga": true},
+      "permits": [{"type": "PIGA", "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo", "boa_reference": "BOA20251202020", "approval_date": "2025-11-25", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "scandal": {
+          "name": "Operación Perserte (UCO/UCOMA)",
+          "description": "Forestalia owner Fernando Samper detained March 3, 2026 in environmental-corruption operation. See full description on Magallón site entry. Forestalia has divested 2 of 3 Búfalo centers amid investigation.",
+          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html"
+        }
+      },
       "sources": ["https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"]
     },
     {
@@ -665,8 +770,15 @@
       "speculative": true,
       "speculative_reasoning": "Largest of the three Búfalo sites. Same speculative profile.",
       "energy": {"site_demand_mw": 293, "grid_connection": "REE 'Los Vientos 220 kV' nudo", "self_consumption_pct": 50},
-      "permits": [{"type": "PIGA", "name": "PIGA Proyecto Búfalo", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
-      "expedited_indicators": {"uses_piga": true},
+      "permits": [{"type": "PIGA", "name": "ORDEN PEJ/1656/2025 — Proyecto Búfalo", "boa_reference": "BOA20251202020", "approval_date": "2025-11-25", "url": "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636"}],
+      "expedited_indicators": {
+        "uses_piga": true,
+        "scandal": {
+          "name": "Operación Perserte (UCO/UCOMA)",
+          "description": "Largest of the 3 Búfalo sites. Forestalia owner Fernando Samper detained March 3, 2026 in environmental-corruption operation. See full description on Magallón site entry.",
+          "source": "https://www.eldiario.es/aragon/politica/dueno-forestalia-exalto-cargo-transicion-ecologica-detenidos-presunta-corrupcion-renovables_1_13035201.html"
+        }
+      },
       "sources": ["https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"]
     }
   ],
