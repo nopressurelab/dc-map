@@ -32,6 +32,7 @@ const I18N = {
     download: 'Download dataset (JSON)',
     contribute: 'Contribute on GitHub',
     license_prefix: 'License:',
+    about: 'About this project →',
     updated: 'Updated',
 
     agg_sites_dataset: 'Sites mapped (this dataset)',
@@ -125,6 +126,7 @@ const I18N = {
     download: 'Descargar datos (JSON)',
     contribute: 'Contribuir en GitHub',
     license_prefix: 'Licencia:',
+    about: 'Sobre este proyecto →',
     updated: 'Actualizado',
 
     agg_sites_dataset: 'Sitios mapeados (este conjunto)',
