@@ -261,6 +261,14 @@ function enumT(field, value) {
   return dict[value] || value;
 }
 
+// Format investment € in millions. Always shows millions — the rawness of a
+// figure like "€33,700 M" carries scale better than the more abstract "€33.7 B".
+function fmtEur(millions) {
+  if (millions == null) return '—';
+  const locale = STATE.lang === 'es' ? 'es-ES' : 'en-US';
+  return '€' + millions.toLocaleString(locale) + ' M';
+}
+
 const map = L.map('map', { preferCanvas: true }).setView([41.65, -0.9], 8);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -320,7 +328,7 @@ function renderAggregate(d) {
     <dt>${t('agg_sites_dataset')}</dt><dd>${d.sites.length}</dd>
     <dt>${t('agg_ngo_sites')}</dt><dd>${fmt(a.ngo_mapped_sites)}</dd>
     <dt>${t('agg_projected_mw')}</dt><dd>${fmt(a.ngo_mapped_total_mw)} MW</dd>
-    <dt>${t('agg_committed')}</dt><dd>€${fmt(a.official_commitment_eur_million_nov2025)} M</dd>
+    <dt>${t('agg_committed')}</dt><dd>${fmtEur(a.official_commitment_eur_million_nov2025)}</dd>
     <dt>${t('agg_operational')}</dt><dd>${fmt(a.currently_operational_sites)} / ${fmt(a.currently_operational_mw)} MW</dd>
     <dt>${t('agg_share_2024')}</dt><dd>${fmt(a.current_share_regional_electricity_pct)}%</dd>
     <dt>${t('agg_share_2030')}</dt><dd>${fmt(a.projected_2030_share_pct)}% / ${fmt(a.projected_2030_demand_twh)} TWh</dd>
@@ -423,7 +431,7 @@ function popupHtml(s) {
     <div>${badges.join(' ')}</div>
     <p style="margin:6px 0;">
       <strong>${t('pop_operator')}</strong> ${s.operator}<br>
-      ${inv ? `<strong>${t('pop_investment')}</strong> €${inv.toLocaleString()} M<br>` : ''}
+      ${inv ? `<strong>${t('pop_investment')}</strong> ${fmtEur(inv)}<br>` : ''}
       ${mw ? `<strong>${t('pop_capacity')}</strong> ${mw} MW<br>` : ''}
       <strong>${t('pop_tenant')}</strong> ${formatTenant(s)}
     </p>
@@ -532,9 +540,9 @@ function renderFullSite(s) {
       ${s.first_announced ? `<tr><th>${t('tbl_announced')}</th><td>${s.first_announced}</td></tr>` : ''}
       ${s.operational_date ? `<tr><th>${t('tbl_operational')}</th><td>${s.operational_date}</td></tr>` : ''}
       ${s.construction_start ? `<tr><th>${t('tbl_construction')}</th><td>${s.construction_start}</td></tr>` : ''}
-      ${s.investment_eur_million ? `<tr><th>${t('tbl_investment')}</th><td>${s.investment_eur_million.toLocaleString()}</td></tr>` : ''}
-      ${s.investment_eur_million_phase1 ? `<tr><th>${t('tbl_investment_p1')}</th><td>${s.investment_eur_million_phase1.toLocaleString()}</td></tr>` : ''}
-      ${s.investment_eur_million_full ? `<tr><th>${t('tbl_investment_full')}</th><td>${s.investment_eur_million_full.toLocaleString()}</td></tr>` : ''}
+      ${s.investment_eur_million ? `<tr><th>${t('tbl_investment')}</th><td>${fmtEur(s.investment_eur_million)}</td></tr>` : ''}
+      ${s.investment_eur_million_phase1 ? `<tr><th>${t('tbl_investment_p1')}</th><td>${fmtEur(s.investment_eur_million_phase1)}</td></tr>` : ''}
+      ${s.investment_eur_million_full ? `<tr><th>${t('tbl_investment_full')}</th><td>${fmtEur(s.investment_eur_million_full)}</td></tr>` : ''}
       ${s.capacity_mw ? `<tr><th>${t('tbl_capacity')}</th><td>${s.capacity_mw} MW</td></tr>` : ''}
       ${s.capacity_mw_initial ? `<tr><th>${t('tbl_capacity_init')}</th><td>${s.capacity_mw_initial} MW</td></tr>` : ''}
       ${s.capacity_mw_expanded ? `<tr><th>${t('tbl_capacity_exp')}</th><td>${s.capacity_mw_expanded} MW</td></tr>` : ''}
