@@ -6,24 +6,30 @@ Every datapoint is cited. The schema captures **operator, investors, clients, en
 
 ## Run it
 
-The page needs HTTP to fetch the JSON (`file://` blocks `fetch`). Serve from this folder (the project root, not `web/`):
+The page needs HTTP to fetch the JSON (`file://` blocks `fetch`). From the project root:
 
 ```bash
 python3 -m http.server 8000
-# then open http://localhost:8000/web/
+# then open http://localhost:8000/
 ```
+
+## Deploy
+
+It's a fully static site — drop the whole folder on any static host.
+
+- **Cloudflare Pages** (recommended): Pages → Connect to git → pick this repo → leave build command empty, publish directory `/` → done. Custom domain in the Pages UI.
+- **GitHub Pages**: Settings → Pages → Source: Deploy from branch → `main` / `/ (root)`.
+- **Netlify**: New site → import from git → publish directory `/`.
 
 ## File layout
 
 ```
-aragon-dc-map/
-├── data/
-│   └── datacenters.json     # the dataset — extend this to add sites
-├── web/
-│   ├── index.html
-│   ├── style.css
-│   └── app.js
-└── research/                # working notes
+dc-map/
+├── index.html
+├── style.css
+├── app.js
+├── data/datacenters.json     # the dataset — extend this to add sites
+└── README.md
 ```
 
 ## Editorial angles surfaced by the schema

@@ -1,5 +1,5 @@
 // Aragón Datacenter Map — main app
-// Loads ../data/datacenters.json, renders Leaflet markers, sidebar filters, and site detail dialog.
+// Loads data/datacenters.json, renders Leaflet markers, sidebar filters, and site detail dialog.
 
 const COLORS = {
   hyperscaler: '#58a6ff',
@@ -29,7 +29,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19
 }).addTo(map);
 
-fetch('../data/datacenters.json')
+fetch('data/datacenters.json')
   .then(r => r.json())
   .then(data => {
     STATE.data = data;
