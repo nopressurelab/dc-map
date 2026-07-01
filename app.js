@@ -20,6 +20,7 @@ const I18N = {
     litigated_only: 'Litigation or alegaciones only',
     piga_only: 'Uses PIGA fast-track only',
     high_risk_only: 'High vacancy risk only',
+    thermal_plume: 'Show 500 m thermal plume (ASME 2026)',
     risk_label: 'Risk:',
     operators: 'Operators',
     legend: 'Legend',
@@ -40,6 +41,7 @@ const I18N = {
     nav_munis: 'Six towns bearing the burden: La Puebla de Híjar (935 people, €5B campus) to Épila →',
     nav_types: 'Primer: what a datacenter is, six types, cooling, and the local heat impact →',
     nav_press: 'For press: headline numbers, quote-ready lines, CSV download →',
+    nav_organize: 'Citizens & activists kit: how to research a project, file alegaciones, organise →',
     updated: 'Updated',
 
     agg_sites_dataset: 'Sites mapped (this dataset)',
@@ -121,6 +123,7 @@ const I18N = {
     litigated_only: 'Solo con litigio o alegaciones',
     piga_only: 'Solo con PIGA (vía rápida)',
     high_risk_only: 'Solo con alto riesgo de vacancia',
+    thermal_plume: 'Mostrar penacho térmico 500 m (ASME 2026)',
     risk_label: 'Riesgo:',
     operators: 'Operadores',
     legend: 'Leyenda',
@@ -141,6 +144,7 @@ const I18N = {
     nav_munis: 'Seis municipios que cargan con el peso: de La Puebla de Híjar (935 hab, €5.000 M) a Épila →',
     nav_types: 'Introducción: qué es un CD, seis tipos, refrigeración e impacto térmico local →',
     nav_press: 'Para prensa: cifras titulares, frases citables, descarga CSV →',
+    nav_organize: 'Kit ciudadano y activista: cómo investigar, alegar y organizarse →',
     updated: 'Actualizado',
 
     agg_sites_dataset: 'Sitios mapeados (este conjunto)',
@@ -218,6 +222,7 @@ const I18N = {
 const STATE = {
   data: null,
   layer: null,
+  plumeLayer: null,
   lang: localStorage.getItem('lang') || 'en',
   filters: {
     speculative: false,
@@ -225,8 +230,16 @@ const STATE = {
     piga: false,
     high_risk: false,
     operators: new Set()
-  }
+  },
+  thermalPlume: false
 };
+
+// Waste-heat helper. Given MW, returns TJ/year rejected (1st-law assumption: nearly all electricity → heat).
+// TJ/year = MW × 8760 h × 3.6 (GJ per MWh) / 1000 (GJ per TJ)
+function wasteHeatTJ(mw) {
+  if (!mw) return null;
+  return mw * 8760 * 3.6 / 1000;
+}
 
 function t(key) { return I18N[STATE.lang][key] || key; }
 
@@ -426,6 +439,8 @@ function wireFilters() {
   document.getElementById('f-piga').addEventListener('change', e => { STATE.filters.piga = e.target.checked; renderMarkers(); });
   var hr = document.getElementById('f-high-risk');
   if (hr) hr.addEventListener('change', e => { STATE.filters.high_risk = e.target.checked; renderMarkers(); });
+  var tp = document.getElementById('f-thermal-plume');
+  if (tp) tp.addEventListener('change', e => { STATE.thermalPlume = e.target.checked; renderMarkers(); });
 
   const dialog = document.getElementById('site-dialog');
   document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
@@ -464,7 +479,27 @@ function radiusForSite(s) {
 
 function renderMarkers() {
   if (STATE.layer) STATE.layer.remove();
+  if (STATE.plumeLayer) STATE.plumeLayer.remove();
   STATE.layer = L.layerGroup();
+  STATE.plumeLayer = L.layerGroup();
+
+  STATE.data.sites.filter(sitePassesFilters).forEach(s => {
+    // Thermal plume overlay: 500 m radius per ASME 2026 downwind detection distance.
+    if (STATE.thermalPlume) {
+      L.circle([s.lat, s.lon], {
+        radius: 500,
+        fillColor: '#f85149',
+        fillOpacity: 0.14,
+        color: '#cf222e',
+        weight: 1,
+        opacity: 0.45,
+        interactive: false
+      }).addTo(STATE.plumeLayer);
+    }
+    return true;
+  });
+
+  if (STATE.thermalPlume) STATE.plumeLayer.addTo(map);
 
   STATE.data.sites.filter(sitePassesFilters).forEach(s => {
     const color = COLORS[s.operator_type] || '#888';
@@ -532,6 +567,7 @@ function openDialog(s) {
 
 function renderFullSite(s) {
   const ei = s.expedited_indicators || {};
+  var risk = computeRisk(s);
   const lit = (ei.litigation || []).map(l => `
     <li>${l.plaintiff || l.objectors || l.stage || 'Action'} — ${l.court || ''} ${l.filed || l.filed_year || ''}
       ${l.note ? '<em>' + l.note + '</em>' : ''}
@@ -644,6 +680,17 @@ function renderFullSite(s) {
 
     <h3>${t('sec_permits')}</h3>
     <ul>${permits || '<li>—</li>'}</ul>
+
+    <h3>${STATE.lang === 'es' ? 'Calor residual estimado' : 'Estimated waste heat'}</h3>
+    <p>${(function () {
+      var mw = s.capacity_mw || s.capacity_mw_initial || s.capacity_mw_max || s.capacity_mw_expanded || (s.energy && s.energy.site_demand_mw);
+      var tj = wasteHeatTJ(mw);
+      if (!tj) return STATE.lang === 'es' ? '<em>No se ha divulgado el MW del sitio; el calor residual anual no se puede calcular.</em>' : '<em>Site MW not disclosed; annual waste heat not computable.</em>';
+      var mwhy = mw * 8760;
+      return (STATE.lang === 'es'
+        ? '≈ <strong>' + Math.round(tj).toLocaleString('es-ES') + ' TJ/año</strong> (' + Math.round(mwhy).toLocaleString('es-ES') + ' MWh) rechazados como calor. Prácticamente toda la electricidad de un centro de datos sale como calor (primera ley de la termodinámica). Un estudio revisado por pares (ASME 2026) ha medido un calentamiento a sotavento de 0,7 a 2,2°C hasta 500 m del perímetro.'
+        : '≈ <strong>' + Math.round(tj).toLocaleString('en-US') + ' TJ/yr</strong> (' + Math.round(mwhy).toLocaleString('en-US') + ' MWh) rejected as heat. Essentially all electricity into a datacenter comes out as heat (first law of thermodynamics). Peer-reviewed research (ASME 2026) has measured 0.7–2.2°C downwind warming up to 500 m from the perimeter.');
+    })()}</p>
 
     <h3>${STATE.lang === 'es' ? 'Puntuación de riesgo de vacancia' : 'Vacancy risk score'}</h3>
     <p>

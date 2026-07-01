@@ -70,6 +70,61 @@
     "aws_total_hectares_3_provinces": 459,
     "aws_plan_source": "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html"
   },
+  "climate_baselines": {
+    "notes": "Reference climate figures for the corridor. Most Aragón DC sites sit in the Ebro valley (semi-arid continental). Sub-zones distinguish Bajo Martín (Teruel), where AWS La Puebla de Híjar sits, and the Walqa/Huesca area for AWS Walqa. Yearly per-station data available via AEMET (station 9434 for Zaragoza airport) and tutiempo.net 1973-2025 series.",
+    "aemet_zaragoza_source": "https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=9434&k=arn",
+    "aemet_series_source": "https://en.tutiempo.net/climate/ws-81600.html",
+    "atlas_climatico_aragon": "https://idearagon.aragon.es/atlas/Clima/info/serie-historica-aemet/temperatura/temperatura-media-mensual-anual--grados-celsius-",
+    "zones": {
+      "ebro_valley": {
+        "provinces": ["Zaragoza"],
+        "annual_mean_c": 15.5,
+        "summer_mean_c": 24.5,
+        "july_max_c_avg": 32,
+        "record_max_c": 42.8,
+        "record_max_date": "2010-08-26",
+        "first_tropical_night_c": 25.7,
+        "first_tropical_night_date": "2023-08-23",
+        "aemet_reference": "Zaragoza aeropuerto (9434)",
+        "note": "Enclosed-basin oven effect; heatwaves regularly push above 40C"
+      },
+      "bajo_martin": {
+        "provinces": ["Teruel"],
+        "annual_mean_c": 14.5,
+        "summer_mean_c": 23.5,
+        "july_max_c_avg": 32,
+        "note": "Slightly cooler than Zaragoza in winter, similar summer maxima; AWS La Puebla de Híjar sits here"
+      },
+      "walqa_huesca": {
+        "provinces": ["Huesca"],
+        "annual_mean_c": 14,
+        "summer_mean_c": 22.5,
+        "july_max_c_avg": 30.5,
+        "note": "Cooler and slightly wetter than Ebro-valley baseline"
+      }
+    },
+    "spain_ranking_top_summers_21st_century_share": 9,
+    "spain_ranking_top_summers_source": "https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025",
+    "summer_2025_beat_2003_by_c": 0.6
+  },
+  "drought_episodes_che_ebro": {
+    "source": "https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf",
+    "coverage_source": "https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html",
+    "episodes": [
+      {"years": [2004, 2005, 2006, 2007], "severity": "prolonged", "note": "First major post-plan drought; effects extended through 2007"},
+      {"years": [2016, 2017, 2018], "severity": "moderate", "note": "Headwaters and right-margin Ebro up to the Martín river"},
+      {"years": [2021, 2022, 2023], "severity": "extreme", "note": "2022-23 hydrological year: 85% of basin in prolonged drought, 45% in emergency, most intense since the 1990s"}
+    ]
+  },
+  "waste_heat_reference": {
+    "formula": "MW_IT * 8760 hours * 3.6 GJ/MWh = TJ_year",
+    "assumption": "Essentially all electrical input to a datacenter is rejected as heat (thermodynamic first law).",
+    "study_downwind_warming_c_max": 2.2,
+    "study_downwind_warming_c_avg": 0.85,
+    "study_thermal_signature_distance_m": 500,
+    "study_heat_flux_w_per_m2": 6000,
+    "study_source": "https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban"
+  },
   "litigation_overview": {
     "first_dc_lawsuit_in_spain": {
       "plaintiff_lead": "Ecologistas en Acción",

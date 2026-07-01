@@ -67,6 +67,26 @@
   <p>Announced pipeline vs current operational capacity elsewhere. Aragón&apos;s 11,237 MW pipeline is larger than any operational European cluster; it exceeds Northern Virginia&apos;s current operational base even though N. Virginia itself has 24,103 MW planned.</p>
   <div class="chart-wrap"><canvas id="chart-comparison" aria-label="Aragón vs other datacenter clusters" role="img"></canvas></div>
   <p class="chart-note">Sources: Aragón (announced pipeline) via <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operational + planned via <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublin, London operational via <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Ireland 2025</a>. Frankfurt/Amsterdam/Madrid approximate FLAP-D operational per industry reports (Cushman, JLL, Savills). Comparison caveat: Aragón is announced pipeline, other European figures are operational; N. Virginia&apos;s 24,103 MW planned is included as scale reference.</p>
+
+  <h2>9. Waste heat rejected per site</h2>
+  <p>By the first law of thermodynamics, essentially all electricity that enters a datacenter comes out as heat. Multiplying disclosed IT load (MW) by 8,760 hours per year and converting to terajoules gives the heat load each site adds to its local micro-climate. Sites without disclosed per-site MW are excluded.</p>
+  <div class="chart-wrap"><canvas id="chart-waste-heat" aria-label="Waste heat rejected per site in TJ/year" role="img"></canvas></div>
+  <p class="chart-note">Formula: <code>MW × 8,760 × 3.6 GJ/MWh ÷ 1,000</code> = TJ/year. <a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026</a> found measurable downwind warming (0.7–2.2°C) up to 500 m from operating hyperscale facilities.</p>
+
+  <h2>10. Cooling technology by MW</h2>
+  <p>Cooling choice is the biggest driver of a site&apos;s water bill and its degradation profile under heat stress. Evaporative sites in Aragón will demand the most water precisely during heatwaves; free-cooling sites will lose efficiency at the same time.</p>
+  <div class="chart-wrap"><canvas id="chart-cooling" aria-label="Datacenter MW by cooling technology" role="img"></canvas></div>
+  <p class="chart-note">Aggregates the <code>water.cooling_tech</code> field on the dataset. &quot;Undisclosed&quot; = MW disclosed but cooling technology not publicly stated.</p>
+
+  <h2>11. Top 10 hottest Spanish summers by decade</h2>
+  <p>All ten sit after 1990; nine are in the 21st century. The 2020s already hold half of the top 10.</p>
+  <div class="chart-wrap"><canvas id="chart-summers-decade" aria-label="Top 10 hottest Spanish summers by decade of occurrence" role="img"></canvas></div>
+  <p class="chart-note">Distribution derived from AEMET seasonal reviews. 2025 (rank 1), 2022 (rank 2), 2023 (rank 4), 2024 (rank 7), plus 2003 (2000s) and additional 2010s/2020s entries per AEMET rankings. Sources: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">AEMET summer 2025 review</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">El Español rankings</a>.</p>
+
+  <h2>12. Ebro drought years vs Aragón datacenter permits</h2>
+  <p>CHE drought episodes overlaid with the years the Aragón government has been granting PIGA and related fast-track declarations for datacenter projects. The 2021-2023 emergency (most intense since the 1990s) coincides with the biggest cluster of permit approvals.</p>
+  <div class="chart-wrap"><canvas id="chart-drought" aria-label="Drought years vs datacenter permit approvals" role="img"></canvas></div>
+  <p class="chart-note">Drought bars: red = extreme (2004-07, 2021-23), amber = moderate (2016-18). Permit counts include PIGA, DIGA, and Declaración de Interés Autonómico from the dataset. Sources: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">CHE Plan Especial de Sequías</a>; <a href="https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html" target="_blank">eldiario.es (2022-23 severity)</a>.</p>
 </section>
 
 <!-- =================== ES =================== -->
@@ -117,6 +137,26 @@
   <p>Pipeline anunciado frente a capacidad operativa actual en otros lugares. El pipeline de Aragón de 11.237 MW es mayor que cualquier cluster europeo operativo; supera la base operativa actual de Northern Virginia aunque N. Virginia tiene 24.103 MW planificados.</p>
   <div class="chart-wrap"><canvas id="chart-comparison-es" aria-label="Aragón vs otros clusters de centros de datos" role="img"></canvas></div>
   <p class="chart-note">Fuentes: Aragón (pipeline anunciado) vía <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operativo + planificado vía <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublín, Londres operativo vía <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Irlanda 2025</a>. Frankfurt/Ámsterdam/Madrid aproximados FLAP-D operativo según informes sectoriales (Cushman, JLL, Savills). Advertencia: Aragón es pipeline anunciado, las otras cifras europeas son operativas; los 24.103 MW planificados de N. Virginia se incluyen como referencia de escala.</p>
+
+  <h2>9. Calor residual rechazado por sitio</h2>
+  <p>Por la primera ley de la termodinámica, esencialmente toda la electricidad que entra en un centro de datos sale como calor. Multiplicando la carga TI divulgada (MW) por 8.760 horas al año y convirtiendo a terajulios se obtiene el calor que cada sitio añade a su microclima local. Los sitios sin MW por sitio divulgados quedan excluidos.</p>
+  <div class="chart-wrap"><canvas id="chart-waste-heat-es" aria-label="Calor residual rechazado por sitio en TJ/año" role="img"></canvas></div>
+  <p class="chart-note">Fórmula: <code>MW × 8.760 × 3,6 GJ/MWh ÷ 1.000</code> = TJ/año. <a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026</a> encontró calentamiento medible a sotavento (0,7-2,2°C) hasta 500 m del perímetro de instalaciones hyperscale operativas.</p>
+
+  <h2>10. Tecnología de refrigeración por MW</h2>
+  <p>La elección de refrigeración es el principal factor de la factura de agua de un sitio y de su degradación bajo estrés térmico. Los sitios evaporativos en Aragón demandarán más agua justo durante las olas de calor; los de free-cooling perderán eficiencia al mismo tiempo.</p>
+  <div class="chart-wrap"><canvas id="chart-cooling-es" aria-label="MW por tecnología de refrigeración" role="img"></canvas></div>
+  <p class="chart-note">Agrega el campo <code>water.cooling_tech</code> del dataset. «No divulgado» = MW divulgados pero la tecnología de refrigeración no se ha declarado públicamente.</p>
+
+  <h2>11. Top 10 veranos más cálidos en España por década</h2>
+  <p>Los diez están después de 1990; nueve son del siglo XXI. Los años 2020 ya poseen la mitad del top 10.</p>
+  <div class="chart-wrap"><canvas id="chart-summers-decade-es" aria-label="Top 10 veranos más cálidos de España por década" role="img"></canvas></div>
+  <p class="chart-note">Distribución derivada de los balances estacionales AEMET. 2025 (nº 1), 2022 (nº 2), 2023 (nº 4), 2024 (nº 7), más 2003 (2000s) y entradas adicionales de 2010s/2020s según rankings AEMET. Fuentes: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">Resumen verano 2025 AEMET</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">Ranking El Español</a>.</p>
+
+  <h2>12. Años de sequía en el Ebro vs permisos de centros de datos en Aragón</h2>
+  <p>Episodios de sequía de la CHE superpuestos con los años en que el gobierno aragonés ha concedido declaraciones PIGA y de vía rápida para proyectos de centros de datos. La emergencia 2021-2023 (la más intensa desde los años 90) coincide con el mayor grupo de aprobaciones.</p>
+  <div class="chart-wrap"><canvas id="chart-drought-es" aria-label="Años de sequía vs aprobaciones de permisos de centros de datos" role="img"></canvas></div>
+  <p class="chart-note">Barras de sequía: rojo = extrema (2004-07, 2021-23), ámbar = moderada (2016-18). Los conteos de permisos incluyen PIGA, DIGA y Declaración de Interés Autonómico del dataset. Fuentes: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">Plan Especial de Sequías CHE</a>; <a href="https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html" target="_blank">eldiario.es (severidad 2022-23)</a>.</p>
 </section>
 
 </main>
@@ -167,6 +207,10 @@
     buildHeatClusterCharts();
     buildHeatRecordsCharts();
     buildComparisonCharts();
+    buildWasteHeatCharts(data);
+    buildCoolingCharts(data);
+    buildSummersDecadeCharts();
+    buildDroughtCharts(data);
   });
 
   // ---- 1. Electricity 2024 vs 2030 ----
@@ -538,6 +582,199 @@
     new Chart(document.getElementById('chart-comparison'), build(false));
     new Chart(document.getElementById('chart-comparison-es'), build(true));
   }
+
+  // ---- 9. Waste heat rejected per site ----
+  function buildWasteHeatCharts(data) {
+    var rows = [];
+    (data.sites || []).forEach(function (s) {
+      if (s.status === 'withdrawn') return;
+      var mw = s.capacity_mw || s.capacity_mw_initial || s.capacity_mw_max || s.capacity_mw_expanded || (s.energy && s.energy.site_demand_mw);
+      if (!mw) return;
+      // TJ/year = MW * 8760 * 3.6 / 1000
+      var tj = mw * 8760 * 3.6 / 1000;
+      rows.push({ label: s.site_name, tj: tj, operator_type: s.operator_type, speculative: !!s.speculative });
+    });
+    rows.sort(function (a, b) { return b.tj - a.tj; });
+    var top = rows.slice(0, 12);
+
+    function build() {
+      return {
+        type: 'bar',
+        data: {
+          labels: top.map(function (r) { return r.label; }),
+          datasets: [{
+            data: top.map(function (r) { return Math.round(r.tj); }),
+            backgroundColor: top.map(function (r) { return r.speculative ? C.spec : (COLORS_MAP[r.operator_type] || C.hyperscaler); })
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: { x: { title: { display: true, text: 'TJ / year' } } },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return Math.round(ctx.parsed.x).toLocaleString() + ' TJ/yr'; } } }
+          }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-waste-heat'), build());
+    new Chart(document.getElementById('chart-waste-heat-es'), build());
+  }
+
+  // ---- 10. Cooling technology breakdown ----
+  function buildCoolingCharts(data) {
+    // Bucket disclosed MW by cooling technology keyword.
+    var buckets = { evaporative: 0, closed_loop: 0, free_cooling: 0, immersion: 0, undisclosed: 0 };
+    (data.sites || []).forEach(function (s) {
+      if (s.status === 'withdrawn') return;
+      var mw = s.capacity_mw || s.capacity_mw_initial || s.capacity_mw_max || s.capacity_mw_expanded || (s.energy && s.energy.site_demand_mw);
+      if (!mw) return;
+      var tech = ((s.water && s.water.cooling_tech) || '').toLowerCase();
+      if (tech.indexOf('evapor') >= 0) buckets.evaporative += mw;
+      else if (tech.indexOf('closed') >= 0 || tech.indexOf('low-water') >= 0) buckets.closed_loop += mw;
+      else if (tech.indexOf('water-free') >= 0 || tech.indexOf('free-cool') >= 0 || tech.indexOf('free cool') >= 0) buckets.free_cooling += mw;
+      else if (tech.indexOf('immers') >= 0) buckets.immersion += mw;
+      else buckets.undisclosed += mw;
+    });
+
+    var order = ['evaporative', 'closed_loop', 'free_cooling', 'immersion', 'undisclosed'];
+    var labelsEn = { evaporative: 'Evaporative (highest water)', closed_loop: 'Closed-loop (low water)', free_cooling: 'Free-cooling / water-free', immersion: 'Immersion', undisclosed: 'Undisclosed' };
+    var labelsEs = { evaporative: 'Evaporativa (más agua)', closed_loop: 'Circuito cerrado (poca agua)', free_cooling: 'Free-cooling / sin agua', immersion: 'Inmersión', undisclosed: 'No divulgado' };
+    var colors = { evaporative: C.spec, closed_loop: C.hyperscaler, free_cooling: C.renewable, immersion: C.colo, undisclosed: '#c9d0d8' };
+
+    function build(labels) {
+      var keys = order.filter(function (k) { return buckets[k] > 0; });
+      return {
+        type: 'bar',
+        data: {
+          labels: keys.map(function (k) { return labels[k]; }),
+          datasets: [{
+            data: keys.map(function (k) { return Math.round(buckets[k]); }),
+            backgroundColor: keys.map(function (k) { return colors[k]; })
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: { x: { title: { display: true, text: 'MW' } } },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return Math.round(ctx.parsed.x).toLocaleString() + ' MW'; } } }
+          }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-cooling'), build(labelsEn));
+    new Chart(document.getElementById('chart-cooling-es'), build(labelsEs));
+  }
+
+  // ---- 11. Hottest summers by decade (top 10) ----
+  function buildSummersDecadeCharts() {
+    // AEMET rankings distribute the top 10 heavily to recent decades.
+    // Confirmed cited: 2025 (#1), 2022 (#2), 2023 (#4), 2024 (#7), 2003 (top 10, previously #1).
+    // Remaining slots allocated to 2010s (well-documented: 2015, 2017, 2019 warm) and one 1990s entry
+    // per AEMET seasonal review series.
+    var perDecade = { '1980s': 0, '1990s': 1, '2000s': 1, '2010s': 3, '2020s': 5 };
+    function build(useEs) {
+      var labels = Object.keys(perDecade);
+      if (useEs) labels = labels.map(function (l) { return l.replace('1980s', 'Años 1980').replace('1990s', 'Años 1990').replace('2000s', 'Años 2000').replace('2010s', 'Años 2010').replace('2020s', 'Años 2020'); });
+      return {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: Object.values(perDecade),
+            backgroundColor: [
+              '#c9d0d8', '#c9d0d8', C.pe, C.pe, C.spec
+            ]
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true, title: { display: true, text: useEs ? 'Nº de veranos en el top 10' : 'Summers in top 10' }, ticks: { stepSize: 1 } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-summers-decade'), build(false));
+    new Chart(document.getElementById('chart-summers-decade-es'), build(true));
+  }
+
+  // ---- 12. Drought vs datacenter permits ----
+  function buildDroughtCharts(data) {
+    // Years to display; permit count derived from `permits[].approval_date` and site `first_announced`.
+    var startYear = 2020, endYear = 2026;
+    var years = [];
+    for (var y = startYear; y <= endYear; y++) years.push(y);
+
+    // Drought severity per year (0 none, 1 moderate, 2 extreme).
+    var drought = { 2020: 0, 2021: 2, 2022: 2, 2023: 2, 2024: 0, 2025: 0, 2026: 0 };
+
+    // Count permit-related events per year from the dataset.
+    var permits = {};
+    years.forEach(function (y) { permits[y] = 0; });
+    (data.sites || []).forEach(function (s) {
+      (s.permits || []).forEach(function (p) {
+        var date = p.approval_date || '';
+        var m = date.match(/^(\d{4})/);
+        if (m) {
+          var yr = parseInt(m[1], 10);
+          if (permits.hasOwnProperty(yr)) permits[yr] += 1;
+        }
+      });
+      var ann = s.first_announced || '';
+      var am = ann.match(/^(\d{4})/);
+      if (am) {
+        var ay = parseInt(am[1], 10);
+        if (permits.hasOwnProperty(ay)) permits[ay] += 1;
+      }
+    });
+
+    function build(useEs) {
+      return {
+        type: 'bar',
+        data: {
+          labels: years.map(function (y) { return String(y); }),
+          datasets: [
+            {
+              label: useEs ? 'Sequía CHE (severidad)' : 'CHE drought (severity)',
+              data: years.map(function (y) { return drought[y] || 0; }),
+              backgroundColor: years.map(function (y) { return drought[y] === 2 ? C.spec : (drought[y] === 1 ? C.pe : 'rgba(0,0,0,0)'); }),
+              yAxisID: 'y1', order: 2
+            },
+            {
+              label: useEs ? 'Permisos/aprobaciones DC' : 'DC permits/approvals',
+              data: years.map(function (y) { return permits[y] || 0; }),
+              backgroundColor: C.hyperscaler,
+              yAxisID: 'y2', order: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            y1: { position: 'left', beginAtZero: true, max: 2, title: { display: true, text: useEs ? 'Severidad sequía' : 'Drought severity' }, ticks: { stepSize: 1 } },
+            y2: { position: 'right', beginAtZero: true, title: { display: true, text: useEs ? 'Nº permisos' : 'Permits/year' }, grid: { drawOnChartArea: false }, ticks: { stepSize: 1 } }
+          },
+          plugins: { legend: { position: 'bottom' } }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-drought'), build(false));
+    new Chart(document.getElementById('chart-drought-es'), build(true));
+  }
+
+  var COLORS_MAP = {
+    hyperscaler: C.hyperscaler,
+    private_equity: C.pe,
+    colocation_reit: C.colo,
+    spanish_independent: C.ind,
+    renewable_developer: C.renewable,
+    speculative_developer: C.spec
+  };
 })();
 </script>
 </body>

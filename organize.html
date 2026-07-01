@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citizens &amp; activists kit, Aragón Datacenter Map</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="about-body">
+<header class="about-header">
+  <div class="about-header-inner">
+    <a href="index.html" class="back-link" data-i18n="back_to_map">← Back to map</a>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+  </div>
+</header>
+
+<main class="about-main">
+
+<!-- =================== EN =================== -->
+<section class="lang-block" data-lang-block="en">
+  <h1>Citizens &amp; activists kit</h1>
+  <p class="lede">If a datacenter is being announced near you, or you want to research a prospective project before it lands, this is the practical kit. Methodology, the questions to ask, and the organising template that worked in Aragón. All sources cited.</p>
+
+  <h2>Who this is for</h2>
+  <ul>
+    <li>Residents of an Aragón municipality where a project is announced or proposed.</li>
+    <li>Journalists, researchers, or civic groups outside Aragón who want to apply the same methodology to their own region.</li>
+    <li>Elected officials at the municipal level facing pressure to fast-track a project.</li>
+    <li>Community lawyers preparing alegaciones or judicial appeals.</li>
+  </ul>
+
+  <h2>Section 1, Methodology: how to research a datacenter project</h2>
+
+  <h3>Step 1 — Read the first press release critically</h3>
+  <p>Extract the exact promoter name (parent company + Spanish subsidiary), site municipality, land size (hectares), stated investment (€), stated capacity (MW), timeline, and any anchor-tenant claim. The absence of a named tenant is itself a signal. Save the original article URL.</p>
+
+  <h3>Step 2 — Search the official registries</h3>
+  <p>Search each of the below with the promoter name, project name, and municipality:</p>
+  <ul>
+    <li><a href="https://www.boa.aragon.es/" target="_blank">BOA (Boletín Oficial de Aragón)</a> — for PIGA, DIGA, and Declaración de Interés Autonómico orders.</li>
+    <li><a href="https://www.boe.es/buscar/" target="_blank">BOE (Boletín Oficial del Estado)</a> — for CHE water concession notices (BOE-B-…) and national-level environmental rulings.</li>
+    <li><a href="https://www.aragon.es/urbanismo-y-ordenacion-del-territorio/planes-y-proyectos-de-interes-para-aragon-pigas" target="_blank">PIGA registry (Gobierno de Aragón)</a> — for the full PIGA file.</li>
+    <li><a href="https://iber.chebro.es/consultas/raCriterios.aspx" target="_blank">CHE Comisaría de Aguas</a> — water concession applications, expediente numbers (e.g. 2024-DT-659 for AWS Canal Imperial).</li>
+    <li><a href="https://www.aragon.es/organismos/instituto-aragones-de-gestion-ambiental-inaga" target="_blank">INAGA</a> — environmental impact declarations (DIA) and integrated environmental authorisations (AAI).</li>
+    <li><a href="https://www.ree.es/es/clientes/generador/acceso-conexion/conoce-el-estado-de-las-solicitudes" target="_blank">REE (Red Eléctrica)</a> — grid connection queue status.</li>
+    <li>Municipal ayuntamiento website and BOP (Boletín Oficial de la Provincia) for municipal licenses and PGOU modifications.</li>
+  </ul>
+
+  <h3>Step 3 — Verify the anchor-tenant claim</h3>
+  <p>A datacenter without a named end customer is speculative. Confirm the tenant with:</p>
+  <ul>
+    <li>The company&apos;s own investor materials or 10-K (for US operators).</li>
+    <li>Cushman &amp; Wakefield, JLL, Savills, or CBRE datacenter market reports.</li>
+    <li>Datacenter Dynamics, Bisnow, S&amp;P Global market intelligence.</li>
+    <li>Direct question to the operator&apos;s Spain press office.</li>
+  </ul>
+  <p>If no answer is given, note it in the record.</p>
+
+  <h3>Step 4 — Cross-reference the water and energy story</h3>
+  <p>Match the announced MW against REE&apos;s published nudo capacity in the area. If the site sits on a nudo with reserved but non-energised capacity, note it, this is the failure mode that stranded Box2Bit Cariñena in January 2026. For water, verify whether the site&apos;s cooling technology is evaporative (peak demand during heatwaves) or closed-loop (peak demand more even). Match against CHE&apos;s drought bulletin for that year.</p>
+
+  <h3>Step 5 — Look for procedural shortcuts</h3>
+  <ul>
+    <li>Was the project declared PIGA or DIGA? PIGA overrides municipal urbanism.</li>
+    <li>Did INAGA grant an exemption from the ordinary environmental impact evaluation? For AWS in Aragón the exemption covered 320+ hectares (August 2025).</li>
+    <li>Was &quot;tramitación de urgencia&quot; invoked (Ley 39/2015 art. 33)?</li>
+    <li>Has the municipality signed away ICIO (Impuesto sobre Construcciones)? This has been a live dispute for La Muela and Villamayor de Gállego.</li>
+  </ul>
+
+  <h2>Section 2, Citizen kit: what you need to know</h2>
+
+  <h3>The six axes of local impact</h3>
+  <ol>
+    <li><strong>Land.</strong> How many hectares are being reclassified from &quot;suelo no urbanizable&quot; to industrial? What was the land&apos;s prior use? Who owned it?</li>
+    <li><strong>Water.</strong> Announced m³/year vs the municipality&apos;s current urban use, plus the cooling-tech choice. Ask: what happens in a CHE-declared drought year?</li>
+    <li><strong>Electricity.</strong> How does the site&apos;s MW compare to the municipality&apos;s current annual demand, and to the region&apos;s? Is the connection guaranteed or queued at REE?</li>
+    <li><strong>Local heat.</strong> Peer-reviewed research (ASME 2026) reports datacenter waste heat can raise downwind air temperatures by 0.7–2.2°C up to 500 m from the perimeter. In a hot dry basin like the Ebro valley, this compounds heatwave stress.</li>
+    <li><strong>Tax.</strong> Datacenters are property-tax and construction-tax opportunities, but PIGA processing has been used to waive the ICIO in Aragón (a live dispute for €87 M between La Muela and Villamayor).</li>
+    <li><strong>Employment.</strong> Compare the announced job numbers (construction vs operational). Datacenters are heavy on capex, light on permanent jobs, typically 100 to 500 permanent per site regardless of MW.</li>
+  </ol>
+
+  <h3>Common claims and how to test them</h3>
+  <ul>
+    <li>&quot;100% renewable energy.&quot; Check whether this is on-site self-consumption, a specific PPA, or a virtual PPA that does not physically supply the site. Ask which specific facility.</li>
+    <li>&quot;Water-free cooling.&quot; Ask for the make-up water figure. All cooling systems require some water.</li>
+    <li>&quot;X thousand jobs.&quot; Break down construction (temporary, mostly non-local) vs operational (few, high-skill). Compare to municipality population.</li>
+    <li>&quot;€X billion investment.&quot; Ask how much lands as tax revenue vs as tax exemption. In Aragón, ICIO exemption is a recurring dispute.</li>
+    <li>&quot;Grid connection secured.&quot; Ask whether the connection is contracted with REE and energised, or reserved and queued.</li>
+  </ul>
+
+  <h3>Your rights under Spanish law</h3>
+  <ul>
+    <li><strong>Public consultation (información pública).</strong> Environmental evaluations (Ley 21/2013) and PIGA processes must open a public information period, typically 30 business days. Alegaciones can be filed by any person or group.</li>
+    <li><strong>Access to environmental information.</strong> Ley 27/2006 gives you the right to request any environmental document from the administration.</li>
+    <li><strong>Judicial appeal.</strong> Administrative decisions can be challenged before the Tribunal Superior de Justicia de Aragón (TSJA). Ecologistas en Acción filed the first datacenter-focused appeal in Spain in 2026, represented by <a href="https://fondsambiental.org/" target="_blank">Fons de Defensa Ambiental</a>.</li>
+  </ul>
+
+  <h2>Section 3, How to organise</h2>
+
+  <h3>The coalition template that worked in Aragón</h3>
+  <p>The alegaciones against the Microsoft PIGA (January 2026) were filed jointly by nine groups spanning ecology, neighbourhood, heritage, and specialist water/land defence, this composition is worth copying:</p>
+  <ul>
+    <li>Regional ecologist federation (Ecologistas en Acción).</li>
+    <li>Local naturalist association (ANSAR for Aragón; find your equivalent).</li>
+    <li>Water-defence specific group (Tu Nube Seca Mi Río; No es sequía es saqueo).</li>
+    <li>Neighbourhood association from the affected municipality (Asociación Vecinal Montes de Torrero-Venecia).</li>
+    <li>Heritage-defence association (APUDEPA — Acción Pública para la Defensa del Patrimonio Aragonés).</li>
+    <li>Landscape-defence platform for the affected comarca (Plataforma en Defensa Estepa Huerva y Sermo; Plataforma en Defensa de los Paisajes de Teruel).</li>
+    <li>Municipal citizen association (Asociación Ciudadana de Muel; El Juncar es Vida).</li>
+  </ul>
+  <p>A diverse coalition signals broad public concern and increases legal standing.</p>
+
+  <h3>Practical steps in the first 90 days</h3>
+  <ol>
+    <li>Confirm the project details in the official registries (Section 1). Publish a fact sheet.</li>
+    <li>Request the full environmental file and PIGA documentation via Ley 27/2006. Deadline for response: one month.</li>
+    <li>Identify the exact BOA publication date, this starts the alegaciones clock.</li>
+    <li>Contact existing regional coalitions (Ecologistas en Acción Aragón, ANSAR) for co-signature.</li>
+    <li>Draft alegaciones covering: environmental impact, water, energy, land use, fiscal impact, procedural fairness. File before the deadline. Any citizen can file.</li>
+    <li>If the alegaciones are dismissed, prepare a contentious-administrative appeal with a specialist environmental law firm (Fons de Defensa Ambiental filed the first Spain DC appeal at TSJA).</li>
+    <li>Get press coverage. Local titles first (Heraldo de Aragón, elDiario.es Aragón, arainfo, Hoy Aragón), then national (El País, elDiario.es, Público).</li>
+  </ol>
+
+  <h3>Templates &amp; example filings</h3>
+  <p>These are the highest-quality examples publicly available for Aragón datacenter alegaciones and appeals. Use as models, do not copy verbatim.</p>
+  <ul>
+    <li><a href="https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/" target="_blank">Ecologistas en Acción alegaciones vs Microsoft PIGA</a>, coalition of nine groups.</li>
+    <li><a href="https://tunubesecamirio.com/2026/01/02/un-punado-de-colectivos-presentamos-alegaciones-contra-el-centro-de-datos-de-microsoft-en-zaragoza-aragon/" target="_blank">Tu Nube Seca Mi Río summary of the same alegaciones</a>.</li>
+    <li><a href="https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/" target="_blank">First Spain DC judicial appeal (TSJA) vs AWS PIGA</a>, Ecologistas en Acción &amp; Fons de Defensa Ambiental.</li>
+    <li><a href="https://arainfo.org/alegaciones-contra-el-piga-de-microsoft/" target="_blank">arainfo compilation of coalition demands</a>.</li>
+  </ul>
+
+  <h2>Section 4, Resources</h2>
+
+  <h3>Legal &amp; scientific</h3>
+  <ul>
+    <li><a href="https://fondsambiental.org/" target="_blank">Fons de Defensa Ambiental</a>, environmental law firm that filed the AWS TSJA case.</li>
+    <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-14041" target="_blank">Ley 21/2013 (environmental evaluation)</a>.</li>
+    <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-13010" target="_blank">Ley 27/2006 (access to environmental information)</a>.</li>
+    <li><a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026, datacenter waste heat as urban thermal hazard</a>, cite for local heat impact.</li>
+  </ul>
+
+  <h3>Aragón groups already organised</h3>
+  <ul>
+    <li>Ecologistas en Acción Aragón (federation lead).</li>
+    <li>ANSAR (Asociación Naturalista de Aragón).</li>
+    <li>Tu Nube Seca Mi Río (water-focused datacenter opposition).</li>
+    <li>No es sequía es saqueo (basin-wide water justice).</li>
+    <li>APUDEPA (heritage defence).</li>
+    <li>Plataforma en Defensa de los Paisajes de Teruel.</li>
+    <li>Red Aragonesa por el Agua Pública (RAPA).</li>
+    <li>SEO/BirdLife (Aragón chapter).</li>
+    <li>Amigos de la Tierra Aragón.</li>
+    <li>Ingenieros Sin Fronteras Aragón (technical expertise on infrastructure).</li>
+  </ul>
+
+  <h3>Contact and contribution</h3>
+  <p>Corrections, missing sites, or fresh permits can be filed as issues at <a href="https://github.com/nopressurelab/dc-map" target="_blank">github.com/nopressurelab/dc-map</a>. Every entry in the dataset carries its source URL, replicate the citation policy when contributing.</p>
+</section>
+
+<!-- =================== ES =================== -->
+<section class="lang-block" data-lang-block="es" hidden>
+  <h1>Kit ciudadano y activista</h1>
+  <p class="lede">Si se anuncia un centro de datos cerca de ti, o quieres investigar un proyecto prospectivo antes de que aterrice, este es el kit práctico. Metodología, preguntas clave y la plantilla organizativa que funcionó en Aragón. Todas las fuentes citadas.</p>
+
+  <h2>Para quién es esto</h2>
+  <ul>
+    <li>Vecinas y vecinos de un municipio aragonés donde se anuncia o se propone un proyecto.</li>
+    <li>Periodistas, investigadoras/es o grupos ciudadanos fuera de Aragón que quieran aplicar la misma metodología a su región.</li>
+    <li>Cargos electos municipales presionados para acelerar un proyecto.</li>
+    <li>Personas juristas comunitarias preparando alegaciones o recursos.</li>
+  </ul>
+
+  <h2>Sección 1, Metodología: cómo investigar un proyecto de centro de datos</h2>
+
+  <h3>Paso 1 — Lee críticamente la primera nota de prensa</h3>
+  <p>Extrae el nombre exacto de la promotora (matriz + filial española), municipio del sitio, tamaño del suelo (hectáreas), inversión declarada (€), capacidad declarada (MW), calendario y cualquier declaración de cliente principal. La ausencia de cliente nombrado es en sí una señal. Guarda la URL original.</p>
+
+  <h3>Paso 2 — Busca en los registros oficiales</h3>
+  <p>Busca en cada uno con el nombre de la promotora, el nombre del proyecto y el municipio:</p>
+  <ul>
+    <li><a href="https://www.boa.aragon.es/" target="_blank">BOA (Boletín Oficial de Aragón)</a>, órdenes PIGA, DIGA y Declaración de Interés Autonómico.</li>
+    <li><a href="https://www.boe.es/buscar/" target="_blank">BOE (Boletín Oficial del Estado)</a>, avisos de concesión de agua CHE (BOE-B-…) y resoluciones ambientales estatales.</li>
+    <li><a href="https://www.aragon.es/urbanismo-y-ordenacion-del-territorio/planes-y-proyectos-de-interes-para-aragon-pigas" target="_blank">Registro de PIGAs (Gobierno de Aragón)</a>, expediente PIGA completo.</li>
+    <li><a href="https://iber.chebro.es/consultas/raCriterios.aspx" target="_blank">Comisaría de Aguas CHE</a>, solicitudes de concesión y números de expediente (p. ej. 2024-DT-659 para AWS Canal Imperial).</li>
+    <li><a href="https://www.aragon.es/organismos/instituto-aragones-de-gestion-ambiental-inaga" target="_blank">INAGA</a>, declaraciones de impacto ambiental (DIA) y autorizaciones ambientales integradas (AAI).</li>
+    <li><a href="https://www.ree.es/es/clientes/generador/acceso-conexion/conoce-el-estado-de-las-solicitudes" target="_blank">REE (Red Eléctrica)</a>, estado de la cola de conexión a la red.</li>
+    <li>Web del ayuntamiento y BOP (Boletín Oficial de la Provincia) para licencias municipales y modificaciones PGOU.</li>
+  </ul>
+
+  <h3>Paso 3 — Verifica el cliente principal</h3>
+  <p>Un centro de datos sin cliente final nombrado es especulativo. Confirma el cliente con:</p>
+  <ul>
+    <li>Documentación de inversor de la propia empresa (o 10-K si es EE. UU.).</li>
+    <li>Informes de mercado de Cushman &amp; Wakefield, JLL, Savills, CBRE.</li>
+    <li>Datacenter Dynamics, Bisnow, S&amp;P Global Market Intelligence.</li>
+    <li>Pregunta directa al gabinete de prensa en España de la operadora.</li>
+  </ul>
+  <p>Si no responden, apúntalo en el registro.</p>
+
+  <h3>Paso 4 — Cruza las historias del agua y la energía</h3>
+  <p>Coteja los MW anunciados con la capacidad publicada por REE en el nudo del área. Si el sitio se sienta sobre un nudo con capacidad reservada pero no energizada, apúntalo, es el fallo que dejó varado a Box2Bit Cariñena en enero de 2026. Para el agua, verifica si la refrigeración del sitio es evaporativa (pico durante olas de calor) o de circuito cerrado (demanda más pareja). Cruza con el boletín de sequía de la CHE para ese año.</p>
+
+  <h3>Paso 5 — Busca atajos procedimentales</h3>
+  <ul>
+    <li>¿Se declaró PIGA o DIGA? El PIGA anula el urbanismo municipal.</li>
+    <li>¿Otorgó INAGA una exención de la evaluación de impacto ambiental ordinaria? Para AWS en Aragón la exención cubrió más de 320 hectáreas (agosto de 2025).</li>
+    <li>¿Se invocó «tramitación de urgencia» (Ley 39/2015 art. 33)?</li>
+    <li>¿Ha renunciado el municipio al ICIO (Impuesto sobre Construcciones)? Es disputa activa para La Muela y Villamayor de Gállego.</li>
+  </ul>
+
+  <h2>Sección 2, Kit ciudadano: lo que necesitas saber</h2>
+
+  <h3>Los seis ejes del impacto local</h3>
+  <ol>
+    <li><strong>Suelo.</strong> ¿Cuántas hectáreas se reclasifican de «suelo no urbanizable» a industrial? ¿Cuál era el uso previo? ¿Quién era la propietaria?</li>
+    <li><strong>Agua.</strong> m³/año anunciados vs el consumo urbano actual del municipio, más la refrigeración elegida. Pregunta: ¿qué pasa en un año de sequía declarado por la CHE?</li>
+    <li><strong>Electricidad.</strong> ¿Cómo se comparan los MW del sitio con la demanda anual actual del municipio y la de la región? ¿La conexión está garantizada o en cola en REE?</li>
+    <li><strong>Calor local.</strong> La investigación revisada por pares (ASME 2026) reporta que el calor residual del centro de datos puede elevar la temperatura del aire a sotavento en 0,7-2,2°C hasta 500 m del perímetro. En una cuenca cálida y seca como el valle del Ebro, esto se acumula al estrés por olas de calor.</li>
+    <li><strong>Fiscal.</strong> Los centros de datos son oportunidad de recaudación (IBI, ICIO), pero la tramitación PIGA se ha usado para dispensar el ICIO en Aragón (disputa viva de €87 M entre La Muela y Villamayor).</li>
+    <li><strong>Empleo.</strong> Compara los empleos anunciados (construcción vs operación). Los centros de datos son intensivos en capex y ligeros en empleos permanentes, típicamente de 100 a 500 permanentes por sitio con independencia de los MW.</li>
+  </ol>
+
+  <h3>Afirmaciones habituales y cómo comprobarlas</h3>
+  <ul>
+    <li>«100% energía renovable.» Comprueba si es autoconsumo in situ, un PPA específico o un PPA virtual que no suministra físicamente al sitio. Pregunta la instalación exacta.</li>
+    <li>«Refrigeración sin agua.» Pide la cifra de reposición de agua. Todos los sistemas de refrigeración requieren algo.</li>
+    <li>«X mil empleos.» Desglosa construcción (temporal, mayormente no local) vs operación (pocos, alta cualificación). Compara con la población municipal.</li>
+    <li>«€X mil millones de inversión.» Pregunta cuánto termina como recaudación tributaria vs como exención fiscal. En Aragón, la exención ICIO es disputa recurrente.</li>
+    <li>«Conexión a red asegurada.» Pregunta si la conexión está contratada con REE y energizada, o reservada y en cola.</li>
+  </ul>
+
+  <h3>Tus derechos según la ley española</h3>
+  <ul>
+    <li><strong>Información pública.</strong> Las evaluaciones ambientales (Ley 21/2013) y los procesos PIGA deben abrir un periodo de información pública, típicamente 30 días hábiles. Cualquier persona o grupo puede presentar alegaciones.</li>
+    <li><strong>Acceso a la información ambiental.</strong> La Ley 27/2006 te da derecho a solicitar cualquier documento ambiental a la administración.</li>
+    <li><strong>Recurso judicial.</strong> Las decisiones administrativas pueden impugnarse ante el Tribunal Superior de Justicia de Aragón (TSJA). Ecologistas en Acción presentó el primer recurso judicial contra centros de datos en España en 2026, representado por <a href="https://fondsambiental.org/" target="_blank">Fons de Defensa Ambiental</a>.</li>
+  </ul>
+
+  <h2>Sección 3, Cómo organizarse</h2>
+
+  <h3>La plantilla de coalición que funcionó en Aragón</h3>
+  <p>Las alegaciones contra la PIGA de Microsoft (enero de 2026) se presentaron conjuntamente por nueve grupos que abarcan ecología, vecindad, patrimonio y defensa específica del agua y el territorio, esta composición merece ser copiada:</p>
+  <ul>
+    <li>Federación ecologista regional (Ecologistas en Acción).</li>
+    <li>Asociación naturalista local (ANSAR para Aragón; busca el equivalente en tu región).</li>
+    <li>Grupo específico de defensa del agua (Tu Nube Seca Mi Río; No es sequía es saqueo).</li>
+    <li>Asociación vecinal del municipio afectado (Asociación Vecinal Montes de Torrero-Venecia).</li>
+    <li>Asociación de defensa del patrimonio (APUDEPA, Acción Pública para la Defensa del Patrimonio Aragonés).</li>
+    <li>Plataforma de defensa del paisaje de la comarca afectada (Plataforma en Defensa Estepa Huerva y Sermo; Plataforma en Defensa de los Paisajes de Teruel).</li>
+    <li>Asociación ciudadana municipal (Asociación Ciudadana de Muel; El Juncar es Vida).</li>
+  </ul>
+  <p>Una coalición diversa señala preocupación pública amplia y aumenta la legitimación procesal.</p>
+
+  <h3>Pasos prácticos en los primeros 90 días</h3>
+  <ol>
+    <li>Confirma los detalles del proyecto en los registros oficiales (Sección 1). Publica una ficha.</li>
+    <li>Solicita el expediente ambiental completo y la documentación PIGA vía Ley 27/2006. Plazo de respuesta: un mes.</li>
+    <li>Identifica la fecha exacta de publicación en el BOA, ahí arranca el reloj de las alegaciones.</li>
+    <li>Contacta con las coaliciones regionales existentes (Ecologistas en Acción Aragón, ANSAR) para co-firma.</li>
+    <li>Redacta alegaciones cubriendo: impacto ambiental, agua, energía, uso del suelo, impacto fiscal, garantías procedimentales. Presenta antes del plazo. Cualquier ciudadana/o puede alegar.</li>
+    <li>Si desestiman las alegaciones, prepara un recurso contencioso-administrativo con despacho especializado en derecho ambiental (Fons de Defensa Ambiental presentó el primer recurso español de CD en el TSJA).</li>
+    <li>Consigue cobertura de prensa. Primero locales (Heraldo de Aragón, elDiario.es Aragón, arainfo, Hoy Aragón), luego nacionales (El País, elDiario.es, Público).</li>
+  </ol>
+
+  <h3>Plantillas y ejemplos</h3>
+  <p>Estos son los mejores ejemplos disponibles públicamente de alegaciones y recursos aragoneses contra centros de datos. Úsalos como modelo, no copies literalmente.</p>
+  <ul>
+    <li><a href="https://www.ecologistasenaccion.org/355073/asociaciones-ecologistas-y-vecinales-presentan-alegaciones-contra-el-piga-de-microsoft-en-aragon/" target="_blank">Alegaciones Ecologistas en Acción vs PIGA Microsoft</a>, coalición de nueve grupos.</li>
+    <li><a href="https://tunubesecamirio.com/2026/01/02/un-punado-de-colectivos-presentamos-alegaciones-contra-el-centro-de-datos-de-microsoft-en-zaragoza-aragon/" target="_blank">Resumen Tu Nube Seca Mi Río de las mismas alegaciones</a>.</li>
+    <li><a href="https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/" target="_blank">Primer recurso judicial español de CD (TSJA) vs PIGA AWS</a>, Ecologistas en Acción y Fons de Defensa Ambiental.</li>
+    <li><a href="https://arainfo.org/alegaciones-contra-el-piga-de-microsoft/" target="_blank">Recopilación arainfo de demandas de la coalición</a>.</li>
+  </ul>
+
+  <h2>Sección 4, Recursos</h2>
+
+  <h3>Jurídicos y científicos</h3>
+  <ul>
+    <li><a href="https://fondsambiental.org/" target="_blank">Fons de Defensa Ambiental</a>, despacho ambiental que presentó el caso AWS en el TSJA.</li>
+    <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-14041" target="_blank">Ley 21/2013 (evaluación ambiental)</a>.</li>
+    <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-13010" target="_blank">Ley 27/2006 (acceso a la información ambiental)</a>.</li>
+    <li><a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026, calor residual de centros de datos como amenaza térmica urbana</a>, referencia para el impacto en calor local.</li>
+  </ul>
+
+  <h3>Grupos ya organizados en Aragón</h3>
+  <ul>
+    <li>Ecologistas en Acción Aragón (federación).</li>
+    <li>ANSAR (Asociación Naturalista de Aragón).</li>
+    <li>Tu Nube Seca Mi Río (oposición específica a CD por el agua).</li>
+    <li>No es sequía es saqueo (justicia hídrica de cuenca).</li>
+    <li>APUDEPA (defensa del patrimonio).</li>
+    <li>Plataforma en Defensa de los Paisajes de Teruel.</li>
+    <li>Red Aragonesa por el Agua Pública (RAPA).</li>
+    <li>SEO/BirdLife (delegación de Aragón).</li>
+    <li>Amigos de la Tierra Aragón.</li>
+    <li>Ingenieros Sin Fronteras Aragón (peritaje técnico de infraestructuras).</li>
+  </ul>
+
+  <h3>Contacto y contribución</h3>
+  <p>Correcciones, sitios que faltan o permisos recientes pueden abrirse como issues en <a href="https://github.com/nopressurelab/dc-map" target="_blank">github.com/nopressurelab/dc-map</a>. Cada entrada del dataset lleva su URL de fuente, replica la política de citación al contribuir.</p>
+</section>
+
+</main>
+
+<script>
+(function () {
+  function setLang(lang) {
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-block').forEach(function (el) {
+      el.hidden = el.dataset.langBlock !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    var back = document.querySelector('.back-link');
+    if (back) back.textContent = lang === 'es' ? '← Volver al mapa' : '← Back to map';
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { setLang(btn.dataset.lang); });
+  });
+  setLang(localStorage.getItem('lang') || 'en');
+})();
+</script>
+</body>
+</html>
