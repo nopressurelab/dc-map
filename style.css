@@ -187,3 +187,97 @@ body.about-body { display: block; background: var(--bg); }
   margin: 4px 0 20px 0;
   line-height: 1.5;
 }
+
+/* ============ Timeline ============ */
+.timeline {
+  position: relative;
+  margin: 20px 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--border);
+}
+.tl-event {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: var(--panel);
+  border-radius: 6px;
+  border-left: 4px solid var(--muted);
+}
+.tl-event::before {
+  content: '';
+  position: absolute; left: -27px; top: 16px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--muted); border: 2px solid var(--bg);
+}
+.tl-event.tag-permit { border-left-color: #1f6feb; }
+.tl-event.tag-permit::before { background: #1f6feb; }
+.tl-event.tag-op { border-left-color: #2da44e; }
+.tl-event.tag-op::before { background: #2da44e; }
+.tl-event.tag-expansion { border-left-color: #b87a00; }
+.tl-event.tag-expansion::before { background: #b87a00; }
+.tl-event.tag-scandal { border-left-color: #cf222e; }
+.tl-event.tag-scandal::before { background: #cf222e; }
+.tl-event.tag-litigation { border-left-color: #7e3fcf; }
+.tl-event.tag-litigation::before { background: #7e3fcf; }
+.tl-date { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.tl-title { font-size: 1rem; font-weight: 600; margin: 4px 0; }
+.tl-body { font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+.tl-src { font-size: 0.75rem; margin-top: 6px; display: inline-block; }
+
+/* ============ Municipality profiles ============ */
+.muni {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.muni h2 { margin-top: 0; }
+.muni-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.muni-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px 16px;
+  margin: 10px 0;
+  padding: 10px 14px;
+  background: var(--panel-2);
+  border-radius: 5px;
+  font-size: 0.85rem;
+}
+.muni-stats dt { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+.muni-stats dd { margin: 0 0 8px 0; font-weight: 600; }
+.muni-projects { margin: 12px 0; }
+.muni-projects li { margin: 4px 0; }
+
+/* ============ Press page ============ */
+.press-headline {
+  background: var(--panel);
+  border-left: 4px solid var(--spec);
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-radius: 3px;
+}
+.press-headline strong { font-size: 1.1rem; }
+.press-quote {
+  background: var(--panel-2);
+  padding: 12px 18px;
+  border-left: 3px solid var(--link);
+  margin: 12px 0;
+  font-style: italic;
+  border-radius: 3px;
+}
+.csv-btn {
+  background: var(--link);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.csv-btn:hover { filter: brightness(1.1); }

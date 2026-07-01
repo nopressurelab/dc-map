@@ -19,6 +19,8 @@ const I18N = {
     speculative_only: 'Speculative only (no confirmed tenant)',
     litigated_only: 'Litigation or alegaciones only',
     piga_only: 'Uses PIGA fast-track only',
+    high_risk_only: 'High vacancy risk only',
+    risk_label: 'Risk:',
     operators: 'Operators',
     legend: 'Legend',
     leg_hyperscaler: 'Hyperscaler (AWS, Microsoft)',
@@ -33,8 +35,11 @@ const I18N = {
     contribute: 'Contribute on GitHub',
     license_prefix: 'License:',
     about: 'About this project →',
-    nav_trends: 'Trends & projections →',
-    nav_types: 'What is a datacenter? →',
+    nav_trends: 'Trends & projections: electricity, water, investment →',
+    nav_timeline: 'Timeline: how the boom accelerated (2020–2026) →',
+    nav_munis: 'Affected municipalities: 5 town profiles →',
+    nav_types: 'Primer: what a datacenter is, types being built, jargon →',
+    nav_press: 'For press: headline numbers, quote-ready lines →',
     updated: 'Updated',
 
     agg_sites_dataset: 'Sites mapped (this dataset)',
@@ -115,6 +120,8 @@ const I18N = {
     speculative_only: 'Solo especulativos (sin cliente confirmado)',
     litigated_only: 'Solo con litigio o alegaciones',
     piga_only: 'Solo con PIGA (vía rápida)',
+    high_risk_only: 'Solo con alto riesgo de vacancia',
+    risk_label: 'Riesgo:',
     operators: 'Operadores',
     legend: 'Leyenda',
     leg_hyperscaler: 'Hyperscaler (AWS, Microsoft)',
@@ -129,8 +136,11 @@ const I18N = {
     contribute: 'Contribuir en GitHub',
     license_prefix: 'Licencia:',
     about: 'Sobre este proyecto →',
-    nav_trends: 'Tendencias y proyecciones →',
-    nav_types: '¿Qué es un centro de datos? →',
+    nav_trends: 'Tendencias y proyecciones: electricidad, agua, inversión →',
+    nav_timeline: 'Cronología: cómo se aceleró el boom (2020–2026) →',
+    nav_munis: 'Municipios afectados: 5 perfiles →',
+    nav_types: 'Introducción: qué es un centro de datos, tipos y jerga →',
+    nav_press: 'Para prensa: cifras y frases citables →',
     updated: 'Actualizado',
 
     agg_sites_dataset: 'Sitios mapeados (este conjunto)',
@@ -213,6 +223,7 @@ const STATE = {
     speculative: false,
     litigated: false,
     piga: false,
+    high_risk: false,
     operators: new Set()
   }
 };
@@ -264,6 +275,58 @@ function enumT(field, value) {
   const dict = (ENUM_T[field] && ENUM_T[field][STATE.lang]) || (ENUM_T[field] && ENUM_T[field].en) || {};
   return dict[value] || value;
 }
+
+// Vacancy-risk score: 0-12 across 4 factors, mapped to Low/Medium/High.
+// The score reflects the probability the site ends up under-tenanted or stranded.
+// Factors are deliberately simple and traceable so the number is defensible.
+function computeRisk(s) {
+  var factors = { en: [], es: [] };
+  var score = 0;
+
+  // 1. Tenant status (0-4)
+  if (s.tenant_status === 'speculative') { score += 4; factors.en.push('no anchor tenant'); factors.es.push('sin cliente principal'); }
+  else if (s.tenant_status === 'unknown') { score += 3; factors.en.push('tenant undisclosed'); factors.es.push('cliente no divulgado'); }
+  else if (s.tenant_status === 'pre_let') { score += 1; factors.en.push('pre-let (partial)'); factors.es.push('pre-arrendado (parcial)'); }
+
+  // 2. Operator type (0-3)
+  if (s.operator_type === 'renewable_developer') { score += 3; factors.en.push('renewable developer, no DC operating history'); factors.es.push('promotor renovable sin experiencia CD'); }
+  else if (s.operator_type === 'spanish_independent') { score += 2; factors.en.push('independent Spanish developer'); factors.es.push('promotor español independiente'); }
+  else if (s.operator_type === 'private_equity') { score += 1; factors.en.push('PE-backed'); factors.es.push('respaldado por capital privado'); }
+
+  // 3. Grid connection status (0-3)
+  var gridText = ((s.energy && s.energy.grid_connection) || '').toLowerCase();
+  if (gridText.includes('guaranteed') || gridText.includes('energised') || gridText.includes('energized')) {
+    // no penalty
+  } else if (gridText.includes('tbd') || gridText === '' || gridText.includes('unknown') || gridText.includes('nudo')) {
+    score += 2; factors.en.push('grid connection status unclear'); factors.es.push('conexión a red incierta');
+  } else if (gridText.includes('queued') || gridText.includes('pending')) {
+    score += 3; factors.en.push('grid capacity queued'); factors.es.push('capacidad de red en cola');
+  } else {
+    score += 1; factors.en.push('grid connection partial'); factors.es.push('conexión a red parcial');
+  }
+
+  // 4. Project status (0-2, or override on operational/withdrawn)
+  if (s.status === 'operational') { score = Math.max(0, score - 2); factors.en.push('operational (reduces risk)'); factors.es.push('operativo (reduce riesgo)'); }
+  else if (s.status === 'withdrawn') { score = 12; factors.en = ['WITHDRAWN — thesis validated']; factors.es = ['RETIRADO — tesis validada']; }
+  else if (s.status === 'announced') { score += 2; factors.en.push('only announced, no permits'); factors.es.push('solo anunciado, sin permisos'); }
+  else if (s.status === 'permitted') { score += 1; factors.en.push('permitted, not built'); factors.es.push('autorizado, no construido'); }
+
+  score = Math.max(0, Math.min(12, score));
+
+  var level, colorKey;
+  if (score <= 3) { level = { en: 'Low', es: 'Bajo' }; colorKey = 'low'; }
+  else if (score <= 7) { level = { en: 'Medium', es: 'Medio' }; colorKey = 'medium'; }
+  else { level = { en: 'High', es: 'Alto' }; colorKey = 'high'; }
+
+  return {
+    score: score,
+    level: level[STATE.lang] || level.en,
+    factors: factors[STATE.lang] || factors.en,
+    colorKey: colorKey
+  };
+}
+
+var RISK_COLORS = { low: '#2da44e', medium: '#b87a00', high: '#cf222e' };
 
 // Format investment € in millions. Always shows millions — the rawness of a
 // figure like "€33,700 M" carries scale better than the more abstract "€33.7 B".
@@ -361,6 +424,8 @@ function wireFilters() {
   document.getElementById('f-speculative').addEventListener('change', e => { STATE.filters.speculative = e.target.checked; renderMarkers(); });
   document.getElementById('f-litigated').addEventListener('change', e => { STATE.filters.litigated = e.target.checked; renderMarkers(); });
   document.getElementById('f-piga').addEventListener('change', e => { STATE.filters.piga = e.target.checked; renderMarkers(); });
+  var hr = document.getElementById('f-high-risk');
+  if (hr) hr.addEventListener('change', e => { STATE.filters.high_risk = e.target.checked; renderMarkers(); });
 
   const dialog = document.getElementById('site-dialog');
   document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
@@ -372,6 +437,10 @@ function sitePassesFilters(s) {
   if (STATE.filters.speculative && !s.speculative) return false;
   if (STATE.filters.litigated && !hasLitigation(s)) return false;
   if (STATE.filters.piga && !usesPiga(s)) return false;
+  if (STATE.filters.high_risk) {
+    var r = computeRisk(s);
+    if (r.colorKey !== 'high') return false;
+  }
   return true;
 }
 
@@ -423,6 +492,8 @@ function popupHtml(s) {
   const inv = s.investment_eur_million || s.investment_eur_million_phase1 || s.investment_eur_million_full;
   const mw = s.capacity_mw || s.capacity_mw_expanded || s.energy?.site_demand_mw;
   const badges = [];
+  var risk = computeRisk(s);
+  badges.push(`<span class="badge risk" style="background:${RISK_COLORS[risk.colorKey]};color:#fff;">${t('risk_label')} ${risk.level}</span>`);
   if (s.speculative) badges.push(`<span class="badge spec">${t('badge_spec')}</span>`);
   if (hasLitigation(s)) badges.push(`<span class="badge lit">${t('badge_lit')}</span>`);
   if (usesPiga(s)) badges.push(`<span class="badge piga">${t('badge_piga')}</span>`);
@@ -573,6 +644,13 @@ function renderFullSite(s) {
 
     <h3>${t('sec_permits')}</h3>
     <ul>${permits || '<li>—</li>'}</ul>
+
+    <h3>${STATE.lang === 'es' ? 'Puntuación de riesgo de vacancia' : 'Vacancy risk score'}</h3>
+    <p>
+      <span class="badge risk" style="background:${RISK_COLORS[risk.colorKey]};color:#fff;">${risk.level} (${risk.score}/12)</span>
+    </p>
+    <ul>${risk.factors.map(function (f) { return '<li>' + f + '</li>'; }).join('') || '<li>—</li>'}</ul>
+    <p class="cite"><em>${STATE.lang === 'es' ? 'Cuatro factores: cliente principal, tipo de operador, estado de conexión a red y fase del proyecto. Cada uno de 0 a 3 puntos. Ver methodology en /about.html.' : 'Four factors: anchor tenant, operator type, grid connection status, project phase. Each 0–3 points. See methodology in /about.html.'}</em></p>
 
     <h3>${t('sec_expedited')}</h3>
     <p>

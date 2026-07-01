@@ -48,6 +48,11 @@
   <p>How much of the pipeline is real today vs on paper. &quot;Permitted&quot; sites have PIGA / DIGA approval but not necessarily construction underway; &quot;announced&quot; sites are earlier in the process.</p>
   <div class="chart-wrap"><canvas id="chart-status" aria-label="Sites by status" role="img"></canvas></div>
   <p class="chart-note">Counts sites in the dataset by <code>status</code> field. Withdrawn = Box2Bit Cariñena (moved to Épila after being excluded from the REE 2025-2030 grid plan).</p>
+
+  <h2>6. Aragón vs other datacenter clusters</h2>
+  <p>Announced pipeline vs current operational capacity elsewhere. Aragón&apos;s 11,237 MW pipeline is larger than any operational European cluster; it exceeds Northern Virginia&apos;s current operational base even though N. Virginia itself has 24,103 MW planned.</p>
+  <div class="chart-wrap"><canvas id="chart-comparison" aria-label="Aragón vs other datacenter clusters" role="img"></canvas></div>
+  <p class="chart-note">Sources: Aragón (announced pipeline) via <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operational + planned via <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublin, London operational via <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Ireland 2025</a>. Frankfurt/Amsterdam/Madrid approximate FLAP-D operational per industry reports (Cushman, JLL, Savills). Comparison caveat: Aragón is announced pipeline, other European figures are operational; N. Virginia&apos;s 24,103 MW planned is included as scale reference.</p>
 </section>
 
 <!-- =================== ES =================== -->
@@ -79,6 +84,11 @@
   <p>Cuánto del pipeline es real hoy vs sobre el papel. Los sitios «autorizados» tienen aprobación PIGA / DIGA pero no necesariamente obras en curso; los sitios «anunciados» están en fases más tempranas.</p>
   <div class="chart-wrap"><canvas id="chart-status-es" aria-label="Sitios por estado" role="img"></canvas></div>
   <p class="chart-note">Cuenta los sitios del dataset por el campo <code>status</code>. Retirado = Box2Bit Cariñena (movido a Épila tras ser excluido del plan de red REE 2025-2030).</p>
+
+  <h2>6. Aragón frente a otros clusters de centros de datos</h2>
+  <p>Pipeline anunciado frente a capacidad operativa actual en otros lugares. El pipeline de Aragón de 11.237 MW es mayor que cualquier cluster europeo operativo; supera la base operativa actual de Northern Virginia aunque N. Virginia tiene 24.103 MW planificados.</p>
+  <div class="chart-wrap"><canvas id="chart-comparison-es" aria-label="Aragón vs otros clusters de centros de datos" role="img"></canvas></div>
+  <p class="chart-note">Fuentes: Aragón (pipeline anunciado) vía <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operativo + planificado vía <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublín, Londres operativo vía <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Irlanda 2025</a>. Frankfurt/Ámsterdam/Madrid aproximados FLAP-D operativo según informes sectoriales (Cushman, JLL, Savills). Advertencia: Aragón es pipeline anunciado, las otras cifras europeas son operativas; los 24.103 MW planificados de N. Virginia se incluyen como referencia de escala.</p>
 </section>
 
 </main>
@@ -126,6 +136,7 @@
     buildSpeculativeCharts(data);
     buildInvestmentCharts(data);
     buildStatusCharts(data);
+    buildComparisonCharts();
   });
 
   // ---- 1. Electricity 2024 vs 2030 ----
@@ -363,6 +374,46 @@
     }
     new Chart(document.getElementById('chart-status'), build(labelsEn));
     new Chart(document.getElementById('chart-status-es'), build(labelsEs));
+  }
+
+  // ---- 6. Comparison: Aragón vs other clusters ----
+  function buildComparisonCharts() {
+    // Curated benchmarks. Numbers approximate for the European "operational" cluster figures
+    // (industry-report consensus H1-H2 2025). All figures cited beneath the chart.
+    var rows = [
+      { label: 'Aragón (announced pipeline)',       labelEs: 'Aragón (pipeline anunciado)',       value: 11237, color: C.spec },
+      { label: 'N. Virginia (planned)',              labelEs: 'N. Virginia (planificado)',          value: 24103, color: '#8b949e' },
+      { label: 'N. Virginia (operational H1 2025)',  labelEs: 'N. Virginia (operativo H1 2025)',    value: 6247,  color: '#8b949e' },
+      { label: 'Frankfurt (operational, approx.)',   labelEs: 'Frankfurt (operativo, aprox.)',      value: 1200,  color: C.hyperscaler },
+      { label: 'London (operational H1 2025)',        labelEs: 'Londres (operativo H1 2025)',        value: 1189,  color: C.hyperscaler },
+      { label: 'Dublin (operational H1 2025)',        labelEs: 'Dublín (operativo H1 2025)',         value: 1150,  color: C.hyperscaler },
+      { label: 'Amsterdam (operational, approx.)',    labelEs: 'Ámsterdam (operativo, aprox.)',      value: 600,   color: C.hyperscaler },
+      { label: 'Madrid (operational, approx.)',       labelEs: 'Madrid (operativo, aprox.)',         value: 200,   color: C.ind }
+    ];
+    function build(useEs) {
+      return {
+        type: 'bar',
+        data: {
+          labels: rows.map(function (r) { return useEs ? r.labelEs : r.label; }),
+          datasets: [{
+            label: 'MW',
+            data: rows.map(function (r) { return r.value; }),
+            backgroundColor: rows.map(function (r) { return r.color; })
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: { x: { title: { display: true, text: 'MW' } } },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return Math.round(ctx.parsed.x).toLocaleString() + ' MW'; } } }
+          }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-comparison'), build(false));
+    new Chart(document.getElementById('chart-comparison-es'), build(true));
   }
 })();
 </script>
