@@ -30,7 +30,7 @@
   <p class="chart-note">Sources: <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es (2024 regional demand)</a>; <a href="https://www.eldiario.es/aragon/economia/centros-datos-consumiran-si-solos-2030-mitad-demanda-electrica-aragon_1_11896858.html" target="_blank">eldiario.es (2030 projection)</a>; <a href="https://www.aragondigital.es/articulo/economia/aragon-tiene-energia-sobra-centros-datos-reto-es-poder-enchufarla-tiempo/20260317143353972916.html" target="_blank">aragondigital.es (14% current DC share)</a>.</p>
 
   <h2>2. AWS water: company figure vs critics&apos; estimate</h2>
-  <p>AWS states its Aragón data centers will use 755,000 m³ of water per year. Environmental groups estimate the real number will be closer to 14 hm³/year, ~23% of Zaragoza&apos;s total urban water use. The chart shows both, on the same scale.</p>
+  <p>AWS states its Aragón data centers will use 755,000 m³ of water per year. Environmental groups estimate the real number will be closer to 14 hm³/year, ~23% of Zaragoza&apos;s total urban water use, roughly <strong>18× the company figure</strong>. The chart shows both on a linear scale so the gap is visible.</p>
   <div class="chart-wrap"><canvas id="chart-water" aria-label="AWS Aragón water consumption company vs critics" role="img"></canvas></div>
   <p class="chart-note">Sources: <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (company figure)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (critics&apos; estimate)</a>.</p>
 
@@ -53,7 +53,17 @@
   <div class="chart-wrap"><canvas id="chart-status" aria-label="Sites by status" role="img"></canvas></div>
   <p class="chart-note">Counts sites in the dataset by <code>status</code> field. Withdrawn = Box2Bit Cariñena (moved to Épila after being excluded from the REE 2025-2030 grid plan).</p>
 
-  <h2>6. Aragón vs other datacenter clusters</h2>
+  <h2>6. Zaragoza is hot and getting hotter</h2>
+  <p>Context for the heat-water coupling: the Ebro depression is warming faster than the Spanish baseline. Summer 2025 was the hottest summer in Spain since records began, beating 2003 by +0.6°C. According to AEMET, 9 of the 10 hottest summers in Spain occurred in the 21st century.</p>
+  <div class="chart-wrap"><canvas id="chart-heat-cluster" aria-label="Distribution of Spain's hottest summers by century" role="img"></canvas></div>
+  <p class="chart-note">Source: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">AEMET summer 2025 review</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">El Español (rankings)</a>; <a href="https://www.xataka.com/ecologia-y-naturaleza/no-no-tu-imaginacion-verano-espana-2-grados-caluroso-dura-cinco-semanas-que-anos-80" target="_blank">Xataka (climate normal shift)</a>.</p>
+
+  <h2>7. Recent Zaragoza heat records</h2>
+  <p>Absolute values, taken from the AEMET station at Zaragoza airport (index 9434). The 2026 projection reflects the June heatwave AEMET issued warnings for.</p>
+  <div class="chart-wrap"><canvas id="chart-heat-records" aria-label="Zaragoza extreme heat records" role="img"></canvas></div>
+  <p class="chart-note">Sources: <a href="https://www.tiempo.com/noticias/prediccion/43-c-zaragoza-al-borde-de-un-record-historico-de-calor-para-un-mes-de-junio.html" target="_blank">tiempo.com (43°C projection June 2026)</a>; <a href="https://meteo.es/noticias/meteorologia/ola-de-calor-espana" target="_blank">meteo.es (records)</a>; <a href="https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=9434&k=arn" target="_blank">AEMET climate normals Zaragoza</a>. All-time record 42.8°C set 26 Aug 2010; first-ever tropical night 25.7°C set 23 Aug 2023.</p>
+
+  <h2>8. Aragón vs other datacenter clusters</h2>
   <p>Announced pipeline vs current operational capacity elsewhere. Aragón&apos;s 11,237 MW pipeline is larger than any operational European cluster; it exceeds Northern Virginia&apos;s current operational base even though N. Virginia itself has 24,103 MW planned.</p>
   <div class="chart-wrap"><canvas id="chart-comparison" aria-label="Aragón vs other datacenter clusters" role="img"></canvas></div>
   <p class="chart-note">Sources: Aragón (announced pipeline) via <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operational + planned via <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublin, London operational via <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Ireland 2025</a>. Frankfurt/Amsterdam/Madrid approximate FLAP-D operational per industry reports (Cushman, JLL, Savills). Comparison caveat: Aragón is announced pipeline, other European figures are operational; N. Virginia&apos;s 24,103 MW planned is included as scale reference.</p>
@@ -70,7 +80,7 @@
   <p class="chart-note">Fuentes: <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es (demanda regional 2024)</a>; <a href="https://www.eldiario.es/aragon/economia/centros-datos-consumiran-si-solos-2030-mitad-demanda-electrica-aragon_1_11896858.html" target="_blank">eldiario.es (proyección 2030)</a>; <a href="https://www.aragondigital.es/articulo/economia/aragon-tiene-energia-sobra-centros-datos-reto-es-poder-enchufarla-tiempo/20260317143353972916.html" target="_blank">aragondigital.es (cuota CD actual 14%)</a>.</p>
 
   <h2>2. Agua AWS: cifra de la empresa vs estimación de críticos</h2>
-  <p>AWS declara que sus centros de datos en Aragón usarán 755.000 m³ de agua al año. Los grupos ecologistas estiman que la cifra real estará más cerca de 14 hm³/año, aproximadamente el 23% del consumo urbano total de Zaragoza. El gráfico muestra ambas, a la misma escala.</p>
+  <p>AWS declara que sus centros de datos en Aragón usarán 755.000 m³ de agua al año. Los grupos ecologistas estiman que la cifra real estará más cerca de 14 hm³/año, aproximadamente el 23% del consumo urbano total de Zaragoza, unas <strong>18 veces la cifra declarada por la empresa</strong>. El gráfico muestra ambas en escala lineal para que la brecha se vea.</p>
   <div class="chart-wrap"><canvas id="chart-water-es" aria-label="Consumo de agua AWS Aragón empresa vs críticos" role="img"></canvas></div>
   <p class="chart-note">Fuentes: <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (cifra empresa)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (estimación críticos)</a>.</p>
 
@@ -93,7 +103,17 @@
   <div class="chart-wrap"><canvas id="chart-status-es" aria-label="Sitios por estado" role="img"></canvas></div>
   <p class="chart-note">Cuenta los sitios del dataset por el campo <code>status</code>. Retirado = Box2Bit Cariñena (movido a Épila tras ser excluido del plan de red REE 2025-2030).</p>
 
-  <h2>6. Aragón frente a otros clusters de centros de datos</h2>
+  <h2>6. Zaragoza es cálida y se está calentando</h2>
+  <p>Contexto para el acoplamiento calor-agua: la depresión del Ebro se calienta más rápido que la referencia española. El verano de 2025 fue el más cálido de España desde que hay registros, superando a 2003 por +0,6°C. Según AEMET, 9 de los 10 veranos más cálidos de España ocurrieron en el siglo XXI.</p>
+  <div class="chart-wrap"><canvas id="chart-heat-cluster-es" aria-label="Distribución de los veranos más cálidos de España por siglo" role="img"></canvas></div>
+  <p class="chart-note">Fuente: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">Resumen verano 2025 AEMET</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">El Español (ranking)</a>; <a href="https://www.xataka.com/ecologia-y-naturaleza/no-no-tu-imaginacion-verano-espana-2-grados-caluroso-dura-cinco-semanas-que-anos-80" target="_blank">Xataka (desplazamiento de la normal climática)</a>.</p>
+
+  <h2>7. Récords recientes de calor en Zaragoza</h2>
+  <p>Valores absolutos, tomados de la estación AEMET del aeropuerto de Zaragoza (índice 9434). La proyección de 2026 refleja la ola de calor de junio para la que AEMET emitió avisos.</p>
+  <div class="chart-wrap"><canvas id="chart-heat-records-es" aria-label="Récords de calor extremo en Zaragoza" role="img"></canvas></div>
+  <p class="chart-note">Fuentes: <a href="https://www.tiempo.com/noticias/prediccion/43-c-zaragoza-al-borde-de-un-record-historico-de-calor-para-un-mes-de-junio.html" target="_blank">tiempo.com (proyección 43°C junio 2026)</a>; <a href="https://meteo.es/noticias/meteorologia/ola-de-calor-espana" target="_blank">meteo.es (récords)</a>; <a href="https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=9434&k=arn" target="_blank">Normales climatológicas AEMET Zaragoza</a>. Récord absoluto de 42,8°C el 26 ago 2010; primera noche tórrida de la serie con 25,7°C el 23 ago 2023.</p>
+
+  <h2>8. Aragón frente a otros clusters de centros de datos</h2>
   <p>Pipeline anunciado frente a capacidad operativa actual en otros lugares. El pipeline de Aragón de 11.237 MW es mayor que cualquier cluster europeo operativo; supera la base operativa actual de Northern Virginia aunque N. Virginia tiene 24.103 MW planificados.</p>
   <div class="chart-wrap"><canvas id="chart-comparison-es" aria-label="Aragón vs otros clusters de centros de datos" role="img"></canvas></div>
   <p class="chart-note">Fuentes: Aragón (pipeline anunciado) vía <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operativo + planificado vía <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublín, Londres operativo vía <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Irlanda 2025</a>. Frankfurt/Ámsterdam/Madrid aproximados FLAP-D operativo según informes sectoriales (Cushman, JLL, Savills). Advertencia: Aragón es pipeline anunciado, las otras cifras europeas son operativas; los 24.103 MW planificados de N. Virginia se incluyen como referencia de escala.</p>
@@ -144,6 +164,8 @@
     buildSpeculativeCharts(data);
     buildInvestmentCharts(data);
     buildStatusCharts(data);
+    buildHeatClusterCharts();
+    buildHeatRecordsCharts();
     buildComparisonCharts();
   });
 
@@ -191,35 +213,61 @@
   }
 
   // ---- 2. Water: company vs critics ----
+  // Custom Chart.js plugin: draws each bar's value above its top.
+  var valueLabelPlugin = {
+    id: 'valueLabelPlugin',
+    afterDatasetsDraw: function (chart) {
+      var ctx = chart.ctx;
+      chart.data.datasets.forEach(function (dataset, i) {
+        var meta = chart.getDatasetMeta(i);
+        meta.data.forEach(function (bar, index) {
+          var value = dataset.data[index];
+          var label = chart.$labelFmt ? chart.$labelFmt(value) : value.toLocaleString();
+          ctx.save();
+          ctx.fillStyle = '#1a1f24';
+          ctx.font = '600 12px -apple-system, "Segoe UI", Helvetica, Arial';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+          ctx.fillText(label, bar.x, bar.y - 6);
+          ctx.restore();
+        });
+      });
+    }
+  };
   function buildWaterCharts() {
-    var cfg = function () {
-      return {
+    function build(labels, axisLabel, locale) {
+      var cfg = {
         type: 'bar',
         data: {
-          labels: ['AWS stated', 'Critics estimate'],
+          labels: labels,
           datasets: [{
-            label: 'Annual water (m³)',
             data: [755000, 14000000],
-            backgroundColor: [C.hyperscaler, C.spec]
+            backgroundColor: [C.hyperscaler, C.spec],
+            barPercentage: 0.6
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          indexAxis: 'y',
+          layout: { padding: { top: 24 } },
           scales: {
-            x: { title: { display: true, text: 'm³ / year (log scale)' }, type: 'logarithmic' }
+            y: { title: { display: true, text: axisLabel }, beginAtZero: true }
           },
-          plugins: { legend: { display: false } }
-        }
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return ctx.parsed.y.toLocaleString(locale) + ' m³'; } } }
+          }
+        },
+        plugins: [valueLabelPlugin]
       };
-    };
-    new Chart(document.getElementById('chart-water'), cfg());
-    var esCfg = cfg();
-    esCfg.data.labels = ['Cifra AWS', 'Estimación de críticos'];
-    esCfg.data.datasets[0].label = 'Agua anual (m³)';
-    esCfg.options.scales.x.title.text = 'm³ / año (escala log)';
-    new Chart(document.getElementById('chart-water-es'), esCfg);
+      return cfg;
+    }
+    var enChart = new Chart(document.getElementById('chart-water'), build(['AWS stated', 'Critics estimate'], 'm³ / year', 'en-US'));
+    enChart.$labelFmt = function (v) { return v.toLocaleString('en-US') + ' m³'; };
+    enChart.update();
+    var esChart = new Chart(document.getElementById('chart-water-es'), build(['Cifra AWS', 'Estimación de críticos'], 'm³ / año', 'es-ES'));
+    esChart.$labelFmt = function (v) { return v.toLocaleString('es-ES') + ' m³'; };
+    esChart.update();
   }
 
   // ---- 3. Speculative pipeline MW ----
@@ -384,7 +432,74 @@
     new Chart(document.getElementById('chart-status-es'), build(labelsEs));
   }
 
-  // ---- 6. Comparison: Aragón vs other clusters ----
+  // ---- 6. Heat cluster (donut) ----
+  function buildHeatClusterCharts() {
+    function build(useEs) {
+      return {
+        type: 'doughnut',
+        data: {
+          labels: useEs ? ['Siglo XXI', 'Siglo XX'] : ['21st century', '20th century'],
+          datasets: [{
+            data: [9, 1],
+            backgroundColor: [C.spec, '#c9d0d8']
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom' },
+            tooltip: { callbacks: { label: function (ctx) { return ctx.label + ': ' + ctx.parsed + (useEs ? ' de 10' : ' of 10'); } } }
+          }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-heat-cluster'), build(false));
+    new Chart(document.getElementById('chart-heat-cluster-es'), build(true));
+  }
+
+  // ---- 7. Zaragoza heat records ----
+  function buildHeatRecordsCharts() {
+    var rowsEn = [
+      { label: '1981-2010 annual mean',              value: 15.0, color: '#c9d0d8' },
+      { label: '2022 annual mean (hottest year)',    value: 17.6, color: C.pe },
+      { label: 'First tropical night, 23 Aug 2023',  value: 25.7, color: C.hyperscaler },
+      { label: 'All-time record, 26 Aug 2010',       value: 42.8, color: C.spec },
+      { label: 'June 2026 projected peak',           value: 43.0, color: C.spec }
+    ];
+    var rowsEs = [
+      { label: 'Media anual normal 1981-2010',                  value: 15.0, color: '#c9d0d8' },
+      { label: 'Media anual 2022 (año más cálido)',              value: 17.6, color: C.pe },
+      { label: 'Primera noche tórrida, 23 ago 2023',              value: 25.7, color: C.hyperscaler },
+      { label: 'Récord absoluto, 26 ago 2010',                    value: 42.8, color: C.spec },
+      { label: 'Pico proyectado junio 2026',                       value: 43.0, color: C.spec }
+    ];
+    function build(rows) {
+      return {
+        type: 'bar',
+        data: {
+          labels: rows.map(function (r) { return r.label; }),
+          datasets: [{
+            label: '°C',
+            data: rows.map(function (r) { return r.value; }),
+            backgroundColor: rows.map(function (r) { return r.color; })
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: { x: { title: { display: true, text: '°C' } } },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return ctx.parsed.x.toFixed(1) + '°C'; } } }
+          }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-heat-records'), build(rowsEn));
+    new Chart(document.getElementById('chart-heat-records-es'), build(rowsEs));
+  }
+
+  // ---- 8. Comparison: Aragón vs other clusters ----
   function buildComparisonCharts() {
     // Curated benchmarks. Numbers approximate for the European "operational" cluster figures
     // (industry-report consensus H1-H2 2025). All figures cited beneath the chart.
