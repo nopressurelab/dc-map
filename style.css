@@ -281,3 +281,14 @@ body.about-body { display: block; background: var(--bg); }
   cursor: pointer;
 }
 .csv-btn:hover { filter: brightness(1.1); }
+
+.callout {
+  background: var(--panel);
+  border-left: 4px solid var(--pe);
+  padding: 12px 16px;
+  border-radius: 3px;
+  margin: 12px 0 24px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.callout-heat { border-left-color: var(--spec); }
