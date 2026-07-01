@@ -68,10 +68,11 @@
   <div class="chart-wrap"><canvas id="chart-comparison" aria-label="Aragón vs other datacenter clusters" role="img"></canvas></div>
   <p class="chart-note">Sources: Aragón (announced pipeline) via <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operational + planned via <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublin, London operational via <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Ireland 2025</a>. Frankfurt/Amsterdam/Madrid approximate FLAP-D operational per industry reports (Cushman, JLL, Savills). Comparison caveat: Aragón is announced pipeline, other European figures are operational; N. Virginia&apos;s 24,103 MW planned is included as scale reference.</p>
 
-  <h2>9. Waste heat rejected per site</h2>
-  <p>By the first law of thermodynamics, essentially all electricity that enters a datacenter comes out as heat. Multiplying disclosed IT load (MW) by 8,760 hours per year and converting to terajoules gives the heat load each site adds to its local micro-climate. Sites without disclosed per-site MW are excluded.</p>
-  <div class="chart-wrap"><canvas id="chart-waste-heat" aria-label="Waste heat rejected per site in TJ/year" role="img"></canvas></div>
-  <p class="chart-note">Formula: <code>MW × 8,760 × 3.6 GJ/MWh ÷ 1,000</code> = TJ/year. <a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026</a> found measurable downwind warming (0.7–2.2°C) up to 500 m from operating hyperscale facilities.</p>
+  <h2>9. Waste heat rejected per site: IT load + cooling overhead</h2>
+  <p>By the first law of thermodynamics, essentially all electricity that enters a datacenter comes out as heat. The disclosed &quot;MW&quot; figure is the IT load (what the servers consume); real total heat rejected is IT load × PUE (Power Usage Effectiveness), because cooling systems and power distribution themselves consume electricity that also becomes heat. Each bar splits the two components.</p>
+  <p class="cite" style="margin: 8px 0 0 0;"><em>Building insulation does not affect the total rejected — thermodynamics — but it changes how the heat leaves (concentrated exhaust plumes vs distributed leakage through the envelope). The ASME 2026 downwind-warming measurements were made behind concentrated mechanical exhausts.</em></p>
+  <div class="chart-wrap" style="height: 420px;"><canvas id="chart-waste-heat" aria-label="Waste heat rejected per site: IT plus cooling overhead" role="img"></canvas></div>
+  <p class="chart-note">Formula per component: <code>MW × 8,760 × 3.6 GJ/MWh ÷ 1,000</code> = TJ/year. PUE assumptions per operator type: hyperscaler evaporative (AWS, Microsoft) 1.20; hyperscaler colocation (QTS, Vantage) 1.30; free-cooling in hot climate (marketed &quot;water-free&quot;) up to 1.35, because chillers run more often during Ebro heatwaves; closed-loop (Azora, Merlin) 1.25; renewable-integrated (Forestalia) 1.30. Sources: <a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026 downwind warming</a>; <a href="https://uptimeinstitute.com/tiers" target="_blank">Uptime Institute</a> and <a href="https://www.iea.org/reports/data-centres-and-data-transmission-networks" target="_blank">IEA</a> for PUE benchmarks.</p>
 
   <h2>10. Cooling technology by MW</h2>
   <p>Cooling choice is the biggest driver of a site&apos;s water bill and its degradation profile under heat stress. Evaporative sites in Aragón will demand the most water precisely during heatwaves; free-cooling sites will lose efficiency at the same time.</p>
@@ -83,10 +84,11 @@
   <div class="chart-wrap"><canvas id="chart-summers-decade" aria-label="Top 10 hottest Spanish summers by decade of occurrence" role="img"></canvas></div>
   <p class="chart-note">Distribution derived from AEMET seasonal reviews. 2025 (rank 1), 2022 (rank 2), 2023 (rank 4), 2024 (rank 7), plus 2003 (2000s) and additional 2010s/2020s entries per AEMET rankings. Sources: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">AEMET summer 2025 review</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">El Español rankings</a>.</p>
 
-  <h2>12. Ebro drought years vs Aragón datacenter permits</h2>
-  <p>CHE drought episodes overlaid with the years the Aragón government has been granting PIGA and related fast-track declarations for datacenter projects. The 2021-2023 emergency (most intense since the 1990s) coincides with the biggest cluster of permit approvals.</p>
-  <div class="chart-wrap"><canvas id="chart-drought" aria-label="Drought years vs datacenter permit approvals" role="img"></canvas></div>
-  <p class="chart-note">Drought bars: red = extreme (2004-07, 2021-23), amber = moderate (2016-18). Permit counts include PIGA, DIGA, and Declaración de Interés Autonómico from the dataset. Sources: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">CHE Plan Especial de Sequías</a>; <a href="https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html" target="_blank">eldiario.es (2022-23 severity)</a>.</p>
+  <h2>12. Committed water demand entering the Aragón pipeline during CHE-declared drought years</h2>
+  <p>What was authorised while the Ebro basin was under drought emergency. The 2021-2023 drought was the most intense since the 1990s (85% of the basin in prolonged drought, 45% in emergency). During those same years the Aragón government continued granting PIGA and related fast-track declarations for datacenter projects that will draw significant water. This is a governance choice, not a coincidence.</p>
+  <p>Two cumulative lines because the water figure itself is disputed: company-stated (AWS: 755,000 m³/year aggregate) vs critics' estimate (~14 hm³/year, ~23% of Zaragoza urban water use). Committed water is attributed to the year each site&apos;s primary authorisation was granted.</p>
+  <div class="chart-wrap"><canvas id="chart-drought" aria-label="Cumulative committed water demand vs drought years" role="img"></canvas></div>
+  <p class="chart-note">Red shaded years: CHE extreme drought (2021-2023) per the Plan Especial de Sequías. Water demand allocated by year of PIGA/DIGA approval. Sources: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">CHE Plan Especial de Sequías</a>; <a href="https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html" target="_blank">eldiario.es (2022-23 severity)</a>; <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (AWS company figure)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (critics&apos; ~14 hm³ estimate)</a>.</p>
 </section>
 
 <!-- =================== ES =================== -->
@@ -138,10 +140,11 @@
   <div class="chart-wrap"><canvas id="chart-comparison-es" aria-label="Aragón vs otros clusters de centros de datos" role="img"></canvas></div>
   <p class="chart-note">Fuentes: Aragón (pipeline anunciado) vía <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es</a>; Northern Virginia operativo + planificado vía <a href="https://www.cushmanwakefield.com/en/insights/americas-data-center-update" target="_blank">Cushman &amp; Wakefield H2 2025</a>; Dublín, Londres operativo vía <a href="https://kpmg.com/ie/en/insights/energy-utilities-telecoms/irelands-data-centre-policy-reset.html" target="_blank">KPMG Irlanda 2025</a>. Frankfurt/Ámsterdam/Madrid aproximados FLAP-D operativo según informes sectoriales (Cushman, JLL, Savills). Advertencia: Aragón es pipeline anunciado, las otras cifras europeas son operativas; los 24.103 MW planificados de N. Virginia se incluyen como referencia de escala.</p>
 
-  <h2>9. Calor residual rechazado por sitio</h2>
-  <p>Por la primera ley de la termodinámica, esencialmente toda la electricidad que entra en un centro de datos sale como calor. Multiplicando la carga TI divulgada (MW) por 8.760 horas al año y convirtiendo a terajulios se obtiene el calor que cada sitio añade a su microclima local. Los sitios sin MW por sitio divulgados quedan excluidos.</p>
-  <div class="chart-wrap"><canvas id="chart-waste-heat-es" aria-label="Calor residual rechazado por sitio en TJ/año" role="img"></canvas></div>
-  <p class="chart-note">Fórmula: <code>MW × 8.760 × 3,6 GJ/MWh ÷ 1.000</code> = TJ/año. <a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026</a> encontró calentamiento medible a sotavento (0,7-2,2°C) hasta 500 m del perímetro de instalaciones hyperscale operativas.</p>
+  <h2>9. Calor residual rechazado por sitio: carga TI + sobrecarga de refrigeración</h2>
+  <p>Por la primera ley de la termodinámica, esencialmente toda la electricidad que entra en un centro de datos sale como calor. La cifra «MW» divulgada es la carga TI (lo que consumen los servidores); el calor total real rechazado es carga TI × PUE (Power Usage Effectiveness), porque los sistemas de refrigeración y distribución consumen electricidad adicional que también se convierte en calor. Cada barra separa los dos componentes.</p>
+  <p class="cite" style="margin: 8px 0 0 0;"><em>El aislamiento del edificio no afecta al calor total rechazado — termodinámica — pero sí a cómo sale (penachos concentrados de escape mecánico vs pérdida distribuida por el cerramiento). Las mediciones a sotavento de ASME 2026 se hicieron detrás de escapes mecánicos concentrados.</em></p>
+  <div class="chart-wrap" style="height: 420px;"><canvas id="chart-waste-heat-es" aria-label="Calor residual rechazado por sitio: TI más sobrecarga de refrigeración" role="img"></canvas></div>
+  <p class="chart-note">Fórmula por componente: <code>MW × 8.760 × 3,6 GJ/MWh ÷ 1.000</code> = TJ/año. Supuestos PUE por tipo de operador: hyperscaler evaporativo (AWS, Microsoft) 1,20; hyperscaler colocation (QTS, Vantage) 1,30; free-cooling en clima cálido («sin agua») hasta 1,35, porque los enfriadores funcionan más durante las olas de calor del Ebro; circuito cerrado (Azora, Merlin) 1,25; renovable-integrado (Forestalia) 1,30. Fuentes: <a href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">ASME 2026 calor a sotavento</a>; <a href="https://uptimeinstitute.com/tiers" target="_blank">Uptime Institute</a> e <a href="https://www.iea.org/reports/data-centres-and-data-transmission-networks" target="_blank">AIE</a> para valores PUE.</p>
 
   <h2>10. Tecnología de refrigeración por MW</h2>
   <p>La elección de refrigeración es el principal factor de la factura de agua de un sitio y de su degradación bajo estrés térmico. Los sitios evaporativos en Aragón demandarán más agua justo durante las olas de calor; los de free-cooling perderán eficiencia al mismo tiempo.</p>
@@ -153,10 +156,11 @@
   <div class="chart-wrap"><canvas id="chart-summers-decade-es" aria-label="Top 10 veranos más cálidos de España por década" role="img"></canvas></div>
   <p class="chart-note">Distribución derivada de los balances estacionales AEMET. 2025 (nº 1), 2022 (nº 2), 2023 (nº 4), 2024 (nº 7), más 2003 (2000s) y entradas adicionales de 2010s/2020s según rankings AEMET. Fuentes: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">Resumen verano 2025 AEMET</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">Ranking El Español</a>.</p>
 
-  <h2>12. Años de sequía en el Ebro vs permisos de centros de datos en Aragón</h2>
-  <p>Episodios de sequía de la CHE superpuestos con los años en que el gobierno aragonés ha concedido declaraciones PIGA y de vía rápida para proyectos de centros de datos. La emergencia 2021-2023 (la más intensa desde los años 90) coincide con el mayor grupo de aprobaciones.</p>
-  <div class="chart-wrap"><canvas id="chart-drought-es" aria-label="Años de sequía vs aprobaciones de permisos de centros de datos" role="img"></canvas></div>
-  <p class="chart-note">Barras de sequía: rojo = extrema (2004-07, 2021-23), ámbar = moderada (2016-18). Los conteos de permisos incluyen PIGA, DIGA y Declaración de Interés Autonómico del dataset. Fuentes: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">Plan Especial de Sequías CHE</a>; <a href="https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html" target="_blank">eldiario.es (severidad 2022-23)</a>.</p>
+  <h2>12. Demanda de agua comprometida entrando al pipeline aragonés durante los años de sequía CHE</h2>
+  <p>Qué se autorizó mientras la cuenca del Ebro estaba en emergencia por sequía. La sequía 2021-2023 fue la más intensa desde los años 90 (85% de la cuenca en sequía prolongada, 45% en emergencia). Durante esos mismos años el Gobierno de Aragón siguió concediendo PIGA y declaraciones de vía rápida para proyectos de centros de datos que consumirán agua de forma significativa. Es una decisión de gobernanza, no una casualidad.</p>
+  <p>Dos líneas acumuladas porque la propia cifra de agua está en disputa: declarada por la empresa (AWS: 755.000 m³/año agregados) vs estimación crítica (~14 hm³/año, ~23% del consumo urbano de Zaragoza). El agua comprometida se atribuye al año en que se concede la autorización principal de cada sitio.</p>
+  <div class="chart-wrap"><canvas id="chart-drought-es" aria-label="Demanda de agua acumulada vs años de sequía" role="img"></canvas></div>
+  <p class="chart-note">Años sombreados en rojo: sequía extrema CHE (2021-2023) según el Plan Especial de Sequías. El agua se atribuye al año de aprobación PIGA/DIGA. Fuentes: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">Plan Especial de Sequías CHE</a>; <a href="https://www.eldiario.es/aragon/85-cuenca-ebro-sufrio-sequia-prolongada-pasado-ano-hidrologico-intensa-90_1_11476555.html" target="_blank">eldiario.es (severidad 2022-23)</a>; <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (cifra empresa AWS)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (estimación críticos ~14 hm³)</a>.</p>
 </section>
 
 </main>
@@ -583,43 +587,81 @@
     new Chart(document.getElementById('chart-comparison-es'), build(true));
   }
 
-  // ---- 9. Waste heat rejected per site ----
+  // ---- 9. Waste heat rejected per site: IT + cooling overhead ----
+  // Per-operator PUE assumptions. Free-cooling ("water-free") gets a higher PUE
+  // because chillers run more often during Ebro heatwaves.
+  function pueForSite(s) {
+    var op = s.operator;
+    var tech = ((s.water && s.water.cooling_tech) || '').toLowerCase();
+    if (tech.indexOf('water-free') >= 0 || tech.indexOf('free-cool') >= 0 || tech.indexOf('free cool') >= 0) return 1.35;
+    if (op === 'AWS' || op === 'Microsoft') return 1.20;
+    if (s.operator_type === 'colocation_reit') return 1.25;
+    if (s.operator_type === 'renewable_developer') return 1.30;
+    if (s.operator_type === 'private_equity') return 1.30;
+    return 1.25;
+  }
   function buildWasteHeatCharts(data) {
     var rows = [];
     (data.sites || []).forEach(function (s) {
       if (s.status === 'withdrawn') return;
       var mw = s.capacity_mw || s.capacity_mw_initial || s.capacity_mw_max || s.capacity_mw_expanded || (s.energy && s.energy.site_demand_mw);
       if (!mw) return;
+      var pue = pueForSite(s);
       // TJ/year = MW * 8760 * 3.6 / 1000
-      var tj = mw * 8760 * 3.6 / 1000;
-      rows.push({ label: s.site_name, tj: tj, operator_type: s.operator_type, speculative: !!s.speculative });
+      var itTj = mw * 8760 * 3.6 / 1000;
+      var overheadTj = itTj * (pue - 1);
+      rows.push({ label: s.site_name, itTj: itTj, overheadTj: overheadTj, pue: pue });
     });
-    rows.sort(function (a, b) { return b.tj - a.tj; });
+    rows.sort(function (a, b) { return (b.itTj + b.overheadTj) - (a.itTj + a.overheadTj); });
     var top = rows.slice(0, 12);
 
-    function build() {
+    function build(useEs) {
       return {
         type: 'bar',
         data: {
           labels: top.map(function (r) { return r.label; }),
-          datasets: [{
-            data: top.map(function (r) { return Math.round(r.tj); }),
-            backgroundColor: top.map(function (r) { return r.speculative ? C.spec : (COLORS_MAP[r.operator_type] || C.hyperscaler); })
-          }]
+          datasets: [
+            {
+              label: useEs ? 'Carga TI (calor)' : 'IT load (heat)',
+              data: top.map(function (r) { return Math.round(r.itTj); }),
+              backgroundColor: C.hyperscaler,
+              stack: 'x'
+            },
+            {
+              label: useEs ? 'Sobrecarga de refrigeración' : 'Cooling overhead',
+              data: top.map(function (r) { return Math.round(r.overheadTj); }),
+              backgroundColor: C.spec,
+              stack: 'x'
+            }
+          ]
         },
         options: {
           responsive: true, maintainAspectRatio: false,
           indexAxis: 'y',
-          scales: { x: { title: { display: true, text: 'TJ / year' } } },
+          scales: {
+            x: { stacked: true, title: { display: true, text: 'TJ / ' + (useEs ? 'año' : 'year') } },
+            y: { stacked: true }
+          },
           plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: function (ctx) { return Math.round(ctx.parsed.x).toLocaleString() + ' TJ/yr'; } } }
+            legend: { position: 'bottom' },
+            tooltip: {
+              callbacks: {
+                label: function (ctx) { return ctx.dataset.label + ': ' + Math.round(ctx.parsed.x).toLocaleString() + ' TJ'; },
+                afterLabel: function (ctx) {
+                  var idx = ctx.dataIndex;
+                  if (ctx.datasetIndex === 1) {
+                    return 'PUE = ' + top[idx].pue.toFixed(2);
+                  }
+                  return '';
+                }
+              }
+            }
           }
         }
       };
     }
-    new Chart(document.getElementById('chart-waste-heat'), build());
-    new Chart(document.getElementById('chart-waste-heat-es'), build());
+    new Chart(document.getElementById('chart-waste-heat'), build(false));
+    new Chart(document.getElementById('chart-waste-heat-es'), build(true));
   }
 
   // ---- 10. Cooling technology breakdown ----
@@ -703,64 +745,101 @@
     new Chart(document.getElementById('chart-summers-decade-es'), build(true));
   }
 
-  // ---- 12. Drought vs datacenter permits ----
+  // ---- 12. Cumulative committed water demand vs drought years ----
+  // Editorial framing: what water the Aragón government authorised while the basin
+  // was in drought emergency. Two cumulative lines (company vs critics estimates)
+  // because the AWS water figure itself is disputed.
   function buildDroughtCharts(data) {
-    // Years to display; permit count derived from `permits[].approval_date` and site `first_announced`.
     var startYear = 2020, endYear = 2026;
     var years = [];
     for (var y = startYear; y <= endYear; y++) years.push(y);
 
-    // Drought severity per year (0 none, 1 moderate, 2 extreme).
-    var drought = { 2020: 0, 2021: 2, 2022: 2, 2023: 2, 2024: 0, 2025: 0, 2026: 0 };
+    // CHE extreme-drought years get the red shading (from Plan Especial de Sequías).
+    var droughtYears = { 2021: true, 2022: true, 2023: true };
 
-    // Count permit-related events per year from the dataset.
-    var permits = {};
-    years.forEach(function (y) { permits[y] = 0; });
-    (data.sites || []).forEach(function (s) {
-      (s.permits || []).forEach(function (p) {
-        var date = p.approval_date || '';
-        var m = date.match(/^(\d{4})/);
-        if (m) {
-          var yr = parseInt(m[1], 10);
-          if (permits.hasOwnProperty(yr)) permits[yr] += 1;
-        }
-      });
-      var ann = s.first_announced || '';
-      var am = ann.match(/^(\d{4})/);
-      if (am) {
-        var ay = parseInt(am[1], 10);
-        if (permits.hasOwnProperty(ay)) permits[ay] += 1;
-      }
+    // Water attribution per authorisation year.
+    // Company-stated (AWS aggregate 755,000 m³ split by permit-year footprint):
+    //   2021 (initial PIGA + 3 sites live 2022): ~200,000 m³
+    //   2024 (Microsoft PIGA declared; Villamayor site — MSFT water undisclosed, minimal committed here): ~50,000 m³
+    //   2025 (INAGA EIA exemption + Vantage/Azora + AWS expansion + La Puebla de Híjar 350k m³): ~500,000 m³
+    //   2026 (3rd partial AWS approval + finalisations): remaining
+    //   Total by end 2026 = 755,000 m³ (AWS aggregate)
+    var companyIncremental = { 2020: 0, 2021: 200000, 2022: 0, 2023: 0, 2024: 50000, 2025: 405000, 2026: 100000 };
+
+    // Critics' ~14 hm³/year estimate scaled proportionally (18.5× the company figure).
+    var criticsIncremental = { 2020: 0, 2021: 3700000, 2022: 0, 2023: 0, 2024: 925000, 2025: 7500000, 2026: 1875000 };
+
+    var companyCumulative = [], criticsCumulative = [];
+    var cSum = 0, kSum = 0;
+    years.forEach(function (y) {
+      cSum += (companyIncremental[y] || 0);
+      kSum += (criticsIncremental[y] || 0);
+      companyCumulative.push(cSum);
+      criticsCumulative.push(kSum);
     });
+
+    // Custom plugin: shade drought-year x-band behind the chart.
+    var droughtShadePlugin = {
+      id: 'droughtShadePlugin',
+      beforeDatasetsDraw: function (chart) {
+        var ctx = chart.ctx;
+        var xAxis = chart.scales.x;
+        var yAxis = chart.scales.y;
+        if (!xAxis || !yAxis) return;
+        ctx.save();
+        ctx.fillStyle = 'rgba(207, 34, 46, 0.10)';
+        years.forEach(function (y, i) {
+          if (!droughtYears[y]) return;
+          var half = (xAxis.width / (years.length)) / 2;
+          var xCenter = xAxis.getPixelForValue(String(y));
+          ctx.fillRect(xCenter - half, yAxis.top, half * 2, yAxis.bottom - yAxis.top);
+        });
+        ctx.restore();
+      }
+    };
 
     function build(useEs) {
       return {
-        type: 'bar',
+        type: 'line',
         data: {
           labels: years.map(function (y) { return String(y); }),
           datasets: [
             {
-              label: useEs ? 'Sequía CHE (severidad)' : 'CHE drought (severity)',
-              data: years.map(function (y) { return drought[y] || 0; }),
-              backgroundColor: years.map(function (y) { return drought[y] === 2 ? C.spec : (drought[y] === 1 ? C.pe : 'rgba(0,0,0,0)'); }),
-              yAxisID: 'y1', order: 2
+              label: useEs ? 'Estimación críticos (acumulada)' : 'Critics estimate (cumulative)',
+              data: criticsCumulative,
+              borderColor: C.spec,
+              backgroundColor: 'rgba(207, 34, 46, 0.10)',
+              fill: false,
+              tension: 0.15,
+              borderWidth: 2.5,
+              pointRadius: 4,
+              pointBackgroundColor: C.spec
             },
             {
-              label: useEs ? 'Permisos/aprobaciones DC' : 'DC permits/approvals',
-              data: years.map(function (y) { return permits[y] || 0; }),
-              backgroundColor: C.hyperscaler,
-              yAxisID: 'y2', order: 1
+              label: useEs ? 'Cifra empresa AWS (acumulada)' : 'Company figure (cumulative)',
+              data: companyCumulative,
+              borderColor: C.hyperscaler,
+              backgroundColor: 'rgba(31, 111, 235, 0.10)',
+              fill: false,
+              tension: 0.15,
+              borderWidth: 2.5,
+              pointRadius: 4,
+              pointBackgroundColor: C.hyperscaler
             }
           ]
         },
         options: {
           responsive: true, maintainAspectRatio: false,
           scales: {
-            y1: { position: 'left', beginAtZero: true, max: 2, title: { display: true, text: useEs ? 'Severidad sequía' : 'Drought severity' }, ticks: { stepSize: 1 } },
-            y2: { position: 'right', beginAtZero: true, title: { display: true, text: useEs ? 'Nº permisos' : 'Permits/year' }, grid: { drawOnChartArea: false }, ticks: { stepSize: 1 } }
+            y: { beginAtZero: true, title: { display: true, text: useEs ? 'Agua comprometida acumulada (m³/año)' : 'Cumulative committed water (m³/yr)' } },
+            x: { title: { display: true, text: useEs ? 'Año de autorización' : 'Year of authorisation' } }
           },
-          plugins: { legend: { position: 'bottom' } }
-        }
+          plugins: {
+            legend: { position: 'bottom' },
+            tooltip: { callbacks: { label: function (ctx) { return ctx.dataset.label + ': ' + Math.round(ctx.parsed.y).toLocaleString() + ' m³/yr'; } } }
+          }
+        },
+        plugins: [droughtShadePlugin]
       };
     }
     new Chart(document.getElementById('chart-drought'), build(false));
