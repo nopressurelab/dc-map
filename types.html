@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What is a datacenter?, Aragón Datacenter Map</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="about-body">
+<header class="about-header">
+  <div class="about-header-inner">
+    <a href="index.html" class="back-link" data-i18n="back_to_map">← Back to map</a>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+  </div>
+</header>
+
+<main class="about-main">
+
+<!-- =================== EN =================== -->
+<section class="lang-block" data-lang-block="en">
+  <h1>What is a datacenter and what types are being built in Aragón?</h1>
+  <p class="lede">A primer with references. Every category is linked to real projects on the map so the vocabulary connects to what&apos;s actually being built.</p>
+
+  <h2>What is a datacenter?</h2>
+  <p>A datacenter is a purpose-built facility that houses computing, storage and network equipment, along with the power distribution, cooling, security and connectivity required to keep that equipment running continuously. Modern datacenter capacity is measured in <strong>MW of IT load</strong>, not square metres, because power and cooling are the binding constraints.</p>
+  <p>Two useful reference works: the <a href="https://uptimeinstitute.com/tiers" target="_blank">Uptime Institute Tier Classification</a> (industry standard for reliability tiers I to IV), and the <a href="https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks" target="_blank">International Energy Agency&apos;s data-centres and data-transmission networks tracker</a> (global energy footprint, updated annually).</p>
+
+  <h2>Types being built in Aragón</h2>
+
+  <h3>Hyperscaler self-built</h3>
+  <p>Cloud providers building datacenters they will operate themselves. Their internal customers are the public cloud users of AWS, Azure, and so on. Capacity, tenant, and workload are all in-house.</p>
+  <ul>
+    <li>AWS Villanueva de Gállego, Walqa, El Burgo de Ebro, Zaragoza, La Sotonera, San Mateo de Gállego, La Puebla de Híjar (AI-specialised)</li>
+    <li>Microsoft La Muela, Villamayor de Gállego, Zaragoza (Puerto Venecia)</li>
+  </ul>
+
+  <h3>Wholesale / hyperscale colocation</h3>
+  <p>Large campuses built by a specialist developer and then leased in big blocks — typically to a single hyperscale customer per building. The tenant runs the servers, the operator provides the shell, power and cooling. When the anchor tenant is not disclosed at announcement, this shades into <em>speculative</em>.</p>
+  <ul>
+    <li><strong>QTS Calatorao</strong> (Proyecto Rhodes), backed by Blackstone. 300 MW, €7,500 M phase 1, no publicly disclosed anchor tenant.</li>
+    <li><strong>Vantage Villanueva de Gállego</strong> (ZAZ2 campus), backed by DigitalBridge with Spanish promoter <em>Desarrollos Ecoindustriales La Cartuja</em>. €3,200 M, 90 MW guaranteed by Endesa for phase 1.</li>
+  </ul>
+
+  <h3>Colocation REIT</h3>
+  <p>Publicly listed real-estate vehicles adding multi-tenant datacenter capacity to their industrial/logistics portfolio. Space is leased in smaller blocks to a mix of hyperscalers and enterprise customers.</p>
+  <ul>
+    <li><strong>Merlin Properties + Edged Energy</strong>, ZGZ-WIND 01 and 02, 150 MW combined. Part of Merlin&apos;s 412 MW Iberia phase III plan (€4,470 M by 2032).</li>
+  </ul>
+
+  <h3>Spanish independent / speculative developer</h3>
+  <p>Non-hyperscale Spanish sponsors building large capacity without a publicly disclosed anchor customer, betting demand will arrive. Highest vacancy risk category.</p>
+  <ul>
+    <li><strong>Box2Bit Épila</strong> (project &quot;Epilon&quot;), €3,900 M, 150 MW → 520 MW. Moved from Cariñena in January 2026 after Red Eléctrica excluded the Cariñena site from its 2025-2030 grid plan, a textbook speculative-build failure mode.</li>
+    <li><strong>Azora / Tillion Aragón</strong> (Villamayor de Gállego), €1,100 M initial → €1,950 M expanded, 150 → 300 MW. DIGA granted, tenant undisclosed.</li>
+  </ul>
+
+  <h3>Renewable-integrated</h3>
+  <p>Datacenters co-located with their own renewable generation, sold as &quot;self-consuming&quot;. The energy story is central to the pitch; the actual computing tenant is often unclear.</p>
+  <ul>
+    <li><strong>Forestalia Proyecto Búfalo</strong>, 3 sites (Magallón, Botorrita, Alfamén), €12,048 M, 601 MW total. 50% self-consumption from co-located wind and solar. Now under criminal investigation, see &quot;Operación Perserte&quot; in the map litigation overview.</li>
+  </ul>
+
+  <h3>AI-specialised</h3>
+  <p>A subset of hyperscaler and colocation builds tuned for very high rack density (30-100+ kW per rack) to house GPU clusters for AI training and inference. Denser cooling, higher water and energy per unit floor area, and a different economic profile — a smaller footprint can absorb enormous capital.</p>
+  <ul>
+    <li>AWS La Puebla de Híjar (Teruel), €5,000 M, 100 MW, explicitly AI-specialised, largest AWS campus in Aragón.</li>
+  </ul>
+
+  <h2>Cooling technologies (and what they cost in water)</h2>
+  <p>Cooling choice is the single biggest driver of a site&apos;s water bill.</p>
+  <ul>
+    <li><strong>Evaporative (adiabatic) cooling.</strong> Water evaporates to remove heat. Very effective in dry climates, but consumes hundreds of thousands to millions of m³ per year at hyperscale. Standard AWS choice historically.</li>
+    <li><strong>Closed-loop liquid cooling.</strong> Water circulates in a sealed system; make-up water is small. Used by Azora / Tillion Aragón and Vantage in Aragón.</li>
+    <li><strong>Free-cooling / air-side economisers.</strong> Outside air (or air-to-air heat exchange) does the work when ambient temperatures allow. Very low water, higher energy in hot weather. Marketed by QTS Calatorao as &quot;water-free&quot;.</li>
+    <li><strong>Immersion cooling.</strong> Servers submerged in dielectric fluid. Emerging, common in AI builds, near-zero water use.</li>
+  </ul>
+  <p>Industry background: <a href="https://www.ashrae.org/technical-resources/bookstore/datacom-series" target="_blank">ASHRAE Datacom series</a> and <a href="https://tc0909.ashraetcs.org/documents.html" target="_blank">ASHRAE TC 9.9 whitepapers</a>.</p>
+
+  <h2>Jargon glossary</h2>
+  <ul>
+    <li><strong>MW (IT load)</strong>, the electrical power delivered to the servers. Excludes the losses in cooling and power distribution.</li>
+    <li><strong>Total facility MW</strong>, IT load plus overhead (cooling, UPS losses, lighting). Total ÷ IT load = <strong>PUE</strong>.</li>
+    <li><strong>PUE (Power Usage Effectiveness)</strong>, ratio of total power to IT load. New datacenters target 1.2-1.4; older facilities are often above 2.</li>
+    <li><strong>Anchor tenant</strong>, the primary customer whose lease justifies the build.</li>
+    <li><strong>Pre-let</strong>, capacity leased before construction is complete.</li>
+    <li><strong>PPA (Power Purchase Agreement)</strong>, long-term contract to buy electricity, usually from a specific renewable generator.</li>
+    <li><strong>Colocation</strong>, model where the operator provides shell + power + cooling, and the customer brings servers.</li>
+    <li><strong>Hyperscaler</strong>, cloud providers at global scale, AWS, Microsoft Azure, Google Cloud, Meta, Oracle Cloud.</li>
+  </ul>
+
+  <h2>Why this matters in Aragón</h2>
+  <p>Datacenter concentration puts pressure on three shared resources that were already scarce: grid capacity, water in the Ebro basin, and non-urbanised land. The regional government has authorised the wave using the PIGA fast-track, which lets Aragón override municipal planning, expropriate land, and — critics argue — waive the municipal ICIO construction tax. This map exists to make that concentrated pressure legible, per site, with citations.</p>
+</section>
+
+<!-- =================== ES =================== -->
+<section class="lang-block" data-lang-block="es" hidden>
+  <h1>¿Qué es un centro de datos y qué tipos se están construyendo en Aragón?</h1>
+  <p class="lede">Una introducción con referencias. Cada categoría se enlaza a proyectos reales del mapa para que el vocabulario conecte con lo que realmente se está construyendo.</p>
+
+  <h2>¿Qué es un centro de datos?</h2>
+  <p>Un centro de datos es una instalación construida a propósito para albergar equipos de cómputo, almacenamiento y red, junto con la distribución eléctrica, la refrigeración, la seguridad y la conectividad necesarias para mantener ese equipo funcionando de forma continua. La capacidad se mide en <strong>MW de carga TI</strong>, no en metros cuadrados, porque la energía y la refrigeración son las restricciones vinculantes.</p>
+  <p>Dos referencias útiles: la <a href="https://uptimeinstitute.com/tiers" target="_blank">clasificación por niveles del Uptime Institute</a> (estándar del sector para niveles de fiabilidad I a IV) y el <a href="https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks" target="_blank">seguimiento de centros de datos y redes de transmisión de la AIE</a> (huella energética global, actualización anual).</p>
+
+  <h2>Tipos que se están construyendo en Aragón</h2>
+
+  <h3>Hyperscaler propio</h3>
+  <p>Proveedores de nube que construyen centros de datos que ellos mismos operan. Sus clientes internos son los usuarios de nube pública de AWS, Azure, etc. Capacidad, cliente y carga de trabajo son todo interno.</p>
+  <ul>
+    <li>AWS Villanueva de Gállego, Walqa, El Burgo de Ebro, Zaragoza, La Sotonera, San Mateo de Gállego, La Puebla de Híjar (especializado en IA)</li>
+    <li>Microsoft La Muela, Villamayor de Gállego, Zaragoza (Puerto Venecia)</li>
+  </ul>
+
+  <h3>Colocation mayorista / hiperescala</h3>
+  <p>Grandes campus construidos por un promotor especializado y luego arrendados en grandes bloques, normalmente a un único cliente hyperscale por edificio. El inquilino opera los servidores; el operador proporciona la infraestructura, la energía y la refrigeración. Cuando el cliente principal no se divulga en el anuncio, esto entra en terreno <em>especulativo</em>.</p>
+  <ul>
+    <li><strong>QTS Calatorao</strong> (Proyecto Rhodes), respaldado por Blackstone. 300 MW, €7.500 M fase 1, sin cliente principal públicamente divulgado.</li>
+    <li><strong>Vantage Villanueva de Gállego</strong> (campus ZAZ2), respaldado por DigitalBridge con promotor español <em>Desarrollos Ecoindustriales La Cartuja</em>. €3.200 M, 90 MW garantizados por Endesa para la fase 1.</li>
+  </ul>
+
+  <h3>SOCIMI de colocation</h3>
+  <p>Vehículos inmobiliarios cotizados que añaden capacidad de centros de datos multi-cliente a su cartera industrial y logística. El espacio se arrienda en bloques más pequeños a una mezcla de hyperscalers y clientes corporativos.</p>
+  <ul>
+    <li><strong>Merlin Properties + Edged Energy</strong>, ZGZ-WIND 01 y 02, 150 MW combinados. Forma parte del plan Iberia fase III de Merlin de 412 MW (€4.470 M para 2032).</li>
+  </ul>
+
+  <h3>Independiente español / promotor especulativo</h3>
+  <p>Promotores españoles no-hyperscale que construyen gran capacidad sin cliente principal públicamente divulgado, apostando a que la demanda llegará. La categoría con mayor riesgo de vacancia.</p>
+  <ul>
+    <li><strong>Box2Bit Épila</strong> (proyecto «Epilon»), €3.900 M, 150 MW → 520 MW. Se movió desde Cariñena en enero de 2026 tras la exclusión del emplazamiento por parte de Red Eléctrica del plan de red 2025-2030, un caso de manual de fallo especulativo.</li>
+    <li><strong>Azora / Tillion Aragón</strong> (Villamayor de Gállego), €1.100 M inicial → €1.950 M ampliado, 150 → 300 MW. DIGA concedida, cliente sin divulgar.</li>
+  </ul>
+
+  <h3>Integrado con renovables</h3>
+  <p>Centros de datos co-ubicados con generación renovable propia, vendidos como «autoconsumo». La historia energética es central en la propuesta; el cliente informático real suele estar poco claro.</p>
+  <ul>
+    <li><strong>Forestalia Proyecto Búfalo</strong>, 3 emplazamientos (Magallón, Botorrita, Alfamén), €12.048 M, 601 MW total. 50% de autoconsumo desde eólica y solar co-ubicada. Actualmente bajo investigación penal, ver «Operación Perserte» en el resumen de litigios del mapa.</li>
+  </ul>
+
+  <h3>Especializado en IA</h3>
+  <p>Un subconjunto de construcciones hyperscaler y colocation ajustadas para muy alta densidad por rack (30-100+ kW por rack) para alojar clústeres de GPU para entrenamiento e inferencia de IA. Refrigeración más densa, más agua y energía por m², y un perfil económico distinto: una huella más pequeña puede absorber un capital enorme.</p>
+  <ul>
+    <li>AWS La Puebla de Híjar (Teruel), €5.000 M, 100 MW, explícitamente especializado en IA, mayor campus AWS en Aragón.</li>
+  </ul>
+
+  <h2>Tecnologías de refrigeración (y su coste en agua)</h2>
+  <p>La elección de refrigeración es el principal factor determinante de la factura de agua de un sitio.</p>
+  <ul>
+    <li><strong>Refrigeración evaporativa (adiabática).</strong> El agua se evapora para retirar el calor. Muy eficaz en climas secos, pero consume de cientos de miles a millones de m³ al año a escala hyperscale. Opción estándar histórica de AWS.</li>
+    <li><strong>Refrigeración líquida en circuito cerrado.</strong> El agua circula en un sistema sellado; el agua de reposición es escasa. Usada por Azora / Tillion Aragón y Vantage en Aragón.</li>
+    <li><strong>Free-cooling / economizadores de aire.</strong> El aire exterior (o intercambio aire-aire) hace el trabajo cuando la temperatura ambiente lo permite. Muy poca agua, más energía en verano. Comercializado por QTS Calatorao como «sin agua».</li>
+    <li><strong>Refrigeración por inmersión.</strong> Servidores sumergidos en fluido dieléctrico. Emergente, común en construcciones de IA, uso de agua casi nulo.</li>
+  </ul>
+  <p>Contexto sectorial: <a href="https://www.ashrae.org/technical-resources/bookstore/datacom-series" target="_blank">serie Datacom de ASHRAE</a> y <a href="https://tc0909.ashraetcs.org/documents.html" target="_blank">whitepapers de ASHRAE TC 9.9</a>.</p>
+
+  <h2>Glosario</h2>
+  <ul>
+    <li><strong>MW (carga TI)</strong>, la potencia eléctrica entregada a los servidores. Excluye las pérdidas en refrigeración y distribución.</li>
+    <li><strong>MW totales del sitio</strong>, carga TI más sobrecargas (refrigeración, pérdidas UPS, iluminación). Total ÷ carga TI = <strong>PUE</strong>.</li>
+    <li><strong>PUE (Power Usage Effectiveness)</strong>, ratio de potencia total sobre carga TI. Los centros nuevos apuntan a 1,2-1,4; instalaciones antiguas suelen estar por encima de 2.</li>
+    <li><strong>Cliente principal (anchor tenant)</strong>, el cliente principal cuyo contrato justifica la construcción.</li>
+    <li><strong>Pre-arrendamiento (pre-let)</strong>, capacidad arrendada antes de que la construcción termine.</li>
+    <li><strong>PPA (Power Purchase Agreement)</strong>, contrato a largo plazo para comprar electricidad, normalmente de un generador renovable específico.</li>
+    <li><strong>Colocation</strong>, modelo en el que el operador proporciona edificio + energía + refrigeración, y el cliente aporta los servidores.</li>
+    <li><strong>Hyperscaler</strong>, proveedores de nube a escala global: AWS, Microsoft Azure, Google Cloud, Meta, Oracle Cloud.</li>
+  </ul>
+
+  <h2>Por qué importa en Aragón</h2>
+  <p>La concentración de centros de datos ejerce presión sobre tres recursos compartidos que ya eran escasos: capacidad de red eléctrica, agua en la cuenca del Ebro y suelo no urbanizado. El gobierno regional ha autorizado la ola usando la vía rápida PIGA, que permite a Aragón anular el planeamiento municipal, expropiar suelo y, según los críticos, dispensar del impuesto municipal ICIO de construcción. Este mapa existe para hacer legible esa presión concentrada, sitio a sitio, con fuentes.</p>
+</section>
+
+</main>
+
+<script>
+(function () {
+  function setLang(lang) {
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-block').forEach(function (el) {
+      el.hidden = el.dataset.langBlock !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    var back = document.querySelector('.back-link');
+    if (back) back.textContent = lang === 'es' ? '← Volver al mapa' : '← Back to map';
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { setLang(btn.dataset.lang); });
+  });
+  setLang(localStorage.getItem('lang') || 'en');
+})();
+</script>
+</body>
+</html>

@@ -33,6 +33,8 @@ const I18N = {
     contribute: 'Contribute on GitHub',
     license_prefix: 'License:',
     about: 'About this project →',
+    nav_trends: 'Trends & projections →',
+    nav_types: 'What is a datacenter? →',
     updated: 'Updated',
 
     agg_sites_dataset: 'Sites mapped (this dataset)',
@@ -127,6 +129,8 @@ const I18N = {
     contribute: 'Contribuir en GitHub',
     license_prefix: 'Licencia:',
     about: 'Sobre este proyecto →',
+    nav_trends: 'Tendencias y proyecciones →',
+    nav_types: '¿Qué es un centro de datos? →',
     updated: 'Actualizado',
 
     agg_sites_dataset: 'Sitios mapeados (este conjunto)',

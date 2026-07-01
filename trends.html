@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trends & projections, Aragón Datacenter Map</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="about-body">
+<header class="about-header">
+  <div class="about-header-inner">
+    <a href="index.html" class="back-link" data-i18n="back_to_map">← Back to map</a>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+  </div>
+</header>
+
+<main class="about-main">
+
+<!-- =================== EN =================== -->
+<section class="lang-block" data-lang-block="en">
+  <h1>Trends &amp; projections</h1>
+  <p class="lede">Five charts built from the same cited dataset that powers the map. All figures are sourced; the caption under each chart links back to the record in <code>data/datacenters.json</code>.</p>
+
+  <h2>1. Electricity: Aragón 2024 → 2030</h2>
+  <p>Regional consumption is projected to almost quadruple by 2030. The datacenter share grows from 14% to ~50% of that larger total, which means datacenters alone in 2030 will consume roughly as much electricity as the entire region did in 2024.</p>
+  <div class="chart-wrap"><canvas id="chart-electricity" aria-label="Aragón electricity demand 2024 vs 2030" role="img"></canvas></div>
+  <p class="chart-note">Sources: <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es (2024 regional demand)</a>; <a href="https://www.eldiario.es/aragon/economia/centros-datos-consumiran-si-solos-2030-mitad-demanda-electrica-aragon_1_11896858.html" target="_blank">eldiario.es (2030 projection)</a>; <a href="https://www.aragondigital.es/articulo/economia/aragon-tiene-energia-sobra-centros-datos-reto-es-poder-enchufarla-tiempo/20260317143353972916.html" target="_blank">aragondigital.es (14% current DC share)</a>.</p>
+
+  <h2>2. AWS water: company figure vs critics&apos; estimate</h2>
+  <p>AWS states its Aragón data centers will use 755,000 m³ of water per year. Environmental groups estimate the real number will be closer to 14 hm³/year, ~23% of Zaragoza&apos;s total urban water use. The chart shows both, on the same scale.</p>
+  <div class="chart-wrap"><canvas id="chart-water" aria-label="AWS Aragón water consumption company vs critics" role="img"></canvas></div>
+  <p class="chart-note">Sources: <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (company figure)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (critics&apos; estimate)</a>.</p>
+
+  <h2>3. Speculative pipeline: MW with vs without a confirmed anchor tenant</h2>
+  <p>Of the Aragón datacenter capacity with a publicly disclosed per-site MW figure, a large share is speculative, sites being built (or land-banked) without a publicly disclosed anchor tenant. Note: AWS does not disclose per-site MW, so most confirmed-tenant capacity is not on this chart. What is on the chart is the visible speculative pipeline.</p>
+  <div class="chart-wrap"><canvas id="chart-speculative" aria-label="Speculative vs confirmed MW pipeline" role="img"></canvas></div>
+  <p class="chart-note" id="speculative-note"></p>
+
+  <h2>4. Announced investment by operator type</h2>
+  <p>Where every euro is being staked. Hyperscaler self-build (AWS, Microsoft) still dominates, but speculative and renewable-integrated builds (Forestalia €12,048 M) are a large second wave.</p>
+  <div class="chart-wrap"><canvas id="chart-investment" aria-label="Investment by operator type" role="img"></canvas></div>
+  <p class="chart-note">Values sum per-site <code>investment_eur_million</code> from the dataset. AWS Aragón total (€33,700 M) is allocated to the hyperscaler bucket even where per-site figures are unavailable, since the aggregate is officially announced.</p>
+
+  <h2>5. Site status pipeline</h2>
+  <p>How much of the pipeline is real today vs on paper. &quot;Permitted&quot; sites have PIGA / DIGA approval but not necessarily construction underway; &quot;announced&quot; sites are earlier in the process.</p>
+  <div class="chart-wrap"><canvas id="chart-status" aria-label="Sites by status" role="img"></canvas></div>
+  <p class="chart-note">Counts sites in the dataset by <code>status</code> field. Withdrawn = Box2Bit Cariñena (moved to Épila after being excluded from the REE 2025-2030 grid plan).</p>
+</section>
+
+<!-- =================== ES =================== -->
+<section class="lang-block" data-lang-block="es" hidden>
+  <h1>Tendencias y proyecciones</h1>
+  <p class="lede">Cinco gráficos construidos a partir del mismo conjunto de datos citado que alimenta el mapa. Todas las cifras tienen fuente; el pie de cada gráfico enlaza con el registro en <code>data/datacenters.json</code>.</p>
+
+  <h2>1. Electricidad: Aragón 2024 → 2030</h2>
+  <p>Se prevé que el consumo regional casi se cuadruplique para 2030. La cuota de los centros de datos pasa del 14% a aproximadamente el 50% de ese total mucho mayor, lo que significa que los centros de datos por sí solos en 2030 consumirán casi tanta electricidad como toda la región en 2024.</p>
+  <div class="chart-wrap"><canvas id="chart-electricity-es" aria-label="Demanda eléctrica Aragón 2024 vs 2030" role="img"></canvas></div>
+  <p class="chart-note">Fuentes: <a href="https://www.eldiario.es/aragon/sociedad/28-macrocentros-datos-proyectan-aragon-multiplicaran-nueve-demanda-electrica_1_13331581.html" target="_blank">eldiario.es (demanda regional 2024)</a>; <a href="https://www.eldiario.es/aragon/economia/centros-datos-consumiran-si-solos-2030-mitad-demanda-electrica-aragon_1_11896858.html" target="_blank">eldiario.es (proyección 2030)</a>; <a href="https://www.aragondigital.es/articulo/economia/aragon-tiene-energia-sobra-centros-datos-reto-es-poder-enchufarla-tiempo/20260317143353972916.html" target="_blank">aragondigital.es (cuota CD actual 14%)</a>.</p>
+
+  <h2>2. Agua AWS: cifra de la empresa vs estimación de críticos</h2>
+  <p>AWS declara que sus centros de datos en Aragón usarán 755.000 m³ de agua al año. Los grupos ecologistas estiman que la cifra real estará más cerca de 14 hm³/año, aproximadamente el 23% del consumo urbano total de Zaragoza. El gráfico muestra ambas, a la misma escala.</p>
+  <div class="chart-wrap"><canvas id="chart-water-es" aria-label="Consumo de agua AWS Aragón empresa vs críticos" role="img"></canvas></div>
+  <p class="chart-note">Fuentes: <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (cifra empresa)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (estimación críticos)</a>.</p>
+
+  <h2>3. Pipeline especulativo: MW con vs sin cliente principal confirmado</h2>
+  <p>De la capacidad de centros de datos en Aragón con MW por sitio divulgados públicamente, una parte importante es especulativa, proyectos en construcción (o con suelo reservado) sin cliente principal públicamente divulgado. Nota: AWS no divulga MW por sitio, por lo que la mayoría de la capacidad con cliente confirmado no aparece en este gráfico. Lo que sí aparece es el pipeline especulativo visible.</p>
+  <div class="chart-wrap"><canvas id="chart-speculative-es" aria-label="Pipeline especulativo vs confirmado" role="img"></canvas></div>
+  <p class="chart-note" id="speculative-note-es"></p>
+
+  <h2>4. Inversión anunciada por tipo de operador</h2>
+  <p>Dónde se está apostando cada euro. La construcción propia de hyperscalers (AWS, Microsoft) sigue dominando, pero las construcciones especulativas e integradas con renovables (Forestalia €12.048 M) son una segunda oleada significativa.</p>
+  <div class="chart-wrap"><canvas id="chart-investment-es" aria-label="Inversión por tipo de operador" role="img"></canvas></div>
+  <p class="chart-note">Los valores suman <code>investment_eur_million</code> por sitio desde el dataset. El total AWS Aragón (€33.700 M) se asigna al cubo de hyperscalers incluso donde no hay cifras por sitio, ya que el agregado está anunciado oficialmente.</p>
+
+  <h2>5. Pipeline por estado</h2>
+  <p>Cuánto del pipeline es real hoy vs sobre el papel. Los sitios «autorizados» tienen aprobación PIGA / DIGA pero no necesariamente obras en curso; los sitios «anunciados» están en fases más tempranas.</p>
+  <div class="chart-wrap"><canvas id="chart-status-es" aria-label="Sitios por estado" role="img"></canvas></div>
+  <p class="chart-note">Cuenta los sitios del dataset por el campo <code>status</code>. Retirado = Box2Bit Cariñena (movido a Épila tras ser excluido del plan de red REE 2025-2030).</p>
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+<script>
+(function () {
+  // Language handling (shared with about page)
+  function setLang(lang) {
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-block').forEach(function (el) {
+      el.hidden = el.dataset.langBlock !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    var back = document.querySelector('.back-link');
+    if (back) back.textContent = lang === 'es' ? '← Volver al mapa' : '← Back to map';
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { setLang(btn.dataset.lang); });
+  });
+  setLang(localStorage.getItem('lang') || 'en');
+
+  // Palette (matches map)
+  var C = {
+    hyperscaler: '#1f6feb',
+    pe: '#b87a00',
+    colo: '#7e3fcf',
+    ind: '#2da44e',
+    renewable: '#1a8870',
+    spec: '#cf222e',
+    muted: '#8b949e',
+    grid: '#d9dde2'
+  };
+
+  Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = '#1a1f24';
+
+  fetch('data/datacenters.json').then(function (r) { return r.json(); }).then(function (data) {
+    buildElectricityCharts();
+    buildWaterCharts();
+    buildSpeculativeCharts(data);
+    buildInvestmentCharts(data);
+    buildStatusCharts(data);
+  });
+
+  // ---- 1. Electricity 2024 vs 2030 ----
+  function buildElectricityCharts() {
+    var cfg = function () {
+      return {
+        type: 'bar',
+        data: {
+          labels: ['2024', '2030 (projected)'],
+          datasets: [
+            {
+              label: 'Datacenters',
+              data: [1492, 20000], // 14% × 10659, 50% × 40000
+              backgroundColor: C.spec,
+              stack: 'x'
+            },
+            {
+              label: 'Rest of Aragón',
+              data: [10659 - 1492, 40000 - 20000],
+              backgroundColor: C.grid,
+              stack: 'x'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'x',
+          scales: {
+            x: { stacked: true },
+            y: { stacked: true, title: { display: true, text: 'GWh / year' } }
+          },
+          plugins: { legend: { position: 'bottom' } }
+        }
+      };
+    };
+    new Chart(document.getElementById('chart-electricity'), cfg());
+    var esCfg = cfg();
+    esCfg.data.labels = ['2024', '2030 (proyectado)'];
+    esCfg.data.datasets[0].label = 'Centros de datos';
+    esCfg.data.datasets[1].label = 'Resto de Aragón';
+    esCfg.options.scales.y.title.text = 'GWh / año';
+    new Chart(document.getElementById('chart-electricity-es'), esCfg);
+  }
+
+  // ---- 2. Water: company vs critics ----
+  function buildWaterCharts() {
+    var cfg = function () {
+      return {
+        type: 'bar',
+        data: {
+          labels: ['AWS stated', 'Critics estimate'],
+          datasets: [{
+            label: 'Annual water (m³)',
+            data: [755000, 14000000],
+            backgroundColor: [C.hyperscaler, C.spec]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: {
+            x: { title: { display: true, text: 'm³ / year (log scale)' }, type: 'logarithmic' }
+          },
+          plugins: { legend: { display: false } }
+        }
+      };
+    };
+    new Chart(document.getElementById('chart-water'), cfg());
+    var esCfg = cfg();
+    esCfg.data.labels = ['Cifra AWS', 'Estimación de críticos'];
+    esCfg.data.datasets[0].label = 'Agua anual (m³)';
+    esCfg.options.scales.x.title.text = 'm³ / año (escala log)';
+    new Chart(document.getElementById('chart-water-es'), esCfg);
+  }
+
+  // ---- 3. Speculative pipeline MW ----
+  function buildSpeculativeCharts(data) {
+    var confirmed = 0;
+    var speculative = 0;
+    var detail = { confirmed: [], speculative: [] };
+    data.sites.forEach(function (s) {
+      if (s.status === 'withdrawn') return;
+      var mw = s.capacity_mw || s.capacity_mw_initial || s.capacity_mw_max || (s.energy && s.energy.site_demand_mw);
+      if (!mw) return;
+      if (s.speculative) { speculative += mw; detail.speculative.push([s.site_name, mw]); }
+      else { confirmed += mw; detail.confirmed.push([s.site_name, mw]); }
+    });
+    var total = confirmed + speculative;
+    var pctSpec = total > 0 ? Math.round(speculative / total * 100) : 0;
+
+    var noteEn = 'Of ' + Math.round(total).toLocaleString('en-US') + ' MW of disclosed per-site capacity, ' + Math.round(speculative).toLocaleString('en-US') + ' MW (' + pctSpec + '%) is speculative. AWS aggregate capacity is not disclosed per site and is excluded from this comparison.';
+    var noteEs = 'De ' + Math.round(total).toLocaleString('es-ES') + ' MW de capacidad divulgada por sitio, ' + Math.round(speculative).toLocaleString('es-ES') + ' MW (' + pctSpec + '%) es especulativa. La capacidad agregada de AWS no se divulga por sitio y se excluye de esta comparación.';
+    document.getElementById('speculative-note').textContent = noteEn;
+    document.getElementById('speculative-note-es').textContent = noteEs;
+
+    var cfg = function () {
+      return {
+        type: 'doughnut',
+        data: {
+          labels: ['Anchor tenant confirmed', 'Speculative (no anchor)'],
+          datasets: [{
+            data: [confirmed, speculative],
+            backgroundColor: [C.hyperscaler, C.spec]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom' },
+            tooltip: { callbacks: { label: function (ctx) { return ctx.label + ': ' + Math.round(ctx.parsed).toLocaleString() + ' MW'; } } }
+          }
+        }
+      };
+    };
+    new Chart(document.getElementById('chart-speculative'), cfg());
+    var esCfg = cfg();
+    esCfg.data.labels = ['Cliente principal confirmado', 'Especulativo (sin cliente)'];
+    new Chart(document.getElementById('chart-speculative-es'), esCfg);
+  }
+
+  // ---- 4. Investment by operator type ----
+  function buildInvestmentCharts(data) {
+    // Explicit typed buckets so we can force AWS aggregate into hyperscaler bucket.
+    var buckets = {
+      hyperscaler: 0,
+      private_equity: 0,
+      colocation_reit: 0,
+      spanish_independent: 0,
+      renewable_developer: 0,
+      speculative_developer: 0
+    };
+
+    // AWS aggregate (per dataset) — allocate to hyperscaler
+    var awsTotal = (data.aggregate && data.aggregate.aws_aragon_investment_total) || 33700;
+    buckets.hyperscaler += awsTotal;
+
+    // Microsoft: use aggregate 5356 if present; else sum per-site
+    var msSites = data.sites.filter(function (s) { return s.operator === 'Microsoft' && s.investment_eur_million; });
+    var msTotal = msSites.reduce(function (a, s) { return a + s.investment_eur_million; }, 0);
+    buckets.hyperscaler += msTotal;
+
+    data.sites.forEach(function (s) {
+      if (s.operator === 'AWS' || s.operator === 'Microsoft') return; // already counted
+      if (s.status === 'withdrawn') return;
+      var v = s.investment_eur_million || s.investment_eur_million_phase1 || s.investment_eur_million_full || 0;
+      if (!v) return;
+      if (buckets[s.operator_type] != null) buckets[s.operator_type] += v;
+    });
+
+    var labelsEn = {
+      hyperscaler: 'Hyperscaler', private_equity: 'Private equity', colocation_reit: 'Colocation / REIT',
+      spanish_independent: 'Spanish independent', renewable_developer: 'Renewable developer',
+      speculative_developer: 'Speculative developer'
+    };
+    var labelsEs = {
+      hyperscaler: 'Hyperscaler', private_equity: 'Capital privado', colocation_reit: 'Colocation / SOCIMI',
+      spanish_independent: 'Independiente español', renewable_developer: 'Promotor renovable',
+      speculative_developer: 'Promotor especulativo'
+    };
+    var colors = {
+      hyperscaler: C.hyperscaler, private_equity: C.pe, colocation_reit: C.colo,
+      spanish_independent: C.ind, renewable_developer: C.renewable, speculative_developer: C.spec
+    };
+
+    var order = ['hyperscaler', 'private_equity', 'colocation_reit', 'spanish_independent', 'renewable_developer', 'speculative_developer']
+      .filter(function (k) { return buckets[k] > 0; });
+
+    function build(labels) {
+      return {
+        type: 'bar',
+        data: {
+          labels: order.map(function (k) { return labels[k]; }),
+          datasets: [{
+            label: '€M',
+            data: order.map(function (k) { return buckets[k]; }),
+            backgroundColor: order.map(function (k) { return colors[k]; })
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: { x: { title: { display: true, text: '€M' } } },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return '€' + Math.round(ctx.parsed.x).toLocaleString() + ' M'; } } }
+          }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-investment'), build(labelsEn));
+    new Chart(document.getElementById('chart-investment-es'), build(labelsEs));
+  }
+
+  // ---- 5. Site status pipeline ----
+  function buildStatusCharts(data) {
+    var order = ['operational', 'under_construction', 'permitted', 'announced', 'exploratory', 'withdrawn'];
+    var counts = {};
+    order.forEach(function (k) { counts[k] = 0; });
+    data.sites.forEach(function (s) { if (counts[s.status] != null) counts[s.status] += 1; });
+
+    var labelsEn = {
+      operational: 'Operational', under_construction: 'Under construction', permitted: 'Permitted',
+      announced: 'Announced', exploratory: 'Exploratory', withdrawn: 'Withdrawn'
+    };
+    var labelsEs = {
+      operational: 'Operativo', under_construction: 'En construcción', permitted: 'Autorizado',
+      announced: 'Anunciado', exploratory: 'Exploratorio', withdrawn: 'Retirado'
+    };
+    var colors = {
+      operational: '#2da44e', under_construction: '#1f6feb', permitted: '#b87a00',
+      announced: '#8b949e', exploratory: '#d0d7de', withdrawn: '#cf222e'
+    };
+    var keys = order.filter(function (k) { return counts[k] > 0; });
+
+    function build(labels) {
+      return {
+        type: 'bar',
+        data: {
+          labels: keys.map(function (k) { return labels[k]; }),
+          datasets: [{
+            data: keys.map(function (k) { return counts[k]; }),
+            backgroundColor: keys.map(function (k) { return colors[k]; })
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: { x: { title: { display: true, text: 'Sites' }, ticks: { stepSize: 1 } } },
+          plugins: { legend: { display: false } }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-status'), build(labelsEn));
+    new Chart(document.getElementById('chart-status-es'), build(labelsEs));
+  }
+})();
+</script>
+</body>
+</html>

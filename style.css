@@ -170,3 +170,20 @@ body.about-body { display: block; background: var(--bg); }
   border-radius: 3px;
   font-size: 0.85em;
 }
+.about-main h3 { font-size: 1rem; margin: 20px 0 4px 0; color: var(--text); }
+
+.chart-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  margin: 8px 0 4px 0;
+  height: 320px;
+  position: relative;
+}
+.chart-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 4px 0 20px 0;
+  line-height: 1.5;
+}
