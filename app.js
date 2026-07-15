@@ -21,6 +21,13 @@ const I18N = {
     piga_only: 'Uses PIGA fast-track only',
     high_risk_only: 'High vacancy risk only',
     thermal_plume: 'Show 500 m thermal plume (ASME 2026)',
+    plume_hint: 'Zoom in to a site to see the 500 m thermal footprint to scale.',
+    water_eo: 'Show basin water stress (Copernicus EDO)',
+    water_eo_hint: 'Live Earth-observation drought layer (~5 km, updated every 10 days). Regional context, not site-scale. Click a site for the live reading at its location.',
+    water_eo_cdiad: 'Combined Drought Indicator',
+    water_eo_lfinx: 'Low-Flow Index (river drought)',
+    water_eo_smian: 'Soil Moisture Anomaly',
+    edo_live_link: 'Live basin water-stress at this location (Copernicus EDO) →',
     risk_label: 'Risk:',
     operators: 'Operators',
     legend: 'Legend',
@@ -124,6 +131,13 @@ const I18N = {
     piga_only: 'Solo con PIGA (vía rápida)',
     high_risk_only: 'Solo con alto riesgo de vacancia',
     thermal_plume: 'Mostrar penacho térmico 500 m (ASME 2026)',
+    plume_hint: 'Acércate a un sitio para ver el penacho térmico de 500 m a escala.',
+    water_eo: 'Mostrar estrés hídrico de la cuenca (Copernicus EDO)',
+    water_eo_hint: 'Capa de sequía por observación de la Tierra (~5 km, actualizada cada 10 días). Contexto regional, no a escala del sitio. Pulsa un sitio para la lectura en directo en su ubicación.',
+    water_eo_cdiad: 'Indicador Combinado de Sequía',
+    water_eo_lfinx: 'Índice de Caudales Bajos (sequía fluvial)',
+    water_eo_smian: 'Anomalía de Humedad del Suelo',
+    edo_live_link: 'Estrés hídrico de la cuenca en directo en esta ubicación (Copernicus EDO) →',
     risk_label: 'Riesgo:',
     operators: 'Operadores',
     legend: 'Leyenda',
@@ -223,6 +237,7 @@ const STATE = {
   data: null,
   layer: null,
   plumeLayer: null,
+  waterEoTile: null,
   lang: localStorage.getItem('lang') || 'en',
   filters: {
     speculative: false,
@@ -231,7 +246,9 @@ const STATE = {
     high_risk: false,
     operators: new Set()
   },
-  thermalPlume: false
+  thermalPlume: false,
+  waterEo: false,
+  waterEoLayer: 'cdiad'
 };
 
 // Waste-heat helper. Given MW, returns TJ/year rejected (1st-law assumption: nearly all electricity → heat).
@@ -357,6 +374,10 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
   maxZoom: 19
 }).addTo(map);
 
+// The plume circle rescales natively with zoom; we only need to refresh the
+// "zoom in to see the footprint" hint as the zoom level crosses the threshold.
+map.on('zoomend', updatePlumeHint);
+
 fetch('data/datacenters.json')
   .then(r => r.json())
   .then(data => {
@@ -441,6 +462,10 @@ function wireFilters() {
   if (hr) hr.addEventListener('change', e => { STATE.filters.high_risk = e.target.checked; renderMarkers(); });
   var tp = document.getElementById('f-thermal-plume');
   if (tp) tp.addEventListener('change', e => { STATE.thermalPlume = e.target.checked; renderMarkers(); });
+  var we = document.getElementById('f-water-eo');
+  if (we) we.addEventListener('change', e => { STATE.waterEo = e.target.checked; updateWaterOverlay(); });
+  var wel = document.getElementById('water-eo-layer');
+  if (wel) wel.addEventListener('change', e => { STATE.waterEoLayer = e.target.value; updateWaterOverlay(); });
 
   const dialog = document.getElementById('site-dialog');
   document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
@@ -477,29 +502,118 @@ function radiusForSite(s) {
   return Math.min(28, 6 + Math.sqrt(mw) * 0.9);
 }
 
-function renderMarkers() {
-  if (STATE.layer) STATE.layer.remove();
+// Thermal plume: the true-to-scale 500 m downwind warming footprint (ASME 2026).
+// It's a genuinely local effect — at region zoom 500 m is ~1 px, so rather than fake
+// its size we keep it strictly to-scale (L.circle rescales natively with zoom) and show
+// a "zoom in" hint while the current zoom is too low for the footprint to read.
+const PLUME_METERS = 500;
+const PLUME_LEGIBLE_ZOOM = 11; // at/above this zoom the 500 m circle is clearly visible
+
+function renderPlume() {
   if (STATE.plumeLayer) STATE.plumeLayer.remove();
-  STATE.layer = L.layerGroup();
   STATE.plumeLayer = L.layerGroup();
+  if (!STATE.thermalPlume) { updatePlumeHint(); return; }
 
   STATE.data.sites.filter(sitePassesFilters).forEach(s => {
-    // Thermal plume overlay: 500 m radius per ASME 2026 downwind detection distance.
-    if (STATE.thermalPlume) {
-      L.circle([s.lat, s.lon], {
-        radius: 500,
-        fillColor: '#f85149',
-        fillOpacity: 0.14,
-        color: '#cf222e',
-        weight: 1,
-        opacity: 0.45,
-        interactive: false
-      }).addTo(STATE.plumeLayer);
-    }
-    return true;
+    L.circle([s.lat, s.lon], {
+      radius: PLUME_METERS,
+      fillColor: '#f85149',
+      fillOpacity: 0.14,
+      color: '#cf222e',
+      weight: 1,
+      opacity: 0.45,
+      interactive: false
+    }).addTo(STATE.plumeLayer);
   });
 
-  if (STATE.thermalPlume) STATE.plumeLayer.addTo(map);
+  STATE.plumeLayer.addTo(map);
+  updatePlumeHint();
+}
+
+// Show a hint while the plume is on but the zoom is too low to see 500 m to scale.
+let plumeHintCtl = null;
+function updatePlumeHint() {
+  const show = STATE.thermalPlume && map.getZoom() < PLUME_LEGIBLE_ZOOM;
+  if (!show) {
+    if (plumeHintCtl) { plumeHintCtl.remove(); plumeHintCtl = null; }
+    return;
+  }
+  if (!plumeHintCtl) {
+    plumeHintCtl = L.control({ position: 'bottomleft' });
+    plumeHintCtl.onAdd = () => {
+      const div = L.DomUtil.create('div', 'plume-hint');
+      div.textContent = t('plume_hint');
+      return div;
+    };
+    plumeHintCtl.addTo(map);
+  } else {
+    plumeHintCtl.getContainer().textContent = t('plume_hint'); // refresh after lang switch
+  }
+}
+
+// ── Water-resources context (Copernicus European Drought Observatory) ──────────
+// A live, always-current WMS overlay of basin water stress — no data is stored, so it
+// can never go stale. Per-site "data join" is a deep link (below), not a frozen number:
+// EDO's public /api/wms is display-only (GetFeatureInfo returns "Invalid request type"),
+// so we hand off to their live map rather than fetch and cache a value that would age.
+const EDO_WMS = 'https://drought.emergency.copernicus.eu/api/wms';
+const EDO_ATTR = 'Water stress: &copy; European Drought Observatory (JRC/Copernicus)';
+// Per-layer quirks of EDO's /api/wms (all verified against the live endpoint, 2026-07):
+//  - needsTime: rejects a defaulted request; requires an explicit 10-daily TIME.
+//  - crs: served only in EPSG:4326 (not the map's 3857), so request it in that CRS —
+//    Leaflet handles a WMS layer whose CRS differs from the map's.
+const EDO_LAYERS = {
+  cdiad: { needsTime: false },                            // Combined Drought Indicator (latest by default, 3857 ok)
+  smian: { needsTime: false },                            // Soil Moisture Index Anomaly (3857 ok)
+  lfinx_300_sms: { needsTime: true, crs: L.CRS.EPSG4326 } // Low-Flow Index (river drought) — 4326 + TIME only
+};
+
+// Latest EDO 10-daily reference date ('YYYY-MM-DD'). Data publishes for the 1st/11th/21st
+// with a few days' lag; back off 12 days from today, then snap down to 1/11/21.
+function latestEdoDate() {
+  const d = new Date(Date.now() - 12 * 864e5);
+  const snapped = d.getDate() >= 21 ? 21 : d.getDate() >= 11 ? 11 : 1;
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${d.getFullYear()}-${mm}-${String(snapped).padStart(2, '0')}`;
+}
+
+function updateWaterOverlay() {
+  if (STATE.waterEoTile) { STATE.waterEoTile.remove(); STATE.waterEoTile = null; }
+  if (!STATE.waterEo) return;
+  const code = EDO_LAYERS[STATE.waterEoLayer] ? STATE.waterEoLayer : 'cdiad';
+  const cfg = EDO_LAYERS[code];
+  const wmsOpts = {
+    layers: code,
+    version: '1.1.1',
+    format: 'image/png',
+    opacity: 0.55,
+    attribution: EDO_ATTR
+  };
+  if (cfg.crs) wmsOpts.crs = cfg.crs; // layer served in a CRS other than the map's
+  const layer = L.tileLayer.wms(EDO_WMS, wmsOpts);
+  // EDO's /api/wms is strict and non-standard: it rejects any STYLES param and requires
+  // the TRANSPARENT value uppercase. Leaflet's defaults (styles='', transparent=true) would
+  // 400 every tile, so patch wmsParams before the layer requests anything. Verified against
+  // the live endpoint (2026-07): only `transparent=TRUE`, no `styles`, format=image/png works.
+  delete layer.wmsParams.styles;
+  layer.wmsParams.transparent = 'TRUE';
+  if (cfg.needsTime) layer.wmsParams.TIME = latestEdoDate();
+  // Renders in the tile pane, beneath the markers and plume in the overlay pane.
+  STATE.waterEoTile = layer.addTo(map);
+}
+
+// Deep link to the live EDO map centred on a site. Hash-based permalink; if the format
+// drifts it still lands on the current EDO map (correct live context, just not pre-centred).
+function edoDeepLink(lat, lon) {
+  return `https://drought.emergency.copernicus.eu/tumbo/edo/map/#x=${lon.toFixed(4)}&y=${lat.toFixed(4)}&z=9`;
+}
+
+function renderMarkers() {
+  if (STATE.layer) STATE.layer.remove();
+  STATE.layer = L.layerGroup();
+
+  // Plume renders first so it sits beneath the site markers.
+  renderPlume();
 
   STATE.data.sites.filter(sitePassesFilters).forEach(s => {
     const color = COLORS[s.operator_type] || '#888';
@@ -632,6 +746,11 @@ function renderFullSite(s) {
     </table>
   ` : '';
 
+  // Live basin water-stress context for every site (not just those with a water block).
+  const waterContext = (s.lat != null && s.lon != null) ? `
+    <p class="water-eo-link"><a href="${edoDeepLink(s.lat, s.lon)}" target="_blank" rel="noopener">${t('edo_live_link')}</a></p>
+  ` : '';
+
   const phaseNotes = txt(s, 'phase_notes');
   const specReasoning = txt(s, 'speculative_reasoning');
   return `
@@ -677,6 +796,7 @@ function renderFullSite(s) {
     ${ppas ? `<h3>${t('sec_ppas')}</h3><ul>${ppas}</ul>` : ''}
 
     ${water}
+    ${waterContext}
 
     <h3>${t('sec_permits')}</h3>
     <ul>${permits || '<li>—</li>'}</ul>

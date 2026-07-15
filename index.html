@@ -32,6 +32,13 @@
     <label><input type="checkbox" id="f-piga"> <span data-i18n="piga_only">Uses PIGA fast-track only</span></label>
     <label><input type="checkbox" id="f-high-risk"> <span data-i18n="high_risk_only">High vacancy risk only</span></label>
     <label><input type="checkbox" id="f-thermal-plume"> <span data-i18n="thermal_plume">Show 500 m thermal plume (ASME 2026)</span></label>
+    <label><input type="checkbox" id="f-water-eo"> <span data-i18n="water_eo">Show basin water stress (Copernicus EDO)</span></label>
+    <select id="water-eo-layer" class="eo-select" aria-label="EDO indicator">
+      <option value="cdiad" data-i18n="water_eo_cdiad">Combined Drought Indicator</option>
+      <option value="lfinx_300_sms" data-i18n="water_eo_lfinx">Low-Flow Index (river drought)</option>
+      <option value="smian" data-i18n="water_eo_smian">Soil Moisture Anomaly</option>
+    </select>
+    <p class="hint" data-i18n="water_eo_hint">Live Earth-observation drought layer (~5 km, updated every 10 days). Regional context, not site-scale. Click a site for the live reading at its location.</p>
     <div id="operator-filters"></div>
   </section>
 

@@ -80,6 +80,35 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 
 #map { height: 100vh; background: var(--bg); }
 
+.plume-hint {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--spec);
+  border-left: 3px solid var(--spec);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  max-width: 240px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.eo-select {
+  display: block;
+  width: 100%;
+  margin: 4px 0 2px 20px;
+  max-width: calc(100% - 20px);
+  padding: 3px 6px;
+  font-size: 0.75rem;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+#filters .hint { color: var(--muted); font-size: 0.72rem; margin: 4px 0 0 20px; }
+
+.water-eo-link { margin: 8px 0 0 0; font-size: 0.82rem; }
+
 .leaflet-popup-content-wrapper { background: var(--panel); color: var(--text); border-radius: 6px; box-shadow: 0 3px 14px rgba(0,0,0,0.18); }
 .leaflet-popup-tip { background: var(--panel); }
 .leaflet-popup-content { margin: 12px 14px; max-width: 320px; font-size: 0.82rem; line-height: 1.45; }
