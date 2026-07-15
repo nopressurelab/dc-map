@@ -22,8 +22,10 @@ const I18N = {
     high_risk_only: 'High vacancy risk only',
     thermal_plume: 'Show 500 m thermal plume (ASME 2026)',
     plume_hint: 'Zoom in to a site to see the 500 m thermal footprint to scale.',
+    solar_footprint: 'Show equivalent solar-farm footprint (to scale)',
+    solar_hint: 'Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.',
     water_eo: 'Show basin water stress (Copernicus EDO)',
-    water_eo_hint: 'Live Earth-observation drought layer (~5 km, updated every 10 days). Regional context, not site-scale. Click a site for the live reading at its location.',
+    water_eo_hint: 'Live Earth-observation layer (~5 km, updated every 10 days). Regional context, not site-scale. Areas with no colour aren\'t currently classified — expect the Combined Drought Indicator to be blank when there\'s no active drought. Click a site for the live reading at its location.',
     water_eo_cdiad: 'Combined Drought Indicator',
     water_eo_lfinx: 'Low-Flow Index (river drought)',
     water_eo_smian: 'Soil Moisture Anomaly',
@@ -132,8 +134,10 @@ const I18N = {
     high_risk_only: 'Solo con alto riesgo de vacancia',
     thermal_plume: 'Mostrar penacho térmico 500 m (ASME 2026)',
     plume_hint: 'Acércate a un sitio para ver el penacho térmico de 500 m a escala.',
+    solar_footprint: 'Mostrar huella solar equivalente (a escala)',
+    solar_hint: 'Cada cuadrado ámbar es la planta solar necesaria para abastecer la electricidad de ese sitio, dibujada a escala en el mapa. Supone factor de carga del CD 0,90, factor de capacidad solar en Aragón ~0,20, ~1,5 ha/MWp (NREL). Las cifras varían ~2× según estos supuestos.',
     water_eo: 'Mostrar estrés hídrico de la cuenca (Copernicus EDO)',
-    water_eo_hint: 'Capa de sequía por observación de la Tierra (~5 km, actualizada cada 10 días). Contexto regional, no a escala del sitio. Pulsa un sitio para la lectura en directo en su ubicación.',
+    water_eo_hint: 'Capa por observación de la Tierra (~5 km, actualizada cada 10 días). Contexto regional, no a escala del sitio. Las zonas sin color no están clasificadas actualmente: el Indicador Combinado de Sequía aparecerá vacío cuando no haya sequía activa. Pulsa un sitio para la lectura en directo en su ubicación.',
     water_eo_cdiad: 'Indicador Combinado de Sequía',
     water_eo_lfinx: 'Índice de Caudales Bajos (sequía fluvial)',
     water_eo_smian: 'Anomalía de Humedad del Suelo',
@@ -237,6 +241,7 @@ const STATE = {
   data: null,
   layer: null,
   plumeLayer: null,
+  solarLayer: null,
   waterEoTile: null,
   lang: localStorage.getItem('lang') || 'en',
   filters: {
@@ -247,8 +252,10 @@ const STATE = {
     operators: new Set()
   },
   thermalPlume: false,
+  solarFootprint: false,
   waterEo: false,
-  waterEoLayer: 'cdiad'
+  waterEoLayer: 'smian' // default to Soil Moisture Anomaly — reliably has data over Aragón,
+                        // unlike the Combined Drought Indicator which is blank when no drought
 };
 
 // Waste-heat helper. Given MW, returns TJ/year rejected (1st-law assumption: nearly all electricity → heat).
@@ -462,6 +469,8 @@ function wireFilters() {
   if (hr) hr.addEventListener('change', e => { STATE.filters.high_risk = e.target.checked; renderMarkers(); });
   var tp = document.getElementById('f-thermal-plume');
   if (tp) tp.addEventListener('change', e => { STATE.thermalPlume = e.target.checked; renderMarkers(); });
+  var sf = document.getElementById('f-solar-footprint');
+  if (sf) sf.addEventListener('change', e => { STATE.solarFootprint = e.target.checked; renderMarkers(); });
   var we = document.getElementById('f-water-eo');
   if (we) we.addEventListener('change', e => { STATE.waterEo = e.target.checked; updateWaterOverlay(); });
   var wel = document.getElementById('water-eo-layer');
@@ -551,6 +560,61 @@ function updatePlumeHint() {
   }
 }
 
+// ── Equivalent renewable footprint ─────────────────────────────────────────────
+// The land a solar farm needs to supply a site's electricity, drawn to scale on the map
+// so "how many km² to power this" is legible at a glance. Assumptions are explicit and
+// swappable (results scale ~2× with them), in the same spirit as the water dual-numbers:
+//   DC load factor 0.90 · Aragón utility-solar capacity factor ~0.20 · ~1.5 ha/MWp (NREL).
+const DC_LOAD_FACTOR = 0.90;
+const SOLAR_CAPACITY_FACTOR = 0.20;
+const SOLAR_HA_PER_MWP = 1.5;
+
+function siteMW(s) {
+  return s.capacity_mw || s.capacity_mw_expanded || s.capacity_mw_max || s.energy?.site_demand_mw || s.capacity_mw_msft_aragon_total || null;
+}
+
+// Solar land area (km²) to match a site's continuous electricity demand.
+function solarFootprintKm2(s) {
+  const mw = siteMW(s);
+  if (!mw) return null;
+  const solarMwp = mw * DC_LOAD_FACTOR / SOLAR_CAPACITY_FACTOR;
+  return solarMwp * SOLAR_HA_PER_MWP / 100; // ha → km²
+}
+
+function renderSolarFootprint() {
+  if (STATE.solarLayer) STATE.solarLayer.remove();
+  STATE.solarLayer = L.layerGroup();
+  const totalEl = document.getElementById('solar-total');
+  if (!STATE.solarFootprint) { if (totalEl) totalEl.textContent = ''; return; }
+
+  let total = 0;
+  STATE.data.sites.filter(sitePassesFilters).forEach(s => {
+    const km2 = solarFootprintKm2(s);
+    if (!km2) return;
+    total += km2;
+    const halfM = Math.sqrt(km2 * 1e6) / 2;                       // half-side of the square, metres
+    const dLat = halfM / 111320;
+    const dLon = halfM / (111320 * Math.cos(s.lat * Math.PI / 180));
+    L.rectangle([[s.lat - dLat, s.lon - dLon], [s.lat + dLat, s.lon + dLon]], {
+      fillColor: '#e3b341',
+      fillOpacity: 0.20,
+      color: '#d29922',
+      weight: 1,
+      opacity: 0.7,
+      interactive: false
+    }).addTo(STATE.solarLayer);
+  });
+  STATE.solarLayer.addTo(map);
+
+  if (totalEl) {
+    const km2 = Math.round(total);
+    const pct = (total / 973 * 100).toFixed(0); // Zaragoza municipality ≈ 973 km²
+    totalEl.textContent = STATE.lang === 'es'
+      ? `Sitios mostrados ≈ ${km2.toLocaleString('es-ES')} km² de solar — ${pct} % del municipio de Zaragoza.`
+      : `Sites shown ≈ ${km2.toLocaleString('en-US')} km² of solar — ${pct}% of Zaragoza municipality.`;
+  }
+}
+
 // ── Water-resources context (Copernicus European Drought Observatory) ──────────
 // A live, always-current WMS overlay of basin water stress — no data is stored, so it
 // can never go stale. Per-site "data join" is a deep link (below), not a frozen number:
@@ -612,8 +676,9 @@ function renderMarkers() {
   if (STATE.layer) STATE.layer.remove();
   STATE.layer = L.layerGroup();
 
-  // Plume renders first so it sits beneath the site markers.
+  // Plume and solar footprints render first so they sit beneath the site markers.
   renderPlume();
+  renderSolarFootprint();
 
   STATE.data.sites.filter(sitePassesFilters).forEach(s => {
     const color = COLORS[s.operator_type] || '#888';

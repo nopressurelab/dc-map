@@ -109,6 +109,14 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 
 .water-eo-link { margin: 8px 0 0 0; font-size: 0.82rem; }
 
+.solar-total:not(:empty) {
+  color: var(--text);
+  font-weight: 600;
+  border-left: 3px solid #d29922;
+  padding-left: 8px;
+  margin: 4px 0 0 20px;
+}
+
 .leaflet-popup-content-wrapper { background: var(--panel); color: var(--text); border-radius: 6px; box-shadow: 0 3px 14px rgba(0,0,0,0.18); }
 .leaflet-popup-tip { background: var(--panel); }
 .leaflet-popup-content { margin: 12px 14px; max-width: 320px; font-size: 0.82rem; line-height: 1.45; }
