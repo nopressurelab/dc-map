@@ -35,6 +35,34 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 }
 #sidebar header .subtitle { color: var(--muted); margin: 4px 0 8px 0; font-size: 0.8rem; }
 
+/* Collapsible sidebar sections (accordion) */
+.side-sec { border-top: 1px solid var(--border); }
+.side-sec > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 9px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  user-select: none;
+}
+.side-sec > summary::-webkit-details-marker { display: none; }
+.side-sec > summary::before {
+  content: '▸';
+  font-size: 0.7em;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+.side-sec[open] > summary { color: var(--text); }
+.side-sec[open] > summary::before { transform: rotate(90deg); }
+.side-sec > summary:hover { color: var(--text); }
+.side-sec > *:not(summary):last-child { margin-bottom: 12px; }
+
 .lang-switch { display: flex; gap: 4px; justify-content: flex-end; margin-bottom: 8px; }
 .lang-btn {
   background: var(--panel-2);
@@ -76,7 +104,8 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 .spec-ring { border-color: var(--spec); }
 .lit-ring { border-color: var(--warn); border-style: dashed; }
 
-#sidebar footer { margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
+#explore p { margin: 7px 0; font-size: 0.78rem; line-height: 1.35; }
+#sidebar footer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
 
 #map { height: 100vh; background: var(--bg); }
 

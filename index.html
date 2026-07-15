@@ -20,22 +20,22 @@
     <p class="subtitle" data-i18n="subtitle">Operators, investors, clients, energy/water, government permits — every datapoint cited.</p>
   </header>
 
-  <section id="aggregate">
-    <h2 data-i18n="regional_total">Regional total</h2>
+  <details id="aggregate" class="side-sec">
+    <summary><span data-i18n="regional_total">Regional total</span></summary>
     <dl id="aggregate-stats"></dl>
-  </section>
+  </details>
 
-  <section id="filters">
-    <h2 data-i18n="filters">Filters</h2>
+  <details id="filters" class="side-sec" open>
+    <summary><span data-i18n="filters">Filters</span></summary>
     <label><input type="checkbox" id="f-speculative"> <span data-i18n="speculative_only">Speculative only (no confirmed tenant)</span></label>
     <label><input type="checkbox" id="f-litigated"> <span data-i18n="litigated_only">Litigation or alegaciones only</span></label>
     <label><input type="checkbox" id="f-piga"> <span data-i18n="piga_only">Uses PIGA fast-track only</span></label>
     <label><input type="checkbox" id="f-high-risk"> <span data-i18n="high_risk_only">High vacancy risk only</span></label>
     <div id="operator-filters"></div>
-  </section>
+  </details>
 
-  <section id="map-layers">
-    <h2 data-i18n="map_layers">Map layers</h2>
+  <details id="map-layers" class="side-sec">
+    <summary><span data-i18n="map_layers">Map layers</span></summary>
     <label><input type="checkbox" id="f-thermal-plume"> <span data-i18n="thermal_plume">Show 500 m thermal plume (ASME 2026)</span></label>
     <label><input type="checkbox" id="f-solar-footprint"> <span data-i18n="solar_footprint">Show equivalent solar-farm footprint (to scale)</span></label>
     <p class="hint" data-i18n="solar_hint">Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.</p>
@@ -46,10 +46,10 @@
       <option value="SMAP_L4_Analyzed_Surface_Soil_Moisture" data-i18n="water_eo_surface">Surface soil moisture (SMAP L4)</option>
     </select>
     <p class="hint" data-i18n="water_eo_hint">Live NASA SMAP soil-moisture (how much water is in the ground, ~9 km, updated every few days). Regional context, not site-scale — see the map legend for the colour scale. Click a site for the live reading at its location.</p>
-  </section>
+  </details>
 
-  <section id="legend">
-    <h2 data-i18n="legend">Legend</h2>
+  <details id="legend" class="side-sec">
+    <summary><span data-i18n="legend">Legend</span></summary>
     <ul>
       <li><span class="dot op-hyperscaler"></span> <span data-i18n="leg_hyperscaler">Hyperscaler (AWS, Microsoft)</span></li>
       <li><span class="dot op-pe"></span> <span data-i18n="leg_pe">Private equity / REIT</span></li>
@@ -60,11 +60,10 @@
       <li><span class="ring lit-ring"></span> <span data-i18n="leg_lit">Pending litigation</span></li>
     </ul>
     <p class="hint" data-i18n="legend_hint">Marker radius scales with MW capacity (capped). Click for details.</p>
-  </section>
+  </details>
 
-  <footer>
-    <p id="last-updated"></p>
-    <p><a href="data/datacenters.json" target="_blank" data-i18n="download">Download dataset (JSON)</a></p>
+  <details id="explore" class="side-sec">
+    <summary><span data-i18n="nav_explore">Explore the project</span></summary>
     <p><a href="trends.html" data-i18n="nav_trends">Trends &amp; projections: 8 cited charts on electricity, water, heat, investment →</a></p>
     <p><a href="timeline.html" data-i18n="nav_timeline">20-event timeline 2020→2026: PIGA, INAGA EIA exemption, Operación Perserte →</a></p>
     <p><a href="municipalities.html" data-i18n="nav_munis">Six towns bearing the burden: La Puebla de Híjar (935 people, €5B campus) to Épila →</a></p>
@@ -72,6 +71,11 @@
     <p><a href="press.html" data-i18n="nav_press">For press: headline numbers, quote-ready lines, CSV download →</a></p>
     <p><a href="organize.html" data-i18n="nav_organize">Citizens &amp; activists kit: how to research a project, file alegaciones, organise →</a></p>
     <p><a href="about.html" data-i18n="about">About this project →</a></p>
+  </details>
+
+  <footer>
+    <p id="last-updated"></p>
+    <p><a href="data/datacenters.json" target="_blank" data-i18n="download">Download dataset (JSON)</a></p>
     <p><a href="https://github.com/nopressurelab/dc-map" target="_blank" data-i18n="contribute">Contribute on GitHub</a></p>
     <p><span data-i18n="license_prefix">License:</span> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></p>
   </footer>
