@@ -31,6 +31,11 @@
     <label><input type="checkbox" id="f-litigated"> <span data-i18n="litigated_only">Litigation or alegaciones only</span></label>
     <label><input type="checkbox" id="f-piga"> <span data-i18n="piga_only">Uses PIGA fast-track only</span></label>
     <label><input type="checkbox" id="f-high-risk"> <span data-i18n="high_risk_only">High vacancy risk only</span></label>
+    <div id="operator-filters"></div>
+  </section>
+
+  <section id="map-layers">
+    <h2 data-i18n="map_layers">Map layers</h2>
     <label><input type="checkbox" id="f-thermal-plume"> <span data-i18n="thermal_plume">Show 500 m thermal plume (ASME 2026)</span></label>
     <label><input type="checkbox" id="f-solar-footprint"> <span data-i18n="solar_footprint">Show equivalent solar-farm footprint (to scale)</span></label>
     <p class="hint" data-i18n="solar_hint">Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.</p>
@@ -41,7 +46,6 @@
       <option value="SMAP_L4_Analyzed_Surface_Soil_Moisture" data-i18n="water_eo_surface">Surface soil moisture (SMAP L4)</option>
     </select>
     <p class="hint" data-i18n="water_eo_hint">Live NASA SMAP soil-moisture (how much water is in the ground, ~9 km, updated every few days). Regional context, not site-scale — see the map legend for the colour scale. Click a site for the live reading at its location.</p>
-    <div id="operator-filters"></div>
   </section>
 
   <section id="legend">

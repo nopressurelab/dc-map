@@ -56,7 +56,7 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 #aggregate dd { margin: 0; font-weight: 600; }
 #aggregate dd a { font-weight: normal; font-size: 0.75rem; margin-left: 6px; }
 
-#filters label { display: block; margin: 4px 0; cursor: pointer; }
+#filters label, #map-layers label { display: block; margin: 4px 0; cursor: pointer; }
 #operator-filters { margin-top: 8px; }
 #operator-filters label { font-size: 0.8rem; }
 
@@ -105,7 +105,7 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
   border-radius: 4px;
 }
 
-#filters .hint { color: var(--muted); font-size: 0.72rem; margin: 4px 0 0 20px; }
+#map-layers .hint { color: var(--muted); font-size: 0.72rem; margin: 4px 0 0 20px; }
 
 .water-eo-link { margin: 8px 0 0 0; font-size: 0.82rem; }
 
@@ -116,6 +116,25 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
   padding-left: 8px;
   margin: 4px 0 0 20px;
 }
+
+.water-legend {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 0.68rem;
+  line-height: 1.3;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.water-legend .wl-title { font-weight: 600; margin-bottom: 4px; }
+.water-legend .wl-bar {
+  height: 10px;
+  width: 140px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #ffa200, #82c100 25%, #00ffff 50%, #0000b7 75%, #505050);
+}
+.water-legend .wl-labels { display: flex; justify-content: space-between; margin-top: 2px; color: var(--muted); }
 
 .leaflet-popup-content-wrapper { background: var(--panel); color: var(--text); border-radius: 6px; box-shadow: 0 3px 14px rgba(0,0,0,0.18); }
 .leaflet-popup-tip { background: var(--panel); }

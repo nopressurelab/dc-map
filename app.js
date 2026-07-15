@@ -16,6 +16,7 @@ const I18N = {
     subtitle: 'Operators, investors, clients, energy/water, government permits — every datapoint cited.',
     regional_total: 'Regional total',
     filters: 'Filters',
+    map_layers: 'Map layers',
     speculative_only: 'Speculative only (no confirmed tenant)',
     litigated_only: 'Litigation or alegaciones only',
     piga_only: 'Uses PIGA fast-track only',
@@ -30,6 +31,9 @@ const I18N = {
     water_eo_surface: 'Surface soil moisture (SMAP L4)',
     water_eo_error: 'Water layer: tiles couldn’t load — the NASA GIBS service may be busy. Try again shortly.',
     water_live_link: 'Live soil-moisture at this location (NASA Worldview) →',
+    water_legend_title: 'Soil water (m³/m³)',
+    water_legend_dry: 'Dry 0',
+    water_legend_wet: '0.7 Wet',
     risk_label: 'Risk:',
     operators: 'Operators',
     legend: 'Legend',
@@ -128,6 +132,7 @@ const I18N = {
     subtitle: 'Operadores, inversores, clientes, energía/agua, permisos administrativos — cada dato con su fuente.',
     regional_total: 'Total regional',
     filters: 'Filtros',
+    map_layers: 'Capas del mapa',
     speculative_only: 'Solo especulativos (sin cliente confirmado)',
     litigated_only: 'Solo con litigio o alegaciones',
     piga_only: 'Solo con PIGA (vía rápida)',
@@ -142,6 +147,9 @@ const I18N = {
     water_eo_surface: 'Humedad del suelo superficial (SMAP L4)',
     water_eo_error: 'Capa de agua: no se pudieron cargar los mosaicos — el servicio NASA GIBS puede estar saturado. Inténtalo de nuevo.',
     water_live_link: 'Humedad del suelo en directo en esta ubicación (NASA Worldview) →',
+    water_legend_title: 'Agua en el suelo (m³/m³)',
+    water_legend_dry: 'Seco 0',
+    water_legend_wet: '0,7 Húmedo',
     risk_label: 'Riesgo:',
     operators: 'Operadores',
     legend: 'Leyenda',
@@ -419,6 +427,7 @@ function renderAll() {
   buildOperatorFilters(STATE.data);
   document.getElementById('last-updated').textContent = `${t('updated')} ${STATE.data.last_updated} — v${STATE.data.version}`;
   renderMarkers();
+  if (STATE.waterEo) showWaterLegend(true); // keep legend text in sync with language
 }
 
 function applyStaticTranslations() {
@@ -641,10 +650,28 @@ function showWaterNotice(msg) {
   }
 }
 
+// Bottom-right colour legend for the SMAP layer (colormap SMAP_Analyzed_Soil_Moisture:
+// dry→wet = orange→green→cyan→blue over 0–0.7 m³/m³). Recreated so it follows language.
+let waterLegendCtl = null;
+function showWaterLegend(show) {
+  if (waterLegendCtl) { waterLegendCtl.remove(); waterLegendCtl = null; }
+  if (!show) return;
+  waterLegendCtl = L.control({ position: 'bottomright' });
+  waterLegendCtl.onAdd = () => {
+    const d = L.DomUtil.create('div', 'water-legend');
+    d.innerHTML =
+      `<div class="wl-title">${t('water_legend_title')}</div>` +
+      `<div class="wl-bar"></div>` +
+      `<div class="wl-labels"><span>${t('water_legend_dry')}</span><span>${t('water_legend_wet')}</span></div>`;
+    return d;
+  };
+  waterLegendCtl.addTo(map);
+}
+
 function updateWaterOverlay() {
   if (STATE.waterEoTile) { STATE.waterEoTile.remove(); STATE.waterEoTile = null; }
   showWaterNotice('');
-  if (!STATE.waterEo) return;
+  if (!STATE.waterEo) { showWaterLegend(false); return; }
   const layerId = GIBS_LAYERS[STATE.waterEoLayer] ? STATE.waterEoLayer : 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture';
   // '.../<layer>/default/default/<TMS>/{z}/{y}/{x}.png' — style=default, time=default (latest available).
   // GIBS REST path is TileMatrix/TileRow/TileCol, i.e. {z}/{y}/{x}.
@@ -660,6 +687,7 @@ function updateWaterOverlay() {
   layer.on('tileerror', () => { if (!errored) { errored = true; showWaterNotice(t('water_eo_error')); } });
   // Renders in the tile pane, beneath the markers and plume in the overlay pane.
   STATE.waterEoTile = layer.addTo(map);
+  showWaterLegend(true);
 }
 
 // Deep link to NASA Worldview centred on a site, with the soil-moisture layer on.
