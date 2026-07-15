@@ -24,12 +24,12 @@ const I18N = {
     plume_hint: 'Zoom in to a site to see the 500 m thermal footprint to scale.',
     solar_footprint: 'Show equivalent solar-farm footprint (to scale)',
     solar_hint: 'Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.',
-    water_eo: 'Show basin water stress (Copernicus EDO)',
-    water_eo_hint: 'Live Earth-observation layer (~5 km, updated every 10 days). Regional context, not site-scale. Areas with no colour aren\'t currently classified — expect the Combined Drought Indicator to be blank when there\'s no active drought. Click a site for the live reading at its location.',
-    water_eo_cdiad: 'Combined Drought Indicator',
-    water_eo_lfinx: 'Low-Flow Index (river drought)',
-    water_eo_smian: 'Soil Moisture Anomaly',
-    edo_live_link: 'Live basin water-stress at this location (Copernicus EDO) →',
+    water_eo: 'Show soil moisture (NASA SMAP)',
+    water_eo_hint: 'Live NASA SMAP soil-moisture (how much water is in the ground, ~9 km, updated every few days). Regional context, not site-scale — see the map legend for the colour scale. Click a site for the live reading at its location.',
+    water_eo_rootzone: 'Root-zone soil moisture (SMAP L4)',
+    water_eo_surface: 'Surface soil moisture (SMAP L4)',
+    water_eo_error: 'Water layer: tiles couldn’t load — the NASA GIBS service may be busy. Try again shortly.',
+    water_live_link: 'Live soil-moisture at this location (NASA Worldview) →',
     risk_label: 'Risk:',
     operators: 'Operators',
     legend: 'Legend',
@@ -136,12 +136,12 @@ const I18N = {
     plume_hint: 'Acércate a un sitio para ver el penacho térmico de 500 m a escala.',
     solar_footprint: 'Mostrar huella solar equivalente (a escala)',
     solar_hint: 'Cada cuadrado ámbar es la planta solar necesaria para abastecer la electricidad de ese sitio, dibujada a escala en el mapa. Supone factor de carga del CD 0,90, factor de capacidad solar en Aragón ~0,20, ~1,5 ha/MWp (NREL). Las cifras varían ~2× según estos supuestos.',
-    water_eo: 'Mostrar estrés hídrico de la cuenca (Copernicus EDO)',
-    water_eo_hint: 'Capa por observación de la Tierra (~5 km, actualizada cada 10 días). Contexto regional, no a escala del sitio. Las zonas sin color no están clasificadas actualmente: el Indicador Combinado de Sequía aparecerá vacío cuando no haya sequía activa. Pulsa un sitio para la lectura en directo en su ubicación.',
-    water_eo_cdiad: 'Indicador Combinado de Sequía',
-    water_eo_lfinx: 'Índice de Caudales Bajos (sequía fluvial)',
-    water_eo_smian: 'Anomalía de Humedad del Suelo',
-    edo_live_link: 'Estrés hídrico de la cuenca en directo en esta ubicación (Copernicus EDO) →',
+    water_eo: 'Mostrar humedad del suelo (NASA SMAP)',
+    water_eo_hint: 'Humedad del suelo NASA SMAP en directo (cuánta agua hay en el suelo, ~9 km, actualizada cada pocos días). Contexto regional, no a escala del sitio — consulta la leyenda del mapa para la escala de color. Pulsa un sitio para la lectura en directo en su ubicación.',
+    water_eo_rootzone: 'Humedad del suelo en zona radicular (SMAP L4)',
+    water_eo_surface: 'Humedad del suelo superficial (SMAP L4)',
+    water_eo_error: 'Capa de agua: no se pudieron cargar los mosaicos — el servicio NASA GIBS puede estar saturado. Inténtalo de nuevo.',
+    water_live_link: 'Humedad del suelo en directo en esta ubicación (NASA Worldview) →',
     risk_label: 'Riesgo:',
     operators: 'Operadores',
     legend: 'Leyenda',
@@ -254,8 +254,7 @@ const STATE = {
   thermalPlume: false,
   solarFootprint: false,
   waterEo: false,
-  waterEoLayer: 'smian' // default to Soil Moisture Anomaly — reliably has data over Aragón,
-                        // unlike the Combined Drought Indicator which is blank when no drought
+  waterEoLayer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture' // NASA SMAP root-zone soil moisture
 };
 
 // Waste-heat helper. Given MW, returns TJ/year rejected (1st-law assumption: nearly all electricity → heat).
@@ -615,61 +614,59 @@ function renderSolarFootprint() {
   }
 }
 
-// ── Water-resources context (Copernicus European Drought Observatory) ──────────
-// A live, always-current WMS overlay of basin water stress — no data is stored, so it
-// can never go stale. Per-site "data join" is a deep link (below), not a frozen number:
-// EDO's public /api/wms is display-only (GetFeatureInfo returns "Invalid request type"),
-// so we hand off to their live map rather than fetch and cache a value that would age.
-const EDO_WMS = 'https://drought.emergency.copernicus.eu/api/wms';
-const EDO_ATTR = 'Water stress: &copy; European Drought Observatory (JRC/Copernicus)';
-// Per-layer quirks of EDO's /api/wms (all verified against the live endpoint, 2026-07):
-//  - needsTime: rejects a defaulted request; requires an explicit 10-daily TIME.
-//  - crs: served only in EPSG:4326 (not the map's 3857), so request it in that CRS —
-//    Leaflet handles a WMS layer whose CRS differs from the map's.
-const EDO_LAYERS = {
-  cdiad: { needsTime: false },                            // Combined Drought Indicator (latest by default, 3857 ok)
-  smian: { needsTime: false },                            // Soil Moisture Index Anomaly (3857 ok)
-  lfinx_300_sms: { needsTime: true, crs: L.CRS.EPSG4326 } // Low-Flow Index (river drought) — 4326 + TIME only
+// ── Water-resources context (NASA EOSDIS GIBS — SMAP soil moisture) ────────────
+// A live, always-current tile overlay of soil-moisture (how much water is in the ground) —
+// nothing is stored, so it can't go stale. GIBS serves standard XYZ/WMTS tiles (no key,
+// CORS-clean, CDN-backed), far more reliable than EDO's custom WMS. The per-site "data
+// join" is a deep link (below) to NASA Worldview at the site, not a cached number.
+const GIBS_BASE = 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best';
+const GIBS_ATTR = 'Water: NASA EOSDIS GIBS — SMAP';
+const GIBS_TMS = 'GoogleMapsCompatible_Level6'; // SMAP L4 tiles exist to zoom 6…
+const GIBS_MAX_NATIVE_ZOOM = 6;                 // …so cap native requests there and let Leaflet upsample
+const GIBS_LAYERS = {
+  SMAP_L4_Analyzed_Root_Zone_Soil_Moisture: true, // ~1 m root-zone water (drought/water-stress relevant)
+  SMAP_L4_Analyzed_Surface_Soil_Moisture: true    // top few cm
 };
 
-// Latest EDO 10-daily reference date ('YYYY-MM-DD'). Data publishes for the 1st/11th/21st
-// with a few days' lag; back off 12 days from today, then snap down to 1/11/21.
-function latestEdoDate() {
-  const d = new Date(Date.now() - 12 * 864e5);
-  const snapped = d.getDate() >= 21 ? 21 : d.getDate() >= 11 ? 11 : 1;
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  return `${d.getFullYear()}-${mm}-${String(snapped).padStart(2, '0')}`;
+// Small bottom-left notice so a failing overlay isn't a silent blank.
+let waterNoticeCtl = null;
+function showWaterNotice(msg) {
+  if (!msg) { if (waterNoticeCtl) { waterNoticeCtl.remove(); waterNoticeCtl = null; } return; }
+  if (!waterNoticeCtl) {
+    waterNoticeCtl = L.control({ position: 'bottomleft' });
+    waterNoticeCtl.onAdd = () => { const d = L.DomUtil.create('div', 'plume-hint'); d.textContent = msg; return d; };
+    waterNoticeCtl.addTo(map);
+  } else {
+    waterNoticeCtl.getContainer().textContent = msg;
+  }
 }
 
 function updateWaterOverlay() {
   if (STATE.waterEoTile) { STATE.waterEoTile.remove(); STATE.waterEoTile = null; }
+  showWaterNotice('');
   if (!STATE.waterEo) return;
-  const code = EDO_LAYERS[STATE.waterEoLayer] ? STATE.waterEoLayer : 'cdiad';
-  const cfg = EDO_LAYERS[code];
-  const wmsOpts = {
-    layers: code,
-    version: '1.1.1',
-    format: 'image/png',
-    opacity: 0.55,
-    attribution: EDO_ATTR
-  };
-  if (cfg.crs) wmsOpts.crs = cfg.crs; // layer served in a CRS other than the map's
-  const layer = L.tileLayer.wms(EDO_WMS, wmsOpts);
-  // EDO's /api/wms is strict and non-standard: it rejects any STYLES param and requires
-  // the TRANSPARENT value uppercase. Leaflet's defaults (styles='', transparent=true) would
-  // 400 every tile, so patch wmsParams before the layer requests anything. Verified against
-  // the live endpoint (2026-07): only `transparent=TRUE`, no `styles`, format=image/png works.
-  delete layer.wmsParams.styles;
-  layer.wmsParams.transparent = 'TRUE';
-  if (cfg.needsTime) layer.wmsParams.TIME = latestEdoDate();
+  const layerId = GIBS_LAYERS[STATE.waterEoLayer] ? STATE.waterEoLayer : 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture';
+  // '.../<layer>/default/default/<TMS>/{z}/{y}/{x}.png' — style=default, time=default (latest available).
+  // GIBS REST path is TileMatrix/TileRow/TileCol, i.e. {z}/{y}/{x}.
+  const url = `${GIBS_BASE}/${layerId}/default/default/${GIBS_TMS}/{z}/{y}/{x}.png`;
+  const layer = L.tileLayer(url, {
+    tileSize: 256,
+    maxNativeZoom: GIBS_MAX_NATIVE_ZOOM,
+    opacity: 0.6,
+    attribution: GIBS_ATTR,
+    bounds: [[-85.05, -180], [85.05, 180]]
+  });
+  let errored = false;
+  layer.on('tileerror', () => { if (!errored) { errored = true; showWaterNotice(t('water_eo_error')); } });
   // Renders in the tile pane, beneath the markers and plume in the overlay pane.
   STATE.waterEoTile = layer.addTo(map);
 }
 
-// Deep link to the live EDO map centred on a site. Hash-based permalink; if the format
-// drifts it still lands on the current EDO map (correct live context, just not pre-centred).
-function edoDeepLink(lat, lon) {
-  return `https://drought.emergency.copernicus.eu/tumbo/edo/map/#x=${lon.toFixed(4)}&y=${lat.toFixed(4)}&z=9`;
+// Deep link to NASA Worldview centred on a site, with the soil-moisture layer on.
+// Documented, stable permalink: ?v=<west,south,east,north>&l=<layers>&t=<date optional>.
+function nasaWorldviewLink(lat, lon) {
+  const w = (lon - 0.6).toFixed(3), s = (lat - 0.4).toFixed(3), e = (lon + 0.6).toFixed(3), n = (lat + 0.4).toFixed(3);
+  return `https://worldview.earthdata.nasa.gov/?v=${w},${s},${e},${n}&l=SMAP_L4_Analyzed_Root_Zone_Soil_Moisture,Coastlines_15m`;
 }
 
 function renderMarkers() {
@@ -813,7 +810,7 @@ function renderFullSite(s) {
 
   // Live basin water-stress context for every site (not just those with a water block).
   const waterContext = (s.lat != null && s.lon != null) ? `
-    <p class="water-eo-link"><a href="${edoDeepLink(s.lat, s.lon)}" target="_blank" rel="noopener">${t('edo_live_link')}</a></p>
+    <p class="water-eo-link"><a href="${nasaWorldviewLink(s.lat, s.lon)}" target="_blank" rel="noopener">${t('water_live_link')}</a></p>
   ` : '';
 
   const phaseNotes = txt(s, 'phase_notes');

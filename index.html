@@ -35,13 +35,12 @@
     <label><input type="checkbox" id="f-solar-footprint"> <span data-i18n="solar_footprint">Show equivalent solar-farm footprint (to scale)</span></label>
     <p class="hint" data-i18n="solar_hint">Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.</p>
     <p class="hint solar-total" id="solar-total"></p>
-    <label><input type="checkbox" id="f-water-eo"> <span data-i18n="water_eo">Show basin water stress (Copernicus EDO)</span></label>
-    <select id="water-eo-layer" class="eo-select" aria-label="EDO indicator">
-      <option value="smian" data-i18n="water_eo_smian" selected>Soil Moisture Anomaly</option>
-      <option value="cdiad" data-i18n="water_eo_cdiad">Combined Drought Indicator</option>
-      <option value="lfinx_300_sms" data-i18n="water_eo_lfinx">Low-Flow Index (river drought)</option>
+    <label><input type="checkbox" id="f-water-eo"> <span data-i18n="water_eo">Show soil moisture (NASA SMAP)</span></label>
+    <select id="water-eo-layer" class="eo-select" aria-label="SMAP soil-moisture layer">
+      <option value="SMAP_L4_Analyzed_Root_Zone_Soil_Moisture" data-i18n="water_eo_rootzone" selected>Root-zone soil moisture (SMAP L4)</option>
+      <option value="SMAP_L4_Analyzed_Surface_Soil_Moisture" data-i18n="water_eo_surface">Surface soil moisture (SMAP L4)</option>
     </select>
-    <p class="hint" data-i18n="water_eo_hint">Live Earth-observation layer (~5 km, updated every 10 days). Regional context, not site-scale. Areas with no colour aren't currently classified — expect the Combined Drought Indicator to be blank when there's no active drought. Click a site for the live reading at its location.</p>
+    <p class="hint" data-i18n="water_eo_hint">Live NASA SMAP soil-moisture (how much water is in the ground, ~9 km, updated every few days). Regional context, not site-scale — see the map legend for the colour scale. Click a site for the live reading at its location.</p>
     <div id="operator-filters"></div>
   </section>
 
