@@ -99,6 +99,11 @@
   <p>Both are legitimate accounting methods, but the ≈ 0 is a <em>contractual</em> result, not zero physical emissions — the grid draw is real, and adding this much new demand can pull up marginal gas generation.</p>
   <div class="chart-wrap"><canvas id="chart-emissions" aria-label="Estimated grid-electricity CO2: physical grid range vs after renewable PPAs" role="img"></canvas></div>
   <p class="chart-note">Estimate: Σ(site MW) × 8760 h × 0.90 load factor × grid intensity; covers only sites with a disclosed MW figure. Sources: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps (Spanish grid 2024)</a> and CNMC official mix (2025); renewable claims — <a href="https://www.aboutamazon.eu/news/job-creation-and-investment/learn-about-awss-long-term-commitment-to-aragon-spain" target="_blank">AWS</a>, <a href="https://www.datacenterdynamics.com/en/news/microsoft-signs-957mw-ppa-with-zelestra-in-aragon-spain/" target="_blank">Microsoft/Zelestra (DCD)</a>.</p>
+
+  <h2>14. Land footprint by site</h2>
+  <p>Disclosed campus footprints total ≈ <strong>1,149 ha</strong> across the nine sites that publish one — mostly rural, agricultural land reclassified to industrial via the PIGA fast-track. See the <a href="land.html">Land &amp; biodiversity page</a> for the expropriation story and how to check a parcel.</p>
+  <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land" aria-label="Datacenter land footprint by site in hectares" role="img"></canvas></div>
+  <p class="chart-note">Hectares from each site's own reporting (linked in its map record). Covers the 9 of 21 sites with a disclosed footprint. Prior land use per parcel is verifiable via <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a>.</p>
 </section>
 
 <!-- =================== ES =================== -->
@@ -181,6 +186,11 @@
   <p>Ambos son métodos de contabilidad legítimos, pero el ≈ 0 es un resultado <em>contractual</em>, no cero emisiones físicas — el consumo de red es real, y añadir tanta demanda nueva puede elevar la generación marginal de gas.</p>
   <div class="chart-wrap"><canvas id="chart-emissions-es" aria-label="CO2 estimado de la electricidad de red: rango de red física vs tras PPAs renovables" role="img"></canvas></div>
   <p class="chart-note">Estimación: Σ(MW del sitio) × 8760 h × factor de carga 0,90 × intensidad de red; solo cubre sitios con MW divulgado. Fuentes: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps (red española 2024)</a> y mix oficial CNMC (2025); declaraciones renovables — <a href="https://www.aboutamazon.eu/news/job-creation-and-investment/learn-about-awss-long-term-commitment-to-aragon-spain" target="_blank">AWS</a>, <a href="https://www.datacenterdynamics.com/en/news/microsoft-signs-957mw-ppa-with-zelestra-in-aragon-spain/" target="_blank">Microsoft/Zelestra (DCD)</a>.</p>
+
+  <h2>14. Huella de suelo por sitio</h2>
+  <p>Las huellas de campus divulgadas suman ≈ <strong>1.149 ha</strong> en los nueve sitios que la publican — en su mayoría suelo rural y agrícola reclasificado a industrial vía la vía rápida PIGA. Ver la <a href="land.html">página de Suelo y biodiversidad</a> para la historia de expropiaciones y cómo comprobar una parcela.</p>
+  <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land-es" aria-label="Huella de suelo de centros de datos por sitio en hectáreas" role="img"></canvas></div>
+  <p class="chart-note">Hectáreas según la propia información de cada sitio (enlazada en su ficha del mapa). Cubre 9 de 21 sitios con huella divulgada. El uso anterior por parcela se puede verificar en <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a>.</p>
 </section>
 
 </main>
@@ -236,7 +246,28 @@
     buildSummersDecadeCharts();
     buildDroughtCharts(data);
     buildEmissionsCharts(data);
+    buildLandCharts(data);
   });
+
+  // ---- 14. Land footprint by site ----
+  function buildLandCharts(data) {
+    var rows = data.sites.filter(function (s) { return s.land && s.land.hectares; })
+      .map(function (s) { return { name: s.site_name.replace(/\s*\(.*$/, '').replace(/\s+—.*$/, ''), ha: s.land.hectares }; })
+      .sort(function (a, b) { return b.ha - a.ha; });
+    function build(locale) {
+      return {
+        type: 'bar',
+        data: { labels: rows.map(function (r) { return r.name; }), datasets: [{ data: rows.map(function (r) { return r.ha; }), backgroundColor: C.pe, barPercentage: 0.75 }] },
+        options: {
+          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          scales: { x: { title: { display: true, text: locale === 'es-ES' ? 'hectáreas' : 'hectares' }, beginAtZero: true } },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (ctx) { return ctx.parsed.x.toLocaleString(locale) + ' ha'; } } } }
+        }
+      };
+    }
+    new Chart(document.getElementById('chart-land'), build('en-US'));
+    new Chart(document.getElementById('chart-land-es'), build('es-ES'));
+  }
 
   // ---- 1. Electricity 2024 vs 2030 ----
   function buildElectricityCharts() {

@@ -334,6 +334,11 @@ body.about-body { display: block; background: var(--bg); }
   height: 320px;
   position: relative;
 }
+
+.land-table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; font-size: 0.9rem; }
+.land-table th, .land-table td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+.land-table th { color: var(--muted); font-weight: 600; }
+.land-table td:nth-child(2) { white-space: nowrap; }
 .chart-note {
   font-size: 0.8rem;
   color: var(--muted);
