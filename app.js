@@ -588,6 +588,15 @@ function renderAggregate(d) {
   if (g) g.textContent = STATE.lang === 'es'
     ? `CO₂ estimado de la electricidad de red (${withMW} sitios con potencia): ≈ ${mt(GRID_G_PHYSICAL)}–${mt(GRID_G_LABEL)} Mt/año (basado en ubicación; mercado ≈ 0 con PPAs renovables). Fuentes: Electricity Maps, CNMC.`
     : `Estimated grid-electricity CO₂ (${withMW} sites with capacity): ≈ ${mt(GRID_G_PHYSICAL)}–${mt(GRID_G_LABEL)} Mt/yr (location-based; market-based ≈ 0 with renewable PPAs). Sources: Electricity Maps, CNMC.`;
+
+  // Land & biodiversity (derived from disclosed footprints; regional context is cited).
+  const landSites = d.sites.filter(s => s.land && s.land.hectares);
+  const totalHa = Math.round(landSites.reduce((a, s) => a + s.land.hectares, 0));
+  const ansar = 'https://www.ansararagon.com/alegaciones-al-piga-de-expansion-de-los-centros-de-datos-de-amazon-aws-en-aragon/';
+  const ln = document.getElementById('land-note');
+  if (ln) ln.innerHTML = STATE.lang === 'es'
+    ? `Suelo: ≈ ${totalHa.toLocaleString(loc)} ha en ${landSites.length} sitios con huella divulgada — en su mayoría suelo rural/agrícola reclasificado vía PIGA (INAGA eximió 320+ ha de la EIA ordinaria). Alegaciones por biodiversidad y territorio de <a href="${ansar}" target="_blank">ANSAR/Ecologistas</a>.`
+    : `Land: ≈ ${totalHa.toLocaleString(loc)} ha across ${landSites.length} sites with a disclosed footprint — mostly rural/agricultural land reclassified via PIGA (INAGA exempted 320+ ha from ordinary EIA). Biodiversity/territorial objections filed by <a href="${ansar}" target="_blank">ANSAR/Ecologistas</a>.`;
 }
 
 function buildOperatorFilters(d) {
@@ -962,6 +971,9 @@ const TOUR = [
   { id: 'aws-la-puebla-de-hijar', zoom: 12,
     en: { title: 'A multi-billion campus in a town of 935', text: 'La Puebla de Híjar has 935 residents and is slated for a multi-billion-euro AWS campus. The mismatch between the infrastructure and the community it lands on is the story of Aragón’s datacentre boom.' },
     es: { title: 'Un campus de miles de millones en un pueblo de 935', text: 'La Puebla de Híjar tiene 935 habitantes y está prevista para un campus de AWS de miles de millones. El desajuste entre la infraestructura y la comunidad resume el boom de centros de datos en Aragón.' } },
+  { id: 'aws-san-mateo-de-gallego', zoom: 13,
+    en: { title: 'Land use & biodiversity', text: 'This 294-hectare campus is one of many carved mostly from rural, agricultural land, reclassified to industrial via the PIGA fast-track — which also enables compulsory purchase. INAGA exempted 320+ ha from ordinary environmental review; ecological groups (ANSAR, Ecologistas) have filed biodiversity and territorial objections. Prior use per parcel is checkable via SIGPAC.' },
+    es: { title: 'Uso del suelo y biodiversidad', text: 'Este campus de 294 hectáreas es uno de muchos abiertos sobre suelo rural y agrícola, reclasificado a industrial vía la vía rápida PIGA — que además permite la expropiación forzosa. INAGA eximió a más de 320 ha de la evaluación ambiental ordinaria; grupos ecologistas (ANSAR, Ecologistas) han presentado alegaciones por biodiversidad y territorio. El uso anterior por parcela se puede comprobar en SIGPAC.' } },
   { id: 'microsoft-la-muela', zoom: 13,
     en: { title: 'The €87M tax dispute', text: 'Microsoft has refused to pay ~€87M in ICIO construction tax to La Muela and Villamayor, arguing the PIGA fast-track exempts it. The municipalities dispute that, and the site is also litigated.' },
     es: { title: 'La disputa fiscal de 87 M€', text: 'Microsoft se ha negado a pagar ~87 M€ de ICIO a La Muela y Villamayor, alegando que la vía rápida PIGA le exime. Los municipios lo disputan, y el sitio también está en litigio.' } },

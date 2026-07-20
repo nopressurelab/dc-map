@@ -294,6 +294,7 @@
   "sites": [
     {
       "id": "aws-villanueva-gallego",
+      "land": { "hectares": 81, "_source": "https://www.aragon.es/-/piga-aws-ampliacion" },
       "operator": "AWS",
       "operator_entity": "Amazon Data Services Spain S.L.U.",
       "operator_type": "hyperscaler",
@@ -416,6 +417,7 @@
     },
     {
       "id": "aws-walqa-huesca",
+      "land": { "hectares": 69, "_source": "https://www.aragon.es/-/piga-aws-ampliacion" },
       "operator": "AWS",
       "operator_entity": "Amazon Data Services Spain S.L.U.",
       "operator_type": "hyperscaler",
@@ -594,6 +596,7 @@
     },
     {
       "id": "aws-san-mateo-de-gallego",
+      "land": { "hectares": 294, "_source": "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html" },
       "operator": "AWS",
       "operator_entity": "Amazon Data Services Spain S.L.U.",
       "operator_type": "hyperscaler",
@@ -631,6 +634,7 @@
     },
     {
       "id": "aws-la-puebla-de-hijar",
+      "land": { "hectares": 300, "_source": "https://www.xataka.com/empresas-y-economia/bienvenido-mr-bezos-nuevo-centro-datos-amazon-se-instalara-puebla-hijar" },
       "operator": "AWS",
       "operator_entity": "Amazon Data Services Spain S.L.U.",
       "operator_type": "hyperscaler",
@@ -907,6 +911,7 @@
     },
     {
       "id": "blackstone-qts-calatorao",
+      "land": { "hectares": 224, "_source": "https://www.aragon.es/-/proyecto-rhodes" },
       "operator": "QTS (Blackstone)",
       "operator_entity": "QTS Realty Trust — Blackstone-managed",
       "operator_type": "private_equity",
@@ -975,6 +980,7 @@
     },
     {
       "id": "vantage-villanueva-de-gallego",
+      "land": { "hectares": 40, "_source": "https://bebeez.eu/2025/09/18/vantage-enters-spain-to-invest-e3-2-billion-in-zaragoza-data-center-campus/" },
       "operator": "Vantage Data Centers",
       "operator_entity": "Vantage Data Centers (DigitalBridge-backed)",
       "operator_type": "colocation_reit",
@@ -1052,6 +1058,7 @@
     },
     {
       "id": "azora-tillion-villamayor",
+      "land": { "hectares": 79.6, "_source": "https://www.azora.com/en/blog/azora-to-invest-e2-billion-in-zaragoza-data-centre/" },
       "operator": "Azora (Tillion Data Centres)",
       "operator_entity": "Tillion Data Centres (Azora subsidiary)",
       "operator_type": "private_equity",
@@ -1118,6 +1125,7 @@
     },
     {
       "id": "box2bit-carinena-withdrawn",
+      "land": { "hectares": 28, "_source": "https://www.hoyaragon.es/articulo/noticias-aragon/box2bit-epila-centro-datos-carinena/20260129112439121735.html" },
       "operator": "Box2Bit",
       "operator_entity": "B2B Axis East 3 SLU (Quantum Global Assets SLU Group) — Madrid-based",
       "operator_type": "spanish_independent",
@@ -1182,6 +1190,7 @@
     },
     {
       "id": "box2bit-epila",
+      "land": { "hectares": 33, "_source": "https://www.eldiario.es/aragon/economia/empresa-box2bit-invertira-3-900-millones-euros-centro-datos-epila-renunciar-carinena_1_12942482.html" },
       "operator": "Box2Bit",
       "operator_entity": "Box2Bit (Quantum Global Assets group)",
       "operator_type": "spanish_independent",
