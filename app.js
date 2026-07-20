@@ -18,14 +18,23 @@ const I18N = {
     filters: 'Filters',
     map_layers: 'Map layers',
     nav_explore: 'Explore the project',
+    how_to_read: 'How to read this map',
+    htr_dot: 'Each dot is a datacenter project. Colour = operator type (see Legend).',
+    htr_size: 'Dot size = power capacity (MW) — bigger dot, more power.',
+    htr_ring: 'Red ring = speculative (no confirmed tenant). Dashed red = litigation or objections.',
+    htr_layers: 'Map layers add context: a 500 m heat plume, the equivalent solar-farm footprint, and NASA soil moisture.',
+    htr_cluster: 'Overlapping sites group into a numbered blue circle — click it to fan them out.',
+    htr_click: 'Click any dot for the full, cited record and its sources.',
+    htr_flags: 'Watch the badges: PIGA fast-track, ICIO tax dispute, and litigation.',
+    leg_size: 'Dot size = capacity (MW)',
     speculative_only: 'Speculative only (no confirmed tenant)',
     litigated_only: 'Litigation or alegaciones only',
     piga_only: 'Uses PIGA fast-track only',
     high_risk_only: 'High vacancy risk only',
     thermal_plume: 'Show 500 m thermal plume (ASME 2026)',
     plume_hint: 'Zoom in to a site to see the 500 m thermal footprint to scale.',
-    solar_footprint: 'Show equivalent solar-farm footprint (to scale)',
-    solar_hint: 'Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.',
+    solar_footprint: 'Solar-equivalent land footprint (illustrative)',
+    solar_hint: 'Illustrative, not the site’s actual supply: the land a solar farm alone would need to match this site’s electricity, drawn to scale. Most projects actually use a mix of solar and wind PPAs — wind needs far more spacing but far less built-up land. Assumes load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL); figures scale ~2× with these.',
     water_eo: 'Show soil moisture (NASA SMAP)',
     water_eo_hint: 'Live NASA SMAP soil-moisture (how much water is in the ground, ~9 km, updated every few days). Regional context, not site-scale — see the map legend for the colour scale. Click a site for the live reading at its location.',
     water_eo_rootzone: 'Root-zone soil moisture (SMAP L4)',
@@ -50,7 +59,7 @@ const I18N = {
     contribute: 'Contribute on GitHub',
     license_prefix: 'License:',
     about: 'About this project →',
-    nav_trends: 'Trends & projections: 8 cited charts on electricity, water, heat, investment →',
+    nav_trends: 'Trends & projections: cited charts on electricity, water, heat, emissions, investment →',
     nav_timeline: '20-event timeline 2020→2026: PIGA, INAGA EIA exemption, Operación Perserte →',
     nav_munis: 'Six towns bearing the burden: La Puebla de Híjar (935 people, €5B campus) to Épila →',
     nav_types: 'Primer: what a datacenter is, six types, cooling, and the local heat impact →',
@@ -135,14 +144,23 @@ const I18N = {
     filters: 'Filtros',
     map_layers: 'Capas del mapa',
     nav_explore: 'Explora el proyecto',
+    how_to_read: 'Cómo leer este mapa',
+    htr_dot: 'Cada punto es un proyecto de centro de datos. Color = tipo de operador (ver Leyenda).',
+    htr_size: 'Tamaño del punto = potencia (MW): a mayor punto, más potencia.',
+    htr_ring: 'Anillo rojo = especulativo (sin cliente confirmado). Rojo discontinuo = litigio o alegaciones.',
+    htr_layers: 'Las capas del mapa aportan contexto: penacho térmico de 500 m, huella solar equivalente y humedad del suelo (NASA).',
+    htr_cluster: 'Los sitios superpuestos se agrupan en un círculo azul con número — púlsalo para desplegarlos.',
+    htr_click: 'Pulsa cualquier punto para ver la ficha completa y sus fuentes.',
+    htr_flags: 'Fíjate en las etiquetas: vía rápida PIGA, disputa ICIO y litigios.',
+    leg_size: 'Tamaño del punto = potencia (MW)',
     speculative_only: 'Solo especulativos (sin cliente confirmado)',
     litigated_only: 'Solo con litigio o alegaciones',
     piga_only: 'Solo con PIGA (vía rápida)',
     high_risk_only: 'Solo con alto riesgo de vacancia',
     thermal_plume: 'Mostrar penacho térmico 500 m (ASME 2026)',
     plume_hint: 'Acércate a un sitio para ver el penacho térmico de 500 m a escala.',
-    solar_footprint: 'Mostrar huella solar equivalente (a escala)',
-    solar_hint: 'Cada cuadrado ámbar es la planta solar necesaria para abastecer la electricidad de ese sitio, dibujada a escala en el mapa. Supone factor de carga del CD 0,90, factor de capacidad solar en Aragón ~0,20, ~1,5 ha/MWp (NREL). Las cifras varían ~2× según estos supuestos.',
+    solar_footprint: 'Huella de suelo solar-equivalente (ilustrativa)',
+    solar_hint: 'Ilustrativo, no es el suministro real del sitio: el suelo que necesitaría solo una planta solar para igualar la electricidad de este sitio, a escala. La mayoría de proyectos usan en realidad una mezcla de PPAs solares y eólicos — la eólica necesita mucho más espacio pero mucho menos suelo construido. Supone factor de carga 0,90, factor de capacidad solar en Aragón ~0,20, ~1,5 ha/MWp (NREL); las cifras varían ~2×.',
     water_eo: 'Mostrar humedad del suelo (NASA SMAP)',
     water_eo_hint: 'Humedad del suelo NASA SMAP en directo (cuánta agua hay en el suelo, ~9 km, actualizada cada pocos días). Contexto regional, no a escala del sitio — consulta la leyenda del mapa para la escala de color. Pulsa un sitio para la lectura en directo en su ubicación.',
     water_eo_rootzone: 'Humedad del suelo en zona radicular (SMAP L4)',
@@ -167,7 +185,7 @@ const I18N = {
     contribute: 'Contribuir en GitHub',
     license_prefix: 'Licencia:',
     about: 'Sobre este proyecto →',
-    nav_trends: 'Tendencias y proyecciones: 8 gráficos citados sobre electricidad, agua, calor, inversión →',
+    nav_trends: 'Tendencias y proyecciones: gráficos citados sobre electricidad, agua, calor, emisiones, inversión →',
     nav_timeline: 'Cronología 20 hitos 2020→2026: PIGA, exención EIA INAGA, Operación Perserte →',
     nav_munis: 'Seis municipios que cargan con el peso: de La Puebla de Híjar (935 hab, €5.000 M) a Épila →',
     nav_types: 'Introducción: qué es un CD, seis tipos, refrigeración e impacto térmico local →',
@@ -264,7 +282,8 @@ const STATE = {
   thermalPlume: false,
   solarFootprint: false,
   waterEo: false,
-  waterEoLayer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture' // NASA SMAP root-zone soil moisture
+  waterEoLayer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture', // NASA SMAP root-zone soil moisture
+  selectedSite: null
 };
 
 // Waste-heat helper. Given MW, returns TJ/year rejected (1st-law assumption: nearly all electricity → heat).
@@ -275,6 +294,78 @@ function wasteHeatTJ(mw) {
 }
 
 function t(key) { return I18N[STATE.lang][key] || key; }
+
+// ── Shareable URL state ────────────────────────────────────────────────────────
+// Encode the active filters, map layers and open site into the location hash so a
+// filtered view or a specific project can be linked. Parsing is defensive: a bad hash
+// is ignored and never breaks the map.
+const DEFAULT_SOIL = 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture';
+function serializeState() {
+  if (!STATE.data) return;
+  const p = [];
+  const f = STATE.filters;
+  const fl = [];
+  if (f.speculative) fl.push('spec');
+  if (f.litigated) fl.push('lit');
+  if (f.piga) fl.push('piga');
+  if (f.high_risk) fl.push('risk');
+  if (fl.length) p.push('f=' + fl.join(','));
+  const allOps = new Set(STATE.data.sites.map(s => s.operator));
+  if (f.operators.size && f.operators.size < allOps.size) {
+    p.push('ops=' + [...f.operators].map(encodeURIComponent).join(','));
+  }
+  const layers = [];
+  if (STATE.thermalPlume) layers.push('plume');
+  if (STATE.solarFootprint) layers.push('solar');
+  if (STATE.waterEo) layers.push('water');
+  if (layers.length) p.push('l=' + layers.join(','));
+  if (STATE.waterEo && STATE.waterEoLayer && STATE.waterEoLayer !== DEFAULT_SOIL) p.push('soil=' + STATE.waterEoLayer);
+  if (STATE.selectedSite) p.push('site=' + encodeURIComponent(STATE.selectedSite));
+  const hash = p.length ? '#' + p.join('&') : '';
+  try { history.replaceState(null, '', location.pathname + location.search + hash); } catch (e) { /* ignore */ }
+}
+
+// Parse the hash into STATE. Returns the requested site id (or null). Call before renderAll.
+function readStateFromHash() {
+  let site = null;
+  try {
+    const h = location.hash.replace(/^#/, '');
+    if (!h) return null;
+    const q = {};
+    h.split('&').forEach(kv => { const i = kv.indexOf('='); if (i > 0) q[kv.slice(0, i)] = kv.slice(i + 1); });
+    if (q.f) {
+      const s = q.f.split(',');
+      STATE.filters.speculative = s.includes('spec');
+      STATE.filters.litigated = s.includes('lit');
+      STATE.filters.piga = s.includes('piga');
+      STATE.filters.high_risk = s.includes('risk');
+    }
+    if (q.ops) STATE.filters.operators = new Set(q.ops.split(',').map(decodeURIComponent));
+    if (q.l) {
+      const l = q.l.split(',');
+      STATE.thermalPlume = l.includes('plume');
+      STATE.solarFootprint = l.includes('solar');
+      STATE.waterEo = l.includes('water');
+    }
+    if (q.soil) STATE.waterEoLayer = decodeURIComponent(q.soil);
+    if (q.site) site = decodeURIComponent(q.site);
+  } catch (e) { /* malformed hash — ignore */ }
+  return site;
+}
+
+// Reflect STATE into the sidebar controls (operator checkboxes are handled by buildOperatorFilters).
+function syncControlsFromState() {
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.checked = v; };
+  set('f-speculative', STATE.filters.speculative);
+  set('f-litigated', STATE.filters.litigated);
+  set('f-piga', STATE.filters.piga);
+  set('f-high-risk', STATE.filters.high_risk);
+  set('f-thermal-plume', STATE.thermalPlume);
+  set('f-solar-footprint', STATE.solarFootprint);
+  set('f-water-eo', STATE.waterEo);
+  const sel = document.getElementById('water-eo-layer');
+  if (sel && STATE.waterEoLayer) sel.value = STATE.waterEoLayer;
+}
 
 // Per-field translation: picks obj[field + '_' + lang], falls back to obj[field + '_en'], then obj[field].
 function txt(obj, field) {
@@ -398,9 +489,20 @@ fetch('data/datacenters.json')
   .then(r => r.json())
   .then(data => {
     STATE.data = data;
+    const linkedSite = readStateFromHash();  // restore filters/layers from the URL
     initLangButtons();
     renderAll();
     wireFilters();
+    syncControlsFromState();                 // reflect restored state into the controls
+    if (STATE.waterEo) updateWaterOverlay();  // apply a restored water layer
+    document.getElementById('sidebar').addEventListener('change', serializeState); // persist any control change to the URL
+    // Open "How to read this map" on a visitor's first load only.
+    try {
+      const htr = document.getElementById('how-to-read');
+      if (htr && !localStorage.getItem('htrSeen')) { htr.open = true; localStorage.setItem('htrSeen', '1'); }
+    } catch (e) { /* localStorage blocked — leave collapsed */ }
+    // Open a linked site, if any.
+    if (linkedSite) { const s = STATE.data.sites.find(x => x.id === linkedSite); if (s) openDialog(s); }
   })
   .catch(err => {
     console.error('Failed to load dataset', err);
@@ -454,6 +556,25 @@ function renderAggregate(d) {
     <dt>${t('agg_aws_water_co')}</dt><dd>${fmt(a.aws_aggregate_water_m3_year_company)} m³</dd>
     <dt>${t('agg_aws_water_cr')}</dt><dd>${fmt(a.aws_aggregate_water_critics_hm3_year)} hm³</dd>
   `;
+
+  // Honesty note: derived totals only cover sites that report a figure.
+  const n = d.sites.length;
+  const mwSites = d.sites.filter(siteMW);
+  const withMW = mwSites.length;
+  const withWater = d.sites.filter(s => s.water).length;
+  const cov = document.getElementById('coverage-note');
+  if (cov) cov.textContent = STATE.lang === 'es'
+    ? `Cobertura de datos: ${withMW}/${n} potencia · ${withWater}/${n} agua. Los totales derivados usan solo los sitios con dato.`
+    : `Field coverage: ${withMW}/${n} capacity · ${withWater}/${n} water. Derived totals count only sites that report a figure.`;
+
+  // Derived, cited: estimated location-based grid-electricity CO2 for mapped sites with capacity.
+  const totalMW = mwSites.reduce((a, s) => a + siteMW(s), 0);
+  const loc = STATE.lang === 'es' ? 'es-ES' : 'en-US';
+  const mt = (g) => (gridCO2Tonnes(totalMW, g) / 1e6).toLocaleString(loc, { maximumFractionDigits: 1 });
+  const g = document.getElementById('grid-co2-note');
+  if (g) g.textContent = STATE.lang === 'es'
+    ? `CO₂ estimado de la electricidad de red (${withMW} sitios con potencia): ≈ ${mt(GRID_G_PHYSICAL)}–${mt(GRID_G_LABEL)} Mt/año (basado en ubicación; mercado ≈ 0 con PPAs renovables). Fuentes: Electricity Maps, CNMC.`
+    : `Estimated grid-electricity CO₂ (${withMW} sites with capacity): ≈ ${mt(GRID_G_PHYSICAL)}–${mt(GRID_G_LABEL)} Mt/yr (location-based; market-based ≈ 0 with renewable PPAs). Sources: Electricity Maps, CNMC.`;
 }
 
 function buildOperatorFilters(d) {
@@ -489,6 +610,8 @@ function wireFilters() {
   const dialog = document.getElementById('site-dialog');
   document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+  // Clear the linked site from the URL when the dialog closes (any dismissal route).
+  dialog.addEventListener('close', () => { STATE.selectedSite = null; serializeState(); });
 }
 
 function sitePassesFilters(s) {
@@ -591,17 +714,42 @@ function solarFootprintKm2(s) {
   return solarMwp * SOLAR_HA_PER_MWP / 100; // ha → km²
 }
 
+// Relatable "household equivalents" (Spanish averages, cited in the dialog):
+//   electricity ≈ 3,500 kWh per household·yr (IDAE);
+//   mains water ≈ 130 m³ per household·yr (INE, ~133 L/person·day).
+const HOME_KWH_YEAR = 3500;
+const HOME_WATER_M3_YEAR = 130;
+function homesFromMW(mw) {
+  if (!mw) return null;
+  return Math.round(mw * 8760 * DC_LOAD_FACTOR * 1000 / HOME_KWH_YEAR);
+}
+function homesFromWaterM3(m3) {
+  if (typeof m3 !== 'number' || !m3) return null;
+  return Math.round(m3 / HOME_WATER_M3_YEAR);
+}
+
+// Grid-electricity CO2 (estimate). Spanish grid carbon intensity, gCO2/kWh:
+//   ~108 = physical grid 2024 (Electricity Maps); ~258 = CNMC official "mix" label 2025.
+// Shown as a location-based RANGE; market-based (renewable PPA) accounting reports ~0.
+const GRID_G_PHYSICAL = 108;
+const GRID_G_LABEL = 258;
+function gridCO2Tonnes(mw, gPerKwh) {
+  if (!mw) return null;
+  return mw * 8760 * DC_LOAD_FACTOR * 1000 * gPerKwh / 1e6; // annual kWh × g/kWh → tonnes
+}
+
 function renderSolarFootprint() {
   if (STATE.solarLayer) STATE.solarLayer.remove();
   STATE.solarLayer = L.layerGroup();
   const totalEl = document.getElementById('solar-total');
   if (!STATE.solarFootprint) { if (totalEl) totalEl.textContent = ''; return; }
 
-  let total = 0;
-  STATE.data.sites.filter(sitePassesFilters).forEach(s => {
+  let total = 0, withMW = 0;
+  const filtered = STATE.data.sites.filter(sitePassesFilters);
+  filtered.forEach(s => {
     const km2 = solarFootprintKm2(s);
     if (!km2) return;
-    total += km2;
+    total += km2; withMW++;
     const halfM = Math.sqrt(km2 * 1e6) / 2;                       // half-side of the square, metres
     const dLat = halfM / 111320;
     const dLon = halfM / (111320 * Math.cos(s.lat * Math.PI / 180));
@@ -620,8 +768,8 @@ function renderSolarFootprint() {
     const km2 = Math.round(total);
     const pct = (total / 973 * 100).toFixed(0); // Zaragoza municipality ≈ 973 km²
     totalEl.textContent = STATE.lang === 'es'
-      ? `Sitios mostrados ≈ ${km2.toLocaleString('es-ES')} km² de solar — ${pct} % del municipio de Zaragoza.`
-      : `Sites shown ≈ ${km2.toLocaleString('en-US')} km² of solar — ${pct}% of Zaragoza municipality.`;
+      ? `Sitios mostrados ≈ ${km2.toLocaleString('es-ES')} km² de suelo solar-equivalente (ilustrativo) — ${pct} % del municipio de Zaragoza (según ${withMW} de ${filtered.length} sitios con dato de potencia).`
+      : `Sites shown ≈ ${km2.toLocaleString('en-US')} km² of solar-equivalent land (illustrative) — ${pct}% of Zaragoza municipality (based on ${withMW} of ${filtered.length} sites with capacity data).`;
   }
 }
 
@@ -699,9 +847,27 @@ function nasaWorldviewLink(lat, lon) {
   return `https://worldview.earthdata.nasa.gov/?v=${w},${s},${e},${n}&l=SMAP_L4_Analyzed_Root_Zone_Soil_Moisture,Coastlines_15m`;
 }
 
+// Neutral cluster badge — a plain count, so it never reads as an operator colour or a
+// red litigation/speculative ring.
+function clusterIcon(cluster) {
+  return L.divIcon({
+    html: `<div class="dc-cluster"><span>${cluster.getChildCount()}</span></div>`,
+    className: 'dc-cluster-wrap',
+    iconSize: L.point(32, 32)
+  });
+}
+
 function renderMarkers() {
   if (STATE.layer) STATE.layer.remove();
-  STATE.layer = L.layerGroup();
+  // Cluster only near-coincident markers (small radius) so overlapping sites — chiefly the
+  // Zaragoza stack — collapse into one clickable count that fans out on click; everything
+  // else stays an individual dot. Falls back to a plain group if the plugin didn't load.
+  STATE.layer = L.markerClusterGroup ? L.markerClusterGroup({
+    maxClusterRadius: 30,
+    showCoverageOnHover: false,
+    spiderfyOnMaxZoom: true,
+    iconCreateFunction: clusterIcon
+  }) : L.layerGroup();
 
   // Plume and solar footprints render first so they sit beneath the site markers.
   renderPlume();
@@ -769,6 +935,8 @@ function openDialog(s) {
   const body = document.getElementById('dialog-body');
   body.innerHTML = renderFullSite(s);
   document.getElementById('site-dialog').showModal();
+  STATE.selectedSite = s.id || null;
+  serializeState();
 }
 
 function renderFullSite(s) {
@@ -803,6 +971,20 @@ function renderFullSite(s) {
     </li>
   `).join('');
 
+  // Optional land / backup-power block — renders only when a site carries the (sourced) data.
+  // Schema (all optional): land: { hectares, prior_use, protected_area, _source }
+  //                        backup_power: { fuel, capacity_mw, _source }
+  const src = (o) => o && o._source ? ` <a class="cite" href="${o._source}" target="_blank">${t('source_link')}</a>` : '';
+  const landBackup = (s.land || s.backup_power) ? `
+    <h3>${STATE.lang === 'es' ? 'Suelo y energía de respaldo' : 'Land & backup power'}</h3>
+    <table>
+      ${s.land?.hectares ? `<tr><th>${STATE.lang === 'es' ? 'Superficie' : 'Land area'}</th><td>${s.land.hectares} ha${src(s.land)}</td></tr>` : ''}
+      ${s.land?.prior_use || s.land?.prior_use_es ? `<tr><th>${STATE.lang === 'es' ? 'Uso anterior del suelo' : 'Prior land use'}</th><td>${txt(s.land, 'prior_use')}${src(s.land)}</td></tr>` : ''}
+      ${s.land?.protected_area || s.land?.protected_area_es ? `<tr><th>${STATE.lang === 'es' ? 'Espacio protegido cercano' : 'Nearby protected area'}</th><td>${txt(s.land, 'protected_area')}${src(s.land)}</td></tr>` : ''}
+      ${s.backup_power?.fuel ? `<tr><th>${STATE.lang === 'es' ? 'Combustible de respaldo' : 'Backup fuel'}</th><td>${s.backup_power.fuel}${s.backup_power.capacity_mw ? ` (${s.backup_power.capacity_mw} MW)` : ''}${src(s.backup_power)}</td></tr>` : ''}
+    </table>
+  ` : '';
+
   const sources = (s.sources || []).map(u => `<li><a href="${u}" target="_blank">${u}</a></li>`).join('');
   const investors = (s.investors || []).map(i => `<li>${i.name} — <em>${i.role}</em> (${i.type})</li>`).join('');
   const clients = (s.clients || []).map(c => `<li>${c.name}${c.confirmed === false ? ' <span class="warning">' + t('not_confirmed') + '</span>' : ''}${c.note ? ' — ' + c.note : ''}</li>`).join('');
@@ -836,6 +1018,13 @@ function renderFullSite(s) {
       ${s.water.negotiation || s.water.negotiation_es ? `<tr><th>${t('tbl_notes')}</th><td>${txt(s.water, 'negotiation')}</td></tr>` : ''}
       ${s.water.vdg_specific || s.water.vdg_specific_es ? `<tr><th>${t('tbl_notes')}</th><td>${txt(s.water, 'vdg_specific')}</td></tr>` : ''}
     </table>
+    ${(function () {
+      var homes = homesFromWaterM3(s.water.annual_m3);
+      if (!homes) return '';
+      return STATE.lang === 'es'
+        ? `<p class="cite">≈ el agua de <strong>${homes.toLocaleString('es-ES')} hogares</strong> españoles (supone ~130 m³/hogar·año, INE).</p>`
+        : `<p class="cite">≈ the water of <strong>${homes.toLocaleString('en-US')} Spanish homes</strong> (assumes ~130 m³/home·yr, INE).</p>`;
+    })()}
   ` : '';
 
   // Live basin water-stress context for every site (not just those with a water block).
@@ -885,10 +1074,31 @@ function renderFullSite(s) {
       ${s.energy?.self_consumption_pct ? `<tr><th>${t('tbl_self')}</th><td>${s.energy.self_consumption_pct}%</td></tr>` : ''}
       ${s.energy?.aws_aragon_aggregate_demand_gwh_year ? `<tr><th>${t('tbl_aws_agg')}</th><td>${s.energy.aws_aragon_aggregate_demand_gwh_year.toLocaleString()} GWh/yr</td></tr>` : ''}
     </table>
+    ${(function () {
+      var homes = homesFromMW(siteMW(s));
+      if (!homes) return '';
+      return STATE.lang === 'es'
+        ? `<p class="cite">≈ la electricidad de <strong>${homes.toLocaleString('es-ES')} hogares</strong> españoles (supone factor de carga 0,90 y 3.500 kWh/hogar·año, IDAE).</p>`
+        : `<p class="cite">≈ the electricity of <strong>${homes.toLocaleString('en-US')} Spanish homes</strong> (assumes 0.90 load factor, 3,500 kWh/home·yr, IDAE).</p>`;
+    })()}
     ${ppas ? `<h3>${t('sec_ppas')}</h3><ul>${ppas}</ul>` : ''}
+
+    <h3>${STATE.lang === 'es' ? 'Emisiones de la electricidad de red (estimadas)' : 'Grid-electricity emissions (estimated)'}</h3>
+    <p>${(function () {
+      var mw = siteMW(s);
+      if (!mw) return STATE.lang === 'es' ? '<em>No se ha divulgado el MW del sitio; las emisiones no se pueden calcular.</em>' : '<em>Site MW not disclosed; emissions not computable.</em>';
+      var loc = STATE.lang === 'es' ? 'es-ES' : 'en-US';
+      var lo = Math.round(gridCO2Tonnes(mw, GRID_G_PHYSICAL)).toLocaleString(loc);
+      var hi = Math.round(gridCO2Tonnes(mw, GRID_G_LABEL)).toLocaleString(loc);
+      return (STATE.lang === 'es'
+        ? '≈ <strong>' + lo + '–' + hi + ' t CO₂/año</strong> con contabilidad <em>basada en ubicación</em> (red española 108 g a etiqueta CNMC 258 gCO₂/kWh). Con contabilidad <em>basada en mercado</em> ≈ 0 si se cubre con PPAs renovables — AWS declara 100% renovable desde 2022 y Microsoft firmó un PPA solar de 95,7 MW —, pero el consumo físico de la red no es cero y la nueva demanda puede elevar la generación marginal (gas). Supone factor de carga 0,90.'
+        : '≈ <strong>' + lo + '–' + hi + ' t CO₂/yr</strong> on a <em>location-based</em> basis (Spanish grid 108 g to CNMC label 258 gCO₂/kWh). On a <em>market-based</em> basis ≈ 0 if matched by renewable PPAs — AWS reports 100% renewable since 2022 and Microsoft signed a 95.7 MW solar PPA — but the physical grid draw isn\'t zero and new demand can lift marginal (gas) generation. Assumes 0.90 load factor.');
+    })()}</p>
+    <p class="cite">${STATE.lang === 'es' ? 'Fuentes: intensidad de red — Electricity Maps (2024) y CNMC (2025); declaraciones renovables — AWS y Microsoft (DCD).' : 'Sources: grid intensity — Electricity Maps (2024) and CNMC (2025); renewable claims — AWS and Microsoft (DCD).'}</p>
 
     ${water}
     ${waterContext}
+    ${landBackup}
 
     <h3>${t('sec_permits')}</h3>
     <ul>${permits || '<li>—</li>'}</ul>

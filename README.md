@@ -45,6 +45,15 @@ Open `data/datacenters.json` and add an object to the `sites` array. Required fi
 
 If you don't have a confirmed tenant, set `speculative: true` and `tenant_status: "speculative"` or `"unknown"` — the map will ring-highlight it.
 
+### Optional environmental fields
+
+These render in the site dialog only when present, and each takes a `_source` URL (leave the field out when unknown — the schema treats absent as "unknown", never zero):
+
+- `land`: `{ "hectares": 294, "prior_use": "...", "protected_area": "...", "_source": "https://..." }` — site footprint, prior land use (verifiable per parcel via [SIGPAC](https://sigpac.mapa.gob.es/) + Catastro), and any nearby Red Natura 2000 / protected area.
+- `backup_power`: `{ "fuel": "diesel", "capacity_mw": 20, "_source": "https://..." }` — standby-generator fuel and capacity (diesel is the industry default; HVO/gas/battery are alternatives).
+
+`prior_use` and `protected_area` accept `_es` siblings for translation.
+
 ## Citation policy
 
 Every numeric or factual claim should have a source URL. Field-level citations live in nested `_source` keys; site-level citations live in the `sources` array. The schema treats `null` as "unknown" and never as "zero". When critics and operators disagree on a number (e.g. AWS water consumption: 755,000 m³ company vs. 14 hm³ critics), both are stored with separate citations rather than averaged.

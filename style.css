@@ -63,6 +63,29 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 .side-sec > summary:hover { color: var(--text); }
 .side-sec > *:not(summary):last-child { margin-bottom: 12px; }
 
+.htr { margin: 4px 0 0 0; padding-left: 18px; }
+.htr li { margin: 5px 0; font-size: 0.8rem; line-height: 1.4; }
+
+.coverage-note:not(:empty) { color: var(--muted); font-size: 0.72rem; margin: 8px 0 0 0; font-style: italic; }
+
+.dc-cluster-wrap { background: transparent; }
+.dc-cluster {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(31,111,235,0.85);
+  color: #fff;
+  font-size: 0.8rem; font-weight: 700;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+
+.leg-size { gap: 4px !important; }
+.size-dot { display: inline-block; border-radius: 50%; background: var(--muted); opacity: 0.55; flex: none; }
+.size-dot.s1 { width: 8px; height: 8px; }
+.size-dot.s2 { width: 13px; height: 13px; }
+.size-dot.s3 { width: 19px; height: 19px; }
+
 .lang-switch { display: flex; gap: 4px; justify-content: flex-end; margin-bottom: 8px; }
 .lang-btn {
   background: var(--panel-2);

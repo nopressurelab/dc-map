@@ -22,7 +22,7 @@
 <!-- =================== EN =================== -->
 <section class="lang-block" data-lang-block="en">
   <h1>Trends &amp; projections</h1>
-  <p class="lede">Five charts built from the same cited dataset that powers the map. All figures are sourced; the caption under each chart links back to the record in <code>data/datacenters.json</code>.</p>
+  <p class="lede">Charts built from the same cited dataset that powers the map. All figures are sourced; the caption under each chart links back to the record in <code>data/datacenters.json</code>.</p>
 
   <h2>1. Electricity: Aragón 2024 → 2030</h2>
   <p>Regional consumption is projected to almost quadruple by 2030. The datacenter share grows from 14% to ~50% of that larger total, which means datacenters alone in 2030 will consume roughly as much electricity as the entire region did in 2024.</p>
@@ -89,12 +89,17 @@
   <p>Two cumulative lines because the water figure itself is disputed: company-stated (AWS: 755,000 m³/year aggregate) vs critics' estimate (~14 hm³/year, ~23% of Zaragoza urban water use). Committed water is attributed to the year each site&apos;s primary authorisation was granted.</p>
   <div class="chart-wrap"><canvas id="chart-drought" aria-label="Cumulative committed water demand vs drought years" role="img"></canvas></div>
   <p class="chart-note">Drought shading (darker = extreme, basin-wide; lighter = localised): 2021-2023 was the basin-wide extreme drought (most intense since the 1990s), ended per CHE resolutions in 2024. 2024 had a localised extraordinary-drought declaration in sub-basins Huerva and Guadalope (13 June, ended 8 October 2024). 2025 and 2026 were normal to near-normal, only sub-basin Ésera in prealerta by mid-2026 with basin embalses at ~84%. Water demand allocated by year of PIGA/DIGA approval. Sources: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">CHE Plan Especial de Sequías</a>; <a href="https://www.chebro.es/en/-/la-che-declara-el-final-de-la-situaci%C3%B3n-excepcional-por-sequ%C3%ADa-extraordinaria-las-unidades-territoriales-ute-06-cuenca-del-huerva-y-ute-09a-guadalope-alto-y-medio-" target="_blank">CHE end of 2024 drought (Oct 2024)</a>; <a href="https://www.chebro.es/en/-/la-confederaci%C3%B3n-hidrogr%C3%A1fica-del-ebro-despide-el-a%C3%B1o-hidrol%C3%B3gico-2024/2025" target="_blank">CHE hydrological year 2024/2025</a>; <a href="https://www.elespanol.com/aragon/actualidad/20260623/cuenca-ebro-estrena-verano-embalses-aleja-cualquier-fantasma-sequia/1003744296023_0.html" target="_blank">El Español (June 2026 basin at 84%)</a>; <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (AWS company figure)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (critics&apos; ~14 hm³ estimate)</a>.</p>
+
+  <h2>13. Grid-electricity CO₂: location-based vs market-based</h2>
+  <p>Powering the mapped datacentres draws continuously from the grid. On a <strong>location-based</strong> basis the physical Spanish grid emits ~108 gCO₂/kWh (2024), and the CNMC official "mix" label ~258 g (2025). On a <strong>market-based</strong> basis, operators matching consumption with renewable PPAs report ≈ 0 — AWS claims 100% renewable since 2022; Microsoft signed a 95.7 MW solar PPA. Both are shown: the physical draw is not zero, and new demand can lift marginal (gas) generation.</p>
+  <div class="chart-wrap"><canvas id="chart-emissions" aria-label="Estimated grid-electricity CO2, location-based vs market-based" role="img"></canvas></div>
+  <p class="chart-note">Estimate: Σ(site MW) × 8760 h × 0.90 load factor × grid intensity; covers only sites with a disclosed MW figure. Sources: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps (Spanish grid 2024)</a> and CNMC official mix (2025); renewable claims — <a href="https://www.aboutamazon.eu/news/job-creation-and-investment/learn-about-awss-long-term-commitment-to-aragon-spain" target="_blank">AWS</a>, <a href="https://www.datacenterdynamics.com/en/news/microsoft-signs-957mw-ppa-with-zelestra-in-aragon-spain/" target="_blank">Microsoft/Zelestra (DCD)</a>.</p>
 </section>
 
 <!-- =================== ES =================== -->
 <section class="lang-block" data-lang-block="es" hidden>
   <h1>Tendencias y proyecciones</h1>
-  <p class="lede">Cinco gráficos construidos a partir del mismo conjunto de datos citado que alimenta el mapa. Todas las cifras tienen fuente; el pie de cada gráfico enlaza con el registro en <code>data/datacenters.json</code>.</p>
+  <p class="lede">Gráficos construidos a partir del mismo conjunto de datos citado que alimenta el mapa. Todas las cifras tienen fuente; el pie de cada gráfico enlaza con el registro en <code>data/datacenters.json</code>.</p>
 
   <h2>1. Electricidad: Aragón 2024 → 2030</h2>
   <p>Se prevé que el consumo regional casi se cuadruplique para 2030. La cuota de los centros de datos pasa del 14% a aproximadamente el 50% de ese total mucho mayor, lo que significa que los centros de datos por sí solos en 2030 consumirán casi tanta electricidad como toda la región en 2024.</p>
@@ -161,6 +166,11 @@
   <p>Dos líneas acumuladas porque la propia cifra de agua está en disputa: declarada por la empresa (AWS: 755.000 m³/año agregados) vs estimación crítica (~14 hm³/año, ~23% del consumo urbano de Zaragoza). El agua comprometida se atribuye al año en que se concede la autorización principal de cada sitio.</p>
   <div class="chart-wrap"><canvas id="chart-drought-es" aria-label="Demanda de agua acumulada vs años de sequía" role="img"></canvas></div>
   <p class="chart-note">Sombreado de sequía (más oscuro = extrema, de cuenca; más claro = localizada): 2021-2023 fue la sequía extrema de toda la cuenca (la más intensa desde los años 90), finalizada según resoluciones CHE en 2024. En 2024 se declaró una sequía extraordinaria localizada en las subcuencas del Huerva y Guadalope (13 junio, finalizada 8 octubre 2024). 2025 y 2026 fueron normales o casi normales; solo la subcuenca del Ésera estaba en prealerta a mitad de 2026, con los embalses de la cuenca al ~84%. El agua se atribuye al año de aprobación PIGA/DIGA. Fuentes: <a href="https://www.chebro.es/documents/20121/1066920/2023-04-19_Resumen_PES_v05.pdf" target="_blank">Plan Especial de Sequías CHE</a>; <a href="https://www.chebro.es/en/-/la-che-declara-el-final-de-la-situaci%C3%B3n-excepcional-por-sequ%C3%ADa-extraordinaria-las-unidades-territoriales-ute-06-cuenca-del-huerva-y-ute-09a-guadalope-alto-y-medio-" target="_blank">Fin sequía 2024 CHE (oct 2024)</a>; <a href="https://www.chebro.es/en/-/la-confederaci%C3%B3n-hidrogr%C3%A1fica-del-ebro-despide-el-a%C3%B1o-hidrol%C3%B3gico-2024/2025" target="_blank">Año hidrológico 2024/2025 CHE</a>; <a href="https://www.elespanol.com/aragon/actualidad/20260623/cuenca-ebro-estrena-verano-embalses-aleja-cualquier-fantasma-sequia/1003744296023_0.html" target="_blank">El Español (junio 2026 cuenca al 84%)</a>; <a href="https://www.cartv.es/aragonnoticias/aragon/10-800-gigavatios-hora-anuales-o-755-000-metros-cubicos-de-agua-lo-que-consumiran-los-centros-de-datos-de-amazon-29645" target="_blank">CARTV (cifra empresa AWS)</a>; <a href="https://www.eldiario.es/aragon/economia/amazon-gastara-centros-datos-aragon-electricidad-region-agua-20-000-hogares_1_11914329.html" target="_blank">eldiario.es (estimación críticos ~14 hm³)</a>.</p>
+
+  <h2>13. CO₂ de la electricidad de red: basado en ubicación vs basado en mercado</h2>
+  <p>Alimentar los centros de datos del mapa consume electricidad de la red de forma continua. Con contabilidad <strong>basada en ubicación</strong>, la red física española emite ~108 gCO₂/kWh (2024) y la etiqueta oficial de «mix» de la CNMC ~258 g (2025). Con contabilidad <strong>basada en mercado</strong>, los operadores que cubren su consumo con PPAs renovables declaran ≈ 0 — AWS declara 100% renovable desde 2022; Microsoft firmó un PPA solar de 95,7 MW. Se muestran ambos: el consumo físico no es cero y la nueva demanda puede elevar la generación marginal (gas).</p>
+  <div class="chart-wrap"><canvas id="chart-emissions-es" aria-label="CO2 estimado de la electricidad de red, ubicación vs mercado" role="img"></canvas></div>
+  <p class="chart-note">Estimación: Σ(MW del sitio) × 8760 h × factor de carga 0,90 × intensidad de red; solo cubre sitios con MW divulgado. Fuentes: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps (red española 2024)</a> y mix oficial CNMC (2025); declaraciones renovables — <a href="https://www.aboutamazon.eu/news/job-creation-and-investment/learn-about-awss-long-term-commitment-to-aragon-spain" target="_blank">AWS</a>, <a href="https://www.datacenterdynamics.com/en/news/microsoft-signs-957mw-ppa-with-zelestra-in-aragon-spain/" target="_blank">Microsoft/Zelestra (DCD)</a>.</p>
 </section>
 
 </main>
@@ -215,6 +225,7 @@
     buildCoolingCharts(data);
     buildSummersDecadeCharts();
     buildDroughtCharts(data);
+    buildEmissionsCharts(data);
   });
 
   // ---- 1. Electricity 2024 vs 2030 ----
@@ -316,6 +327,34 @@
     var esChart = new Chart(document.getElementById('chart-water-es'), build(['Cifra AWS', 'Estimación de críticos'], 'm³ / año', 'es-ES'));
     esChart.$labelFmt = function (v) { return v.toLocaleString('es-ES') + ' m³'; };
     esChart.update();
+  }
+
+  // ---- 13. Grid-electricity CO2: location-based range vs market-based ----
+  function buildEmissionsCharts(data) {
+    function mw(s) { return s.capacity_mw || s.capacity_mw_expanded || s.capacity_mw_max || (s.energy && s.energy.site_demand_mw) || s.capacity_mw_msft_aragon_total; }
+    var totalMW = data.sites.reduce(function (a, s) { return a + (mw(s) || 0); }, 0);
+    function mt(g) { return totalMW * 8760 * 0.9 * 1000 * g / 1e6 / 1e6; } // annual kWh × g/kWh → t → Mt
+    var lo = mt(108), hi = mt(258);
+    function build(labels, axis, locale) {
+      var cfg = {
+        type: 'bar',
+        data: { labels: labels, datasets: [{ data: [lo, hi, 0], backgroundColor: [C.grid, C.spec, C.renewable], barPercentage: 0.6 }] },
+        options: {
+          responsive: true, maintainAspectRatio: false, layout: { padding: { top: 24 } },
+          scales: { y: { title: { display: true, text: axis }, beginAtZero: true } },
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function (ctx) { return ctx.parsed.y.toLocaleString(locale, { maximumFractionDigits: 2 }) + ' Mt'; } } }
+          }
+        },
+        plugins: [valueLabelPlugin]
+      };
+      return cfg;
+    }
+    var en = new Chart(document.getElementById('chart-emissions'), build(['Grid, 108 g', 'CNMC label, 258 g', 'Renewable PPA (market)'], 'Mt CO₂ / year', 'en-US'));
+    en.$labelFmt = function (v) { return v.toLocaleString('en-US', { maximumFractionDigits: 1 }) + ' Mt'; }; en.update();
+    var es = new Chart(document.getElementById('chart-emissions-es'), build(['Red, 108 g', 'Etiqueta CNMC, 258 g', 'PPA renovable (mercado)'], 'Mt CO₂ / año', 'es-ES'));
+    es.$labelFmt = function (v) { return v.toLocaleString('es-ES', { maximumFractionDigits: 1 }) + ' Mt'; }; es.update();
   }
 
   // ---- 3. Speculative pipeline MW ----

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,9 +21,24 @@
     <p class="subtitle" data-i18n="subtitle">Operators, investors, clients, energy/water, government permits — every datapoint cited.</p>
   </header>
 
+  <details id="how-to-read" class="side-sec">
+    <summary><span data-i18n="how_to_read">How to read this map</span></summary>
+    <ul class="htr">
+      <li data-i18n="htr_dot">Each dot is a datacenter project. Colour = operator type (see Legend).</li>
+      <li data-i18n="htr_size">Dot size = power capacity (MW) — bigger dot, more power.</li>
+      <li data-i18n="htr_ring">Red ring = speculative (no confirmed tenant). Dashed red = litigation or objections.</li>
+      <li data-i18n="htr_layers">Map layers add context: a 500 m heat plume, the equivalent solar-farm footprint, and NASA soil moisture.</li>
+      <li data-i18n="htr_cluster">Overlapping sites group into a numbered blue circle — click it to fan them out.</li>
+      <li data-i18n="htr_click">Click any dot for the full, cited record and its sources.</li>
+      <li data-i18n="htr_flags">Watch the badges: PIGA fast-track, ICIO tax dispute, and litigation.</li>
+    </ul>
+  </details>
+
   <details id="aggregate" class="side-sec">
     <summary><span data-i18n="regional_total">Regional total</span></summary>
     <dl id="aggregate-stats"></dl>
+    <p class="hint coverage-note" id="grid-co2-note"></p>
+    <p class="hint coverage-note" id="coverage-note"></p>
   </details>
 
   <details id="filters" class="side-sec" open>
@@ -37,8 +53,8 @@
   <details id="map-layers" class="side-sec">
     <summary><span data-i18n="map_layers">Map layers</span></summary>
     <label><input type="checkbox" id="f-thermal-plume"> <span data-i18n="thermal_plume">Show 500 m thermal plume (ASME 2026)</span></label>
-    <label><input type="checkbox" id="f-solar-footprint"> <span data-i18n="solar_footprint">Show equivalent solar-farm footprint (to scale)</span></label>
-    <p class="hint" data-i18n="solar_hint">Each amber square is the solar farm needed to supply that site’s electricity, drawn to scale on the map. Assumes datacentre load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL). Figures scale ~2× with these assumptions.</p>
+    <label><input type="checkbox" id="f-solar-footprint"> <span data-i18n="solar_footprint">Solar-equivalent land footprint (illustrative)</span></label>
+    <p class="hint" data-i18n="solar_hint">Illustrative, not the site’s actual supply: the land a solar farm alone would need to match this site’s electricity, drawn to scale. Most projects actually use a mix of solar and wind PPAs — wind needs far more spacing but far less built-up land. Assumes load factor 0.90, Aragón solar capacity factor ~0.20, ~1.5 ha/MWp (NREL); figures scale ~2× with these.</p>
     <p class="hint solar-total" id="solar-total"></p>
     <label><input type="checkbox" id="f-water-eo"> <span data-i18n="water_eo">Show soil moisture (NASA SMAP)</span></label>
     <select id="water-eo-layer" class="eo-select" aria-label="SMAP soil-moisture layer">
@@ -58,13 +74,14 @@
       <li><span class="dot op-renewable"></span> <span data-i18n="leg_renewable">Renewable developer (Forestalia)</span></li>
       <li><span class="ring spec-ring"></span> <span data-i18n="leg_spec">Speculative (no anchor tenant)</span></li>
       <li><span class="ring lit-ring"></span> <span data-i18n="leg_lit">Pending litigation</span></li>
+      <li class="leg-size"><span class="size-dot s1"></span><span class="size-dot s2"></span><span class="size-dot s3"></span> <span data-i18n="leg_size">Dot size = capacity (MW)</span></li>
     </ul>
     <p class="hint" data-i18n="legend_hint">Marker radius scales with MW capacity (capped). Click for details.</p>
   </details>
 
   <details id="explore" class="side-sec">
     <summary><span data-i18n="nav_explore">Explore the project</span></summary>
-    <p><a href="trends.html" data-i18n="nav_trends">Trends &amp; projections: 8 cited charts on electricity, water, heat, investment →</a></p>
+    <p><a href="trends.html" data-i18n="nav_trends">Trends &amp; projections: cited charts on electricity, water, heat, emissions, investment →</a></p>
     <p><a href="timeline.html" data-i18n="nav_timeline">20-event timeline 2020→2026: PIGA, INAGA EIA exemption, Operación Perserte →</a></p>
     <p><a href="municipalities.html" data-i18n="nav_munis">Six towns bearing the burden: La Puebla de Híjar (935 people, €5B campus) to Épila →</a></p>
     <p><a href="types.html" data-i18n="nav_types">Primer: what a datacenter is, six types, cooling, and the local heat impact →</a></p>
@@ -91,6 +108,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
