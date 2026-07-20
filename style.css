@@ -51,7 +51,8 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
   gap: 7px;
   user-select: none;
 }
-.side-sec > summary::-webkit-details-marker { display: none; }
+.side-sec > summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
+.side-sec > summary::marker { content: ''; }                   /* Firefox */
 .side-sec > summary::before {
   content: '▸';
   font-size: 0.7em;
@@ -129,6 +130,47 @@ h2 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); letter-s
 
 #explore p { margin: 7px 0; font-size: 0.78rem; line-height: 1.35; }
 #sidebar footer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
+
+.tour-btn {
+  margin-top: 8px;
+  background: var(--link); color: #fff;
+  border: none; border-radius: 4px;
+  padding: 6px 12px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+}
+.tour-btn:hover { filter: brightness(1.08); }
+
+#tour-card {
+  position: fixed;
+  bottom: 22px;
+  left: calc(50% + 180px); /* centre over the map, allowing for the 360px sidebar */
+  transform: translateX(-50%);
+  z-index: 1200;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  padding: 16px 18px 14px;
+  display: none;
+}
+#tour-card #tour-step { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+#tour-card h3 { margin: 4px 0 6px; font-size: 1rem; }
+#tour-card p { margin: 0 0 12px; font-size: 0.85rem; line-height: 1.45; }
+#tour-close {
+  position: absolute; top: 8px; right: 10px;
+  background: none; border: none; font-size: 1.2rem; line-height: 1;
+  color: var(--muted); cursor: pointer;
+}
+.tour-nav { display: flex; justify-content: flex-end; gap: 8px; }
+.tour-nav button {
+  background: var(--link); color: #fff; border: none; border-radius: 4px;
+  padding: 5px 14px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+}
+.tour-nav #tour-prev { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); }
+.tour-nav button:disabled { opacity: 0.5; cursor: default; }
+@media (max-width: 768px) { #tour-card { left: 50%; bottom: 12px; } }
 
 #map { height: 100vh; background: var(--bg); }
 
