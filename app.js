@@ -967,6 +967,9 @@ function openDialog(s) {
 // A guided fly-through of emblematic sites. Each stop targets a site by id (so the
 // coordinates stay in sync with the data) or a fixed centre, with a bilingual caption.
 const TOUR = [
+  { center: [41.65, -0.9], zoom: 8,
+    en: { title: 'Welcome — Aragón’s datacentre boom', text: 'Aragón is Spain’s fastest-growing hyperscale datacentre cluster. This map tracks the projects and the water, energy, land and governance questions they raise. A 60-second tour of a few emblematic sites follows — click Next, or skip anytime.' },
+    es: { title: 'Bienvenido — el boom de centros de datos de Aragón', text: 'Aragón es el clúster de centros de datos hiperescalares de más rápido crecimiento de España. Este mapa rastrea los proyectos y las cuestiones de agua, energía, suelo y gobernanza que plantean. Sigue un recorrido de 60 segundos por algunos sitios emblemáticos — pulsa Siguiente, o sáltalo cuando quieras.' } },
   { id: 'aws-villanueva-gallego', zoom: 13,
     en: { title: 'Water: company figure vs critics', text: 'AWS says its Aragón datacentres will use 755,000 m³ of water a year; environmental groups estimate closer to 14 hm³ — about 18× higher. This site draws on the Ebro/Gállego and faces litigation.' },
     es: { title: 'Agua: cifra de la empresa vs críticos', text: 'AWS afirma que sus centros de datos en Aragón usarán 755.000 m³ de agua al año; los grupos ecologistas estiman ~14 hm³, unas 18× más. Este sitio consume del Ebro/Gállego y afronta litigios.' } },
