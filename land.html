@@ -6,7 +6,7 @@
 <title>Land &amp; biodiversity, Aragón Datacenter Map</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="about-body">
+<body class="about-body" data-page="land">
 <header class="about-header">
   <div class="about-header-inner">
     <a href="index.html" class="back-link">← Back to map</a>
@@ -18,131 +18,47 @@
 </header>
 
 <main class="about-main">
-
-<!-- =================== EN =================== -->
-<section class="lang-block" data-lang-block="en">
-  <h1>Land &amp; biodiversity</h1>
-  <p class="lede">Where the datacentres land — and on what. Disclosed footprints, the PIGA fast-track and compulsory purchase, the environmental shortcut, and how to check a parcel yourself. All figures cited; the chart is built from the same dataset that powers the map.</p>
-
-  <h2>Footprint by site</h2>
-  <p>The nine mapped campuses that disclose a footprint total ≈ <strong>1,149 ha</strong> — mostly rural, agricultural land reclassified to industrial. That is roughly the built-up area of a small town, spread across the Ebro corridor.</p>
-  <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land" aria-label="Datacenter land footprint by site in hectares" role="img"></canvas></div>
-  <table class="land-table">
-    <thead><tr><th>Site</th><th>Hectares</th><th>Source</th></tr></thead>
-    <tbody id="land-table-body"></tbody>
-  </table>
-  <p class="chart-note">Covers 9 of 21 sites; the others do not disclose a footprint (the schema treats absent as unknown, never zero). Hectares from each site's own reporting, linked above and in its map record.</p>
-
-  <h2>PIGA, “general interest” &amp; expropriation</h2>
-  <p><strong>18 of the 21</strong> mapped projects use the PIGA fast-track. Declaring a project of “general interest” lets the regional government override municipal planning and <strong>compulsorily purchase</strong> the land — an expropriation power previously reserved for transport and energy infrastructure. Landowners in Aragón have reported letters offering compensation with as little as <strong>four days</strong> to respond, on plots families have farmed for generations. <a href="https://www.computeforecast.com/news/spain-ai-data-center-aws-microsoft-land-acquisition/" target="_blank">[source]</a></p>
-
-  <h2>The environmental shortcut</h2>
-  <p>INAGA exempted <strong>320+ ha</strong> of AWS expansion land from the ordinary environmental impact evaluation (August 2025) — part of the expedited-authorisation pattern the map tracks alongside the PIGA route and the ICIO tax disputes.</p>
-
-  <h2>Biodiversity</h2>
-  <p>Ecological groups have filed biodiversity and territorial objections against the expansions — <a href="https://www.ansararagon.com/alegaciones-al-piga-de-expansion-de-los-centros-de-datos-de-amazon-aws-en-aragon/" target="_blank">ANSAR and Ecologistas en Acción</a>, covering five AWS expansions across four municipalities. Whether a given site, or its water and grid corridors, intersects a <a href="https://www.aragon.es/red-natural-de-aragon/red-natura-2000" target="_blank">Red Natura 2000</a> protected area (ZEC/ZEPA) is a per-parcel check — not yet captured per site in the dataset, but verifiable with the tools below.</p>
-
-  <h2>Check a parcel yourself</h2>
-  <ul>
-    <li><a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a> + Catastro — prior land use (dryland <em>secano</em> / irrigated <em>regadío</em>) and ownership before reclassification.</li>
-    <li><a href="https://www.aragon.es/red-natural-de-aragon/red-natura-2000" target="_blank">Red Natura 2000 (Gobierno de Aragón)</a> — protected-area overlap.</li>
-    <li><a href="https://www.boa.aragon.es/" target="_blank">BOA</a> — the PIGA/DIGA order and any expropriation notices.</li>
-  </ul>
-  <p>More: <a href="organize.html">citizens’ &amp; activists’ kit</a> · <a href="trends.html">trends &amp; charts</a> · <a href="index.html">the map</a>.</p>
-</section>
-
-<!-- =================== ES =================== -->
-<section class="lang-block" data-lang-block="es" hidden>
-  <h1>Suelo y biodiversidad</h1>
-  <p class="lede">Dónde aterrizan los centros de datos — y sobre qué. Huellas divulgadas, la vía rápida PIGA y la expropiación forzosa, el atajo ambiental, y cómo comprobar una parcela tú mismo. Todas las cifras con fuente; el gráfico se construye con el mismo conjunto de datos que alimenta el mapa.</p>
-
-  <h2>Huella por sitio</h2>
-  <p>Los nueve campus mapeados que divulgan una huella suman ≈ <strong>1.149 ha</strong> — en su mayoría suelo rural y agrícola reclasificado a industrial. Es aproximadamente el área construida de un pueblo pequeño, repartida por el corredor del Ebro.</p>
-  <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land-es" aria-label="Huella de suelo de centros de datos por sitio en hectáreas" role="img"></canvas></div>
-  <table class="land-table">
-    <thead><tr><th>Sitio</th><th>Hectáreas</th><th>Fuente</th></tr></thead>
-    <tbody id="land-table-body-es"></tbody>
-  </table>
-  <p class="chart-note">Cubre 9 de 21 sitios; el resto no divulga huella (el esquema trata lo ausente como desconocido, nunca como cero). Hectáreas según la propia información de cada sitio, enlazada arriba y en su ficha del mapa.</p>
-
-  <h2>PIGA, «interés general» y expropiación</h2>
-  <p><strong>18 de los 21</strong> proyectos mapeados usan la vía rápida PIGA. Declarar un proyecto de «interés general» permite al Gobierno de Aragón sortear el urbanismo municipal y <strong>expropiar forzosamente</strong> el suelo — una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo <strong>cuatro días</strong> para responder, sobre parcelas que las familias han cultivado durante generaciones. <a href="https://www.computeforecast.com/news/spain-ai-data-center-aws-microsoft-land-acquisition/" target="_blank">[fuente]</a></p>
-
-  <h2>El atajo ambiental</h2>
-  <p>INAGA eximió <strong>320+ ha</strong> de suelo de ampliación de AWS de la evaluación de impacto ambiental ordinaria (agosto 2025) — parte del patrón de autorización acelerada que el mapa rastrea junto a la vía PIGA y las disputas del ICIO.</p>
-
-  <h2>Biodiversidad</h2>
-  <p>Grupos ecologistas han presentado alegaciones por biodiversidad y territorio contra las ampliaciones — <a href="https://www.ansararagon.com/alegaciones-al-piga-de-expansion-de-los-centros-de-datos-de-amazon-aws-en-aragon/" target="_blank">ANSAR y Ecologistas en Acción</a>, cubriendo cinco ampliaciones de AWS en cuatro municipios. Si un sitio dado, o sus corredores de agua y red eléctrica, cruza un espacio protegido de la <a href="https://www.aragon.es/red-natural-de-aragon/red-natura-2000" target="_blank">Red Natura 2000</a> (ZEC/ZEPA) es una comprobación por parcela — aún no recogida por sitio en el conjunto de datos, pero verificable con las herramientas de abajo.</p>
-
-  <h2>Comprueba una parcela tú mismo</h2>
-  <ul>
-    <li><a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a> + Catastro — uso anterior del suelo (<em>secano</em> / <em>regadío</em>) y propiedad antes de la reclasificación.</li>
-    <li><a href="https://www.aragon.es/red-natural-de-aragon/red-natura-2000" target="_blank">Red Natura 2000 (Gobierno de Aragón)</a> — solapamiento con espacios protegidos.</li>
-    <li><a href="https://www.boa.aragon.es/" target="_blank">BOA</a> — la orden PIGA/DIGA y cualquier aviso de expropiación.</li>
-  </ul>
-  <p>Más: <a href="organize.html">kit ciudadano y activista</a> · <a href="trends.html">tendencias y gráficos</a> · <a href="index.html">el mapa</a>.</p>
-</section>
-
+  <div id="content"><p class="lede">Loading…</p></div>
+  <noscript><p class="lede">This page's text is in <code>content/land.en.md</code> / <code>content/land.es.md</code>. Enable JavaScript, or read those files directly.</p></noscript>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
 <script>
+// Fills the footprint chart + hectares table (placeholders live in content/land.<lang>.md).
 (function () {
-  function setLang(lang) {
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-block').forEach(function (el) {
-      el.hidden = el.dataset.langBlock !== lang;
-    });
-    document.querySelectorAll('.lang-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    var back = document.querySelector('.back-link');
-    if (back) back.textContent = lang === 'es' ? '← Volver al mapa' : '← Back to map';
-  }
-  document.querySelectorAll('.lang-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () { setLang(btn.dataset.lang); });
-  });
-  setLang(localStorage.getItem('lang') || 'en');
-
   Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
   Chart.defaults.font.size = 12;
   Chart.defaults.color = '#1a1f24';
   var C = { pe: '#b87a00' };
+  var data = null, landChart = null, curLang = 'en', rendered = false;
 
-  fetch('data/datacenters.json').then(function (r) { return r.json(); }).then(function (data) {
+  function fill() {
+    if (!data || !rendered) return;
+    var lang = curLang, locale = lang === 'es' ? 'es-ES' : 'en-US';
     var rows = data.sites.filter(function (s) { return s.land && s.land.hectares; })
-      .map(function (s) {
-        return { short: s.site_name.replace(/\s*\(.*$/, '').replace(/\s+—.*$/, ''), full: s.site_name, ha: s.land.hectares, src: s.land._source };
-      })
+      .map(function (s) { return { short: s.site_name.replace(/\s*\(.*$/, '').replace(/\s+—.*$/, ''), full: s.site_name, ha: s.land.hectares, src: s.land._source }; })
       .sort(function (a, b) { return b.ha - a.ha; });
-
-    function build(locale) {
-      return {
+    var canvas = document.getElementById('chart-land');
+    if (canvas) {
+      if (landChart) { landChart.destroy(); landChart = null; }
+      landChart = new Chart(canvas, {
         type: 'bar',
         data: { labels: rows.map(function (r) { return r.short; }), datasets: [{ data: rows.map(function (r) { return r.ha; }), backgroundColor: C.pe, barPercentage: 0.75 }] },
-        options: {
-          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          scales: { x: { title: { display: true, text: locale === 'es-ES' ? 'hectáreas' : 'hectares' }, beginAtZero: true } },
-          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (ctx) { return ctx.parsed.x.toLocaleString(locale) + ' ha'; } } } }
-        }
-      };
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: lang === 'es' ? 'hectáreas' : 'hectares' }, beginAtZero: true } }, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (ctx) { return ctx.parsed.x.toLocaleString(locale) + ' ha'; } } } } }
+      });
     }
-    if (document.getElementById('chart-land')) new Chart(document.getElementById('chart-land'), build('en-US'));
-    if (document.getElementById('chart-land-es')) new Chart(document.getElementById('chart-land-es'), build('es-ES'));
+    var tb = document.getElementById('land-table-body');
+    if (tb) tb.innerHTML = rows.map(function (r) {
+      var src = r.src ? '<a target="_blank" rel="noopener" href="' + r.src + '">' + (lang === 'es' ? 'fuente' : 'source') + '</a>' : '—';
+      return '<tr><td>' + r.full + '</td><td>' + r.ha.toLocaleString(locale) + ' ha</td><td>' + src + '</td></tr>';
+    }).join('');
+  }
 
-    function fillTable(id, locale) {
-      var tb = document.getElementById(id);
-      if (!tb) return;
-      tb.innerHTML = rows.map(function (r) {
-        var srcCell = r.src ? '<a href="' + r.src + '" target="_blank">' + (locale === 'es-ES' ? 'fuente' : 'source') + '</a>' : '—';
-        return '<tr><td>' + r.full + '</td><td>' + r.ha.toLocaleString(locale) + ' ha</td><td>' + srcCell + '</td></tr>';
-      }).join('');
-    }
-    fillTable('land-table-body', 'en-US');
-    fillTable('land-table-body-es', 'es-ES');
-  });
+  window.onContentRender = function (lang) { curLang = lang; rendered = true; fill(); };
+  fetch('data/datacenters.json').then(function (r) { return r.json(); }).then(function (d) { data = d; fill(); }).catch(function () {});
 })();
 </script>
+<script src="content.js"></script>
 </body>
 </html>
