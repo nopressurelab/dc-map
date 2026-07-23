@@ -30,7 +30,8 @@
 <div class="chart-wrap"><canvas id="chart-status" aria-label="Sites by status" role="img"></canvas></div>
 <p class="chart-note">Counts sites in the dataset by <code>status</code> field. Withdrawn = Box2Bit Cariñena (moved to Épila after being excluded from the REE 2025-2030 grid plan).</p>
 
-<h2>6. Zaragoza is hot and dry region</h2>
+<h2>6. Zaragoza is hot and dry region
+</h2>
 <p>Context for the heat-water coupling: the Ebro depression is warming faster than the Spanish baseline. Summer 2025 was the hottest summer in Spain since records began, beating 2003 by +0.6°C. According to AEMET, 9 of the 10 hottest summers in Spain occurred in the 21st century.</p>
 <div class="chart-wrap"><canvas id="chart-heat-cluster" aria-label="Distribution of Spain's hottest summers by century" role="img"></canvas></div>
 <p class="chart-note">Source: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">AEMET summer 2025 review</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">El Español (rankings)</a>; <a href="https://www.xataka.com/ecologia-y-naturaleza/no-no-tu-imaginacion-verano-espana-2-grados-caluroso-dura-cinco-semanas-que-anos-80" target="_blank">Xataka (climate normal shift)</a>.</p>

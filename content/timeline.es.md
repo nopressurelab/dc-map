@@ -95,7 +95,7 @@
 
 <div class="tl-event tag-permit">
 <div class="tl-date">25 noviembre 2025</div>
-<div class="tl-title">BOA ORDEN PEJ/1656/2025 - Forestalia Búfalo formalizado</div>
+<div class="tl-title">BOA ORDEN PEJ/1656/2025 — Forestalia Búfalo formalizado</div>
 <div class="tl-body">Orden BOA formal para la declaración Búfalo. Publicada el 2 de diciembre de 2025 como BOA20251202020. Incluye el estatus de proyecto prioritario y la asignación energética de autoconsumo.</div>
 <a class="tl-src" href="https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636" target="_blank">Fuente (BOA)</a>
 </div>

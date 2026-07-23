@@ -4,7 +4,7 @@
 
 ## Footprint by site
 
-The nine mapped campuses that disclose a footprint total ≈ **1,149 ha** - mostly rural, agricultural land reclassified to industrial. That is roughly the built-up area of a small town, spread across the Ebro corridor.
+The nine mapped campuses that disclose a footprint total ≈ **1,149 ha** — mostly rural, agricultural land reclassified to industrial. That is roughly the built-up area of a small town, spread across the Ebro corridor.
 
 <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land" aria-label="Datacenter land footprint by site in hectares" role="img"></canvas></div>
 
@@ -18,16 +18,16 @@ The nine mapped campuses that disclose a footprint total ≈ **1,149 ha** - most
 
 ## The environmental shortcut
 
-INAGA exempted **320+ ha** of AWS expansion land from the ordinary environmental impact evaluation (August 2025) - part of the expedited-authorisation pattern the map tracks alongside the PIGA route and the ICIO tax disputes.
+INAGA exempted **320+ ha** of AWS expansion land from the ordinary environmental impact evaluation (August 2025) — part of the expedited-authorisation pattern the map tracks alongside the PIGA route and the ICIO tax disputes.
 
 ## Biodiversity
 
-Ecological groups have filed biodiversity and territorial objections against the expansions - [ANSAR and Ecologistas en Acción](https://www.ansararagon.com/alegaciones-al-piga-de-expansion-de-los-centros-de-datos-de-amazon-aws-en-aragon/), covering five AWS expansions across four municipalities. Whether a given site, or its water and grid corridors, intersects a [Red Natura 2000](https://www.aragon.es/red-natural-de-aragon/red-natura-2000) protected area (ZEC/ZEPA) is a per-parcel check - not yet captured per site in the dataset, but verifiable with the tools below.
+Ecological groups have filed biodiversity and territorial objections against the expansions — [ANSAR and Ecologistas en Acción](https://www.ansararagon.com/alegaciones-al-piga-de-expansion-de-los-centros-de-datos-de-amazon-aws-en-aragon/), covering five AWS expansions across four municipalities. Whether a given site, or its water and grid corridors, intersects a [Red Natura 2000](https://www.aragon.es/red-natural-de-aragon/red-natura-2000) protected area (ZEC/ZEPA) is a per-parcel check — not yet captured per site in the dataset, but verifiable with the tools below.
 
 ## Check a parcel yourself
 
-- [SIGPAC](https://sigpac.mapa.gob.es/) + Catastro - prior land use (dryland *secano* / irrigated *regadío*) and ownership before reclassification.
-- [Red Natura 2000 (Gobierno de Aragón)](https://www.aragon.es/red-natural-de-aragon/red-natura-2000) - protected-area overlap.
-- [BOA](https://www.boa.aragon.es/) - the PIGA/DIGA order and any expropriation notices.
+- [SIGPAC](https://sigpac.mapa.gob.es/) + Catastro — prior land use (dryland *secano* / irrigated *regadío*) and ownership before reclassification.
+- [Red Natura 2000 (Gobierno de Aragón)](https://www.aragon.es/red-natural-de-aragon/red-natura-2000) — protected-area overlap.
+- [BOA](https://www.boa.aragon.es/) — the PIGA/DIGA order and any expropriation notices.
 
 More: [citizens' & activists' kit](organize.html) · [trends & charts](trends.html) · [the map](index.html).
