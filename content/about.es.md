@@ -1,5 +1,5 @@
 <h1>Mapa de Centros de Datos de Aragón</h1>
-<p class="lede">Mapa interactivo de cada proyecto de centro de datos anunciado en la región de Aragón,operador, inversores, clientes, consumo energético e hídrico, permisos administrativos y los mecanismos de vía rápida que los autorizan. Cada dato está citado.</p>
+<p class="lede">Mapa interactivo de cada proyecto de centro de datos anunciado en la región de Aragón. Se han documentado: operadores, inversores, clientes, consumo energético e hídrico, permisos administrativos y los mecanismos de vía rápida que los autorizan. Cada dato está citado.</p>
 
 <h2>Por qué existe</h2>
 <p>Aragón se ha convertido en el mercado de centros de datos más activo del sur de Europa. Morgan Stanley lo llama el «más emocionante» de Europa. A noviembre de 2025, se han comprometido 47.000 millones de euros de inversión, con 11.237 MW proyectados en 28 emplazamientos mapeados por colectivos ecologistas. Si todos se construyen, los centros de datos consumirán más de 9× la demanda eléctrica anual actual de la región.</p>
@@ -18,12 +18,12 @@
 
 <h2>Registros primarios</h2>
 <ul>
-<li><a href="https://www.boa.aragon.es/" target="_blank">BOA,Boletín Oficial de Aragón</a> (declaraciones PIGA, decretos regionales)</li>
-<li><a href="https://www.boe.es/" target="_blank">BOE,Boletín Oficial del Estado</a> (concesiones de agua, ámbito nacional)</li>
+<li><a href="https://www.boa.aragon.es/" target="_blank">BOA, Boletín Oficial de Aragón</a> (declaraciones PIGA, decretos regionales)</li>
+<li><a href="https://www.boe.es/" target="_blank">BOE, Boletín Oficial del Estado</a> (concesiones de agua, ámbito nacional)</li>
 <li><a href="https://www.aragon.es/organismos/instituto-aragones-de-gestion-ambiental-inaga" target="_blank">INAGA</a> (declaraciones de impacto ambiental)</li>
-<li><a href="https://iber.chebro.es/" target="_blank">CHE,Confederación Hidrográfica del Ebro</a> (concesiones de agua)</li>
+<li><a href="https://iber.chebro.es/" target="_blank">CHE, Confederación Hidrográfica del Ebro</a> (concesiones de agua)</li>
 <li><a href="https://www.aragon.es/urbanismo-y-ordenacion-del-territorio/planes-y-proyectos-de-interes-para-aragon-pigas" target="_blank">Registro de PIGAs</a> (Gobierno de Aragón)</li>
-<li><a href="https://www.ree.es/" target="_blank">REE,Red Eléctrica</a> (capacidad de conexión a red)</li>
+<li><a href="https://www.ree.es/" target="_blank">REE, Red Eléctrica</a> (capacidad de conexión a red)</li>
 </ul>
 
 <h2>Contribuir</h2>

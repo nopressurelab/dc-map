@@ -95,7 +95,7 @@
 
 <div class="tl-event tag-permit">
 <div class="tl-date">25 November 2025</div>
-<div class="tl-title">BOA ORDEN PEJ/1656/2025 — Forestalia Búfalo formalised</div>
+<div class="tl-title">BOA ORDEN PEJ/1656/2025 - Forestalia Búfalo formalised</div>
 <div class="tl-body">Formal BOA order for the Búfalo declaration. Published 2 December 2025 as BOA20251202020. Includes the priority-project status and self-consumption energy allocation.</div>
 <a class="tl-src" href="https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1424067523636" target="_blank">Source (BOA)</a>
 </div>

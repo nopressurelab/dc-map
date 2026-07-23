@@ -11,10 +11,10 @@
 
 <h2>Sección 1, Metodología: cómo investigar un proyecto de centro de datos</h2>
 
-<h3>Paso 1 — Lee críticamente la primera nota de prensa</h3>
+<h3>Paso 1 - Lee críticamente la primera nota de prensa</h3>
 <p>Extrae el nombre exacto de la promotora (matriz + filial española), municipio del sitio, tamaño del suelo (hectáreas), inversión declarada (€), capacidad declarada (MW), calendario y cualquier declaración de cliente principal. La ausencia de cliente nombrado es en sí una señal. Guarda la URL original.</p>
 
-<h3>Paso 2 — Busca en los registros oficiales</h3>
+<h3>Paso 2 - Busca en los registros oficiales</h3>
 <p>Busca en cada uno con el nombre de la promotora, el nombre del proyecto y el municipio:</p>
 <ul>
 <li><a href="https://www.boa.aragon.es/" target="_blank">BOA (Boletín Oficial de Aragón)</a>, órdenes PIGA, DIGA y Declaración de Interés Autonómico.</li>
@@ -28,7 +28,7 @@
 <li>Web del ayuntamiento y BOP (Boletín Oficial de la Provincia) para licencias municipales y modificaciones PGOU.</li>
 </ul>
 
-<h3>Paso 3 — Verifica el cliente principal</h3>
+<h3>Paso 3 - Verifica el cliente principal</h3>
 <p>Un centro de datos sin cliente final nombrado es especulativo. Confirma el cliente con:</p>
 <ul>
 <li>Documentación de inversor de la propia empresa (o 10-K si es EE. UU.).</li>
@@ -38,10 +38,10 @@
 </ul>
 <p>Si no responden, apúntalo en el registro.</p>
 
-<h3>Paso 4 — Cruza las historias del agua y la energía</h3>
+<h3>Paso 4 - Cruza las historias del agua y la energía</h3>
 <p>Coteja los MW anunciados con la capacidad publicada por REE en el nudo del área. Si el sitio se sienta sobre un nudo con capacidad reservada pero no energizada, apúntalo, es el fallo que dejó varado a Box2Bit Cariñena en enero de 2026. Para el agua, verifica si la refrigeración del sitio es evaporativa (pico durante olas de calor) o de circuito cerrado (demanda más pareja). Cruza con el boletín de sequía de la CHE para ese año.</p>
 
-<h3>Paso 5 — Busca atajos procedimentales</h3>
+<h3>Paso 5 - Busca atajos procedimentales</h3>
 <ul>
 <li>¿Se declaró PIGA o DIGA? El PIGA anula el urbanismo municipal.</li>
 <li>¿Otorgó INAGA una exención de la evaluación de impacto ambiental ordinaria? Para AWS en Aragón la exención cubrió más de 320 hectáreas (agosto de 2025).</li>
@@ -63,8 +63,8 @@
 
 <h3>Afirmaciones habituales y cómo comprobarlas</h3>
 <ul>
-<li>«100% energía renovable.» Distingue la contabilidad <strong>basada en mercado</strong> (cubierta con PPAs o certificados renovables — la base de una declaración de ~0 emisiones) de la <strong>basada en ubicación</strong> (la red física de la que el sitio realmente consume, ~108 gCO₂/kWh en 2024, hasta ~258 g en la etiqueta CNMC). El consumo físico nunca es cero, y añadir gran demanda nueva puede elevar la generación marginal de gas. Pregunta qué instalación concreta suministra al sitio y sobre qué base se hace la declaración. Fuentes: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps</a>, CNMC.</li>
-<li>«Sin emisiones significativas en el sitio.» Pide el número y los MW de los generadores diésel de respaldo y su permiso de aire. Funcionan en cortes más pruebas rutinarias (~50–150 h/año cada uno); una sola unidad de 2,5 MW emite aproximadamente 1,2 t de NOx y 0,05 t de PM por cada 100 horas de prueba — un problema local de calidad del aire, distinto del CO₂ de la red. Fuente: <a href="https://insideclimatenews.org/news/12112025/data-center-diesel-generators-noise-pollution/" target="_blank">Inside Climate News</a>.</li>
+<li>«100% energía renovable.» Distingue la contabilidad <strong>basada en mercado</strong> (cubierta con PPAs o certificados renovables - la base de una declaración de ~0 emisiones) de la <strong>basada en ubicación</strong> (la red física de la que el sitio realmente consume, ~108 gCO₂/kWh en 2024, hasta ~258 g en la etiqueta CNMC). El consumo físico nunca es cero, y añadir gran demanda nueva puede elevar la generación marginal de gas. Pregunta qué instalación concreta suministra al sitio y sobre qué base se hace la declaración. Fuentes: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps</a>, CNMC.</li>
+<li>«Sin emisiones significativas en el sitio.» Pide el número y los MW de los generadores diésel de respaldo y su permiso de aire. Funcionan en cortes más pruebas rutinarias (~50–150 h/año cada uno); una sola unidad de 2,5 MW emite aproximadamente 1,2 t de NOx y 0,05 t de PM por cada 100 horas de prueba - un problema local de calidad del aire, distinto del CO₂ de la red. Fuente: <a href="https://insideclimatenews.org/news/12112025/data-center-diesel-generators-noise-pollution/" target="_blank">Inside Climate News</a>.</li>
 <li>«Refrigeración sin agua.» Pide la cifra de reposición de agua. Todos los sistemas de refrigeración requieren algo.</li>
 <li>«X mil empleos.» Desglosa construcción (temporal, mayormente no local) vs operación (pocos, alta cualificación). Compara con la población municipal.</li>
 <li>«€X mil millones de inversión.» Pregunta cuánto termina como recaudación tributaria vs como exención fiscal. En Aragón, la exención ICIO es disputa recurrente.</li>
@@ -72,9 +72,9 @@
 </ul>
 
 <h3>Suelo, expropiación y biodiversidad</h3>
-<p>Los campus mapeados con huella divulgada ya suman ≈ 1.149 ha — en su mayoría suelo rural y agrícola. Como <strong>18 de los 21</strong> proyectos mapeados usan la vía rápida <strong>PIGA</strong>, que los declara de "interés general", el suelo puede ser objeto de <strong>expropiación forzosa</strong> — una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo <strong>cuatro días</strong> para responder, sobre parcelas que las familias han cultivado durante generaciones.</p>
+<p>Los campus mapeados con huella divulgada ya suman ≈ 1.149 ha - en su mayoría suelo rural y agrícola. Como <strong>18 de los 21</strong> proyectos mapeados usan la vía rápida <strong>PIGA</strong>, que los declara de "interés general", el suelo puede ser objeto de <strong>expropiación forzosa</strong> - una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo <strong>cuatro días</strong> para responder, sobre parcelas que las familias han cultivado durante generaciones.</p>
 <ul>
-<li><strong>Comprueba el uso anterior.</strong> Busca cada parcela en <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a> + Catastro — suelo agrícola de <em>secano</em> o <em>regadío</em>, y quién era el propietario, antes de la reclasificación.</li>
+<li><strong>Comprueba el uso anterior.</strong> Busca cada parcela en <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a> + Catastro - suelo agrícola de <em>secano</em> o <em>regadío</em>, y quién era el propietario, antes de la reclasificación.</li>
 <li><strong>Comprueba el atajo ambiental.</strong> INAGA eximió 320+ ha de la evaluación de impacto ambiental ordinaria (agosto 2025).</li>
 <li><strong>Comprueba los espacios protegidos.</strong> Mira si el sitio o sus corredores de agua/red cruzan la <a href="https://www.aragon.es/red-natural-de-aragon/red-natura-2000" target="_blank">Red Natura 2000</a> (ZEC/ZEPA).</li>
 <li><strong>Alegaciones por biodiversidad</strong> presentadas por <a href="https://www.ansararagon.com/alegaciones-al-piga-de-expansion-de-los-centros-de-datos-de-amazon-aws-en-aragon/" target="_blank">ANSAR y Ecologistas en Acción</a>.</li>

@@ -11,10 +11,10 @@
 
 <h2>Section 1, Methodology: how to research a datacenter project</h2>
 
-<h3>Step 1 — Read the first press release critically</h3>
+<h3>Step 1 - Read the first press release critically</h3>
 <p>Extract the exact promoter name (parent company + Spanish subsidiary), site municipality, land size (hectares), stated investment (€), stated capacity (MW), timeline, and any anchor-tenant claim. The absence of a named tenant is itself a signal. Save the original article URL.</p>
 
-<h3>Step 2 — Search the official registries</h3>
+<h3>Step 2 - Search the official registries</h3>
 <p>Search each of the below with the promoter name, project name, and municipality:</p>
 <ul>
 <li><a href="https://www.boa.aragon.es/" target="_blank">BOA (Boletín Oficial de Aragón)</a> — for PIGA, DIGA, and Declaración de Interés Autonómico orders.</li>

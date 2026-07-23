@@ -495,10 +495,17 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
 // "zoom in to see the footprint" hint as the zoom level crosses the threshold.
 map.on('zoomend', updatePlumeHint);
 
-fetch('data/datacenters.json')
-  .then(r => r.json())
-  .then(data => {
-    STATE.data = data;
+// Load the dataset plus the editable tour captions (content/tour.<lang>.md) together,
+// so the story tour has its text ready before it can auto-start on a first visit.
+Promise.all([
+  fetch('data/datacenters.json').then(r => r.json()),
+  fetch('content/tour.en.md').then(r => r.ok ? r.text() : '').catch(() => ''),
+  fetch('content/tour.es.md').then(r => r.ok ? r.text() : '').catch(() => '')
+])
+  .then(res => {
+    STATE.data = res[0];
+    if (res[1]) TOUR_TEXT.en = parseTourMd(res[1]);
+    if (res[2]) TOUR_TEXT.es = parseTourMd(res[2]);
     const linkedSite = readStateFromHash();  // restore filters/layers from the URL
     initLangButtons();
     renderAll();
@@ -964,32 +971,31 @@ function openDialog(s) {
 }
 
 // ── Story tour ─────────────────────────────────────────────────────────────────
-// A guided fly-through of emblematic sites. Each stop targets a site by id (so the
-// coordinates stay in sync with the data) or a fixed centre, with a bilingual caption.
-const TOUR = [
-  { center: [41.65, -0.9], zoom: 8,
-    en: { title: 'Welcome — Aragón’s datacentre boom', text: 'Aragón is Spain’s fastest-growing hyperscale datacentre cluster. This map tracks the projects and the water, energy, land and governance questions they raise. A 60-second tour of a few emblematic sites follows — click Next, or skip anytime.' },
-    es: { title: 'Bienvenido — el boom de centros de datos de Aragón', text: 'Aragón es el clúster de centros de datos hiperescalares de más rápido crecimiento de España. Este mapa rastrea los proyectos y las cuestiones de agua, energía, suelo y gobernanza que plantean. Sigue un recorrido de 60 segundos por algunos sitios emblemáticos — pulsa Siguiente, o sáltalo cuando quieras.' } },
-  { id: 'aws-villanueva-gallego', zoom: 13,
-    en: { title: 'Water: company figure vs critics', text: 'AWS says its Aragón datacentres will use 755,000 m³ of water a year; environmental groups estimate closer to 14 hm³ — about 18× higher. This site draws on the Ebro/Gállego and faces litigation.' },
-    es: { title: 'Agua: cifra de la empresa vs críticos', text: 'AWS afirma que sus centros de datos en Aragón usarán 755.000 m³ de agua al año; los grupos ecologistas estiman ~14 hm³, unas 18× más. Este sitio consume del Ebro/Gállego y afronta litigios.' } },
-  { id: 'aws-la-puebla-de-hijar', zoom: 12,
-    en: { title: 'A multi-billion campus in a town of 935', text: 'La Puebla de Híjar has 935 residents and is slated for a multi-billion-euro AWS campus. The mismatch between the infrastructure and the community it lands on is the story of Aragón’s datacentre boom.' },
-    es: { title: 'Un campus de miles de millones en un pueblo de 935', text: 'La Puebla de Híjar tiene 935 habitantes y está prevista para un campus de AWS de miles de millones. El desajuste entre la infraestructura y la comunidad resume el boom de centros de datos en Aragón.' } },
-  { id: 'aws-san-mateo-de-gallego', zoom: 13,
-    en: { title: 'Land use & biodiversity', text: 'This 294-hectare campus is one of many carved mostly from rural, agricultural land, reclassified to industrial via the PIGA fast-track — which also enables compulsory purchase. INAGA exempted 320+ ha from ordinary environmental review; ecological groups (ANSAR, Ecologistas) have filed biodiversity and territorial objections. Prior use per parcel is checkable via SIGPAC.' },
-    es: { title: 'Uso del suelo y biodiversidad', text: 'Este campus de 294 hectáreas es uno de muchos abiertos sobre suelo rural y agrícola, reclasificado a industrial vía la vía rápida PIGA — que además permite la expropiación forzosa. INAGA eximió a más de 320 ha de la evaluación ambiental ordinaria; grupos ecologistas (ANSAR, Ecologistas) han presentado alegaciones por biodiversidad y territorio. El uso anterior por parcela se puede comprobar en SIGPAC.' } },
-  { id: 'microsoft-la-muela', zoom: 13,
-    en: { title: 'The €87M tax dispute', text: 'Microsoft has refused to pay ~€87M in ICIO construction tax to La Muela and Villamayor, arguing the PIGA fast-track exempts it. The municipalities dispute that, and the site is also litigated.' },
-    es: { title: 'La disputa fiscal de 87 M€', text: 'Microsoft se ha negado a pagar ~87 M€ de ICIO a La Muela y Villamayor, alegando que la vía rápida PIGA le exime. Los municipios lo disputan, y el sitio también está en litigio.' } },
-  { id: 'blackstone-qts-calatorao', zoom: 13,
-    en: { title: 'Speculative: building without a tenant', text: 'Red-ringed sites like this have no publicly disclosed anchor tenant — the highest vacancy risk if hyperscaler demand softens. Land and grid capacity are committed on spec.' },
-    es: { title: 'Especulativo: construir sin cliente', text: 'Los sitios con anillo rojo como este no tienen cliente principal divulgado — el mayor riesgo de vacancia si la demanda se enfría. Suelo y capacidad de red comprometidos a especulación.' } },
-  { center: [41.65, -0.9], zoom: 8,
-    en: { title: 'The regional picture', text: 'Together the mapped projects add up to thousands of MW and billions in investment, on a water-stressed basin and a grid whose CO₂ depends on how you count it. Open any dot for the full cited record — or explore the layers and charts.' },
-    es: { title: 'El panorama regional', text: 'En conjunto, los proyectos mapeados suman miles de MW y miles de millones en inversión, sobre una cuenca con estrés hídrico y una red cuyo CO₂ depende de cómo se cuente. Abre cualquier punto para la ficha citada — o explora las capas y gráficos.' } }
+// A guided fly-through of emblematic sites. The structural stops (which site / centre +
+// zoom) live here and stay in sync with the data; the editable captions live in
+// content/tour.<lang>.md, loaded at startup and mapped positionally onto these stops.
+const TOUR_STOPS = [
+  { center: [41.65, -0.9], zoom: 8 },        // 1. welcome / region intro
+  { id: 'aws-villanueva-gallego', zoom: 13 }, // 2. water
+  { id: 'aws-la-puebla-de-hijar', zoom: 12 }, // 3. town of 935
+  { id: 'aws-san-mateo-de-gallego', zoom: 13 }, // 4. land & biodiversity
+  { id: 'microsoft-la-muela', zoom: 13 },     // 5. ICIO tax dispute
+  { id: 'blackstone-qts-calatorao', zoom: 13 }, // 6. speculative
+  { center: [41.65, -0.9], zoom: 8 }          // 7. regional picture / close
 ];
+const TOUR_TEXT = { en: [], es: [] };
 let tourIdx = -1;
+
+// Parse content/tour.<lang>.md into [{title, text}] — each '# Heading' begins a stop,
+// the paragraph(s) under it are its caption. HTML comments are ignored.
+function parseTourMd(md) {
+  return md.replace(/<!--[\s\S]*?-->/g, '')
+    .split(/^#\s+/m).map(function (s) { return s.trim(); }).filter(Boolean)
+    .map(function (p) {
+      var nl = p.indexOf('\n');
+      return { title: (nl === -1 ? p : p.slice(0, nl)).trim(), text: (nl === -1 ? '' : p.slice(nl + 1).trim()) };
+    });
+}
 
 function ensureTourCard() {
   if (document.getElementById('tour-card')) return;
@@ -1005,7 +1011,7 @@ function ensureTourCard() {
   document.getElementById('tour-close').addEventListener('click', endTour);
   document.getElementById('tour-prev').addEventListener('click', () => tourGoTo(tourIdx - 1));
   document.getElementById('tour-next').addEventListener('click', () => {
-    if (tourIdx >= TOUR.length - 1) endTour(); else tourGoTo(tourIdx + 1);
+    if (tourIdx >= TOUR_STOPS.length - 1) endTour(); else tourGoTo(tourIdx + 1);
   });
 }
 
@@ -1016,21 +1022,22 @@ function startTour() {
 }
 
 function tourGoTo(i) {
-  if (i < 0 || i >= TOUR.length) return;
+  if (i < 0 || i >= TOUR_STOPS.length) return;
   tourIdx = i;
-  const stop = TOUR[i];
+  const stop = TOUR_STOPS[i];
   const lang = STATE.lang === 'es' ? 'es' : 'en';
+  const txt = (TOUR_TEXT[lang] && TOUR_TEXT[lang][i]) || (TOUR_TEXT.en && TOUR_TEXT.en[i]) || { title: '', text: '' };
   let center = stop.center;
   if (stop.id) { const s = STATE.data.sites.find(x => x.id === stop.id); if (s) center = [s.lat, s.lon]; }
   if (center) map.flyTo(center, stop.zoom, { duration: 1.2 });
   const card = document.getElementById('tour-card');
   card.style.display = 'block';
-  document.getElementById('tour-step').textContent = (i + 1) + ' / ' + TOUR.length;
-  document.getElementById('tour-title').textContent = stop[lang].title;
-  document.getElementById('tour-text').textContent = stop[lang].text;
+  document.getElementById('tour-step').textContent = (i + 1) + ' / ' + TOUR_STOPS.length;
+  document.getElementById('tour-title').textContent = txt.title;
+  document.getElementById('tour-text').textContent = txt.text;
   const prev = document.getElementById('tour-prev');
   prev.textContent = t('tour_prev'); prev.disabled = (i === 0);
-  document.getElementById('tour-next').textContent = (i === TOUR.length - 1) ? t('tour_done') : t('tour_next');
+  document.getElementById('tour-next').textContent = (i === TOUR_STOPS.length - 1) ? t('tour_done') : t('tour_next');
 }
 
 function endTour() {

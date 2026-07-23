@@ -1,5 +1,5 @@
 <h1>Aragón Datacenter Map</h1>
-<p class="lede">An interactive map of every datacenter project announced in the Aragón region of Spain,operator, investors, clients, energy and water consumption, government permits, and the fast-track mechanisms that authorise them. Every datapoint is cited.</p>
+<p class="lede">An interactive map of every datacenter project announced in the Aragón region of Spain. We have tracked operators, investors, clients, energy and water consumption, government permits, and the fast-track mechanisms that authorise them. Every datapoint is cited.</p>
 
 <h2>Why this exists</h2>
 <p>Aragón has become the most active datacenter market in Southern Europe. Morgan Stanley calls it the &quot;most exciting&quot; in Europe. As of November 2025, €47 billion in investment has been committed, with a projected 11,237 MW across 28 sites mapped by environmental groups. If all are built, datacenters will consume more than 9× the region&apos;s current annual electricity demand.</p>
@@ -18,12 +18,12 @@
 
 <h2>Primary registries</h2>
 <ul>
-<li><a href="https://www.boa.aragon.es/" target="_blank">BOA,Boletín Oficial de Aragón</a> (PIGA declarations, regional decrees)</li>
-<li><a href="https://www.boe.es/" target="_blank">BOE,Boletín Oficial del Estado</a> (water concessions, national-level)</li>
+<li><a href="https://www.boa.aragon.es/" target="_blank">BOA, Boletín Oficial de Aragón</a> (PIGA declarations, regional decrees)</li>
+<li><a href="https://www.boe.es/" target="_blank">BOE, Boletín Oficial del Estado</a> (water concessions, national-level)</li>
 <li><a href="https://www.aragon.es/organismos/instituto-aragones-de-gestion-ambiental-inaga" target="_blank">INAGA</a> (environmental impact declarations)</li>
-<li><a href="https://iber.chebro.es/" target="_blank">CHE,Confederación Hidrográfica del Ebro</a> (water concessions)</li>
+<li><a href="https://iber.chebro.es/" target="_blank">CHE, Confederación Hidrográfica del Ebro</a> (water concessions)</li>
 <li><a href="https://www.aragon.es/urbanismo-y-ordenacion-del-territorio/planes-y-proyectos-de-interes-para-aragon-pigas" target="_blank">PIGAs registry</a> (Gobierno de Aragón)</li>
-<li><a href="https://www.ree.es/" target="_blank">REE,Red Eléctrica</a> (grid connection capacity)</li>
+<li><a href="https://www.ree.es/" target="_blank">REE, Red Eléctrica</a> (grid connection capacity)</li>
 </ul>
 
 <h2>Contributing</h2>

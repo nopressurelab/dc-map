@@ -15,7 +15,7 @@
 </ul>
 
 <h3>Wholesale / hyperscale colocation</h3>
-<p>Large campuses built by a specialist developer and then leased in big blocks — typically to a single hyperscale customer per building. The tenant runs the servers, the operator provides the shell, power and cooling. When the anchor tenant is not disclosed at announcement, this shades into <em>speculative</em>.</p>
+<p>Large campuses built by a specialist developer and then leased in big blocks - typically to a single hyperscale customer per building. The tenant runs the servers, the operator provides the shell, power and cooling. When the anchor tenant is not disclosed at announcement, this shades into <em>speculative</em>.</p>
 <ul>
 <li><strong>QTS Calatorao</strong> (Proyecto Rhodes), backed by Blackstone. 300 MW, €7,500 M phase 1, no publicly disclosed anchor tenant.</li>
 <li><strong>Vantage Villanueva de Gállego</strong> (ZAZ2 campus), backed by DigitalBridge with Spanish promoter <em>Desarrollos Ecoindustriales La Cartuja</em>. €3,200 M, 90 MW guaranteed by Endesa for phase 1.</li>
@@ -41,7 +41,7 @@
 </ul>
 
 <h3>AI-specialised</h3>
-<p>A subset of hyperscaler and colocation builds tuned for very high rack density (30-100+ kW per rack) to house GPU clusters for AI training and inference. Denser cooling, higher water and energy per unit floor area, and a different economic profile — a smaller footprint can absorb enormous capital.</p>
+<p>A subset of hyperscaler and colocation builds tuned for very high rack density (30-100+ kW per rack) to house GPU clusters for AI training and inference. Denser cooling, higher water and energy per unit floor area, and a different economic profile - a smaller footprint can absorb enormous capital.</p>
 <ul>
 <li>AWS La Puebla de Híjar (Teruel), €5,000 M, 100 MW, explicitly AI-specialised, largest AWS campus in Aragón.</li>
 </ul>
@@ -69,4 +69,4 @@
 </ul>
 
 <h2>Why this matters in Aragón</h2>
-<p>Datacenter concentration puts pressure on three shared resources that were already scarce: grid capacity, water in the Ebro basin, and non-urbanised land. The regional government has authorised the wave using the PIGA fast-track, which lets Aragón override municipal planning, expropriate land, and — critics argue — waive the municipal ICIO construction tax. This map exists to make that concentrated pressure legible, per site, with citations.</p>
+<p>Datacenter concentration puts pressure on three shared resources that were already scarce: grid capacity, water in the Ebro basin, and non-urbanised land. The regional government has authorised the wave using the PIGA fast-track, which lets Aragón override municipal planning, expropriate land, and - critics argue - waive the municipal ICIO construction tax. This map exists to make that concentrated pressure legible, per site, with citations.</p>

@@ -12,7 +12,7 @@
 </dl>
 <p>The most disproportionate scale in the region. AWS is negotiating water rights with farmers in Híjar, Urrea de Gaén, and La Puebla de Híjar in exchange for partial piping of the Acequia de Gaén, plus a 190,297 m³ storage reservoir alongside the campus. Construction is scheduled for autumn 2027. The campus is AWS&apos;s AI-specialised build in Aragón.</p>
 <ul class="muni-projects">
-<li><strong>AWS La Puebla de Híjar + Azaila</strong> (&quot;Venta del Barro&quot; PIGA), €5,000 M, 100 MW</li>
+<li><strong>AWS La Puebla de Híjar and Azaila</strong> (&quot;Venta del Barro&quot; PIGA), €5,000 M, 100 MW</li>
 </ul>
 <p class="cite">Sources: <a href="https://www.xataka.com/empresas-y-economia/bienvenido-mr-bezos-nuevo-centro-datos-amazon-se-instalara-puebla-hijar" target="_blank">Xataka</a>; <a href="https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html" target="_blank">Hoy Aragón</a>; <a href="https://ecodeteruel.tv/el-campus-de-datos-de-amazon-en-la-puebla-de-hijar-toma-impulso-un-gigante-de-328-hectareas-con-oficinas-subestaciones-y-un-nuevo-sector-urbanistico/" target="_blank">Eco de Teruel</a>.</p>
 </div>
