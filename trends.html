@@ -219,8 +219,8 @@
 
     var noteEn = 'Of ' + Math.round(total).toLocaleString('en-US') + ' MW of disclosed per-site capacity, ' + Math.round(speculative).toLocaleString('en-US') + ' MW (' + pctSpec + '%) is speculative. AWS aggregate capacity is not disclosed per site and is excluded from this comparison.';
     var noteEs = 'De ' + Math.round(total).toLocaleString('es-ES') + ' MW de capacidad divulgada por sitio, ' + Math.round(speculative).toLocaleString('es-ES') + ' MW (' + pctSpec + '%) es especulativa. La capacidad agregada de AWS no se divulga por sitio y se excluye de esta comparación.';
-    document.getElementById('speculative-note').textContent = noteEn;
-    document.getElementById('speculative-note-es').textContent = noteEs;
+    var noteElEn = document.getElementById('speculative-note'); if (noteElEn) noteElEn.textContent = noteEn;
+    var noteElEs = document.getElementById('speculative-note-es'); if (noteElEs) noteElEs.textContent = noteEs;
 
     var cfg = function () {
       return {
