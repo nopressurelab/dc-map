@@ -30,7 +30,7 @@
 <div class="chart-wrap"><canvas id="chart-status-es" aria-label="Sitios por estado" role="img"></canvas></div>
 <p class="chart-note">Cuenta los sitios del dataset por el campo <code>status</code>. Retirado = Box2Bit Cariñena (movido a Épila tras ser excluido del plan de red REE 2025-2030).</p>
 
-<h2>6. Zaragoza es una region cálida y seca</h2>
+<h2>6. Zaragoza es una región cálida y seca</h2>
 <p>Contexto para el acoplamiento calor-agua: la depresión del Ebro se calienta más rápido que la referencia española. El verano de 2025 fue el más cálido de España desde que hay registros, superando a 2003 por +0,6°C. Según AEMET, 9 de los 10 veranos más cálidos de España ocurrieron en el siglo XXI.</p>
 <div class="chart-wrap"><canvas id="chart-heat-cluster-es" aria-label="Distribución de los veranos más cálidos de España por siglo" role="img"></canvas></div>
 <p class="chart-note">Fuente: <a href="https://www.aemet.es/en/noticias/2025/09/resumen_verano_2025" target="_blank">Resumen verano 2025 AEMET</a>; <a href="https://www.elespanol.com/ciencia/meteorologia/20250916/aemet-confirma-verano-calido-serie-historica-espana-anticipa-otono-seco/1003743926674_0.html" target="_blank">El Español (ranking)</a>; <a href="https://www.xataka.com/ecologia-y-naturaleza/no-no-tu-imaginacion-verano-espana-2-grados-caluroso-dura-cinco-semanas-que-anos-80" target="_blank">Xataka (desplazamiento de la normal climática)</a>.</p>

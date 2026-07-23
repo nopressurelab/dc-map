@@ -68,5 +68,21 @@
 <li><strong>Hyperscaler</strong>, cloud providers at global scale, AWS, Microsoft Azure, Google Cloud, Meta, Oracle Cloud.</li>
 </ul>
 
+<h2 id="heat">How datacentres affect local temperature</h2>
+<p>Every joule of electricity that enters a datacenter comes out as heat. At hyperscale, that heat is not trivial. Peer-reviewed research (ASME Journal of Engineering for Sustainable Buildings and Cities, 2026) reports that the heat flux from hyperscale datacenters reaches <strong>up to 6,000 W/m², two to six times peak solar irradiance</strong> at the surface. Vehicle-based air-temperature measurements downwind of operating datacenters in Phoenix, Arizona found average warming of <strong>0.7 to 0.9°C</strong> relative to the corresponding upwind areas, with peaks up to <strong>2.2°C</strong>. The thermal signature was still detectable <strong>500 metres</strong> from the facility perimeter.<br><a class="cite" href="https://asmedigitalcollection.asme.org/sustainablebuildings/article/7/2/024501/1233035/Data-Center-Waste-Heat-as-an-Emerging-Urban" target="_blank">Source, ASME Journal 2026</a> · <a class="cite" href="https://www.facilitiesdive.com/news/data-centers-raise-temperatures-4-degrees-ASU-Sailor-thermal-plume/821164/" target="_blank">Coverage, Facilities Dive</a> · <a class="cite" href="https://www.forbes.com/sites/marshallshepherd/2026/05/19/new-evidence-data-centers-cause-hotter-weather/" target="_blank">Coverage, Forbes (Marshall Shepherd)</a></p>
+
+<p>The <strong>evaporative-cooling paradox</strong> compounds this in a place like Aragón. Evaporative cooling is efficient in dry climates, which is why it is often chosen in the Ebro valley. But during heatwaves the technology demands more water precisely when the basin is under water stress. Research in <em>Buildings</em> (MDPI, 2024) finds that evaporative units in dry regions like Urumqi are the most water-intensive, and that withdrawals scale with cooling demand.<br><a class="cite" href="https://www.mdpi.com/2075-5309/14/11/3623" target="_blank">Source, Buildings 2024</a></p>
+
+<p>Against that backdrop, AEMET already warns that summer 2026 could be one of the most extreme in decades and that Zaragoza and the whole Ebro depression are <strong>maximum-risk zones</strong> for heatwave impact. June 2025 was the hottest on record for most of Spain; heatwaves now regularly push the Ebro valley to <strong>40–42°C</strong>.<br><a class="cite" href="https://www.ecoticias.com/cambio-climatico/la-aemet-alerta-de-otra-ola-de-calor-con-temperaturas-de-hasta-42-grados" target="_blank">Source, AEMET via ecoticias</a> · <a class="cite" href="https://www.cope.es/emisoras/aragon/teruel-provincia/teruel/noticias/meteorologo-explica-aragon-ola-calor-durara-20260623_3389872.html" target="_blank">Weather analysis, COPE Aragón</a></p>
+
+<p>The Aragón chain is therefore:</p>
+<ol>
+<li>The Ebro valley is already a maximum heatwave-risk zone, and warming.</li>
+<li>Datacenters release heat at 2–6× the intensity of the sun at the surface, measurably raising downwind air temperature.</li>
+<li>Evaporative cooling is chosen because the climate is dry, but consumes more water during heatwaves, when the Ebro basin is already stressed.</li>
+<li>The concentration of 28 projected sites in the same corridor turns a per-facility effect into a regional one.</li>
+</ol>
+<p>Waste-heat recovery — feeding the heat into district heating, greenhouses or industrial processes — is the most effective mitigation, but no Aragón project has publicly committed to it at scale. The reference examples are Google's Hamina (Finland) facilities and Microsoft's in the Netherlands.</p>
+
 <h2>Why this matters in Aragón</h2>
 <p>Datacenter concentration puts pressure on three shared resources that were already scarce: grid capacity, water in the Ebro basin, and non-urbanised land. The regional government has authorised the wave using the PIGA fast-track, which lets Aragón override municipal planning, expropriate land, and — critics argue — waive the municipal ICIO construction tax. This map exists to make that concentrated pressure legible, per site, with citations.</p>
