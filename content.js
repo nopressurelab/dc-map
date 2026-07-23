@@ -16,6 +16,12 @@
           .replace(/<a href="(https?:\/\/[^"]*)"/g, '<a target="_blank" rel="noopener" href="$1"');
         content.innerHTML = html;
         if (typeof window.onContentRender === 'function') window.onContentRender(lang);
+        // Content is injected after load, so a #hash deep-link (e.g. trends.html#grid-co2)
+        // needs a manual scroll once its target exists.
+        if (location.hash.length > 1) {
+          var target = document.getElementById(location.hash.slice(1));
+          if (target) target.scrollIntoView();
+        }
       })
       .catch(function (e) {
         content.innerHTML = '<p class="lede">Could not load content (' + e.message + '). Serve this folder over HTTP (file:// blocks fetch).</p>';

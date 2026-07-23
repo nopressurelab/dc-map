@@ -51,7 +51,7 @@
 
 <h2>Section 2, Citizen kit: what you need to know</h2>
 
-<h3>The six axes of local impact</h3>
+<h3>The seven axes of local impact</h3>
 <ol>
 <li><strong>Land.</strong> How many hectares are being reclassified from &quot;suelo no urbanizable&quot; to industrial? What was the land&apos;s prior use? Who owned it?</li>
 <li><strong>Water.</strong> Announced m³/year vs the municipality&apos;s current urban use, plus the cooling-tech choice. Ask: what happens in a CHE-declared drought year?</li>
@@ -59,12 +59,14 @@
 <li><strong>Local heat.</strong> Peer-reviewed research (ASME 2026) reports datacenter waste heat can raise downwind air temperatures by 0.7–2.2°C up to 500 m from the perimeter. In a hot dry basin like the Ebro valley, this compounds heatwave stress.</li>
 <li><strong>Tax.</strong> Datacenters are property-tax and construction-tax opportunities, but PIGA processing has been used to waive the ICIO in Aragón (a live dispute for €87 M between La Muela and Villamayor).</li>
 <li><strong>Employment.</strong> Compare the announced job numbers (construction vs operational). Datacenters are heavy on capex, light on permanent jobs, typically 100 to 500 permanent per site regardless of MW.</li>
+<li><strong>Noise.</strong> Datacentres run 24/7; cooling (chillers, cooling towers, condenser fans) and backup diesel generators are constant noise sources that carry hundreds of metres. Chronic environmental noise is linked to sleep disturbance and cardiovascular effects (<a href="https://www.who.int/europe/publications/i/item/9789289053563" target="_blank">WHO Environmental Noise Guidelines, 2018</a>). Ask for the acoustic study, the predicted decibel levels at the nearest homes, and the mitigation. Not yet measured or reported for Aragón sites — worth raising early.</li>
 </ol>
 
 <h3>Common claims and how to test them</h3>
 <ul>
 <li>&quot;100% renewable energy.&quot; Distinguish <strong>market-based</strong> accounting (matched with renewable PPAs or certificates — the basis for a ~0 emissions claim) from <strong>location-based</strong> (the physical grid the site actually draws, ~108 gCO₂/kWh in 2024, up to ~258 g on the CNMC label). The physical draw is never zero, and adding large new demand can pull up marginal gas generation. Ask which specific facility supplies the site, and on which basis the claim is made. Sources: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps</a>, CNMC.</li>
 <li>&quot;No significant emissions on site.&quot; Ask for the number and MW of backup diesel generators and their air permit. They run during outages plus routine testing (~50–150 h/yr each); a single 2.5 MW unit emits roughly 1.2 t NOx and 0.05 t PM per 100 test-hours — a local air-quality issue distinct from grid CO₂. Source: <a href="https://insideclimatenews.org/news/12112025/data-center-diesel-generators-noise-pollution/" target="_blank">Inside Climate News</a>.</li>
+<li>&quot;Quiet / no noise impact.&quot; Datacentres hum around the clock. Ask for the acoustic study, the predicted decibel levels at the nearest homes, and the mitigation (acoustic barriers, generator enclosures, setback distances). Communities elsewhere report sleep loss and have taken legal action over 24/7 cooling and generator noise. Sources: <a href="https://www.eesi.org/articles/view/communities-are-raising-noise-pollution-concernsabout-data-centers" target="_blank">EESI</a>, <a href="https://theconversation.com/5-ways-data-centers-endanger-their-local-communities-and-the-country-as-a-whole-282348" target="_blank">The Conversation</a>.</li>
 <li>&quot;Water-free cooling.&quot; Ask for the make-up water figure. All cooling systems require some water.</li>
 <li>&quot;X thousand jobs.&quot; Break down construction (temporary, mostly non-local) vs operational (few, high-skill). Compare to municipality population.</li>
 <li>&quot;€X billion investment.&quot; Ask how much lands as tax revenue vs as tax exemption. In Aragón, ICIO exemption is a recurring dispute.</li>

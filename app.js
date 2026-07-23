@@ -1201,6 +1201,7 @@ function renderFullSite(s) {
         : '≈ <strong>' + lo + '–' + hi + ' t CO₂/yr</strong> on a <em>location-based</em> basis (Spanish grid 108 g to CNMC label 258 gCO₂/kWh). On a <em>market-based</em> basis ≈ 0 if matched by renewable PPAs — AWS reports 100% renewable since 2022 and Microsoft signed a 95.7 MW solar PPA — but the physical grid draw isn\'t zero and new demand can lift marginal (gas) generation. Assumes 0.90 load factor.');
     })()}</p>
     <p class="cite">${STATE.lang === 'es' ? 'Fuentes: intensidad de red — Electricity Maps (2024) y CNMC (2025); declaraciones renovables — AWS y Microsoft (DCD).' : 'Sources: grid intensity — Electricity Maps (2024) and CNMC (2025); renewable claims — AWS and Microsoft (DCD).'}</p>
+    <p><a href="trends.html#grid-co2" target="_blank" rel="noopener">${STATE.lang === 'es' ? 'Cómo se cuenta y por qué importa para las personas →' : 'How this is counted, and why it matters for people →'}</a></p>
 
     ${water}
     ${waterContext}

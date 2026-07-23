@@ -51,7 +51,7 @@
 
 <h2>Sección 2, Kit ciudadano: lo que necesitas saber</h2>
 
-<h3>Los seis ejes del impacto local</h3>
+<h3>Los siete ejes del impacto local</h3>
 <ol>
 <li><strong>Suelo.</strong> ¿Cuántas hectáreas se reclasifican de «suelo no urbanizable» a industrial? ¿Cuál era el uso previo? ¿Quién era la propietaria?</li>
 <li><strong>Agua.</strong> m³/año anunciados vs el consumo urbano actual del municipio, más la refrigeración elegida. Pregunta: ¿qué pasa en un año de sequía declarado por la CHE?</li>
@@ -59,12 +59,14 @@
 <li><strong>Calor local.</strong> La investigación revisada por pares (ASME 2026) reporta que el calor residual del centro de datos puede elevar la temperatura del aire a sotavento en 0,7-2,2°C hasta 500 m del perímetro. En una cuenca cálida y seca como el valle del Ebro, esto se acumula al estrés por olas de calor.</li>
 <li><strong>Fiscal.</strong> Los centros de datos son oportunidad de recaudación (IBI, ICIO), pero la tramitación PIGA se ha usado para dispensar el ICIO en Aragón (disputa viva de €87 M entre La Muela y Villamayor).</li>
 <li><strong>Empleo.</strong> Compara los empleos anunciados (construcción vs operación). Los centros de datos son intensivos en capex y ligeros en empleos permanentes, típicamente de 100 a 500 permanentes por sitio con independencia de los MW.</li>
+<li><strong>Ruido.</strong> Los centros de datos funcionan 24/7; la refrigeración (enfriadoras, torres de refrigeración, ventiladores de condensadores) y los generadores diésel de respaldo son fuentes de ruido constantes que se propagan cientos de metros. El ruido ambiental crónico se asocia con alteraciones del sueño y efectos cardiovasculares (<a href="https://www.who.int/europe/publications/i/item/9789289053563" target="_blank">Directrices de ruido ambiental de la OMS, 2018</a>). Pide el estudio acústico, los niveles de decibelios previstos en las viviendas más cercanas y las medidas de mitigación. Aún no se ha medido ni informado en los sitios de Aragón — conviene plantearlo pronto.</li>
 </ol>
 
 <h3>Afirmaciones habituales y cómo comprobarlas</h3>
 <ul>
 <li>«100% energía renovable.» Distingue la contabilidad <strong>basada en mercado</strong> (cubierta con PPAs o certificados renovables - la base de una declaración de ~0 emisiones) de la <strong>basada en ubicación</strong> (la red física de la que el sitio realmente consume, ~108 gCO₂/kWh en 2024, hasta ~258 g en la etiqueta CNMC). El consumo físico nunca es cero, y añadir gran demanda nueva puede elevar la generación marginal de gas. Pregunta qué instalación concreta suministra al sitio y sobre qué base se hace la declaración. Fuentes: <a href="https://www.electricitymaps.com/grid-in-review-2025/spain" target="_blank">Electricity Maps</a>, CNMC.</li>
 <li>«Sin emisiones significativas en el sitio.» Pide el número y los MW de los generadores diésel de respaldo y su permiso de aire. Funcionan en cortes más pruebas rutinarias (~50–150 h/año cada uno); una sola unidad de 2,5 MW emite aproximadamente 1,2 t de NOx y 0,05 t de PM por cada 100 horas de prueba - un problema local de calidad del aire, distinto del CO₂ de la red. Fuente: <a href="https://insideclimatenews.org/news/12112025/data-center-diesel-generators-noise-pollution/" target="_blank">Inside Climate News</a>.</li>
+<li>«Silencioso / sin impacto de ruido.» Los centros de datos zumban las 24 horas. Pide el estudio acústico, los niveles de decibelios previstos en las viviendas más cercanas y la mitigación (barreras acústicas, cerramientos de generadores, distancias de retranqueo). En otros lugares las comunidades denuncian pérdida de sueño y han emprendido acciones legales por el ruido 24/7 de la refrigeración y los generadores. Fuentes: <a href="https://www.eesi.org/articles/view/communities-are-raising-noise-pollution-concernsabout-data-centers" target="_blank">EESI</a>, <a href="https://theconversation.com/5-ways-data-centers-endanger-their-local-communities-and-the-country-as-a-whole-282348" target="_blank">The Conversation</a>.</li>
 <li>«Refrigeración sin agua.» Pide la cifra de reposición de agua. Todos los sistemas de refrigeración requieren algo.</li>
 <li>«X mil empleos.» Desglosa construcción (temporal, mayormente no local) vs operación (pocos, alta cualificación). Compara con la población municipal.</li>
 <li>«€X mil millones de inversión.» Pregunta cuánto termina como recaudación tributaria vs como exención fiscal. En Aragón, la exención ICIO es disputa recurrente.</li>
