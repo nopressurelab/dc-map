@@ -70,7 +70,7 @@
 <li>«Refrigeración sin agua.» Pide la cifra de reposición de agua. Todos los sistemas de refrigeración requieren algo.</li>
 <li>«X mil empleos.» Desglosa construcción (temporal, mayormente no local) vs operación (pocos, alta cualificación). Compara con la población municipal.</li>
 <li>«€X mil millones de inversión.» Pregunta cuánto termina como recaudación tributaria vs como exención fiscal. En Aragón, la exención ICIO es disputa recurrente.</li>
-<li>«Conexión a red asegurada.» Pregunta si la conexión está contratada con REE y energizada, o reservada y en cola.</li>
+<li>«Conexión a red asegurada.» Un centro de datos necesita decenas o cientos de MW de la red de transporte (operador: REE). Pregunta si tiene una conexión firmada y <strong>energizada</strong>, o solo una <strong>reserva en la cola de acceso</strong> — cosas muy distintas. Una reserva en cola no suministra energía, bloquea capacidad de red escasa que otros (industria, renovables, municipios) podrían usar, y puede que nunca se construya. El acceso a la red es la restricción decisiva en Aragón: el proyecto de Box2Bit en Cariñena se retiró en 2026 tras dejarlo REE fuera del plan de red 2025–2030. Fuente: <a href="https://www.hoyaragon.es/articulo/noticias-aragon/box2bit-epila-centro-datos-carinena/20260129112439121735.html" target="_blank">hoyaragon</a>.</li>
 </ul>
 
 <h3>Suelo, expropiación y biodiversidad</h3>
