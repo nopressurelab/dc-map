@@ -15,7 +15,12 @@
         var html = (window.marked ? marked.parse(md) : md)
           .replace(/<a href="(https?:\/\/[^"]*)"/g, '<a target="_blank" rel="noopener" href="$1"');
         content.innerHTML = html;
-        if (typeof window.onContentRender === 'function') window.onContentRender(lang);
+        // Isolate the page hook (charts/tables): a bug there must not blank the prose.
+        try {
+          if (typeof window.onContentRender === 'function') window.onContentRender(lang);
+        } catch (hookErr) {
+          console.error('onContentRender failed:', hookErr);
+        }
         // Content is injected after load, so a #hash deep-link (e.g. trends.html#grid-co2)
         // needs a manual scroll once its target exists.
         if (location.hash.length > 1) {

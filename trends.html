@@ -169,11 +169,9 @@
       return cfg;
     }
     var enChart = mkChart('chart-water', build(['AWS stated', 'Critics estimate'], 'm³ / year', 'en-US'));
-    enChart.$labelFmt = function (v) { return v.toLocaleString('en-US') + ' m³'; };
-    enChart.update();
+    if (enChart) { enChart.$labelFmt = function (v) { return v.toLocaleString('en-US') + ' m³'; }; enChart.update(); }
     var esChart = mkChart('chart-water-es', build(['Cifra AWS', 'Estimación de críticos'], 'm³ / año', 'es-ES'));
-    esChart.$labelFmt = function (v) { return v.toLocaleString('es-ES') + ' m³'; };
-    esChart.update();
+    if (esChart) { esChart.$labelFmt = function (v) { return v.toLocaleString('es-ES') + ' m³'; }; esChart.update(); }
   }
 
   // ---- 13. Grid-electricity CO2: location-based range vs market-based ----
@@ -199,9 +197,9 @@
       return cfg;
     }
     var en = mkChart('chart-emissions', build(['Physical grid (108 g)', 'Official label (258 g)', 'After renewable PPAs'], 'Mt CO₂ / year', 'en-US'));
-    en.$labelFmt = function (v) { return v.toLocaleString('en-US', { maximumFractionDigits: 1 }) + ' Mt'; }; en.update();
+    if (en) { en.$labelFmt = function (v) { return v.toLocaleString('en-US', { maximumFractionDigits: 1 }) + ' Mt'; }; en.update(); }
     var es = mkChart('chart-emissions-es', build(['Red física (108 g)', 'Etiqueta oficial (258 g)', 'Tras PPAs renovables'], 'Mt CO₂ / año', 'es-ES'));
-    es.$labelFmt = function (v) { return v.toLocaleString('es-ES', { maximumFractionDigits: 1 }) + ' Mt'; }; es.update();
+    if (es) { es.$labelFmt = function (v) { return v.toLocaleString('es-ES', { maximumFractionDigits: 1 }) + ' Mt'; }; es.update(); }
   }
 
   // ---- 3. Speculative pipeline MW ----
