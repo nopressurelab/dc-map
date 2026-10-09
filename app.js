@@ -1143,8 +1143,8 @@ function renderFullSite(s) {
   const specReasoning = txt(s, 'speculative_reasoning');
   const ru = s.recent_update_2026;
   const ruText = ru ? Object.entries(ru)
-    .filter(([k, v]) => typeof v === 'string' && !['source', 'source_date'].includes(k))
-    .map(([, v]) => `<p>${v}</p>`).join('') : '';
+    .filter(([k, v]) => typeof v === 'string' && !['source', 'source_date'].includes(k) && !k.endsWith('_es'))
+    .map(([k, v]) => `<p>${(STATE.lang === 'es' && ru[k + '_es']) || v}</p>`).join('') : '';
   const ruSources = ru ? (ru.sources || (ru.source ? [ru.source] : [])) : [];
   const ruHtml = ru ? `
     <h3>${t('sec_latest')}</h3>
