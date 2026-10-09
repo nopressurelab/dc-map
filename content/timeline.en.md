@@ -1,5 +1,5 @@
 <h1>Timeline, 2020 to 2026</h1>
-<p class="lede">How Aragón went from a first environmental clearance to €47 billion in committed investment, a first-in-Spain datacenter lawsuit, and a Guardia Civil corruption case. Each entry links to the source.</p>
+<p class="lede">How Aragón went from a first environmental clearance to more than €55 billion in committed investment, a first-in-Spain datacenter lawsuit, a Guardia Civil corruption case, and a clash with a new state decree. Each entry links to the source. Updated through October 2026.</p>
 
 <div class="timeline">
 <div class="tl-event tag-permit">
@@ -140,5 +140,68 @@
 <div class="tl-title">First datacenter lawsuit in Spain filed at TSJA</div>
 <div class="tl-body">Ecologistas en Acción, represented by Fons de Defensa Ambiental, files an administrative-litigation appeal at the Tribunal Superior de Justicia de Aragón (TSJA) against the AWS PIGA. Co-plaintiffs: ANSAR, Amigos de la Tierra, Tunubesecamirio, Ingenieros Sin Fronteras, Plataforma en Defensa de los Paisajes de Teruel, RAPA, SEO/BirdLife.</div>
 <a class="tl-src" href="https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/" target="_blank">Source (Climática)</a>
+</div>
+
+<div class="tl-event tag-permit">
+<div class="tl-date">16 July 2026</div>
+<div class="tl-title">AWS clears environmental review for its largest Aragón campus</div>
+<div class="tl-body">INAGA gives environmental approval to AWS&apos;s &quot;CAR&quot;/Acampo Arpal campus near Zaragoza (128.5 ha, 7 buildings, 3,279.97 GWh/yr, ~€3,048 M construction); CHE issues a favourable water-availability report. Part of the €33.7B AWS Aragón plan.</div>
+<a class="tl-src" href="https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/" target="_blank">Source (Merca2)</a>
+</div>
+
+<div class="tl-event tag-expansion">
+<div class="tl-date">22 July 2026</div>
+<div class="tl-title">Merlin buys Forestalia&apos;s Botorrita centre; &quot;Zaragoza-WIND&quot; DIGA approved</div>
+<div class="tl-body">Amid Operación Perserte, Forestalia sells ~two-thirds of Búfalo&apos;s capacity (≈227 MW) to Merlin Properties. The Aragón government declares Merlin&apos;s &quot;Zaragoza-WIND&quot; campus at Botorrita a DIGA: €1,225 M, 144 MW IT, zero-water cooling, operational 2029. Forestalia stays on as energy supplier (nine Aragón wind parks, 278 MW).</div>
+<a class="tl-src" href="https://www.eldiario.es/aragon/economia/forestalia-merlin-socimi-espanola-impulsara-botorrita-centro-datos-adquirido-promotora-renovables_1_13399203.html" target="_blank">Source (elDiario.es)</a>
+</div>
+
+<div class="tl-event tag-litigation">
+<div class="tl-date">27 August 2026</div>
+<div class="tl-title">Spain&apos;s draft royal decree on data centers opens to consultation</div>
+<div class="tl-body">The state puts out a draft decree (~80% additional-renewable supply, hourly matching, penalties up to loss of grid access). The Aragón government files formal objections, warning it puts up to €70B of regional investment at risk and that no planned project would meet the new requirements. ~600 responses submitted.</div>
+<a class="tl-src" href="https://www.moncloa.com/2026/08/27/aragon-centros-datos-decreto-alegaciones-3421698/" target="_blank">Source (Moncloa)</a>
+</div>
+
+<div class="tl-event tag-litigation">
+<div class="tl-date">September 2026</div>
+<div class="tl-title">Protests escalate in Zaragoza</div>
+<div class="tl-body">The &quot;No es sequía, es saqueo&quot; campaign relaunches (10 Sep); a 27 Sep march in Zaragoza (Torrero) draws &quot;más de mil personas&quot;, with a separate ~500-person march against the Microsoft DC by Puerto Venecia. Salvemos los Pinares de Venecia files 349 alegaciones.</div>
+<a class="tl-src" href="https://www.eldiario.es/aragon/sociedad/movimiento-centros-datos-coge-fuerza-zaragoza-no-queremos-recursos-sean-devorados_1_13538150.html" target="_blank">Source (elDiario.es)</a>
+</div>
+
+<div class="tl-event tag-permit">
+<div class="tl-date">30 September 2026</div>
+<div class="tl-title">Blackstone/QTS Calatorao gets definitive PIGA (€13.47B)</div>
+<div class="tl-body">The &quot;Proyecto Rhodes&quot; campus at Calatorao is cleared to build, published in BOA. Investment revised up to €13,471 M, 8 buildings (up to 5 more optional), up to ~430 MW IT, water-free cooling, first infrastructure ~2028. Still no anchor tenant. Azcón warns the draft state decree could paralyse it.</div>
+<a class="tl-src" href="https://www.elespanol.com/aragon/actualidad/20260930/blackstone-via-libre-construir-centro-datos-calatorao-invertira-millones/1003744402781_0.html" target="_blank">Source (El Español)</a>
+</div>
+
+<div class="tl-event tag-scandal">
+<div class="tl-date">2 October 2026</div>
+<div class="tl-title">Microsoft must repeat part of its PIGA public information</div>
+<div class="tl-body">Microsoft admits an &quot;error material involuntario&quot;, it had omitted a mandatory environmental non-technical summary (Documento de Síntesis), and the file is re-exposed for a new 23-business-day period with an updated EIA. The &quot;Región MSFT&quot; PIGA is still not finally approved.</div>
+<a class="tl-src" href="https://www.elaltojalon.es/texto-diario/mostrar/6036706/microsoft-tendra-repetir-parte-informacion-publica-campus-centros-datos-muela-omitir-documento-ambiental-obligatorio" target="_blank">Source (El Alto Jalón)</a>
+</div>
+
+<div class="tl-event tag-scandal">
+<div class="tl-date">8–9 October 2026</div>
+<div class="tl-title">AWS reverses course on the IAE tax</div>
+<div class="tl-body">After pressure from host municipalities, Amazon says it will pay the IAE business-activity tax locally to Aragón town halls, with retroactive payments for ~4 years, instead of a single national quota to Madrid. ICIO remains exempt via PIGA; El Burgo de Ebro&apos;s mayor still withholds his signature.</div>
+<a class="tl-src" href="https://www.aragondigital.es/articulo/economia/amazon-da-marcha-atras-pagara-aragon-impuestos-centros-datos/202610081922051013725.html" target="_blank">Source (Aragón Digital)</a>
+</div>
+
+<div class="tl-event tag-litigation">
+<div class="tl-date">9 October 2026</div>
+<div class="tl-title">Villamayor drops its suit against Azora/Tillion for a new school</div>
+<div class="tl-body">Villamayor de Gállego agrees to withdraw its legal challenge to the Tillion Aragón PIGA in exchange for the regional government funding a new secondary school. Investment updated to ~€2,359.9 M.</div>
+<a class="tl-src" href="https://www.elespanol.com/aragon/actualidad/20261009/villamayor-gallego-nuevo-instituto-retirara-recurso-centro-datos-azora/1003744413988_0.html" target="_blank">Source (El Español)</a>
+</div>
+
+<div class="tl-event tag-scandal">
+<div class="tl-date">9 October 2026</div>
+<div class="tl-title">~15 Forestalia-linked companies enter insolvency</div>
+<div class="tl-body">Around fifteen companies tied to the &quot;caso Forestalia&quot; file for concurso de acreedores. Fernando Samper (who resigned as Forestalia president in April 2026) remains under investigation in Operación Perserte, no charges or conviction; the case is still in instruction at Teruel.</div>
+<a class="tl-src" href="https://theobjective.com/economia/2026-10-09/quincena-empresas-caso-forestalia-concurso-acreedores" target="_blank">Source (The Objective)</a>
 </div>
 </div>

@@ -2,13 +2,13 @@
 <p class="lede">A shortcut to the headline numbers, the pull-quote-ready lines, and how to reuse this material. All CC BY 4.0, cite the dataset.</p>
 
 <h2>Headline numbers</h2>
-<div class="press-headline"><strong>€47,000 M</strong>, in committed datacenter investment across Aragón as of November 2025.</div>
+<div class="press-headline"><strong>€55,000 M+</strong>, in committed datacenter investment across Aragón, per the Gobierno de Aragón as of October 2026 (up to 30 projects in processing).</div>
 <div class="press-headline"><strong>28 projected sites, 11,237 MW</strong> of announced capacity, according to the map compiled by Ecologistas en Acción and No es sequía es saqueo. If all built, more than 9× current annual Aragón electricity demand.</div>
 <div class="press-headline"><strong>50% of Aragón&apos;s 2030 electricity demand</strong>, projected to be consumed by datacenters alone. Regional demand itself will nearly quadruple to 40 TWh by 2030.</div>
 <div class="press-headline"><strong>755,000 m³/yr vs 14 hm³/yr</strong>, AWS&apos;s stated Aragón water consumption vs the critics&apos; estimate. Ratio ~18×; critics&apos; figure equals ~23% of Zaragoza&apos;s urban water use.</div>
 <div class="press-headline"><strong>~65%</strong>, share of Aragón&apos;s disclosed per-site MW pipeline that is speculative (no publicly named anchor tenant).</div>
 <div class="press-headline"><strong>€140 M+</strong>, ICIO municipal construction tax exemptions declared for Microsoft. La Muela alone stands to lose €53 M, more than 500 years of its combined property and business tax collections.</div>
-<div class="press-headline"><strong>Operación Perserte, 6 detained, 12 raids</strong>, Guardia Civil corruption investigation opened 3 March 2026 targeting Forestalia (promoter of the €12,048 M Búfalo three-site datacenter project) and a former MITECO senior official.</div>
+<div class="press-headline"><strong>Operación Perserte, 6 detained, 12 raids</strong>, Guardia Civil corruption investigation opened 3 March 2026 targeting Forestalia (promoter of the €12,048 M Búfalo three-site datacenter project) and a former MITECO senior official. Founder Fernando Samper resigned in April 2026 and remains under investigation; Merlin has since acquired the Botorrita centre, leaving Forestalia with only Magallón, and ~15 Forestalia-linked companies entered insolvency in October 2026.</div>
 <div class="press-headline"><strong>320+ ha, four municipalities</strong>, INAGA exemption granted to AWS from the ordinary Environmental Impact Evaluation in August 2025, on the grounds of &quot;little significant impact&quot;.</div>
 <div class="press-headline"><strong>1 lawsuit</strong>, the first datacenter-focused judicial appeal in Spain, filed at the Tribunal Superior de Justicia de Aragón (TSJA) against the AWS PIGA, backed by 8 environmental and civic groups.</div>
 
@@ -25,7 +25,7 @@
 
 <h2>Assets you can use</h2>
 <ul>
-<li>Full dataset, <a href="data/datacenters.json" target="_blank">data/datacenters.json</a>, 21 sites, every figure cited to a primary or reputable secondary source (BOA, BOE, INAGA, CHE, Heraldo, El País, Reuters, DCD).</li>
+<li>Full dataset, <a href="data/datacenters.json" target="_blank">data/datacenters.json</a>, 24 sites, every figure cited to a primary or reputable secondary source (BOA, BOE, INAGA, CHE, Heraldo, El País, Reuters, DCD).</li>
 <li>CSV export (generated live from the JSON, always in sync): <button class="csv-btn" data-csv>Download datacenters.csv</button></li>
 <li><a href="trends.html" target="_blank">Trends and projections, 8 charts</a>, electricity 2024→2030, AWS water company vs critics, speculative pipeline MW, investment by operator type, site status, Zaragoza heat records, hottest-summer century distribution, Aragón vs European clusters. Right-click any canvas to save as image.</li>
 <li><a href="timeline.html" target="_blank">Timeline, 2020 to 2026</a>, 20 events tagged permit/operational/expansion/scandal/litigation, from first INAGA DIA to Operación Perserte arrests, each linked to a source.</li>

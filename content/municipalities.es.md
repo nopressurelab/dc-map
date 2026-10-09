@@ -37,14 +37,14 @@
 <h2>Villamayor de Gállego (Zaragoza)</h2>
 <p class="muni-meta">Población ~3.500. Sede de un campus de Microsoft y otro de Azora/Tillion, ambos especulativos.</p>
 <dl class="muni-stats">
-<dt>Inversión</dt><dd>€1.733 M (Microsoft) + €1.100–1.950 M (Azora)</dd>
+<dt>Inversión</dt><dd>€1.733 M (Microsoft) + €1.100–2.359,9 M (Azora, act. oct. 2026)</dd>
 <dt>MW del centro</dt><dd>Parte del total MSFT (669 MW) + Azora 150→300 MW</dd>
 <dt>ICIO rechazado</dt><dd>€34 M (Microsoft)</dd>
 </dl>
 <p>Villamayor fue el primer municipio en recibir declaración PIGA de Microsoft (3 julio 2024). Microsoft se niega a pagar €34 M de ICIO (impuesto municipal de construcción), argumentando que la vía PIGA exime al proyecto, interpretación que el municipio afectado disputa. Azora añadió su emplazamiento Tillion Aragón a menos de 3 km de la subestación de transporte.</p>
 <ul class="muni-projects">
 <li><strong>Microsoft Villamayor de Gállego</strong>, €1.733 M</li>
-<li><strong>Azora / Tillion Aragón</strong>, €1.100 M inicial → €1.950 M ampliado, 150→300 MW, DIGA concedida</li>
+<li><strong>Azora / Tillion Aragón</strong>, €1.100 M inicial → €2.359,9 M ampliado, 150→300 MW, DIGA concedida; Villamayor retiró su recurso judicial en octubre de 2026 a cambio de un nuevo instituto</li>
 </ul>
 <p class="cite">Fuentes: <a href="https://arainfo.org/microsoft-se-niega-a-pagar-53-millones-de-euros-a-la-muela-y-34-a-villamayor-de-galligo-en-impuestos-por-la-construccion-de-su-nube/" target="_blank">arainfo (ICIO)</a>; <a href="https://www.aragon.es/-/piga-microsoft" target="_blank">Gobierno de Aragón</a>.</p>
 </div>
@@ -68,14 +68,14 @@
 <h2>Calatorao (Zaragoza)</h2>
 <p class="muni-meta">Población ~2.050. Sede del campus especulativo QTS/Blackstone.</p>
 <dl class="muni-stats">
-<dt>Inversión</dt><dd>€7.500 M (fase 1)</dd>
-<dt>MW del centro</dt><dd>300 MW</dd>
+<dt>Inversión</dt><dd>€13.471 M (revisada sept. 2026; ≈€11.805 M infraestructura tecnológica)</dd>
+<dt>MW del centro</dt><dd>hasta ~430 MW IT (dos fases)</dd>
 <dt>Suelo</dt><dd>224 ha junto a la A-2</dd>
 <dt>Cliente principal</dt><dd>No divulgado</dd>
 </dl>
-<p>QTS, respaldado por Blackstone, está construyendo «Proyecto Rhodes» en un emplazamiento de 224 hectáreas a 7 km del centro urbano. La fase 1 va del 2T 2026 a finales de 2035. Comercializado como sin agua (tecnología free-cooling). Cabe destacar que QTS históricamente pre-arrienda principalmente a Microsoft, pero no hay contrato con Microsoft anunciado públicamente para este emplazamiento, de ahí la marca «desconocido/especulativo» del cliente.</p>
+<p>QTS, respaldado por Blackstone, está construyendo «Proyecto Rhodes» en un emplazamiento de 224 hectáreas a 7 km del centro urbano. Su PIGA definitiva se aprobó y publicó en el BOA el 30 de septiembre de 2026, dando vía libre a la construcción — es ya la mayor inversión individual en centros de datos de Aragón; la primera infraestructura se prevé hacia 2028, con construcción completa en unos siete años. Comercializado como sin agua (tecnología free-cooling). Cabe destacar que QTS históricamente pre-arrienda principalmente a Microsoft, pero no hay contrato con Microsoft anunciado públicamente para este emplazamiento, de ahí la marca «desconocido/especulativo» del cliente.</p>
 <ul class="muni-projects">
-<li><strong>QTS / Blackstone</strong> (Proyecto Rhodes), €7.500 M fase 1, 300 MW, refrigeración sin agua</li>
+<li><strong>QTS / Blackstone</strong> (Proyecto Rhodes), €13.471 M, hasta ~430 MW IT, refrigeración sin agua, PIGA definitiva 30 sep. 2026</li>
 </ul>
 <p class="cite">Fuentes: <a href="https://www.aragon.es/-/proyecto-rhodes" target="_blank">Gobierno de Aragón</a>; <a href="https://qtsdatacenters.com/data-centers/calatorao-en/" target="_blank">QTS</a>.</p>
 </div>

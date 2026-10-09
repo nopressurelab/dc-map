@@ -17,8 +17,9 @@
 <h3>Wholesale / hyperscale colocation</h3>
 <p>Large campuses built by a specialist developer and then leased in big blocks — typically to a single hyperscale customer per building. The tenant runs the servers, the operator provides the shell, power and cooling. When the anchor tenant is not disclosed at announcement, this shades into <em>speculative</em>.</p>
 <ul>
-<li><strong>QTS Calatorao</strong> (Proyecto Rhodes), backed by Blackstone. 300 MW, €7,500 M phase 1, no publicly disclosed anchor tenant.</li>
+<li><strong>QTS Calatorao</strong> (Proyecto Rhodes), backed by Blackstone. 300 MW, €13,471 M (definitive PIGA granted 30 September 2026 — now the largest single datacenter project in Aragón), no publicly disclosed anchor tenant.</li>
 <li><strong>Vantage Villanueva de Gállego</strong> (ZAZ2 campus), backed by DigitalBridge with Spanish promoter <em>Desarrollos Ecoindustriales La Cartuja</em>. €3,200 M, 90 MW guaranteed by Endesa for phase 1.</li>
+<li><strong>DayOne / Ignis Escatrón</strong>, ~300 MW (up to 207 MW IT). Wholesale campus paired with co-located Ignis renewable generation; anchor tenant undisclosed.</li>
 </ul>
 
 <h3>Colocation REIT</h3>
@@ -31,13 +32,13 @@
 <p>Non-hyperscale Spanish sponsors building large capacity without a publicly disclosed anchor customer, betting demand will arrive. Highest vacancy risk category.</p>
 <ul>
 <li><strong>Box2Bit Épila</strong> (project &quot;Epilon&quot;), €3,900 M, 150 MW → 520 MW. Moved from Cariñena in January 2026 after Red Eléctrica excluded the Cariñena site from its 2025-2030 grid plan, a textbook speculative-build failure mode.</li>
-<li><strong>Azora / Tillion Aragón</strong> (Villamayor de Gállego), €1,100 M initial → €1,950 M expanded, 150 → 300 MW. DIGA granted, tenant undisclosed.</li>
+<li><strong>Azora / Tillion Aragón</strong> (Villamayor de Gállego), €1,100 M initial → €2,359.9 M expanded, 150 → 300 MW. DIGA granted, tenant undisclosed (Villamayor withdrew its legal challenge in October 2026 in exchange for a new secondary school).</li>
 </ul>
 
 <h3>Renewable-integrated</h3>
 <p>Datacenters co-located with their own renewable generation, sold as &quot;self-consuming&quot;. The energy story is central to the pitch; the actual computing tenant is often unclear.</p>
 <ul>
-<li><strong>Forestalia Proyecto Búfalo</strong>, 3 sites (Magallón, Botorrita, Alfamén), €12,048 M, 601 MW total. 50% self-consumption from co-located wind and solar. Now under criminal investigation, see &quot;Operación Perserte&quot; in the map litigation overview.</li>
+<li><strong>Forestalia Proyecto Búfalo</strong> originally spanned 3 sites (Magallón, Botorrita, Alfamén), €12,048 M, 601 MW total, with 50% self-consumption from co-located wind and solar. As of October 2026 Forestalia reportedly retains only Magallón — Merlin Properties acquired the Botorrita centre (~two-thirds of the capacity) and Alfamén&apos;s fate is unconfirmed. Around 15 Forestalia-linked companies have filed for insolvency; owner Samper resigned in April 2026 and remains under criminal investigation, see &quot;Operación Perserte&quot; in the map litigation overview.</li>
 </ul>
 
 <h3>AI-specialised</h3>

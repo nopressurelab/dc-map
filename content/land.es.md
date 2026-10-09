@@ -10,11 +10,11 @@ Los nueve campus mapeados que divulgan una huella suman ≈ **1.149 ha**: en su 
 
 <table class="land-table"><thead><tr><th>Sitio</th><th>Hectáreas</th><th>Fuente</th></tr></thead><tbody id="land-table-body"></tbody></table>
 
-<p class="chart-note">Cubre 9 de 21 sitios; el resto no divulga huella (el esquema trata lo ausente como desconocido, nunca como cero). Hectáreas según la propia información de cada sitio, enlazada arriba y en su ficha del mapa.</p>
+<p class="chart-note">Cubre 9 de 24 sitios; el resto no divulga huella (el esquema trata lo ausente como desconocido, nunca como cero). Hectáreas según la propia información de cada sitio, enlazada arriba y en su ficha del mapa.</p>
 
 ## PIGA, «interés general» y expropiación
 
-**18 de los 21** proyectos mapeados usan la vía rápida PIGA. Declarar un proyecto de «interés general» permite al Gobierno de Aragón sortear el urbanismo municipal y **expropiar forzosamente** el suelo — una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo **cuatro días** para responder, sobre parcelas que las familias han cultivado durante generaciones. [[fuente]](https://www.computeforecast.com/news/spain-ai-data-center-aws-microsoft-land-acquisition/)
+**18 de los 24** proyectos mapeados usan la vía rápida PIGA. Declarar un proyecto de «interés general» permite al Gobierno de Aragón sortear el urbanismo municipal y **expropiar forzosamente** el suelo — una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo **cuatro días** para responder, sobre parcelas que las familias han cultivado durante generaciones. [[fuente]](https://www.computeforecast.com/news/spain-ai-data-center-aws-microsoft-land-acquisition/)
 
 ## El atajo ambiental
 

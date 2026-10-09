@@ -1508,7 +1508,10 @@
         "diga_approved": "The Aragón government declared Merlin's 'Zaragoza-WIND' campus a DIGA on 2026-07-22. More precise siting places it at Botorrita (Pol. Ind. San Antonio), on the former Forestalia Búfalo-Botorrita center Merlin acquired in March 2026 — i.e., these Zaragoza-area Merlin entries likely consolidate into the Botorrita campus. Figures: €1,225M; 144 MW IT (expandable to 240); 227.4 MW guaranteed grid capacity; 28.8 ha (+32.8 ha potential); zero-water closed-loop cooling; operational target 2029; PIGA expected summer 2027.",
         "diga_approved_es": "El Gobierno de Aragón declaró DIGA el campus 'Zaragoza-WIND' de Merlin el 22-07-2026. Una ubicación más precisa lo sitúa en Botorrita (Pol. Ind. San Antonio), sobre el antiguo centro Búfalo-Botorrita de Forestalia que Merlin adquirió en marzo de 2026 —es decir, estas fichas de Merlin en la zona de Zaragoza probablemente se consolidan en el campus de Botorrita. Cifras: €1.225M; 144 MW IT (ampliable a 240); 227,4 MW de capacidad de red garantizada; 28,8 ha (+32,8 ha potenciales); refrigeración en circuito cerrado sin agua; operación prevista 2029; PIGA esperado para el verano de 2027.",
         "investment_eur_million_2026": 1225,
+        "energy_supply": "Energy supply: Forestalia will supply the campus from nine Aragón wind parks totalling 278 MW, via the Los Vientos and María de Huerva substations (227 MW grid connection). Forestalia — the project's original developer before selling it to Merlin — retains the energy-supplier role.",
+        "energy_supply_es": "Suministro energético: Forestalia abastecerá el campus desde nueve parques eólicos aragoneses que suman 278 MW, a través de las subestaciones de Los Vientos y María de Huerva (conexión de red de 227 MW). Forestalia —promotora original del proyecto antes de venderlo a Merlin— mantiene el papel de suministrador de energía.",
         "sources": [
+          "https://www.datacenterdynamics.com/es/noticias/nueve-parques-e%C3%B3licos-de-forestalia-suministrar%C3%A1n-energ%C3%ADa-al-data-center-de-merlin-en-arag%C3%B3n/",
           "https://www.idealista.com/news/inmobiliario/activos-alternativos/2026/07/23/907455-merlin-properties-invertira-1-225-millones-en-un-centro-de-datos-en",
           "https://www.eldiario.es/aragon/economia/forestalia-merlin-socimi-espanola-impulsara-botorrita-centro-datos-adquirido-promotora-renovables_1_13399203.html"
         ],
@@ -1832,6 +1835,46 @@
       ],
       "data_quality_flag": "Coordinates = La Puebla de Alfindén centroid; capacity/investment detail limited.",
       "added_in": "v0.3.0 (2026-10-09)"
+    },
+    {
+      "id": "dayone-ignis-escatron",
+      "operator": "DayOne (built by Ignis)",
+      "operator_entity": "DayOne (wholesale/hyperscale DC operator) — developed by Ignis (renewable developer)",
+      "operator_type": "speculative_developer",
+      "site_name": "DayOne / Ignis campus — Escatrón",
+      "municipality": "Escatrón",
+      "province": "Zaragoza",
+      "lat": 41.2919,
+      "lon": -0.3233,
+      "coords_precision": "town_centroid",
+      "status": "announced",
+      "phase_notes": "DayOne's first data center in Spain — a ~300 MW campus (up to ~207 MW IT) being developed by renewables firm Ignis in Escatrón. Reported cost ~US$3bn. Materialisation depends on power availability, new substations and transmission-grid reinforcement.",
+      "phase_notes_es": "Primer centro de datos de DayOne en España — un campus de ~300 MW (hasta ~207 MW IT) desarrollado por la empresa de renovables Ignis en Escatrón. Coste reportado ~3.000M US$. Su materialización depende de la disponibilidad de potencia, nuevas subestaciones y el refuerzo de la red de transporte.",
+      "first_announced": "2026",
+      "capacity_mw": 300,
+      "capacity_mw_it": 207,
+      "investors": [
+        { "name": "DayOne", "role": "operator", "type": "wholesale_dc_operator" },
+        { "name": "Ignis", "role": "developer / energy", "type": "renewable_developer" }
+      ],
+      "clients": [
+        { "name": "Not disclosed", "confirmed": false }
+      ],
+      "tenant_status": "unknown",
+      "speculative": true,
+      "speculative_reasoning": "Wholesale/hyperscale campus with no publicly disclosed anchor tenant; dependent on grid reinforcement.",
+      "energy": {
+        "site_demand_mw": 300,
+        "grid_dependency": "Requires new substations + transmission reinforcement."
+      },
+      "acciona_note": "No Acciona involvement found in this project. Ignis partners with Acciona on data centers elsewhere in Spain (a Segovia JV; a Fuenlabrada/Madrid campus), but the Escatrón campus is reported as DayOne + Ignis only.",
+      "acciona_note_es": "No se encontró participación de Acciona en este proyecto. Ignis colabora con Acciona en centros de datos en otros lugares de España (una JV en Segovia; un campus en Fuenlabrada/Madrid), pero el campus de Escatrón se reporta solo como DayOne + Ignis.",
+      "sources": [
+        "https://www.datacenterdynamics.com/en/news/ignis-to-build-dayones-300mw-data-center-in-aragon-spain/",
+        "https://www.energias-renovables.com/panorama/la-capacidad-operativa-de-los-data-centers-20261008"
+      ],
+      "data_quality_flag": "Coordinates = Escatrón centroid; operator_type approximate (DayOne is a wholesale DC operator; nearest schema enum used). Added preliminarily.",
+      "added_in": "v0.3.0 (2026-10-09)"
     }
   ],
   "registries_for_followup": {
@@ -1851,7 +1894,7 @@
     "Verification of ICIO exemption pattern at non-Microsoft sites (AWS, Forestalia, Azora)",
     "Whether 'tramitación de urgencia' designation has been explicitly invoked for any DC (Ley 1/2021 framework)",
     "Identity / status of any AWS site not yet publicly named (AWS plan calls for 11 campuses by 2031, this dataset has 7)",
-    "Add/verify projects named in the Oct-2026 regional roundup but not yet mapped: DayOne + Ignis (Escatrón, up to 207 MW IT), SAMCA 'Green It Aragón' (Luceni / Rueda de Jalón / Pedrola), Repsol (Escatrón)",
+    "Add/verify projects named in the Oct-2026 regional roundup but not yet mapped: SAMCA 'Green It Aragón' (Luceni / Rueda de Jalón / Pedrola), Repsol (Escatrón). (DayOne + Ignis Escatrón added in v0.3.0.)",
     "Confirm Alfamén ('DCM Blue') fate after Forestalia's 2026 Búfalo divestment — post-July reporting cites 'Botorrita and Muel' for Merlin and says Forestalia retains only Magallón",
     "Confirm Krolmap exact location (Zaragoza vs Villanueva de Gállego), investment, and permit status"
   ],

@@ -90,4 +90,4 @@
 <h2>14. Land footprint by site</h2>
 <p>Disclosed campus footprints total ≈ <strong>1,149 ha</strong> across the nine sites that publish one — mostly rural, agricultural land reclassified to industrial via the PIGA fast-track. See the <a href="land.html">Land &amp; biodiversity page</a> for the expropriation story and how to check a parcel.</p>
 <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land" aria-label="Datacenter land footprint by site in hectares" role="img"></canvas></div>
-<p class="chart-note">Hectares from each site's own reporting (linked in its map record). Covers the 9 of 21 sites with a disclosed footprint. Prior land use per parcel is verifiable via <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a>.</p>
+<p class="chart-note">Hectares from each site's own reporting (linked in its map record). Covers the 9 of 24 sites with a disclosed footprint. Prior land use per parcel is verifiable via <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a>.</p>

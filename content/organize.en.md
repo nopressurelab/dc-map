@@ -74,7 +74,7 @@
 </ul>
 
 <h3>Land, expropriation &amp; biodiversity</h3>
-<p>The mapped campuses with a disclosed footprint already total ≈ 1,149 ha — mostly rural, agricultural land. Because <strong>18 of the 21</strong> mapped projects use the <strong>PIGA</strong> fast-track, which declares them of "general interest," the land can be <strong>compulsorily purchased</strong> — a power previously reserved for transport and energy infrastructure. Landowners in Aragón have reported letters offering compensation with as little as <strong>four days</strong> to respond, on plots families have farmed for generations.</p>
+<p>The mapped campuses with a disclosed footprint already total ≈ 1,149 ha — mostly rural, agricultural land. Because <strong>18 of the 24</strong> mapped projects use the <strong>PIGA</strong> fast-track, which declares them of "general interest," the land can be <strong>compulsorily purchased</strong> — a power previously reserved for transport and energy infrastructure. Landowners in Aragón have reported letters offering compensation with as little as <strong>four days</strong> to respond, on plots families have farmed for generations.</p>
 <ul>
 <li><strong>Check the prior use.</strong> Look each parcel up in <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a> + Catastro — dryland (<em>secano</em>) or irrigated (<em>regadío</em>) farmland, and who owned it, before reclassification.</li>
 <li><strong>Check the environmental shortcut.</strong> INAGA exempted 320+ ha from the ordinary environmental impact evaluation (August 2025).</li>

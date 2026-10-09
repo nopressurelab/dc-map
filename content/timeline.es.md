@@ -1,5 +1,5 @@
 <h1>Cronología, 2020 a 2026</h1>
-<p class="lede">Cómo Aragón pasó de una primera autorización ambiental a €47.000 millones en inversión comprometida, el primer litigio judicial contra centros de datos en España y una investigación de la Guardia Civil por corrupción. Cada entrada enlaza a su fuente.</p>
+<p class="lede">Cómo Aragón pasó de una primera autorización ambiental a más de €55.000 millones en inversión comprometida, el primer litigio judicial contra centros de datos en España, una investigación de la Guardia Civil por corrupción y un choque con un nuevo real decreto estatal. Cada entrada enlaza a su fuente. Actualizado hasta octubre de 2026.</p>
 
 <div class="timeline">
 <div class="tl-event tag-permit">
@@ -140,5 +140,68 @@
 <div class="tl-title">Primer litigio judicial contra centros de datos en España, presentado en el TSJA</div>
 <div class="tl-body">Ecologistas en Acción, representados por Fons de Defensa Ambiental, presenta un recurso contencioso-administrativo en el Tribunal Superior de Justicia de Aragón (TSJA) contra la PIGA AWS. Co-demandantes: ANSAR, Amigos de la Tierra, Tunubesecamirio, Ingenieros Sin Fronteras, Plataforma en Defensa de los Paisajes de Teruel, RAPA, SEO/BirdLife.</div>
 <a class="tl-src" href="https://climatica.coop/aragon-primer-litigio-centros-de-datos-espana-amazon/" target="_blank">Fuente (Climática)</a>
+</div>
+
+<div class="tl-event tag-permit">
+<div class="tl-date">16 julio 2026</div>
+<div class="tl-title">AWS supera la evaluación ambiental de su mayor campus en Aragón</div>
+<div class="tl-body">INAGA da el visto bueno ambiental al campus «CAR»/Acampo Arpal de AWS junto a Zaragoza (128,5 ha, 7 edificios, 3.279,97 GWh/año, ~€3.048 M de construcción); la CHE emite informe favorable de disponibilidad de agua. Forma parte del plan AWS Aragón de €33.700 M.</div>
+<a class="tl-src" href="https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/" target="_blank">Fuente (Merca2)</a>
+</div>
+
+<div class="tl-event tag-expansion">
+<div class="tl-date">22 julio 2026</div>
+<div class="tl-title">Merlin compra el centro de Botorrita a Forestalia; DIGA «Zaragoza-WIND» aprobada</div>
+<div class="tl-body">En plena Operación Perserte, Forestalia vende ~dos tercios de la capacidad de Búfalo (≈227 MW) a Merlin Properties. El Gobierno de Aragón declara DIGA el campus «Zaragoza-WIND» de Merlin en Botorrita: €1.225 M, 144 MW IT, refrigeración sin agua, operación 2029. Forestalia continúa como suministradora de energía (nueve parques eólicos aragoneses, 278 MW).</div>
+<a class="tl-src" href="https://www.eldiario.es/aragon/economia/forestalia-merlin-socimi-espanola-impulsara-botorrita-centro-datos-adquirido-promotora-renovables_1_13399203.html" target="_blank">Fuente (elDiario.es)</a>
+</div>
+
+<div class="tl-event tag-litigation">
+<div class="tl-date">27 agosto 2026</div>
+<div class="tl-title">El borrador de real decreto estatal sobre centros de datos sale a consulta</div>
+<div class="tl-body">El Estado publica un borrador de decreto (~80% de suministro renovable adicional, casación horaria, sanciones hasta la pérdida del acceso a la red). El Gobierno de Aragón presenta alegaciones formales, advirtiendo de que pone en riesgo hasta €70.000 M de inversión regional y que ningún proyecto previsto cumpliría los nuevos requisitos. ~600 respuestas presentadas.</div>
+<a class="tl-src" href="https://www.moncloa.com/2026/08/27/aragon-centros-datos-decreto-alegaciones-3421698/" target="_blank">Fuente (Moncloa)</a>
+</div>
+
+<div class="tl-event tag-litigation">
+<div class="tl-date">Septiembre 2026</div>
+<div class="tl-title">Las protestas se intensifican en Zaragoza</div>
+<div class="tl-body">La campaña «No es sequía, es saqueo» se relanza (10 sep); una manifestación el 27 sep en Zaragoza (Torrero) reúne a «más de mil personas», con una marcha aparte de ~500 personas contra el CD de Microsoft junto a Puerto Venecia. Salvemos los Pinares de Venecia presenta 349 alegaciones.</div>
+<a class="tl-src" href="https://www.eldiario.es/aragon/sociedad/movimiento-centros-datos-coge-fuerza-zaragoza-no-queremos-recursos-sean-devorados_1_13538150.html" target="_blank">Fuente (elDiario.es)</a>
+</div>
+
+<div class="tl-event tag-permit">
+<div class="tl-date">30 septiembre 2026</div>
+<div class="tl-title">Blackstone/QTS Calatorao obtiene la PIGA definitiva (€13.470 M)</div>
+<div class="tl-body">El campus «Proyecto Rhodes» en Calatorao recibe vía libre para construir, publicado en el BOA. Inversión revisada al alza hasta €13.471 M, 8 edificios (hasta 5 más opcionales), hasta ~430 MW IT, refrigeración sin agua, primera infraestructura ~2028. Sigue sin cliente principal. Azcón advierte de que el borrador de decreto estatal podría paralizarlo.</div>
+<a class="tl-src" href="https://www.elespanol.com/aragon/actualidad/20260930/blackstone-via-libre-construir-centro-datos-calatorao-invertira-millones/1003744402781_0.html" target="_blank">Fuente (El Español)</a>
+</div>
+
+<div class="tl-event tag-scandal">
+<div class="tl-date">2 octubre 2026</div>
+<div class="tl-title">Microsoft debe repetir parte de la información pública de su PIGA</div>
+<div class="tl-body">Microsoft admite un «error material involuntario», había omitido el resumen no técnico ambiental obligatorio (Documento de Síntesis), y el expediente se reexpone durante un nuevo periodo de 23 días hábiles con una EIA actualizada. La PIGA «Región MSFT» sigue sin aprobación definitiva.</div>
+<a class="tl-src" href="https://www.elaltojalon.es/texto-diario/mostrar/6036706/microsoft-tendra-repetir-parte-informacion-publica-campus-centros-datos-muela-omitir-documento-ambiental-obligatorio" target="_blank">Fuente (El Alto Jalón)</a>
+</div>
+
+<div class="tl-event tag-scandal">
+<div class="tl-date">8–9 octubre 2026</div>
+<div class="tl-title">AWS da marcha atrás con el IAE</div>
+<div class="tl-body">Tras la presión de los municipios anfitriones, Amazon anuncia que pagará el IAE a los ayuntamientos aragoneses, con pagos retroactivos de ~4 años, en lugar de una única cuota nacional a Madrid. El ICIO sigue exento vía PIGA; el alcalde de El Burgo de Ebro mantiene su firma en suspenso.</div>
+<a class="tl-src" href="https://www.aragondigital.es/articulo/economia/amazon-da-marcha-atras-pagara-aragon-impuestos-centros-datos/202610081922051013725.html" target="_blank">Fuente (Aragón Digital)</a>
+</div>
+
+<div class="tl-event tag-litigation">
+<div class="tl-date">9 octubre 2026</div>
+<div class="tl-title">Villamayor retira su recurso contra Azora/Tillion a cambio de un instituto</div>
+<div class="tl-body">Villamayor de Gállego acuerda retirar su recurso contra la PIGA de Tillion Aragón a cambio de que el Gobierno regional financie un nuevo instituto. Inversión actualizada a ~€2.359,9 M.</div>
+<a class="tl-src" href="https://www.elespanol.com/aragon/actualidad/20261009/villamayor-gallego-nuevo-instituto-retirara-recurso-centro-datos-azora/1003744413988_0.html" target="_blank">Fuente (El Español)</a>
+</div>
+
+<div class="tl-event tag-scandal">
+<div class="tl-date">9 octubre 2026</div>
+<div class="tl-title">~15 empresas vinculadas a Forestalia entran en concurso</div>
+<div class="tl-body">Alrededor de quince empresas del «caso Forestalia» presentan concurso de acreedores. Fernando Samper (que dimitió como presidente de Forestalia en abril de 2026) sigue investigado en la Operación Perserte, sin cargos ni condena; el caso continúa en instrucción en Teruel.</div>
+<a class="tl-src" href="https://theobjective.com/economia/2026-10-09/quincena-empresas-caso-forestalia-concurso-acreedores" target="_blank">Fuente (The Objective)</a>
 </div>
 </div>

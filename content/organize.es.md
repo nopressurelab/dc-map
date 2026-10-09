@@ -74,7 +74,7 @@
 </ul>
 
 <h3>Suelo, expropiación y biodiversidad</h3>
-<p>Los campus mapeados con huella divulgada ya suman ≈ 1.149 ha - en su mayoría suelo rural y agrícola. Como <strong>18 de los 21</strong> proyectos mapeados usan la vía rápida <strong>PIGA</strong>, que los declara de "interés general", el suelo puede ser objeto de <strong>expropiación forzosa</strong> - una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo <strong>cuatro días</strong> para responder, sobre parcelas que las familias han cultivado durante generaciones.</p>
+<p>Los campus mapeados con huella divulgada ya suman ≈ 1.149 ha - en su mayoría suelo rural y agrícola. Como <strong>18 de los 24</strong> proyectos mapeados usan la vía rápida <strong>PIGA</strong>, que los declara de "interés general", el suelo puede ser objeto de <strong>expropiación forzosa</strong> - una potestad antes reservada a infraestructuras de transporte y energía. Propietarios en Aragón han denunciado cartas que ofrecían compensación con tan solo <strong>cuatro días</strong> para responder, sobre parcelas que las familias han cultivado durante generaciones.</p>
 <ul>
 <li><strong>Comprueba el uso anterior.</strong> Busca cada parcela en <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a> + Catastro - suelo agrícola de <em>secano</em> o <em>regadío</em>, y quién era el propietario, antes de la reclasificación.</li>
 <li><strong>Comprueba el atajo ambiental.</strong> INAGA eximió 320+ ha de la evaluación de impacto ambiental ordinaria (agosto 2025).</li>

@@ -90,4 +90,4 @@
 <h2>14. Huella de suelo por sitio</h2>
 <p>Las huellas de campus divulgadas suman ≈ <strong>1.149 ha</strong> en los nueve sitios que la publican — en su mayoría suelo rural y agrícola reclasificado a industrial vía la vía rápida PIGA. Ver la <a href="land.html">página de Suelo y biodiversidad</a> para la historia de expropiaciones y cómo comprobar una parcela.</p>
 <div class="chart-wrap" style="height: 380px;"><canvas id="chart-land-es" aria-label="Huella de suelo de centros de datos por sitio en hectáreas" role="img"></canvas></div>
-<p class="chart-note">Hectáreas según la propia información de cada sitio (enlazada en su ficha del mapa). Cubre 9 de 21 sitios con huella divulgada. El uso anterior por parcela se puede verificar en <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a>.</p>
+<p class="chart-note">Hectáreas según la propia información de cada sitio (enlazada en su ficha del mapa). Cubre 9 de 24 sitios con huella divulgada. El uso anterior por parcela se puede verificar en <a href="https://sigpac.mapa.gob.es/" target="_blank">SIGPAC</a>.</p>

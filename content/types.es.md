@@ -17,8 +17,9 @@
 <h3>Colocation mayorista / hiperescala</h3>
 <p>Grandes campus construidos por un promotor especializado y luego arrendados en grandes bloques, normalmente a un único cliente hyperscale por edificio. El inquilino opera los servidores; el operador proporciona la infraestructura, la energía y la refrigeración. Cuando el cliente principal no se divulga en el anuncio, esto entra en terreno <em>especulativo</em>.</p>
 <ul>
-<li><strong>QTS Calatorao</strong> (Proyecto Rhodes), respaldado por Blackstone. 300 MW, €7.500 M fase 1, sin cliente principal públicamente divulgado.</li>
+<li><strong>QTS Calatorao</strong> (Proyecto Rhodes), respaldado por Blackstone. 300 MW, €13.471 M (PIGA definitiva concedida el 30 de septiembre de 2026 — ahora el mayor proyecto individual de centros de datos de Aragón), sin cliente principal públicamente divulgado.</li>
 <li><strong>Vantage Villanueva de Gállego</strong> (campus ZAZ2), respaldado por DigitalBridge con promotor español <em>Desarrollos Ecoindustriales La Cartuja</em>. €3.200 M, 90 MW garantizados por Endesa para la fase 1.</li>
+<li><strong>DayOne / Ignis Escatrón</strong>, ~300 MW (hasta 207 MW TI). Campus mayorista junto a generación renovable de Ignis co-ubicada; cliente principal sin divulgar.</li>
 </ul>
 
 <h3>SOCIMI de colocation</h3>
@@ -31,13 +32,13 @@
 <p>Promotores españoles no-hyperscale que construyen gran capacidad sin cliente principal públicamente divulgado, apostando a que la demanda llegará. La categoría con mayor riesgo de vacancia.</p>
 <ul>
 <li><strong>Box2Bit Épila</strong> (proyecto «Epilon»), €3.900 M, 150 MW → 520 MW. Se movió desde Cariñena en enero de 2026 tras la exclusión del emplazamiento por parte de Red Eléctrica del plan de red 2025-2030, un caso de manual de fallo especulativo.</li>
-<li><strong>Azora / Tillion Aragón</strong> (Villamayor de Gállego), €1.100 M inicial → €1.950 M ampliado, 150 → 300 MW. DIGA concedida, cliente sin divulgar.</li>
+<li><strong>Azora / Tillion Aragón</strong> (Villamayor de Gállego), €1.100 M inicial → €2.359,9 M ampliado, 150 → 300 MW. DIGA concedida, cliente sin divulgar (Villamayor retiró su recurso judicial en octubre de 2026 a cambio de un nuevo instituto).</li>
 </ul>
 
 <h3>Integrado con renovables</h3>
 <p>Centros de datos co-ubicados con generación renovable propia, vendidos como «autoconsumo». La historia energética es central en la propuesta; el cliente informático real suele estar poco claro.</p>
 <ul>
-<li><strong>Forestalia Proyecto Búfalo</strong>, 3 emplazamientos (Magallón, Botorrita, Alfamén), €12.048 M, 601 MW total. 50% de autoconsumo desde eólica y solar co-ubicada. Actualmente bajo investigación penal, ver «Operación Perserte» en el resumen de litigios del mapa.</li>
+<li><strong>Forestalia Proyecto Búfalo</strong> abarcaba originalmente 3 emplazamientos (Magallón, Botorrita, Alfamén), €12.048 M, 601 MW total, con 50% de autoconsumo desde eólica y solar co-ubicada. A octubre de 2026 Forestalia conservaría solo Magallón: Merlin Properties adquirió el centro de Botorrita (~dos tercios de la capacidad) y el destino de Alfamén no está confirmado. Alrededor de 15 empresas vinculadas a Forestalia han presentado concurso de acreedores; el propietario, Samper, dimitió en abril de 2026 y sigue bajo investigación penal, ver «Operación Perserte» en el resumen de litigios del mapa.</li>
 </ul>
 
 <h3>Especializado en IA</h3>

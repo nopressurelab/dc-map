@@ -2,13 +2,13 @@
 <p class="lede">Un atajo a las cifras titulares, las frases citables y cómo reutilizar este material. Todo CC BY 4.0; citar el dataset.</p>
 
 <h2>Cifras titulares</h2>
-<div class="press-headline"><strong>€47.000 M</strong> en inversión comprometida en centros de datos en Aragón a noviembre de 2025.</div>
+<div class="press-headline"><strong>€55.000 M+</strong> en inversión comprometida en centros de datos en Aragón, según el Gobierno de Aragón a octubre de 2026 (hasta 30 proyectos en tramitación).</div>
 <div class="press-headline"><strong>28 sitios proyectados, 11.237 MW</strong> de capacidad anunciada, según el mapa elaborado por Ecologistas en Acción y No es sequía es saqueo. Si todos se construyen, más de 9× la demanda eléctrica anual actual de Aragón.</div>
 <div class="press-headline"><strong>50% de la demanda eléctrica de Aragón en 2030</strong>, proyectada para ser consumida solo por centros de datos. La demanda regional en sí casi se cuadriplicará hasta 40 TWh en 2030.</div>
 <div class="press-headline"><strong>755.000 m³/año vs 14 hm³/año</strong>, consumo de agua declarado por AWS en Aragón vs estimación de críticos. Ratio ~18×; la cifra de los críticos equivale a ~23% del consumo urbano de agua de Zaragoza.</div>
 <div class="press-headline"><strong>~65%</strong> del pipeline con MW divulgados por sitio es especulativo (sin cliente principal públicamente nombrado).</div>
 <div class="press-headline"><strong>€140 M+</strong> en exenciones de ICIO (impuesto municipal de construcción) declaradas para Microsoft. Solo La Muela se arriesga a perder €53 M, más de 500 años de su recaudación combinada de IBI e IAE.</div>
-<div class="press-headline"><strong>Operación Perserte, 6 detenidos, 12 registros</strong>, investigación de la Guardia Civil por corrupción abierta el 3 de marzo de 2026 contra Forestalia (promotora del proyecto Búfalo de tres centros de datos por €12.048 M) y un ex alto cargo del MITECO.</div>
+<div class="press-headline"><strong>Operación Perserte, 6 detenidos, 12 registros</strong>, investigación de la Guardia Civil por corrupción abierta el 3 de marzo de 2026 contra Forestalia (promotora del proyecto Búfalo de tres centros de datos por €12.048 M) y un ex alto cargo del MITECO. El fundador, Fernando Samper, dimitió en abril de 2026 y sigue investigado; Merlin ha adquirido desde entonces el centro de Botorrita, dejando a Forestalia solo con Magallón, y ~15 empresas vinculadas a Forestalia entraron en concurso de acreedores en octubre de 2026.</div>
 <div class="press-headline"><strong>320+ ha, cuatro municipios</strong>, exención de INAGA otorgada a AWS de la Evaluación de Impacto Ambiental ordinaria en agosto de 2025, con el argumento de «afecciones poco significativas».</div>
 <div class="press-headline"><strong>1 demanda</strong>, el primer recurso judicial contra centros de datos en España, presentado en el Tribunal Superior de Justicia de Aragón (TSJA) contra la PIGA AWS, respaldado por 8 colectivos ambientales y cívicos.</div>
 
@@ -25,7 +25,7 @@
 
 <h2>Recursos disponibles</h2>
 <ul>
-<li>Dataset completo, <a href="data/datacenters.json" target="_blank">data/datacenters.json</a>, 21 sitios, cada cifra citada a fuente primaria o secundaria de prestigio (BOA, BOE, INAGA, CHE, Heraldo, El País, Reuters, DCD).</li>
+<li>Dataset completo, <a href="data/datacenters.json" target="_blank">data/datacenters.json</a>, 24 sitios, cada cifra citada a fuente primaria o secundaria de prestigio (BOA, BOE, INAGA, CHE, Heraldo, El País, Reuters, DCD).</li>
 <li>Exportación CSV (generada en vivo desde el JSON, siempre sincronizada): <button class="csv-btn" data-csv>Descargar datacenters.csv</button></li>
 <li><a href="trends.html" target="_blank">Tendencias y proyecciones, 8 gráficos</a>, electricidad 2024→2030, agua AWS empresa vs críticos, pipeline especulativo en MW, inversión por tipo de operador, estado de sitios, récords de calor en Zaragoza, distribución por siglo de los veranos más cálidos, Aragón vs clusters europeos. Clic derecho en cualquier canvas para guardar como imagen.</li>
 <li><a href="timeline.html" target="_blank">Cronología 2020 a 2026</a>, 20 eventos etiquetados como permiso/operativo/expansión/escándalo/litigio, desde la primera DIA de INAGA hasta las detenciones de Operación Perserte, cada uno enlazado a su fuente.</li>

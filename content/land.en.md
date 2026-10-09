@@ -10,11 +10,11 @@ The nine mapped campuses that disclose a footprint total ≈ **1,149 ha** — mo
 
 <table class="land-table"><thead><tr><th>Site</th><th>Hectares</th><th>Source</th></tr></thead><tbody id="land-table-body"></tbody></table>
 
-<p class="chart-note">Covers 9 of 21 sites; the others do not disclose a footprint (the schema treats absent as unknown, never zero). Hectares from each site's own reporting, linked above and in its map record.</p>
+<p class="chart-note">Covers 9 of 24 sites; the others do not disclose a footprint (the schema treats absent as unknown, never zero). Hectares from each site's own reporting, linked above and in its map record.</p>
 
 ## PIGA, "general interest" & expropriation
 
-**18 of the 21** mapped projects use the PIGA fast-track. Declaring a project of "general interest" lets the regional government override municipal planning and **compulsorily purchase** the land - an expropriation power previously reserved for transport and energy infrastructure. Landowners in Aragón have reported letters offering compensation with as little as **four days** to respond, on plots families have farmed for generations. [[source]](https://www.computeforecast.com/news/spain-ai-data-center-aws-microsoft-land-acquisition/)
+**18 of the 24** mapped projects use the PIGA fast-track. Declaring a project of "general interest" lets the regional government override municipal planning and **compulsorily purchase** the land - an expropriation power previously reserved for transport and energy infrastructure. Landowners in Aragón have reported letters offering compensation with as little as **four days** to respond, on plots families have farmed for generations. [[source]](https://www.computeforecast.com/news/spain-ai-data-center-aws-microsoft-land-acquisition/)
 
 ## The environmental shortcut
 
