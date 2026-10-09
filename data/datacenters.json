@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
+  "last_updated": "2026-10-09",
   "region": "Aragón, Spain",
-  "last_updated": "2026-06-30",
-  "notes": "Every datapoint links to its source. Coordinates default to municipality centroid (precision: 'town_centroid') unless an exact site location was publicly reported. The `expedited_indicators` block flags how each project moved through the regional fast-track route (PIGA), litigation/objections, and procedural shortcuts. Speculative builds (no confirmed anchor tenant) are flagged via `speculative: true`.",
+  "notes": "Every datapoint links to its source. Coordinates default to municipality centroid (precision: 'town_centroid') unless an exact site location was publicly reported. The `expedited_indicators` block flags how each project moved through the regional fast-track route (PIGA), litigation/objections, and procedural shortcuts. Speculative builds (no confirmed anchor tenant) are flagged via `speculative: true`. v0.3.0 (2026-10-09) refresh: added the `developments_2026_h2` block (state royal decree, grid access, IAE/ICIO tax shift, protests, Forestalia fallout) and per-site `recent_update_2026` fields covering news dated 2026-07 to 2026-10-09; added new sites (Krolmap, ACS/Benbros).",
   "schema": {
     "operator_type": [
       "hyperscaler",
@@ -68,7 +68,13 @@
     "aws_buildings_planned_by_2031": 30,
     "aws_substations_planned_by_2031": 10,
     "aws_total_hectares_3_provinces": 459,
-    "aws_plan_source": "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html"
+    "aws_plan_source": "https://www.hoyaragon.es/articulo/noticias-aragon/centro-datos-amazon-teruel-inteligencia-artificial/20260425114638128866.html",
+    "official_commitment_eur_million_oct2026": 55000,
+    "official_commitment_oct2026_note": "Gobierno de Aragón (Councillor Octavio López) now cites '>€55,000M' committed across DC projects (up from the €47,000M Nov-2025 figure).",
+    "official_commitment_oct2026_source": "https://www.elespanol.com/aragon/actualidad/20261008/gobierno-aragon-insiste-grandes-proyectos-paguen-impuestos-promete-transparencia/1003744413419_0.html",
+    "projects_in_processing_oct2026": "up to 30",
+    "projects_in_processing_source": "https://www.hoyaragon.es/aragon/proyectos-centros-datos-aragon-decreto-estatal/20260830135051143995.html",
+    "see_also": "See the `developments_2026_h2` block for grid access, the draft state royal decree, the IAE/ICIO tax shift, protests, and Forestalia fallout (all 2026-H2)."
   },
   "climate_baselines": {
     "notes": "Reference climate figures for the corridor. Most Aragón DC sites sit in the Ebro valley (semi-arid continental). Sub-zones distinguish Bajo Martín (Teruel), where AWS La Puebla de Híjar sits, and the Walqa/Huesca area for AWS Walqa. Yearly per-station data available via AEMET (station 9434 for Zaragoza airport) and tutiempo.net 1973-2025 series.",
@@ -291,6 +297,72 @@
     "what_it_does_es": "Instrumento legal regional que declara un proyecto privado de \"interés general\" para Aragón. Anula los planes de urbanismo municipales (PGOU), reclasifica suelo no urbanizable, concede el estatus de utilidad pública (lo que permite expropiar), se tramita a través del Gobierno de Aragón en lugar de los ayuntamientos afectados, y (según los críticos) sortea el ICIO municipal — una ventaja fiscal que la legislación vigente no obliga a conceder.",
     "supporting_legal_basis_es": "Ley 1/2021 de simplificación administrativa de Aragón; Ley 2/2022 (https://www.boe.es/buscar/doc.php?id=BOE-A-2022-9438) — reduce aún más los plazos administrativos."
   },
+  "developments_2026_h2": {
+    "notes": "Material developments reported 2026-07 through 2026-10-09, added in the v0.3.0 refresh. Company figures are distinguished from critic/NGO figures. Items here are also reflected in the affected site entries via `recent_update_2026`.",
+    "state_royal_decree_on_datacenters": {
+      "stage": "draft — public consultation",
+      "published_for_comment": "2026-08-27",
+      "key_requirements": "Reportedly mandates ~80% additional-renewable supply with hourly matching, with penalties up to loss of grid access and a ~6-month adaptation window.",
+      "aragon_response": "Gobierno de Aragón (Azcón) filed formal objections; the sector submitted ~600 consultation responses. The regional government says none of the planned Aragón projects would meet the new environmental requirements and that the decree 'changes the rules retroactively, with the game already underway'.",
+      "investment_at_risk_eur_million_azcon": 70000,
+      "sources": [
+        "https://www.moncloa.com/2026/08/27/aragon-centros-datos-decreto-alegaciones-3421698/",
+        "https://www.moncloa.com/2026/09/11/aragon-alega-real-decreto-centros-datos-3429636/",
+        "https://www.moncloa.com/2026/09/24/centros-datos-aragon-decreto-azcon-3437135",
+        "https://www.pressdigital.es/articulo/economia/2026-09-30/6034619-azcon-avisa-decreto-data-centers-puede-paralizar-inversion-13471-blackstone"
+      ]
+    },
+    "grid_access": {
+      "aragon_authorized_dc_mw": 3600,
+      "aragon_authorized_breakdown": "≈2,400 MW transmission + ≈1,200–1,300 MW distribution",
+      "aragon_regional_peak_demand_mw": 1700,
+      "note": "Authorized DC grid access is more than double Aragón's peak demand; DCs captured ~67% of newly granted distribution capacity.",
+      "aragon_source": "https://www.eldiario.es/aragon/economia/sueno-inalcanzable-centros-datos-aragon_1_13479324.html",
+      "aragon_source_date": "2026-09-08",
+      "national_dc_access_mw": 6329,
+      "national_dc_access_share_pct": 34.2,
+      "national_total_demand_access_mw": 18520,
+      "national_none_in_service": true,
+      "national_source": "http://www.pv-magazine.es/2026/10/02/red-electrica-asigna-633-gw-de-acceso-a-centros-de-datos-el-34-de-los-1852-gw-otorgados-a-la-demanda/",
+      "national_source_date": "2026-10-02"
+    },
+    "operational_capacity_oct2026": {
+      "aragon_mw_it_operational": 108,
+      "note": "MW-IT metric (distinct from the ~140 MW total/grid figure reported earlier). AWS is the only operator with facilities already running; Microsoft had earthworks underway.",
+      "source": "https://www.energias-renovables.com/panorama/la-capacidad-operativa-de-los-data-centers-20261008",
+      "source_date": "2026-10-08"
+    },
+    "iae_icio_tax_shift": {
+      "summary": "AWS reversed course (8–9 Oct 2026): it will pay the IAE business-activity tax to the host Aragón municipalities instead of via a single national quota to Madrid, including retroactive payments for ~4 years (since 2022). Trigger: a Feb-2026 binding ruling (Dirección General de Tributos) that classified cloud under IAE group 845. ICIO construction tax remains uncollected because PIGA processing exempts it; El Burgo de Ebro's mayor refuses to sign the PIGA convenio until compensated. Gobierno de Aragón says it will demand IAE/IBI/ICIO from AWS, Blackstone and Microsoft.",
+      "piga_iae_annual_estimate_eur": { "total": 522777, "zaragoza": 384503, "huesca": 90817, "villanueva_de_gallego": 33400, "el_burgo_de_ebro": 14056 },
+      "sources": [
+        "https://www.aragondigital.es/articulo/economia/amazon-da-marcha-atras-pagara-aragon-impuestos-centros-datos/202610081922051013725.html",
+        "https://www.elespanol.com/aragon/actualidad/20261008/amazon-pagara-ahora-iae-aragon-multinacional-compensara-forma-retroactiva-ayuntamientos/1003744413889_0.html",
+        "https://www.moncloa.com/2026/10/09/amazon-iae-aragon-centros-datos-ayuntamientos-3444991/",
+        "https://www.merca2.es/2026/10/03/centros-datos-aragon-amazon-aws-iae-2467051/"
+      ]
+    },
+    "protests": {
+      "events": [
+        { "date": "2026-09-10", "event": "'No es sequía, es saqueo' campaign relaunched" },
+        { "date": "2026-09-27", "event": "March in Zaragoza (Torrero) — 'más de mil personas'; separate ~500-person march against the Microsoft DC by Puerto Venecia (Salvemos los Pinares de Venecia)" },
+        { "date": "2026-09-30", "event": "Protest at Ibercaja during a business meeting promoting DCs" }
+      ],
+      "pinares_venecia_alegaciones": 349,
+      "sources": [
+        "https://www.eldiario.es/aragon/sociedad/movimiento-centros-datos-coge-fuerza-zaragoza-no-queremos-recursos-sean-devorados_1_13538150.html",
+        "https://arainfo.org/protesta-tecnologicas-centros-datos-zaragoza/",
+        "https://www.moncloa.com/2026/09/28/protesta-centro-datos-microsoft-zaragoza-3438657/"
+      ]
+    },
+    "forestalia_fallout": {
+      "summary": "~15 Forestalia-linked companies filed for concurso de acreedores (insolvency) by 9 Oct 2026 (named: Energía Inagotable de Aes, de Mantus, de Meliteo); the reporting does not explicitly tie the insolvencies to the DC projects. Fernando Samper resigned as Forestalia president in early April 2026 and remains 'investigado' (no formal charges or conviction) in Operación Perserte; the case is still in the instruction phase at the Juzgado de Instrucción Nº1 de Teruel.",
+      "sources": [
+        "https://theobjective.com/economia/2026-10-09/quincena-empresas-caso-forestalia-concurso-acreedores",
+        "https://www.hoyaragon.es/aragon/proyectos-centros-datos-aragon-decreto-estatal/20260830135051143995.html"
+      ]
+    }
+  },
   "sites": [
     {
       "id": "aws-villanueva-gallego",
@@ -510,10 +582,17 @@
       ],
       "expedited_indicators": {
         "uses_piga": true,
-        "icio_exempt_via_piga": true
+        "icio_exempt_via_piga": true,
+        "iae_shift_2026": "AWS to pay IAE to the host municipality + retroactive ~4 yrs (Oct 2026). El Burgo de Ebro's mayor (Vicente Royo) refuses to sign the PIGA convenio until compensated for IAE + ICIO. See developments_2026_h2.iae_icio_tax_shift."
+      },
+      "recent_update_2026": {
+        "iae_icio_dispute": "El Burgo de Ebro is one of the three municipalities with an operational AWS DC. Its mayor is withholding signature on the PIGA agreement pending tax compensation; AWS's Oct-2026 IAE U-turn includes retroactive municipal payments.",
+        "source": "https://www.merca2.es/2026/10/03/centros-datos-aragon-amazon-aws-iae-2467051/",
+        "source_date": "2026-10-03"
       },
       "sources": [
-        "https://www.elespanol.com/aragon/economia/20260322/aragon-convierte-capital-datos-nube-calendario-amazon-microsoft-proyectos/1003744178360_0.html"
+        "https://www.elespanol.com/aragon/economia/20260322/aragon-convierte-capital-datos-nube-calendario-amazon-microsoft-proyectos/1003744178360_0.html",
+        "https://www.merca2.es/2026/10/03/centros-datos-aragon-amazon-aws-iae-2467051/"
       ]
     },
     {
@@ -553,10 +632,21 @@
       ],
       "expedited_indicators": {
         "uses_piga": true,
-        "icio_exempt_via_piga": true
+        "icio_exempt_via_piga": true,
+        "iae_shift_2026": "Covered by AWS's Oct-2026 municipal-IAE U-turn. See developments_2026_h2.iae_icio_tax_shift."
+      },
+      "recent_update_2026": {
+        "inaga_environmental_approval": "INAGA environmental approval reported 2026-07-16 for the 'CAR' / Acampo Arpal campus (~5.9 km from Zaragoza): 128.5 ha, 7 data buildings, projected demand 3,279.97 GWh/yr (~31% of Aragón's 2025 consumption), potable water ≤5,311 m³/yr, industrial water ≤11.5 l/s (204,697 m³/yr) from municipal supply; CHE issued a favourable water-availability report. Construction investment cited €3,048M.",
+        "energy_gwh_year": 3279.97,
+        "industrial_water_m3_year": 204697,
+        "potable_water_m3_year": 5311,
+        "construction_investment_eur_million": 3048,
+        "source": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+        "source_date": "2026-07-16"
       },
       "sources": [
-        "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808"
+        "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1406588900808",
+        "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/"
       ]
     },
     {
@@ -760,8 +850,20 @@
           "approval_date": "2025-11-14",
           "boa_reference": "BOA #220, 2025-11-18",
           "source": "https://www.aragonhoy.es/fomento-vivienda-logistica-cohesion-territorial/aprobado-inicialmente-piga-microsoft-instalacion-tres-centros-datos-aragon-102741"
+        },
+        {
+          "type": "BOA_publication",
+          "name": "Strategic Environmental Document — new public information",
+          "boa_reference": "BOA Núm. 146, 2026-07-30 (BOA20260730029)",
+          "publication_date": "2026-07-30",
+          "source": "https://www.aragon.es/-/piga-microsoft"
         }
       ],
+      "recent_update_2026": {
+        "piga_not_yet_final": "As of Oct 2026 the Microsoft 'Región MSFT' PIGA is NOT finally approved (this status applies to all three Microsoft Aragón sites). On 2026-09-18 Microsoft admitted an 'error material involuntario' — it had omitted a mandatory environmental non-technical summary (Documento de Síntesis) — and asked for the full file to be re-exposed. A new 23-business-day public-information/alegaciones period opened 2026-10-02 with an updated EIA (206 MB). Salvemos los Pinares de Venecia filed 349 alegaciones.",
+        "source": "https://www.elaltojalon.es/texto-diario/mostrar/6036706/microsoft-tendra-repetir-parte-informacion-publica-campus-centros-datos-muela-omitir-documento-ambiental-obligatorio",
+        "source_date": "2026-10-02"
+      },
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": true,
@@ -964,11 +1066,26 @@
           "type": "PIGA",
           "name": "PIGA Proyecto Rhodes",
           "source": "https://www.aragon.es/-/proyecto-rhodes"
+        },
+        {
+          "type": "PIGA",
+          "name": "PIGA Proyecto Rhodes — definitive approval, published in BOA",
+          "approval_date": "2026-09-30",
+          "source": "https://www.elespanol.com/aragon/actualidad/20260930/blackstone-via-libre-construir-centro-datos-calatorao-invertira-millones/1003744402781_0.html"
         }
       ],
       "expedited_indicators": {
         "uses_piga": true,
         "icio_exempt_via_piga": "likely_same_pattern"
+      },
+      "recent_update_2026": {
+        "piga_definitive": "Definitive PIGA approved and published in BOA, announced 2026-09-30 — cleared to build. Investment figure revised up to €13,471M (≈€11,805M for the tech infrastructure alone). Scope: 8 DC buildings (up to 5 more optional in a later phase), an electrical substation and a self-consumption power plant on ~224 ha, water-free cooling confirmed, up to ~430 MW IT across two phases, ~3,400 regional jobs, first infrastructure operational ~2028, full build over ~7 years. Still no anchor tenant disclosed. Azcón warned the draft state royal decree could paralyse the investment.",
+        "investment_eur_million_2026": 13471,
+        "sources": [
+          "https://www.elespanol.com/aragon/actualidad/20260930/blackstone-via-libre-construir-centro-datos-calatorao-invertira-millones/1003744402781_0.html",
+          "https://www.aragondigital.es/articulo/economia/comienza-construccion-centros-datos-calatorao-generara-3400-empleos/202609301051541011501.html"
+        ],
+        "source_date": "2026-09-30"
       },
       "sources": [
         "https://www.aragon.es/-/proyecto-rhodes",
@@ -1054,7 +1171,12 @@
         "https://www.eleconomista.es/tecnologia/noticias/13572779/10/25/vantage-arrancara-su-centro-de-datos-en-zaragoza-con-una-inversion-de-500-millones-y-la-urbanizacion-supondra-136-millones.html"
       ],
       "phase_notes_es": "Primer campus de Vantage en España. 40 ha en parque ecoindustrial. 5 fases en 10 años. Refrigeración en circuito cerrado. Empleo inicial 180, hasta 520 puestos permanentes.",
-      "speculative_reasoning_es": "Colocation hyperscale pero sin pre-arrendamiento público nombrado. Vantage suele pre-arrendar antes de la construcción completa, pero el patrón de divulgación varía."
+      "speculative_reasoning_es": "Colocation hyperscale pero sin pre-arrendamiento público nombrado. Vantage suele pre-arrendar antes de la construcción completa, pero el patrón de divulgación varía.",
+      "recent_update_2026": {
+        "status": "As of 2026-10-05, the ZAZ2 campus remains in the DIGA phase, pre-construction; no construction start reported.",
+        "source": "https://www.elespanol.com/aragon/actualidad/20261005/cerca-millones-invertidos-centros-datos-aragon-esperan-rampa-salida-obras/1003744406849_0.html",
+        "source_date": "2026-10-05"
+      }
     },
     {
       "id": "azora-tillion-villamayor",
@@ -1120,6 +1242,15 @@
         "https://www.azora.com/en/blog/azora-to-invest-e2-billion-in-zaragoza-data-centre/",
         "https://www.eleconomista.es/tecnologia/noticias/13302439/04/25/asi-sera-el-centro-de-datos-de-grupo-azora-en-zaragoza-2000-millones-de-inversion-250-empleos-y-un-impacto-anual-de-261-millones.html"
       ],
+      "recent_update_2026": {
+        "litigation_withdrawn": "On 2026-10-09 Villamayor de Gállego agreed to WITHDRAW its legal challenge against the project's PIGA/DIGA in exchange for the Aragón government funding a new secondary school (instituto); formal signatures pending. Investment updated to ~€2,359.9M (phase 1 €1,100M) on 82 ha of municipal land; construction target still 2026, operations 2028.",
+        "investment_eur_million_2026": 2359.9,
+        "sources": [
+          "https://www.elespanol.com/aragon/actualidad/20261009/villamayor-gallego-nuevo-instituto-retirara-recurso-centro-datos-azora/1003744413988_0.html",
+          "https://www.elespanol.com/aragon/actualidad/20261005/cerca-millones-invertidos-centros-datos-aragon-esperan-rampa-salida-obras/1003744406849_0.html"
+        ],
+        "source_date": "2026-10-09"
+      },
       "phase_notes_es": "Nombre oficial del proyecto: 'Tillion Aragón'. 79,6 ha, a menos de 3 km de la subestación de transporte. DIGA (Declaración de Interés General, precursora del PIGA) aprobada por el Consejo de Gobierno. Inicio de obras 2026. 150 MW iniciales, ampliables a 300 MW. Agua: circuito cerrado, equivalente a 25 hogares/año. Permisos de red concedidos en 2024.",
       "speculative_reasoning_es": "Respaldado por capital privado sin cliente hyperscaler público. €1.100M+ de gasto sobre base especulativa supone riesgo de vacancia considerable."
     },
@@ -1248,7 +1379,12 @@
         "https://www.elespanol.com/aragon/economia/20260128/empresa-espanola-box2bit-invertira-millones-euros-nuevo-centro-datos-epila-zaragoza/1003744106965_0.html"
       ],
       "phase_notes_es": "Proyecto sustituto tras la exclusión de Cariñena del plan de Red Eléctrica. 33 ha (ampliables a 100), junto a la A-2. Fase 1: 2 edificios de CD + control de acceso. Fase 2 pendiente de 300+ MW adicionales.",
-      "speculative_reasoning_es": "Mismo perfil especulativo que el fallido proyecto de Cariñena. €3.900M de gasto especulativo sin cliente principal divulgado."
+      "speculative_reasoning_es": "Mismo perfil especulativo que el fallido proyecto de Cariñena. €3.900M de gasto especulativo sin cliente principal divulgado.",
+      "recent_update_2026": {
+        "status": "As of 2026-10-05, Epilon remains in the DIGA phase, pre-construction ('esperando en la rampa de salida'). No works started.",
+        "source": "https://www.elespanol.com/aragon/actualidad/20261005/cerca-millones-invertidos-centros-datos-aragon-esperan-rampa-salida-obras/1003744406849_0.html",
+        "source_date": "2026-10-05"
+      }
     },
     {
       "id": "box2bit-calatayud",
@@ -1290,7 +1426,11 @@
       "sources": [
         "https://brainsre.news/box2bit-calatayud-segundo-centro-datos-aragon/"
       ],
-      "speculative_reasoning_es": "Mismo perfil especulativo que Cariñena."
+      "speculative_reasoning_es": "Mismo perfil especulativo que Cariñena.",
+      "recent_update_2026": {
+        "status": "No July-2026+ primary source found; not listed in the Oct-2026 regional roundup. Current status unverified.",
+        "source_date": "2026-10-05"
+      }
     },
     {
       "id": "merlin-zgz-wind-01",
@@ -1348,7 +1488,17 @@
         "https://www.cartv.es/aragonnoticias/aragon/merlin-properties-creara-un-campus-de-centros-de-datos-en-zaragoza-con-una-potencia-de-150-mw-37768"
       ],
       "phase_notes_es": "Fase III del plan Iberia de Merlin (412 MW, €4.470M para 2032). Operativo 4T 2029. Merlin ya posee el suelo y tiene acceso a red garantizado.",
-      "speculative_reasoning_es": "Parte del pipeline de Merlin está pre-arrendado a hyperscalers pero el cliente específico de Zaragoza no se ha nombrado. Menor riesgo de vacancia que un proyecto puramente especulativo dado el historial comercial de Merlin."
+      "speculative_reasoning_es": "Parte del pipeline de Merlin está pre-arrendado a hyperscalers pero el cliente específico de Zaragoza no se ha nombrado. Menor riesgo de vacancia que un proyecto puramente especulativo dado el historial comercial de Merlin.",
+      "recent_update_2026": {
+        "diga_approved": "The Aragón government declared Merlin's 'Zaragoza-WIND' campus a DIGA on 2026-07-22. More precise siting places it at Botorrita (Pol. Ind. San Antonio), on the former Forestalia Búfalo-Botorrita center Merlin acquired in March 2026 — i.e., these Zaragoza-area Merlin entries likely consolidate into the Botorrita campus. Figures: €1,225M; 144 MW IT (expandable to 240); 227.4 MW guaranteed grid capacity; 28.8 ha (+32.8 ha potential); zero-water closed-loop cooling; operational target 2029; PIGA expected summer 2027.",
+        "investment_eur_million_2026": 1225,
+        "sources": [
+          "https://www.idealista.com/news/inmobiliario/activos-alternativos/2026/07/23/907455-merlin-properties-invertira-1-225-millones-en-un-centro-de-datos-en",
+          "https://www.eldiario.es/aragon/economia/forestalia-merlin-socimi-espanola-impulsara-botorrita-centro-datos-adquirido-promotora-renovables_1_13399203.html"
+        ],
+        "source_date": "2026-07-22",
+        "reconciliation_note": "See forestalia-bufalo-botorrita.recent_update_2026 — same campus."
+      }
     },
     {
       "id": "merlin-zgz-wind-02",
@@ -1455,7 +1605,15 @@
         "https://www.eldiario.es/aragon/politica/gobierno-azcon-pide-investigar-psoe-forestalia-cuatro-meses-despues-bendecir-tres-centros-datos_1_13059273.html"
       ],
       "phase_notes_es": "Uno de los tres emplazamientos del Proyecto Búfalo. PIGA aprobado por el Gobierno de Aragón (ORDEN BOA PEJ/1656/2025, 25 nov 2025). Autoconsumo = 50% de la energía desde renovables co-ubicadas.",
-      "speculative_reasoning_es": "Forestalia es un promotor de energía renovable sin historial operativo en CD. €12.000M de gasto especulativo en 3 emplazamientos es una de las mayores apuestas puramente especulativas de CD en Europa. Cliente principal ausente."
+      "speculative_reasoning_es": "Forestalia es un promotor de energía renovable sin historial operativo en CD. €12.000M de gasto especulativo en 3 emplazamientos es una de las mayores apuestas puramente especulativas de CD en Europa. Cliente principal ausente.",
+      "recent_update_2026": {
+        "forestalia_retains_only_magallon": "After the March-2026 sale of ~two-thirds of Búfalo's capacity (≈227 MW) to Merlin Properties (Botorrita + a second location reported as 'Muel'), Forestalia is reported to retain only the Magallón center. No July-2026+ source confirms construction, a new PIGA ruling, or new investors for Magallón. Forestalia owner Fernando Samper resigned as president (early April 2026) and remains 'investigado' in Operación Perserte (no charges/conviction); ~15 Forestalia-linked companies filed for insolvency by 9 Oct 2026. See developments_2026_h2.forestalia_fallout.",
+        "sources": [
+          "https://www.hoyaragon.es/economia/forestalia-merlin-properties-centro-datos/20260825115657143286.html",
+          "https://theobjective.com/economia/2026-10-09/quincena-empresas-caso-forestalia-concurso-acreedores"
+        ],
+        "source_date": "2026-08-25"
+      }
     },
     {
       "id": "forestalia-bufalo-botorrita",
@@ -1512,7 +1670,15 @@
       "sources": [
         "https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"
       ],
-      "speculative_reasoning_es": "Igual que Magallón — pipeline especulativo de Forestalia."
+      "speculative_reasoning_es": "Igual que Magallón — pipeline especulativo de Forestalia.",
+      "recent_update_2026": {
+        "acquired_by_merlin": "In March 2026 Forestalia sold ~two-thirds of Proyecto Búfalo's electrical capacity (≈227 MW) — including this Botorrita center — to Merlin Properties, amid Operación Perserte. Merlin is developing it as the 'Zaragoza-WIND' campus (Pol. Ind. San Antonio, Botorrita): DIGA approved 2026-07-22, €1,225M, 144 MW IT (expandable to 240), 227.4 MW guaranteed grid capacity, 28.8 ha, zero-water closed-loop cooling, operational target 2029, PIGA expected summer 2027. See the merlin-zgz-wind entries (same campus).",
+        "sources": [
+          "https://www.eldiario.es/aragon/economia/forestalia-merlin-socimi-espanola-impulsara-botorrita-centro-datos-adquirido-promotora-renovables_1_13399203.html",
+          "https://www.idealista.com/news/inmobiliario/activos-alternativos/2026/07/23/907455-merlin-properties-invertira-1-225-millones-en-un-centro-de-datos-en"
+        ],
+        "source_date": "2026-07-22"
+      }
     },
     {
       "id": "forestalia-bufalo-alfamen",
@@ -1569,7 +1735,79 @@
       "sources": [
         "https://www.hoyaragon.es/articulo/noticias-aragon/luz-verde-boa-proyecto-bufalo-forestalia-centros-datos/20251202121828117704.html"
       ],
-      "speculative_reasoning_es": "El mayor de los tres emplazamientos Búfalo. Mismo perfil especulativo."
+      "speculative_reasoning_es": "El mayor de los tres emplazamientos Búfalo. Mismo perfil especulativo.",
+      "recent_update_2026": {
+        "fate_uncertain": "Alfamén was the largest of the three original Búfalo sites. After Forestalia's March-2026 divestment of ~two-thirds of Búfalo capacity to Merlin, July-2026+ reporting names Merlin's acquired sites as 'Botorrita and Muel' and says Forestalia retains only Magallón — leaving Alfamén's status unconfirmed in post-July sources. Treat as unverified pending a primary source.",
+        "source": "https://www.hoyaragon.es/aragon/proyectos-centros-datos-aragon-decreto-estatal/20260830135051143995.html",
+        "source_date": "2026-08-30"
+      }
+    },
+    {
+      "id": "krolmap-aragon",
+      "operator": "Krolmap",
+      "operator_entity": "Krolmap (promoter; details undisclosed)",
+      "operator_type": "speculative_developer",
+      "site_name": "Krolmap technology campus (Zaragoza area)",
+      "municipality": "Villanueva de Gállego",
+      "province": "Zaragoza",
+      "lat": 41.7639,
+      "lon": -0.86,
+      "coords_precision": "town_centroid",
+      "status": "announced",
+      "phase_notes": "New/little-known promoter announced an up-to-150 MW (≈103 MW IT) technology campus in the Zaragoza area; reportedly acquired ~20,000 m² in the Villanueva de Gállego district. Very early stage — exact site, investment, timeline and permit type not yet disclosed. Location ambiguous across sources (Zaragoza vs Villanueva de Gállego).",
+      "first_announced": "2026-07",
+      "capacity_mw": 150,
+      "capacity_mw_it": 103,
+      "investors": [
+        { "name": "Krolmap", "role": "promoter", "type": "speculative_developer" }
+      ],
+      "clients": [
+        { "name": "Not disclosed", "confirmed": false }
+      ],
+      "tenant_status": "unknown",
+      "speculative": true,
+      "speculative_reasoning": "Early-stage announcement by a little-known promoter; no disclosed anchor tenant, investment, or permit.",
+      "sources": [
+        "https://bebeez.eu/2026/07/14/krolmap-plans-150mw-data-center-campus-in-aragon-spain/",
+        "https://www.hoyaragon.es/economia/krolmap-campus-tecnologico-150-mw/20260625181203135825.html"
+      ],
+      "data_quality_flag": "Location and figures preliminary; coordinates = Villanueva de Gállego centroid pending confirmation.",
+      "added_in": "v0.3.0 (2026-10-09)"
+    },
+    {
+      "id": "acs-benbros-la-puebla-de-alfinden",
+      "operator": "ACS + Benbros Energy",
+      "operator_entity": "Grupo ACS (Florentino Pérez) + Benbros Energy",
+      "operator_type": "private_equity",
+      "site_name": "ACS / Benbros DC — La Puebla de Alfindén",
+      "municipality": "La Puebla de Alfindén",
+      "province": "Zaragoza",
+      "lat": 41.611,
+      "lon": -0.802,
+      "coords_precision": "town_centroid",
+      "status": "announced",
+      "phase_notes": "ACS and Benbros Energy to invest >€20M in a private electrical substation and REE connection line for their data center ~15 km from Zaragoza. The self-built substation reflects lagging grid-evacuation capacity in the region. Appears in the Oct-2026 regional project roundup.",
+      "first_announced": "2026-07",
+      "investors": [
+        { "name": "Grupo ACS", "role": "sponsor", "type": "infrastructure" },
+        { "name": "Benbros Energy", "role": "co-developer", "type": "private" }
+      ],
+      "clients": [
+        { "name": "Not disclosed", "confirmed": false }
+      ],
+      "tenant_status": "unknown",
+      "speculative": true,
+      "speculative_reasoning": "Early-stage; no disclosed anchor tenant. Notable for a >€20M private substation investment to secure grid evacuation.",
+      "energy": {
+        "private_substation_investment_eur_million": 20,
+        "grid_connection": "Self-built substation + REE connection line",
+        "source": "https://www.moncloa.com/2026/07/23/acs-benbros-inversion-centro-datos-aragon-3404281/"
+      },
+      "sources": [
+        "https://www.moncloa.com/2026/07/23/acs-benbros-inversion-centro-datos-aragon-3404281/"
+      ],
+      "data_quality_flag": "Coordinates = La Puebla de Alfindén centroid; capacity/investment detail limited.",
+      "added_in": "v0.3.0 (2026-10-09)"
     }
   ],
   "registries_for_followup": {
@@ -1588,7 +1826,10 @@
     "PIGA / DIGA filings for Box2Bit and Vantage (not yet confirmed in searches)",
     "Verification of ICIO exemption pattern at non-Microsoft sites (AWS, Forestalia, Azora)",
     "Whether 'tramitación de urgencia' designation has been explicitly invoked for any DC (Ley 1/2021 framework)",
-    "Identity / status of any AWS site not yet publicly named (AWS plan calls for 11 campuses by 2031, this dataset has 7)"
+    "Identity / status of any AWS site not yet publicly named (AWS plan calls for 11 campuses by 2031, this dataset has 7)",
+    "Add/verify projects named in the Oct-2026 regional roundup but not yet mapped: DayOne + Ignis (Escatrón, up to 207 MW IT), SAMCA 'Green It Aragón' (Luceni / Rueda de Jalón / Pedrola), Repsol (Escatrón)",
+    "Confirm Alfamén ('DCM Blue') fate after Forestalia's 2026 Búfalo divestment — post-July reporting cites 'Botorrita and Muel' for Merlin and says Forestalia retains only Magallón",
+    "Confirm Krolmap exact location (Zaragoza vs Villanueva de Gállego), investment, and permit status"
   ],
   "notes_es": "Cada dato enlaza con su fuente. Las coordenadas son por defecto el centroide del municipio (precisión: 'town_centroid') salvo que se haya reportado públicamente la ubicación exacta del sitio. El bloque `expedited_indicators` indica cómo cada proyecto avanzó por la vía rápida regional (PIGA), litigios/alegaciones y atajos procedimentales. Las construcciones especulativas (sin cliente principal confirmado) se marcan con `speculative: true`."
 }

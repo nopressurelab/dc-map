@@ -110,6 +110,7 @@ const I18N = {
     sec_expedited: 'Expedited / fast-track indicators',
     sec_icio: 'ICIO Tax Dispute',
     sec_env_flag: 'Environmental Impact Flag',
+    sec_latest: 'Latest developments (2026)',
     sec_sources: 'Sources',
 
     tbl_operator: 'Operator',
@@ -241,6 +242,7 @@ const I18N = {
     sec_expedited: 'Indicadores de vía rápida',
     sec_icio: 'Disputa fiscal ICIO',
     sec_env_flag: 'Alerta de impacto ambiental',
+    sec_latest: 'Novedades (2026)',
     sec_sources: 'Fuentes',
 
     tbl_operator: 'Operador',
@@ -1139,10 +1141,21 @@ function renderFullSite(s) {
 
   const phaseNotes = txt(s, 'phase_notes');
   const specReasoning = txt(s, 'speculative_reasoning');
+  const ru = s.recent_update_2026;
+  const ruText = ru ? Object.entries(ru)
+    .filter(([k, v]) => typeof v === 'string' && !['source', 'source_date'].includes(k))
+    .map(([, v]) => `<p>${v}</p>`).join('') : '';
+  const ruSources = ru ? (ru.sources || (ru.source ? [ru.source] : [])) : [];
+  const ruHtml = ru ? `
+    <h3>${t('sec_latest')}</h3>
+    ${ruText}
+    ${ruSources.length ? `<ul>${ruSources.map(u => `<li><a href="${u}" target="_blank" rel="noopener">${u}</a>${ru.source_date ? ' · ' + ru.source_date : ''}</li>`).join('')}</ul>` : ''}
+  ` : '';
   return `
     <h2>${s.site_name}</h2>
     <p class="cite">${s.municipality}, ${s.province} · ${t('status_label')} <strong>${enumT('status', s.status)}</strong> · ${t('coords_precision')}: ${enumT('coords_precision', s.coords_precision) || 'n/a'}</p>
     ${phaseNotes ? `<p>${phaseNotes}</p>` : ''}
+    ${ruHtml}
 
     <h3>${t('sec_operator')}</h3>
     <table>
